@@ -1,0 +1,23 @@
+---
+layout: articles
+titles:
+    en:       Basics
+    zh:       基础知识
+    zh-Hans:  基础知识
+    zh-Hant:  基础知识
+sidebar:
+    nav: BASICS
+---
+
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "blog" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

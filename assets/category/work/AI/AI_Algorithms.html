@@ -1,0 +1,23 @@
+---
+layout: articles
+titles:
+    en:       AI
+    zh:       人工智能
+    zh-Hans:  人工智能
+    zh-Hant:  人工智能
+sidebar:
+    nav: AI
+---
+
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "AI_Algorithms" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

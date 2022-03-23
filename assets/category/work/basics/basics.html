@@ -1,0 +1,23 @@
+---
+layout: articles
+titles:
+    en:       Work
+    zh:       工作
+    zh-Hans:  工作
+    zh-Hant:  工作
+sidebar:
+    nav: BASICS
+---
+
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "work" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

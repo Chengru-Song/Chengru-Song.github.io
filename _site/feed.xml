@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-03-12T17:15:53+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【博客】【复盘】2022/3/6 - 2022/3/11工作反思</title><link href="http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/3/6 - 2022/3/11工作反思" /><published>2022-03-12T11:23:14+08:00</published><updated>2022-03-12T11:23:14+08:00</updated><id>http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection.html"><![CDATA[<h1 id="整体回顾">整体回顾</h1>
+
+<p>这周感觉效率比较低下，目标感不是非常强烈，特别长期的目标是缺失的，短期的目标其实比较明确，就是把当前经手的一些事情搞好。没有一些更长期的明确目标其实非常容易变懒，有一种非常徒劳的紧迫感。但是长期目标如何设定，感觉可以找一个<strong>也有类似想法的人</strong>，这样我感觉能够大家一起努力，互相监督。这个方向最好能够细分一点，比方说都是研发，别的领域context比较少。很难有个比较统一的规划，做事方法可能也都不太相同。</p>
+
+<h2 id="上次工作计划">上次工作计划</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />新人串讲
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />框架完成</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />详细填充当前部分</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />其他部分了解程度到80%</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />数据分析
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />分析过程，end-to-end</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />分析数据源</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />分析metrics</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />服务升级
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />daily todo</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />注意任务分配</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="下周工作安排">下周工作安排</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />新人串讲
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />框架完成</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />首先完成自己相关部分</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />模型相关
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />如何做实验？</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />怎么产出一份详细的分析报告？</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />如何论证效果？</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />服务相关
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />写好测试</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />函数相关细节</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Mar&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[整体回顾 这周感觉效率比较低下，目标感不是非常强烈，特别长期的目标是缺失的，短期的目标其实比较明确，就是把当前经手的一些事情搞好。没有一些更长期的明确目标其实非常容易变懒，有一种非常徒劳的紧迫感。但是长期目标如何设定，感觉可以找一个也有类似想法的人，这样我感觉能够大家一起努力，互相监督。这个方向最好能够细分一点，比方说都是研发，别的领域context比较少。很难有个比较统一的规划，做事方法可能也都不太相同。 上次工作计划 新人串讲 框架完成 详细填充当前部分 其他部分了解程度到80% 数据分析 分析过程，end-to-end 分析数据源 分析metrics 服务升级 daily todo 注意任务分配 下周工作安排 新人串讲 框架完成 首先完成自己相关部分 模型相关 如何做实验？ 怎么产出一份详细的分析报告？ 如何论证效果？ 服务相关 写好测试 函数相关细节]]></summary></entry><entry><title type="html">【博客】前Facebook PET分享感想</title><link href="http://localhost:4000/blog/2022/03/11/Aaron-sharding-thinking.html" rel="alternate" type="text/html" title="【博客】前Facebook PET分享感想" /><published>2022-03-11T11:23:14+08:00</published><updated>2022-03-11T11:23:14+08:00</updated><id>http://localhost:4000/blog/2022/03/11/Aaron-sharding-thinking</id><content type="html" xml:base="http://localhost:4000/blog/2022/03/11/Aaron-sharding-thinking.html"><![CDATA[<h1 id="听facebook前engineer分享的感想">听Facebook前Engineer分享的感想</h1>
+
+<h2 id="走在前面">走在前面</h2>
+
+<p>在预见到一些情况可能出现的时候，很多人会想在非常前面，大概比这个事情真正会发生的时间早上1-2年。所以他们很早就开始出解决方案，这个方案对于我们来说可能是抄的，觉得好像他们一下子就出了一个非常成熟的方案，但实际上内部的人，<strong>在空闲时间</strong>想了非常多的解决方案。例如signal loss这个东西，早在两年前苹果开始又这个迹象要限制的时候，他们就已经在想一些可能的解决方案了。内部非常卷，实验了很多方法，最后才定下来PET的方案，最开始甚至还做过类似于拟合缺失信息的方案，所以看来任何一个东西都不是一蹴而就的，而是内部实验了很多东西并且验证可行性才搞出来的。他提到了engineering文化，大概就是技术人员会想更多，虽然我们可能没有这种文化，但是应该让自己保持警惕。</p>
+
+<h2 id="关于研究">关于研究</h2>
+
+<p>聊天的时候发现有一个做了很久差分隐私的博士在会议里，以前也是在Facebook给为公司产出有隐私保护情况下的解决方案的。很显然，差分隐私根据我自己的knowledge来说更多是一个数学背景很强的问题，所以必然需要更加高级的人来产出这种问题的解决方案。看来做一个方向和不做一个方向在信息缺失的情况下就非常难以判断，我以为安全问题很难为公司带来产出，但是没想到这个竟然是能解决公司痛点的一个专业方向，并且FB和Google竟然还为此展开了军备竞赛，这真的让我难以想象。安全研究，区块链，到底哪些东西才是未来的出路，现在还是需要仔细思考，不断获取到更多的信息，和更多的人聊天。</p>
+
+<h2 id="后续动作">后续动作</h2>
+
+<p>大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[听Facebook前Engineer分享的感想 走在前面 在预见到一些情况可能出现的时候，很多人会想在非常前面，大概比这个事情真正会发生的时间早上1-2年。所以他们很早就开始出解决方案，这个方案对于我们来说可能是抄的，觉得好像他们一下子就出了一个非常成熟的方案，但实际上内部的人，在空闲时间想了非常多的解决方案。例如signal loss这个东西，早在两年前苹果开始又这个迹象要限制的时候，他们就已经在想一些可能的解决方案了。内部非常卷，实验了很多方法，最后才定下来PET的方案，最开始甚至还做过类似于拟合缺失信息的方案，所以看来任何一个东西都不是一蹴而就的，而是内部实验了很多东西并且验证可行性才搞出来的。他提到了engineering文化，大概就是技术人员会想更多，虽然我们可能没有这种文化，但是应该让自己保持警惕。 关于研究 聊天的时候发现有一个做了很久差分隐私的博士在会议里，以前也是在Facebook给为公司产出有隐私保护情况下的解决方案的。很显然，差分隐私根据我自己的knowledge来说更多是一个数学背景很强的问题，所以必然需要更加高级的人来产出这种问题的解决方案。看来做一个方向和不做一个方向在信息缺失的情况下就非常难以判断，我以为安全问题很难为公司带来产出，但是没想到这个竟然是能解决公司痛点的一个专业方向，并且FB和Google竟然还为此展开了军备竞赛，这真的让我难以想象。安全研究，区块链，到底哪些东西才是未来的出路，现在还是需要仔细思考，不断获取到更多的信息，和更多的人聊天。 后续动作 大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。]]></summary></entry><entry><title type="html">【Basic】 Makefile Basics</title><link href="http://localhost:4000/work/golang/2022/03/08/makefile.html" rel="alternate" type="text/html" title="【Basic】 Makefile Basics" /><published>2022-03-08T12:40:40+08:00</published><updated>2022-03-08T12:40:40+08:00</updated><id>http://localhost:4000/work/golang/2022/03/08/makefile</id><content type="html" xml:base="http://localhost:4000/work/golang/2022/03/08/makefile.html"><![CDATA[<h1 id="example-makefile">Example Makefile</h1>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.PHONY: generate update_submodule server rpc mock build run clean build_run
+
+fetch:
+	go get <span class="nt">-u</span> github.com/google/wire
+	go get <span class="nt">-u</span> github.com/golang/mock/gomock
+	go get <span class="nt">-u</span> github.com/smartystreets/goconvey/convey
+
+generate: update_submodule server rpc mock
+
+update_submodule:
+ifeq <span class="o">(</span><span class="si">$(</span>wildcard idl/.<span class="k">*</span><span class="si">)</span>,<span class="o">)</span>
+	git submodule init
+endif
+	git submodule update <span class="nt">--remote</span>
+
+server:
+	<span class="si">$(</span>idlgen<span class="si">)</span> <span class="nt">-module</span> <span class="si">$(</span>prefix<span class="si">)</span> <span class="nt">-service</span> <span class="si">$(</span>psm<span class="si">)</span> idl/video/kite_demo.thrift
+
+rpc:
+	<span class="si">$(</span>idlgen<span class="si">)</span> idl/content/arch/diting.thrift
+	<span class="si">$(</span>idlgen<span class="si">)</span> idl/video/user_packer.thrift
+	<span class="si">$(</span>idlgen<span class="si">)</span> idl/article/article_article.thrift
+	<span class="si">$(</span>idlgen<span class="si">)</span> idl/video/favourite.thrift
+
+mock:
+	<span class="nb">rm</span> <span class="nt">-rf</span> mock/<span class="k">*</span>
+	mockgen <span class="nt">-source</span><span class="o">=</span>dal/db/channel.go <span class="nt">-package</span><span class="o">=</span>dbmock <span class="nt">-destination</span><span class="o">=</span>mock/db/channel.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>dal/db/union_category.go <span class="nt">-package</span><span class="o">=</span>dbmock <span class="nt">-destination</span><span class="o">=</span>mock/db/union_category.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>dal/kv/redis_channel.go <span class="nt">-package</span><span class="o">=</span>kvmock <span class="nt">-destination</span><span class="o">=</span>mock/kv/redis_channel.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>dal/tcc/demotion.go <span class="nt">-package</span><span class="o">=</span>tccmock <span class="nt">-destination</span><span class="o">=</span>mock/tcc/demotion.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>dal/tcc/conf.go <span class="nt">-package</span><span class="o">=</span>tccmock <span class="nt">-destination</span><span class="o">=</span>mock/tcc/conf.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/content/arch/diting/ditingservice/client.go <span class="nt">-package</span><span class="o">=</span>ditingmock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/diting/client.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/video/user_packer/videouserpackerservice/client.go <span class="nt">-package</span><span class="o">=</span>userpackermock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/user_packer/client.go
+	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/article_article/articlearticleservice/client.go <span class="nt">-package</span><span class="o">=</span>articlemock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/article/client.go
+
+<span class="nb">test</span>:
+	<span class="c"># 测试覆盖率和竞态检查</span>
+	go <span class="nb">test</span> <span class="nt">-v</span> <span class="nt">-count</span><span class="o">=</span>1 <span class="nt">-race</span> <span class="nt">-cover</span> <span class="nt">-covermode</span><span class="o">=</span>atomic <span class="nt">-failfast</span> <span class="nv">$$</span><span class="o">(</span>go list ./... | <span class="nb">grep</span> <span class="nt">-v</span> <span class="s1">'/kitex_gen\|/faas\|/cronjob\|/mock\|/idl'</span><span class="o">)</span>
+
+<span class="c"># make build_run</span>
+build_run: clean build run
+
+build:
+	./build.sh
+
+run:
+	./output/bootstrap.sh output
+
+clean:
+	<span class="nb">rm</span> <span class="nt">-rf</span> output
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">.PHONY</code> at the beginning of file means that the command, for instance, <code class="language-plaintext highlighter-rouge">.PHONY: install</code>,</p>
+
+<ul>
+  <li>the word <code class="language-plaintext highlighter-rouge">install</code> doesn’t represent a file name in this Makefile</li>
+  <li>the Makefile has nothing to do with a file called <code class="language-plaintext highlighter-rouge">install</code> in the same directory.</li>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Example Makefile .PHONY: generate update_submodule server rpc mock build run clean build_run fetch: go get -u github.com/google/wire go get -u github.com/golang/mock/gomock go get -u github.com/smartystreets/goconvey/convey generate: update_submodule server rpc mock update_submodule: ifeq ($(wildcard idl/.*),) git submodule init endif git submodule update --remote server: $(idlgen) -module $(prefix) -service $(psm) idl/video/kite_demo.thrift rpc: $(idlgen) idl/content/arch/diting.thrift $(idlgen) idl/video/user_packer.thrift $(idlgen) idl/article/article_article.thrift $(idlgen) idl/video/favourite.thrift mock: rm -rf mock/* mockgen -source=dal/db/channel.go -package=dbmock -destination=mock/db/channel.go mockgen -source=dal/db/union_category.go -package=dbmock -destination=mock/db/union_category.go mockgen -source=dal/kv/redis_channel.go -package=kvmock -destination=mock/kv/redis_channel.go mockgen -source=dal/tcc/demotion.go -package=tccmock -destination=mock/tcc/demotion.go mockgen -source=dal/tcc/conf.go -package=tccmock -destination=mock/tcc/conf.go mockgen -source=kitex_gen/content/arch/diting/ditingservice/client.go -package=ditingmock -destination=mock/rpc/diting/client.go mockgen -source=kitex_gen/video/user_packer/videouserpackerservice/client.go -package=userpackermock -destination=mock/rpc/user_packer/client.go mockgen -source=kitex_gen/article_article/articlearticleservice/client.go -package=articlemock -destination=mock/rpc/article/client.go test: # 测试覆盖率和竞态检查 go test -v -count=1 -race -cover -covermode=atomic -failfast $$(go list ./... | grep -v '/kitex_gen\|/faas\|/cronjob\|/mock\|/idl') # make build_run build_run: clean build run build: ./build.sh run: ./output/bootstrap.sh output clean: rm -rf output .PHONY at the beginning of file means that the command, for instance, .PHONY: install, the word install doesn’t represent a file name in this Makefile the Makefile has nothing to do with a file called install in the same directory.]]></summary></entry><entry><title type="html">【Best Practice】 Golang Microservice Structure</title><link href="http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure.html" rel="alternate" type="text/html" title="【Best Practice】 Golang Microservice Structure" /><published>2022-03-07T10:40:40+08:00</published><updated>2022-03-07T10:40:40+08:00</updated><id>http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure</id><content type="html" xml:base="http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure.html"><![CDATA[<h1 id="code-structure">Code Structure</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── Makefile          
+├── README.md
+├── app // 依赖注入
+│   ├── container.go // 依赖注入容器
+│   ├── wire.go      // wire 依赖声明
+│   └── wire_gen.go  // wire 自动生成代码
+├── build.sh         
+├── conf // 项目配置               
+│   ├── db.conf     // db配置
+│   ├── db_boe.conf // boe db配置
+│   └── kitex.yml   // server配置         
+├── consts // 公用常量定义
+│   ├── consts1.go // 以常量类型划分文件
+│   └── consts2.go
+├── dal // 数据访问层，所有外部数据依赖
+│   ├── db // DB访问
+│   │   ├── conn.go        // DB连接池
+│   │   ├── table1.go      // 以表(或数据结构)的粒度划分文件
+│   │   ├── table1_test.go // 对应DB访问单测
+│   │   ├── table2.go
+│   │   ├── table2_test.go
+│   │   └── main_test.go   // 当前包单测的统一入口
+│   ├── kv // kv访问，包括lc、redis、abase等
+│   │   ├── main_test.go         // 当前包单测的统一入口
+│   │   ├── abase_conn.go        // abase连接池
+│   │   ├── redis_conn.go        // redis连接池
+│   │   ├── redis_model1.go      // 以数据结构的粒度划分文件
+│   │   └── redis_model1_test.go // 数据结构对应redis访问单测
+│   ├── rpc // RPC访问
+│   │   ├── article.go     // 以client粒度划分文件，每个文件实现各自client的构造方法
+│   │   ├── params.go      // client构造的通用参数定义
+│   │   └── user_packer.go
+│   └── tcc // TCC配置访问
+│       ├── conf.go     // 通用配置
+│       └── demotion.go // 降级配置
+├── go.mod
+├── go.sum
+├── handler.go
+├── idl // 以submodule方式管理的公司统一idl库
+├── kitex_gen // kitex生成代码
+├── main.go
+├── mock // go mock根据dal层interface生成代码
+│   ├── db
+│   │   ├── table1.go
+│   │   └── table2.go
+│   ├── kv
+│   │   └── redis_model1.go
+│   ├── rpc
+│   │   ├── article
+│   │   │   └── client.go
+│   │   └── user_packer
+│   │       └── client.go
+│   └── tcc
+│       ├── conf.go
+│       └── demotion.go
+├── model // 统一的model定义，包括db model、内部model等
+├── operator // 数据操作层
+│   ├── data
+│   │   └── channel.go
+│   ├── packer // 数据打包逻辑
+│   │   ├── video_normal.go
+│   │   └── video_parker.go
+│   └── source // 数据loader，通过job manger实现
+│       ├── article.go // article rpc的loader封装
+│       ├── job_mgr.go // job mgr的定义及相关操作
+│       ├── job_mgr_test.go
+│       ├── source.go  // source常量及结果解析定义
+│       └── user_packer.go
+├── script // kitex自动生成脚本代码
+├── service // 业务逻辑层
+│   ├── business1 // 接口较多较复杂时，以业务模块划分二级目录
+│   │   └── business.go
+│   └── business2
+│       ├── base.go        // 通用的业务处理逻辑
+│       ├── create.go      // create业务逻辑
+│       ├── create_test.go
+│       ├── main_test.go
+│       ├── mget.go
+│       └── update.go
+└── util // 通用工具，一般业务无关
+    ├── convert.go // 以功能粒度划分文件，方便维护
+    ├── convert_test.go
+    ├── slice.go
+    └── slice_test.go
+</code></pre></div></div>
+
+<h1 id="concept-overview">Concept Overview</h1>
+
+<h2 id="app-dependency-injection">App Dependency Injection</h2>
+
+<p>What is dependency injection? Could refer to this link for a detailed look. <a href="https://en.wikipedia.org/wiki/Dependency_injection#:~:text=In%20software%20engineering%2C%20dependency%20injection,object%20is%20called%20a%20service.">Dependency Injection - Wiki</a>. The core idea behind <strong>dependency injection</strong> is to achieve seperation of concerns of construction and use of object.</p>
+
+<p>This picture shows how it is achieved.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/W3sDesign_Dependency_Injection_Design_Pattern_UML.jpg" alt="img" /></p>
+
+<p>There are several services that would be used by the client. It have to create the instances of other objects. With the help of <em>injector</em>, the client doesn’t initiates <code class="language-plaintext highlighter-rouge">service A</code> and <code class="language-plaintext highlighter-rouge">service B</code> directly. Instead, the <code class="language-plaintext highlighter-rouge">Injector</code> will do the favor for the client.</p>
+
+<p>That’s exactly what <code class="language-plaintext highlighter-rouge">wire</code> is doing in golang. <code class="language-plaintext highlighter-rouge">wire</code> is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service <code class="language-plaintext highlighter-rouge">NewXXXService</code> in the corresponding directory.</p>
+
+<p>It it worth noting that <code class="language-plaintext highlighter-rouge">wire</code> dependency injection framework <strong>doesn’t support initialize two identical object</strong>. Refer to <a href="https://github.com/google/wire/issues/206">Multipal bindings</a> for details.</p>
+
+<h3 id="qa">Q&amp;A</h3>
+
+<ol>
+  <li>What should be initiated using dependency injection?
+Anything that depends on others or provide service for others.</li>
+  <li>What object should be initiated manually instead of using dependency injection?
+Global database connections, global configurations, etc.</li>
+  <li>What should I do when doing unit testing about non-dependency injection?
+Initiate them every time when you writing unit testing files. Specify testing db connections.</li>
+</ol>
+
+<h2 id="makefile">Makefile</h2>
+
+<p>A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Code Structure . ├── Makefile ├── README.md ├── app // 依赖注入 │ ├── container.go // 依赖注入容器 │ ├── wire.go // wire 依赖声明 │ └── wire_gen.go // wire 自动生成代码 ├── build.sh ├── conf // 项目配置 │ ├── db.conf // db配置 │ ├── db_boe.conf // boe db配置 │ └── kitex.yml // server配置 ├── consts // 公用常量定义 │ ├── consts1.go // 以常量类型划分文件 │ └── consts2.go ├── dal // 数据访问层，所有外部数据依赖 │ ├── db // DB访问 │ │ ├── conn.go // DB连接池 │ │ ├── table1.go // 以表(或数据结构)的粒度划分文件 │ │ ├── table1_test.go // 对应DB访问单测 │ │ ├── table2.go │ │ ├── table2_test.go │ │ └── main_test.go // 当前包单测的统一入口 │ ├── kv // kv访问，包括lc、redis、abase等 │ │ ├── main_test.go // 当前包单测的统一入口 │ │ ├── abase_conn.go // abase连接池 │ │ ├── redis_conn.go // redis连接池 │ │ ├── redis_model1.go // 以数据结构的粒度划分文件 │ │ └── redis_model1_test.go // 数据结构对应redis访问单测 │ ├── rpc // RPC访问 │ │ ├── article.go // 以client粒度划分文件，每个文件实现各自client的构造方法 │ │ ├── params.go // client构造的通用参数定义 │ │ └── user_packer.go │ └── tcc // TCC配置访问 │ ├── conf.go // 通用配置 │ └── demotion.go // 降级配置 ├── go.mod ├── go.sum ├── handler.go ├── idl // 以submodule方式管理的公司统一idl库 ├── kitex_gen // kitex生成代码 ├── main.go ├── mock // go mock根据dal层interface生成代码 │ ├── db │ │ ├── table1.go │ │ └── table2.go │ ├── kv │ │ └── redis_model1.go │ ├── rpc │ │ ├── article │ │ │ └── client.go │ │ └── user_packer │ │ └── client.go │ └── tcc │ ├── conf.go │ └── demotion.go ├── model // 统一的model定义，包括db model、内部model等 ├── operator // 数据操作层 │ ├── data │ │ └── channel.go │ ├── packer // 数据打包逻辑 │ │ ├── video_normal.go │ │ └── video_parker.go │ └── source // 数据loader，通过job manger实现 │ ├── article.go // article rpc的loader封装 │ ├── job_mgr.go // job mgr的定义及相关操作 │ ├── job_mgr_test.go │ ├── source.go // source常量及结果解析定义 │ └── user_packer.go ├── script // kitex自动生成脚本代码 ├── service // 业务逻辑层 │ ├── business1 // 接口较多较复杂时，以业务模块划分二级目录 │ │ └── business.go │ └── business2 │ ├── base.go // 通用的业务处理逻辑 │ ├── create.go // create业务逻辑 │ ├── create_test.go │ ├── main_test.go │ ├── mget.go │ └── update.go └── util // 通用工具，一般业务无关 ├── convert.go // 以功能粒度划分文件，方便维护 ├── convert_test.go ├── slice.go └── slice_test.go Concept Overview App Dependency Injection What is dependency injection? Could refer to this link for a detailed look. Dependency Injection - Wiki. The core idea behind dependency injection is to achieve seperation of concerns of construction and use of object. This picture shows how it is achieved. There are several services that would be used by the client. It have to create the instances of other objects. With the help of injector, the client doesn’t initiates service A and service B directly. Instead, the Injector will do the favor for the client. That’s exactly what wire is doing in golang. wire is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service NewXXXService in the corresponding directory. It it worth noting that wire dependency injection framework doesn’t support initialize two identical object. Refer to Multipal bindings for details. Q&amp;A What should be initiated using dependency injection? Anything that depends on others or provide service for others. What object should be initiated manually instead of using dependency injection? Global database connections, global configurations, etc. What should I do when doing unit testing about non-dependency injection? Initiate them every time when you writing unit testing files. Specify testing db connections. Makefile A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.]]></summary></entry><entry><title type="html">【Knowledge】Deep Learning Argot</title><link href="http://localhost:4000/work/2022/03/02/deep-learing-argot.html" rel="alternate" type="text/html" title="【Knowledge】Deep Learning Argot" /><published>2022-03-02T12:45:31+08:00</published><updated>2022-03-02T12:45:31+08:00</updated><id>http://localhost:4000/work/2022/03/02/deep-learing-argot</id><content type="html" xml:base="http://localhost:4000/work/2022/03/02/deep-learing-argot.html"><![CDATA[<h1 id="argot-definition">Argot Definition</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Argot</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Expressivity</td>
+      <td>模型的表达能力用来衡量参数化模型如神经网络的可以拟合的函数的复杂程度。深度神经网络的表达能力随着它的深度指数上升， 这意味着中等规模的神经网络就拥有表达监督， 半监督， 强化学习任务的能力[2]。 深度神经网络可以<a href="https://arxiv.org/abs/1611.03530">记住非常大的数据集</a>就是一个很好的佐证。</td>
+    </tr>
+    <tr>
+      <td>Generalization</td>
+      <td>泛化能力，推广模型到不同的场景中的能力，表达能力增强，则能力下降。因为表达能力代表了当前场景下的对特定问题的表达程度。</td>
+    </tr>
+    <tr>
+      <td>Regularization</td>
+      <td>正则化，为了防止过拟合而引入在目标函数的公式中，这其中有\(L_1\), \(L_2\), \(L_0\)正则项，他们都分别为了解决不同的问题而在不同的情况下使用。</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Argot Definition Argot Explanation Expressivity 模型的表达能力用来衡量参数化模型如神经网络的可以拟合的函数的复杂程度。深度神经网络的表达能力随着它的深度指数上升， 这意味着中等规模的神经网络就拥有表达监督， 半监督， 强化学习任务的能力[2]。 深度神经网络可以记住非常大的数据集就是一个很好的佐证。 Generalization 泛化能力，推广模型到不同的场景中的能力，表达能力增强，则能力下降。因为表达能力代表了当前场景下的对特定问题的表达程度。 Regularization 正则化，为了防止过拟合而引入在目标函数的公式中，这其中有\(L_1\), \(L_2\), \(L_0\)正则项，他们都分别为了解决不同的问题而在不同的情况下使用。]]></summary></entry><entry><title type="html">【博客】【复盘】2022/2/28 - 2022/3/4工作反思</title><link href="http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/2/28 - 2022/3/4工作反思" /><published>2022-03-02T11:23:14+08:00</published><updated>2022-03-02T11:23:14+08:00</updated><id>http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html"><![CDATA[<h1 id="整体回顾">整体回顾</h1>
+
+<h2 id="反思总结">反思总结</h2>
+
+<p>当前有一个非常深刻的感想，当汇报一个东西的时候，要尽可能的让更多的人支持你，包括明面上支持你的和那些隐形的支持者。对于这两种支持者，很重要的事情就是<strong>让他们看到你要汇报的内容</strong>，不然如果在你真正汇报的时候呈现出的内容让人大吃一惊，那么原本的支持者的态度也会变得模棱两可。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Mar&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[整体回顾 反思总结 当前有一个非常深刻的感想，当汇报一个东西的时候，要尽可能的让更多的人支持你，包括明面上支持你的和那些隐形的支持者。对于这两种支持者，很重要的事情就是让他们看到你要汇报的内容，不然如果在你真正汇报的时候呈现出的内容让人大吃一惊，那么原本的支持者的态度也会变得模棱两可。]]></summary></entry><entry><title type="html">【知识库】框架和概念学习</title><link href="http://localhost:4000/blog/2022/03/01/concept-learning.html" rel="alternate" type="text/html" title="【知识库】框架和概念学习" /><published>2022-03-01T14:20:08+08:00</published><updated>2022-03-01T14:20:08+08:00</updated><id>http://localhost:4000/blog/2022/03/01/concept-learning</id><content type="html" xml:base="http://localhost:4000/blog/2022/03/01/concept-learning.html"><![CDATA[<h1 id="concept-collection">Concept Collection</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Concept</th>
+      <th>Explanation</th>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>General Platform</td>
+      <td>Spark</td>
+      <td>A unified analytics engine for large-scale data processing. <br />Spark: <a href="https://en.wikipedia.org/wiki/Apache_Spark">Spark</a><br />Spark Explanation: <a href="https://www.edureka.co/blog/spark-architecture/">Spark explanation</a></td>
+      <td>Spark is a fast  and resilient large distributed data processing platform.<br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Flink</td>
+      <td>Flink is a framework and distributed processing engine for stateful computations over <em>bounded</em> and <em>unbounded</em> data. <br />Arch Intro: <a href="https://flink.apache.org/flink-architecture.html">Flink - Arch</a><br />Use cases: Event-driven applications, Data analytics applications, data pipeline applications.</td>
+      <td>Read event-log in a real time manner. The arch stores and processes data locally and update persistant remote storage periodically. In the meantime, it streams event to downstream.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Hadoop</td>
+      <td>Hadoop is a framework the stores process and analyze data which are very <strong>huge</strong> in column. <br />Intro: <a href="https://www.javatpoint.com/what-is-hadoop">Hadoop</a><br /></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Storage</td>
+      <td>HDFS</td>
+      <td>HDFS is a distributed file system that stores very large files.</td>
+      <td>1. Stores very large files.<br />2. Streaming data access(write-once, read-many-times)<br />3. Cheap hardware</td>
+      <td>1. Low latency  data access.<br />2. Lots of small files<br />3. Multiple writes</td>
+    </tr>
+    <tr>
+      <td>Resource Scheduling</td>
+      <td>Yarn</td>
+      <td>Yarn - Yet Another Resourse Negotiator. <br />Yarn provides a generic and flexible framework to administer the computing resources in the Hadoop cluster.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Mesos</td>
+      <td>Mesos is a platform for sharing commodity clusters between multiple diverse cluster computing frameworks, such as Hadoop and MPI. <br />Multiplexing a cluster between frameworks is the main use case of mesos. <br />White paper: <a href="https://people.eecs.berkeley.edu/~alig/papers/mesos.pdf">Paper</a></td>
+      <td>It could perform fine-grained resource sharing across diverse clustering computing frameworks.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Data Analysis</td>
+      <td>Pig</td>
+      <td>Pig is an SQL-like language that could be compiled to a series of Map-reduce operations that could be optimized to execute.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Hive</td>
+      <td>The Apache Hive ™ data warehouse software facilitates reading, writing,  and managing large datasets residing in distributed storage using SQL.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Kylin</td>
+      <td>Apache Kylin™ is an open source, distributed Analytical Data Warehouse  for Big Data; it was designed to provide OLAP (Online Analytical  Processing) capability in the big data era.</td>
+      <td>Could be used in OLAP, near realtime.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Spark SQL</td>
+      <td>Spark SQL could query structured data inside Spark programs, using eigher SQL or other programming languages such as Python, Java. etc. <br />More: <a href="https://spark.apache.org/sql/">Spark</a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Spark Dataframe</td>
+      <td>A Dataframe is a dataset organised into named columns. It is conceptually equivalent to a table in a relational database or a data frame in python, but with a richer optimization under the hood. <br />Reference: <a href="https://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes">Spark Dataframe</a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Impala</td>
+      <td>Impala is an Apache native arch that circumvents MapReduce operations to directly access the data through a specialized distributed data query engine. <br />Reference: <a href="https://impala.apache.org/overview.html">Impala</a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Elastic Stack</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Concept Collection Category Concept Explanation Pros Cons General Platform Spark A unified analytics engine for large-scale data processing. Spark: SparkSpark Explanation: Spark explanation Spark is a fast and resilient large distributed data processing platform.     Flink Flink is a framework and distributed processing engine for stateful computations over bounded and unbounded data. Arch Intro: Flink - ArchUse cases: Event-driven applications, Data analytics applications, data pipeline applications. Read event-log in a real time manner. The arch stores and processes data locally and update persistant remote storage periodically. In the meantime, it streams event to downstream.     Hadoop Hadoop is a framework the stores process and analyze data which are very huge in column. Intro: Hadoop     Storage HDFS HDFS is a distributed file system that stores very large files. 1. Stores very large files.2. Streaming data access(write-once, read-many-times)3. Cheap hardware 1. Low latency data access.2. Lots of small files3. Multiple writes Resource Scheduling Yarn Yarn - Yet Another Resourse Negotiator. Yarn provides a generic and flexible framework to administer the computing resources in the Hadoop cluster.       Mesos Mesos is a platform for sharing commodity clusters between multiple diverse cluster computing frameworks, such as Hadoop and MPI. Multiplexing a cluster between frameworks is the main use case of mesos. White paper: Paper It could perform fine-grained resource sharing across diverse clustering computing frameworks.   Data Analysis Pig Pig is an SQL-like language that could be compiled to a series of Map-reduce operations that could be optimized to execute.       Hive The Apache Hive ™ data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL.       Kylin Apache Kylin™ is an open source, distributed Analytical Data Warehouse for Big Data; it was designed to provide OLAP (Online Analytical Processing) capability in the big data era. Could be used in OLAP, near realtime.     Spark SQL Spark SQL could query structured data inside Spark programs, using eigher SQL or other programming languages such as Python, Java. etc. More: Spark       Spark Dataframe A Dataframe is a dataset organised into named columns. It is conceptually equivalent to a table in a relational database or a data frame in python, but with a richer optimization under the hood. Reference: Spark Dataframe       Impala Impala is an Apache native arch that circumvents MapReduce operations to directly access the data through a specialized distributed data query engine. Reference: Impala       Elastic Stack      ]]></summary></entry><entry><title type="html">【博客】【复盘】2022/2/21 - 2022/2/26工作反思</title><link href="http://localhost:4000/blog/reflection/2022_feb/2022/02/26/two-week-refelection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/2/21 - 2022/2/26工作反思" /><published>2022-02-26T21:38:17+08:00</published><updated>2022-02-26T21:38:17+08:00</updated><id>http://localhost:4000/blog/reflection/2022_feb/2022/02/26/two-week-refelection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_feb/2022/02/26/two-week-refelection.html"><![CDATA[<h1 id="整体回顾">整体回顾</h1>
+
+<h2 id="上周todo">上周ToDo</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />准备谷歌面试 – 面试并没有成功进行，因为Google无法解决我的签证问题，我需要double check这个问题；
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />再次熟悉所有的数据结构与算法的基本写法；</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />培养自己先考虑corner case与写test case的习惯；</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />总结没考虑到的corner case</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />阅读广告相关书籍
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />wenjie share的公司文档 – half done</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />《Google AdSense实战宝典》 – 换成了《向上汇报》</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />工作细节规划
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />明确组里面每个人都在做什么事情</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />明确组里面目前ROI最高的事情是什么</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />明确一些公司的组织架构</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="反思调整">反思调整</h2>
+
+<p>计划和反思都要时时调整，有时候计划可能不会严格卡住目标。其实这周搞的事情很少，总的来看，确实梳理了定向的链路，同时也做了一些关于工程服务上的规范。看得出来，关于工程规范上的梳理大家对我的表现和努力还是持半嘲讽态度的，原因是类似的东西他们都做过，但是决定这个东西能不能做好的核心是，用什么方式实现，如果你都能实现且实现了，那么可以拿来说一下，扩展一些good practice，大家都非常乐意接受。</p>
+
+<p>因此目前我对这个事儿的思考是，如果我要做的事情无法确定收益，就需要和大家沟通好，确定要做这件事再去做；如果能够确定收益，那么可以直接来做；如果能够收益不大但是确定要做，做好了再讲。</p>
+
+<p>用一个表格总结一下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>情况</th>
+      <th>做法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>能够确定事情</td>
+      <td>做好了汇报，过程中时时同步</td>
+    </tr>
+    <tr>
+      <td>能够确定收益</td>
+      <td>讨论方案，确定做的流程</td>
+    </tr>
+    <tr>
+      <td>不能确定收益</td>
+      <td>找资深或者有经验的人问，是否是当前比较重要的事情</td>
+    </tr>
+    <tr>
+      <td>不能确定事情</td>
+      <td>做任务拆解，把实现过程搞好</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="下周规划">下周规划</h1>
+
+<h2 id="阅读计划">阅读计划</h2>
+
+<p>这周继续阅读《向上汇报》，感觉还是需要灵活运用。这里面很重要的一部分在我目前来看应该是能够发现上层的真正需求是什么，不能做盲目或者没有收益，或者收益很小的事情。</p>
+
+<h2 id="工作计划">工作计划</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />新人串讲
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />框架完成</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />详细填充当前部分</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />其他部分了解程度到80%</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />数据分析
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />分析过程，end-to-end</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />分析数据源</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />分析metrics</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />服务升级
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />daily todo</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />注意任务分配</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Feb&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[整体回顾 上周ToDo 准备谷歌面试 – 面试并没有成功进行，因为Google无法解决我的签证问题，我需要double check这个问题； 再次熟悉所有的数据结构与算法的基本写法； 培养自己先考虑corner case与写test case的习惯； 总结没考虑到的corner case 阅读广告相关书籍 wenjie share的公司文档 – half done 《Google AdSense实战宝典》 – 换成了《向上汇报》 工作细节规划 明确组里面每个人都在做什么事情 明确组里面目前ROI最高的事情是什么 明确一些公司的组织架构 反思调整 计划和反思都要时时调整，有时候计划可能不会严格卡住目标。其实这周搞的事情很少，总的来看，确实梳理了定向的链路，同时也做了一些关于工程服务上的规范。看得出来，关于工程规范上的梳理大家对我的表现和努力还是持半嘲讽态度的，原因是类似的东西他们都做过，但是决定这个东西能不能做好的核心是，用什么方式实现，如果你都能实现且实现了，那么可以拿来说一下，扩展一些good practice，大家都非常乐意接受。 因此目前我对这个事儿的思考是，如果我要做的事情无法确定收益，就需要和大家沟通好，确定要做这件事再去做；如果能够确定收益，那么可以直接来做；如果能够收益不大但是确定要做，做好了再讲。 用一个表格总结一下： 情况 做法 能够确定事情 做好了汇报，过程中时时同步 能够确定收益 讨论方案，确定做的流程 不能确定收益 找资深或者有经验的人问，是否是当前比较重要的事情 不能确定事情 做任务拆解，把实现过程搞好 下周规划 阅读计划 这周继续阅读《向上汇报》，感觉还是需要灵活运用。这里面很重要的一部分在我目前来看应该是能够发现上层的真正需求是什么，不能做盲目或者没有收益，或者收益很小的事情。 工作计划 新人串讲 框架完成 详细填充当前部分 其他部分了解程度到80% 数据分析 分析过程，end-to-end 分析数据源 分析metrics 服务升级 daily todo 注意任务分配]]></summary></entry><entry><title type="html">【Learning】ML Basic Knowledge</title><link href="http://localhost:4000/ai/ai_basics/2022/02/25/ml-basic-knowledge.html" rel="alternate" type="text/html" title="【Learning】ML Basic Knowledge" /><published>2022-02-25T00:00:00+08:00</published><updated>2022-02-25T00:00:00+08:00</updated><id>http://localhost:4000/ai/ai_basics/2022/02/25/ml-basic-knowledge</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2022/02/25/ml-basic-knowledge.html"><![CDATA[<h1 id="common-metrics">Common Metrics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Explanation</th>
+      <th>Key Params</th>
+      <th>Usage</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ROC Curve<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></td>
+      <td>Receiver operating characteristic curve: A graph showing the performance of a<strong>classification</strong> model at all classification threshhold.</td>
+      <td>y: True Positive Ratex: False Positive Rate</td>
+      <td>ROC curve is used to indicate the</td>
+      <td><img src="https://developers.google.com/machine-learning/crash-course/images/ROCCurve.svg?hl=zh_cn" alt="ROC Curve showing TP Rate vs. FP Rate at different classification thresholds." /></td>
+    </tr>
+    <tr>
+      <td>AUC Curve<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></td>
+      <td>Area under the ROC curve: One way of interpreting AUC is as the probability that the model ranks a random positive example more highly than a random negative example.when randomly choose one sample, the probability that the score of predicted true label comes before false label.</td>
+      <td> </td>
+      <td><img src="https://developers.google.com/machine-learning/crash-course/images/AUCPredictionsRanked.svg?hl=zh_cn" alt="Positive and negative examples ranked in ascending order of logistic regression score" />AUC represents the probability that a random positive (green) example is positioned to the right of a random negative (red) example.<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></td>
+      <td><img src="https://developers.google.com/machine-learning/crash-course/images/AUC.svg?hl=zh_cn" alt="AUC (Area under the ROC Curve)." /></td>
+    </tr>
+    <tr>
+      <td>TPR</td>
+      <td>True positive rate, synonym for recall, actual positive data is classified as positive.</td>
+      <td>$\frac{TP}{TP+FN}$</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FPR</td>
+      <td>False positive rate, negative data is classified as positive.</td>
+      <td>$\frac{FP}{FP+TN}$</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="concepts">Concepts</h1>
+
+<h2 id="prediction-and-recall">Prediction and Recall</h2>
+
+<p>This is very well introduced in this article: <a href="https://en.wikipedia.org/wiki/Precision_and_recallhttps://">Precision and recall</a>.</p>
+
+<p>In <a href="https://en.wikipedia.org/wiki/Pattern_recognition" title="Pattern recognition">pattern recognition</a>, <a href="https://en.wikipedia.org/wiki/Information_retrieval" title="Information retrieval">information retrieval</a> and <a href="https://en.wikipedia.org/wiki/Classification_(machine_learning)">classification (machine learning)</a> “Classification (machine learning)”), <strong>precision</strong> and <strong>recall</strong> are performance metrics that apply to data retrieved from a <a href="https://en.wikipedia.org/wiki/Data_store" title="Data store">collection</a>, <a href="https://en.wikipedia.org/wiki/Text_corpus" title="Text corpus">corpus</a> or <a href="https://en.wikipedia.org/wiki/Sample_space" title="Sample space">sample space</a>.</p>
+
+<p><img src="/assets/images/2022-02-25-18-45-57.png" alt="Image" /></p>
+
+<p>The difference between precision and recall is that precision measures how accurate of a certain retrieval, which differs a lot when retrieving multiple times from database. On the other hand, recall measures how complete of a certain retrieval.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=zh_cn">Google ML Basics</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://zhuanlan.zhihu.com/p/58587448">ROC curve</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><category term="301-work-basics" /><summary type="html"><![CDATA[Common Metrics Name Explanation Key Params Usage Example ROC Curve1 Receiver operating characteristic curve: A graph showing the performance of aclassification model at all classification threshhold. y: True Positive Ratex: False Positive Rate ROC curve is used to indicate the AUC Curve2 Area under the ROC curve: One way of interpreting AUC is as the probability that the model ranks a random positive example more highly than a random negative example.when randomly choose one sample, the probability that the score of predicted true label comes before false label.   AUC represents the probability that a random positive (green) example is positioned to the right of a random negative (red) example.1 TPR True positive rate, synonym for recall, actual positive data is classified as positive. $\frac{TP}{TP+FN}$     FPR False positive rate, negative data is classified as positive. $\frac{FP}{FP+TN}$     Concepts Prediction and Recall This is very well introduced in this article: Precision and recall. In pattern recognition, information retrieval and classification (machine learning) “Classification (machine learning)”), precision and recall are performance metrics that apply to data retrieved from a collection, corpus or sample space. The difference between precision and recall is that precision measures how accurate of a certain retrieval, which differs a lot when retrieving multiple times from database. On the other hand, recall measures how complete of a certain retrieval. Google ML Basics &#8617; &#8617;2 ROC curve &#8617;]]></summary></entry><entry><title type="html">【博客】【阅读】向上汇报</title><link href="http://localhost:4000/blog/read/2022/02/22/speaking-up.html" rel="alternate" type="text/html" title="【博客】【阅读】向上汇报" /><published>2022-02-22T19:38:04+08:00</published><updated>2022-02-22T19:38:04+08:00</updated><id>http://localhost:4000/blog/read/2022/02/22/speaking-up</id><content type="html" xml:base="http://localhost:4000/blog/read/2022/02/22/speaking-up.html"><![CDATA[<h1 id="向上管理">向上管理</h1>
+
+<blockquote>
+  <p>Nobody gives a sh*t about your wellbeing and what you did and what you ask for.</p>
+</blockquote>
+
+<blockquote>
+  <p>高管们，尤其是拿着高额年薪的人们，背负着比普通人能想象到的夸张得多的绩效压力，被高薪雇佣到一个公司，就必须为公司创造高额回报，包括大量节省成本或者带来巨大盈利。因此，汇报并不是为了得到赞扬、成为朋友或者升职加薪，汇报就是为了一个非常简单而纯粹的目的：服务于高层的决策，提供他们关心的内容。在这个层面，目前每个人都是工具，高管们不会同情或者共情到普通人。</p>
+</blockquote>
+
+<p>这几天正在读一本书《向上汇报》，我不知道书中的内容是否非常准确的描述了当前的情况，但基本面是符合逻辑的。且相对于我的菜鸟经验来说，就算内容不准确也比我目前能了解到的正确很多。因此，我希望自己能内化书中的内容，并在未来不断回看，不断纠错，这样即使现在错了，也不会造成很大的影响。</p>
+
+<h2 id="揭秘最高管理层">揭秘最高管理层</h2>
+
+<h3 id="无知的危害">无知的危害</h3>
+
+<p>如果不了解我们在汇报中能提供什么，那么进入高层的汇报无异于一场屠杀。因为如果你汇报的内容不能引起高层的兴趣，那么很快这场汇报就会结束。大家也往往不关心，你做的如何，更多的关心是，我能不能得到我要的数据来进行汇报。如果能明白这点，那么情况会容易很多。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[向上管理 Nobody gives a sh*t about your wellbeing and what you did and what you ask for. 高管们，尤其是拿着高额年薪的人们，背负着比普通人能想象到的夸张得多的绩效压力，被高薪雇佣到一个公司，就必须为公司创造高额回报，包括大量节省成本或者带来巨大盈利。因此，汇报并不是为了得到赞扬、成为朋友或者升职加薪，汇报就是为了一个非常简单而纯粹的目的：服务于高层的决策，提供他们关心的内容。在这个层面，目前每个人都是工具，高管们不会同情或者共情到普通人。 这几天正在读一本书《向上汇报》，我不知道书中的内容是否非常准确的描述了当前的情况，但基本面是符合逻辑的。且相对于我的菜鸟经验来说，就算内容不准确也比我目前能了解到的正确很多。因此，我希望自己能内化书中的内容，并在未来不断回看，不断纠错，这样即使现在错了，也不会造成很大的影响。 揭秘最高管理层 无知的危害 如果不了解我们在汇报中能提供什么，那么进入高层的汇报无异于一场屠杀。因为如果你汇报的内容不能引起高层的兴趣，那么很快这场汇报就会结束。大家也往往不关心，你做的如何，更多的关心是，我能不能得到我要的数据来进行汇报。如果能明白这点，那么情况会容易很多。]]></summary></entry></feed>

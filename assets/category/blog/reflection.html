@@ -1,0 +1,41 @@
+---
+layout: articles
+titles:
+    en:       Reflection
+    zh:       复盘与反思
+    zh-Hans:  复盘与反思
+    zh-Hant:  复盘与反思
+sidebar:
+    nav: REFLECTION
+---
+
+<blockquote style="padding-left: 1rem;
+font-size: .85rem;
+color: #888;
+border: 0 solid #ccc;
+border-left-width: 4px;">
+  <p>吾日三省吾身——为人谋而不忠乎？与朋友交而不信乎？传不习乎？</p>
+</blockquote>
+
+<blockquote style="padding-left: 1rem;
+font-size: .85rem;
+color: #888;
+border: 0 solid #ccc;
+border-left-width: 4px;">
+  <p>复盘才能翻盘。</p>
+</blockquote>
+
+<p>最近常常思考，我对自己的未来思考还是太少了，做决定也比较草率。此草率非临时做决定，而是做关乎未来走向的重大决定时，需要多多思考结果，进行更细致的调研，而不是凭着自己的喜好或者几个人的经验来决定。希望这个复盘能够在未来帮助到我，至少，不要再继续这种做决定的方式了，多从结果出发考虑。</p>
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "Reflection" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>
+

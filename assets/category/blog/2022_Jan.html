@@ -1,0 +1,23 @@
+---
+layout: articles
+titles:
+    en:       2022 Jan
+    zh:       2022年1月
+    zh-Hans:  2022年1月
+    zh-Hant:  2022年1月
+sidebar:
+    nav: REFLECTION
+---
+
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "Reflection" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>
