@@ -111,6 +111,12 @@ BASICS:
     children:
       - title: Golang基础知识
         url: /assets/category/work/golang/golang.html
+  
+  - title: Web3
+    children:
+      - title: Concepts
+        url: /assets/category/web3/web3_concepts.html
+
 
 AI:
   - title: AI

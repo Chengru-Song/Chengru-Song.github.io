@@ -1,0 +1,23 @@
+---
+layout: articles
+titles:
+    en:       Web3 Research
+    zh:       Web3
+    zh-Hans:  Web3
+    zh-Hant:  Web3
+sidebar:
+    nav: BASICS
+---
+
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "Web3" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>
