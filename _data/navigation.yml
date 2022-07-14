@@ -115,7 +115,8 @@ BASICS:
   - title: Web3
     children:
       - title: Concepts
-        url: /assets/category/web3/web3_concepts.html
+        # url: /assets/category/web3/web3_concepts.html
+        url: /work/web3/2022/07/14/web3-learning.html
 
 
 AI:

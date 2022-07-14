@@ -1,15 +1,540 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-07-01T00:39:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
-</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【博客】Threads</title><link href="http://localhost:4000/blog/2022/07/01/anxious-collection.html" rel="alternate" type="text/html" title="【博客】Threads" /><published>2022-07-01T00:27:58+08:00</published><updated>2022-07-01T00:27:58+08:00</updated><id>http://localhost:4000/blog/2022/07/01/anxious-collection</id><content type="html" xml:base="http://localhost:4000/blog/2022/07/01/anxious-collection.html"><![CDATA[<h1 id="threads">Threads</h1>
-<p>之所以叫threads，是因为想把一些混乱的逻辑梳理一下，目前形式不太好，有很多非常焦虑的事情。先放三篇文章：
-银行放贷问题：<a href="https://www.zhihu.com/question/537888391/answer/2546066628?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=545672028217225216&amp;utm_content=group1_Answer&amp;utm_campaign=shareopn">link</a>
-<img src="/assets/images/2022-07-01-00-31-27.png" alt="Image" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-07-14T14:11:39+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">Web3 Learning</title><link href="http://localhost:4000/work/web3/2022/07/14/web3-learning.html" rel="alternate" type="text/html" title="Web3 Learning" /><published>2022-07-14T00:00:00+08:00</published><updated>2022-07-14T00:00:00+08:00</updated><id>http://localhost:4000/work/web3/2022/07/14/web3-learning</id><content type="html" xml:base="http://localhost:4000/work/web3/2022/07/14/web3-learning.html"><![CDATA[<h1 id="web3-learning-goals">Web3 Learning Goals</h1>
 
-<p>为什么房子断供的这么少？<a href="https://www.zhihu.com/question/498539515">link</a></p>
+<h2 id="basic-knowledge">Basic Knowledge</h2>
+<ol>
+  <li>What are the definitions of web3 from academic and industry?
+    <ol>
+      <li>Produce an article and necessary references.</li>
+    </ol>
+  </li>
+  <li>What entities and big names go after the concept actively?
+    <ol>
+      <li>Produce a list about this</li>
+    </ol>
+  </li>
+  <li>What might be the roadmap of web3?
+    <ol>
+      <li>An article and reference.</li>
+    </ol>
+  </li>
+  <li>What fields do you think relate to your current work and previous experience most?
+    <ol>
+      <li>A list of all related topics and job opportunies opening for this one.</li>
+      <li>Current architecture of web3 apps.</li>
+      <li>A list of necessary skills required.</li>
+    </ol>
+  </li>
+  <li>What are the channels that you can receive latest information?
+    <ol>
+      <li>A list of channels.</li>
+    </ol>
+  </li>
+  <li>Who can you reach out to that are active developers in web3?
+    <ol>
+      <li>A list of people and track your communication process.</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="practice">Practice</h2>
+<ol>
+  <li>How can you make it a sideline?</li>
+  <li>If you lack the reqired skills, how can you make up for it?</li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;web3&quot;]" /><summary type="html"><![CDATA[Web3 Learning Goals Basic Knowledge What are the definitions of web3 from academic and industry? Produce an article and necessary references. What entities and big names go after the concept actively? Produce a list about this What might be the roadmap of web3? An article and reference. What fields do you think relate to your current work and previous experience most? A list of all related topics and job opportunies opening for this one. Current architecture of web3 apps. A list of necessary skills required. What are the channels that you can receive latest information? A list of channels. Who can you reach out to that are active developers in web3? A list of people and track your communication process. Practice How can you make it a sideline? If you lack the reqired skills, how can you make up for it?]]></summary></entry><entry><title type="html">【Basic】 Elastic Search</title><link href="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html" rel="alternate" type="text/html" title="【Basic】 Elastic Search" /><published>2022-07-01T11:18:07+08:00</published><updated>2022-07-01T11:18:07+08:00</updated><id>http://localhost:4000/work/es/basics/2022/07/01/elastic-search</id><content type="html" xml:base="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html"><![CDATA[<h1 id="es-query">[ES] Query</h1>
+
+<p>Basic Concept: <a href="https://logz.io/blog/elasticsearch-queries">https://logz.io/blog/elasticsearch-queries/</a></p>
+
+<p>42 query examples: <a href="https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial">https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/</a></p>
+
+<h1 id="concepts">Concepts</h1>
+
+<ol>
+  <li>Match Query - 返回哪些text中包含搜索的关键词
+    <ol>
+      <li>
+        <p>example query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"phrase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"heuristic"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Search phrase instead of a word</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"phrase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"heuristic roots help"</span><span class="p">,</span><span class="w">
+ 				</span><span class="nl">"operator"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"AND"</span><span class="p">,</span><span class="w">
+ 				</span><span class="nl">"minimum_should_match"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Multi Fields Query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"multi_match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"research help"</span><span class="w">
+         </span><span class="p">,</span><span class="w"> </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"position"</span><span class="p">,</span><span class="s2">"phrase"</span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Match phrase</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"match_phrase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"phrase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roots heuristic coherent"</span><span class="p">,</span><span class="w">
+ 				</span><span class="nl">"slop"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Match phrase prefix</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+ </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"phrase"</span><span class="w"> </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"match_phrase_prefix"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"phrase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roots heuristic co"</span><span class="p">,</span><span class="w">
+ 				</span><span class="nl">"max_expansions"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Term Query - 返回文本中的精确查找
+    <ol>
+      <li>
+        <p>Query exact values</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"terms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"male"</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Exist query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"exists"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"company"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Range query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"range"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"experience"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                 </span><span class="nl">"gte"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                 </span><span class="nl">"lte"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Id query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"ids"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"values"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"4"</span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Prefix query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"al"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Wildcard Query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"wildcard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c*a"</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Regex query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"regexp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"res[a-z]*"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Fuzzy query</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"fuzzy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chnia"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"fuzziness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Boosting</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"multi_match"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"query"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"versatile Engineer"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"position^3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"phrase"</span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Sort
+    <ol>
+      <li>
+        <p>Sort by a field</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"experience"</span><span class="p">,</span><span class="s2">"salary"</span><span class="p">],</span><span class="w"> 
+   </span><span class="nl">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+        
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Sort by multiple field</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"_source"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"experience"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"salary"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"sort"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"salary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desc"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>Compound query
+    <ol>
+      <li>
+        <p>Bool 下面一共可以放这些字段</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>must</th>
+              <th>The conditions or queries in this must occur in the documents to consider them a match. Also, this contributes to the score value.  Eg: if we keep query A and query B in the must section, each document in the result would satisfy both the queries, ie query A AND query B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>should</td>
+              <td>The conditions/queries should match.   Result = query A OR query B</td>
+            </tr>
+            <tr>
+              <td>filter</td>
+              <td>Same as the must clause, but the score will be ignored</td>
+            </tr>
+            <tr>
+              <td>must_not</td>
+              <td>The conditions/queries specified must not occur in the documents. Scoring is ignored and kept as 0 as the results are ignored.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"bool"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"must"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+       </span><span class="nl">"filter"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+       </span><span class="nl">"must_not"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+       </span><span class="nl">"should"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Multiple conditions</p>
+
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">employees/_search</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"bool"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"must"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"range"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="nl">"gte"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+     </span><span class="nl">"should"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"phrase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"versatile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>Condition combo</p>
+
+        <p>如果要查询下面这样的SQL，对应的condition是？</p>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">SQL</span><span class="p">:</span> <span class="p">(</span><span class="n">company</span> <span class="o">=</span> <span class="n">Yamaha</span> <span class="k">OR</span> <span class="n">company</span> <span class="o">=</span> <span class="n">Yozio</span> <span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="k">position</span> <span class="o">=</span> <span class="n">manager</span> <span class="k">OR</span> <span class="k">position</span> <span class="o">=</span> <span class="n">associate</span> <span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">salary</span><span class="o">&gt;=</span><span class="mi">100000</span><span class="p">)</span>
+</code></pre></div>        </div>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">POST</span> <span class="n">employees</span><span class="o">/</span><span class="n">_search</span>
+ <span class="p">{</span>
+     <span class="nv">"query"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nv">"bool"</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nv">"must"</span><span class="p">:</span> <span class="p">[</span>
+               <span class="p">{</span>
+                 <span class="nv">"bool"</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="nv">"should"</span><span class="p">:</span> <span class="p">[{</span>
+                         <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="nv">"company"</span><span class="p">:</span> <span class="nv">"Talane"</span>
+                         <span class="p">}</span>
+                     <span class="p">},</span> <span class="p">{</span>
+                         <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="nv">"company"</span><span class="p">:</span> <span class="nv">"Yamaha"</span>
+                         <span class="p">}</span>
+                     <span class="p">}]</span>
+                 <span class="p">}</span>
+             <span class="p">},</span> 
+             <span class="p">{</span>
+                 <span class="nv">"bool"</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="nv">"should"</span><span class="p">:</span> <span class="p">[</span>
+                       <span class="p">{</span>
+                         <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="nv">"position"</span><span class="p">:</span> <span class="nv">"manager"</span>
+                         <span class="p">}</span>
+                     <span class="p">},</span> <span class="p">{</span>
+                         <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="nv">"position"</span><span class="p">:</span> <span class="nv">"Associate"</span>
+                         <span class="p">}</span>
+                     <span class="p">}</span>
+                     <span class="p">]</span>
+                 <span class="p">}</span>
+             <span class="p">},</span> <span class="p">{</span>
+                 <span class="nv">"bool"</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="nv">"must"</span><span class="p">:</span> <span class="p">[</span>
+                       <span class="p">{</span>
+                         <span class="nv">"range"</span><span class="p">:</span> <span class="p">{</span>
+                           <span class="nv">"salary"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="nv">"gte"</span><span class="p">:</span> <span class="mi">100000</span>
+                           <span class="p">}</span>
+                         <span class="p">}</span>
+                       <span class="p">}</span>
+                       <span class="p">]</span>
+                 <span class="p">}</span>
+             <span class="p">}]</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Boosting
+        <ol>
+          <li></li>
+        </ol>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">POST</span>  <span class="n">employees</span><span class="o">/</span><span class="n">_search</span>
+ <span class="p">{</span>
+     <span class="nv">"query"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nv">"boosting"</span> <span class="p">:</span> <span class="p">{</span>
+             <span class="nv">"positive"</span> <span class="p">:</span> <span class="p">{</span>
+                 <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                   <span class="nv">"country"</span><span class="p">:</span> <span class="nv">"china"</span>
+                 <span class="p">}</span>
+             <span class="p">},</span>
+             <span class="nv">"negative"</span> <span class="p">:</span> <span class="p">{</span>
+                  <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+                   <span class="nv">"company"</span><span class="p">:</span> <span class="nv">"Talane"</span>
+                 <span class="p">}</span>
+             <span class="p">},</span>
+             <span class="nv">"negative_boost"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Function score
+        <ol>
+          <li>Change the score of search documents by weight
+            <ol>
+              <li></li>
+            </ol>
+
+            <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">GET</span> <span class="n">employees</span><span class="o">/</span><span class="n">_search</span>
+ <span class="p">{</span>
+ <span class="nv">"_source"</span><span class="p">:</span> <span class="p">[</span><span class="nv">"position"</span><span class="p">,</span><span class="nv">"phrase"</span><span class="p">],</span> 
+   <span class="nv">"query"</span><span class="p">:</span> <span class="p">{</span>
+     <span class="nv">"function_score"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nv">"query"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+           <span class="nv">"position"</span><span class="p">:</span> <span class="nv">"manager"</span>
+         <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="nv">"functions"</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+           <span class="nv">"filter"</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nv">"phrase"</span><span class="p">:</span> <span class="nv">"coherent"</span>
+             <span class="p">}</span>
+           <span class="p">},</span>
+           <span class="nv">"weight"</span><span class="p">:</span> <span class="mi">2</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+           <span class="nv">"filter"</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nv">"match"</span><span class="p">:</span> <span class="p">{</span>
+               <span class="nv">"phrase"</span><span class="p">:</span> <span class="nv">"emulation"</span>
+             <span class="p">}</span>
+           <span class="p">},</span>
+           <span class="nv">"weight"</span><span class="p">:</span> <span class="mi">10</span>
+         <span class="p">}</span>
+       <span class="p">],</span>
+       <span class="nv">"score_mode"</span><span class="p">:</span> <span class="nv">"multiply"</span><span class="p">,</span> 
+       <span class="nv">"boost"</span><span class="p">:</span> <span class="nv">"5"</span><span class="p">,</span>
+       <span class="nv">"boost_mode"</span><span class="p">:</span> <span class="nv">"multiply"</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div>            </div>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;es&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[[ES] Query Basic Concept: https://logz.io/blog/elasticsearch-queries/ 42 query examples: https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/ Concepts Match Query - 返回哪些text中包含搜索的关键词 example query POST employees/_search { "query": { "match": { "phrase": { "query" : "heuristic" } } } } Search phrase instead of a word POST employees/_search { "query": { "match": { "phrase": { "query" : "heuristic roots help", "operator" : "AND", "minimum_should_match": 3 } } } } Multi Fields Query POST employees/_search { "query": { "multi_match": { "query" : "research help" , "fields": ["position","phrase"] } } } Match phrase GET employees/_search { "query": { "match_phrase": { "phrase": { "query": "roots heuristic coherent", "slop": 1 } } } } Match phrase prefix GET employees/_search { "_source": [ "phrase" ], "query": { "match_phrase_prefix": { "phrase": { "query": "roots heuristic co", "max_expansions": 60 } } } } Term Query - 返回文本中的精确查找 Query exact values POST employees/_search { "query": { "terms": { "gender": [ "female", "male" ] } } } Exist query GET employees/_search { "query": { "exists": { "field": "company" } } } Range query POST employees/_search { "query": { "range" : { "experience" : { "gte" : 5, "lte" : 10 } } } } Id query POST employees/_search { "query": { "ids" : { "values" : ["1", "4"] } } } Prefix query GET employees/_search { "query": { "prefix": { "name": "al" } } } Wildcard Query GET employees/_search { "query": { "wildcard": { "country": { "value": "c*a" } } } } Regex query GET employees/_search { "query": { "regexp": { "position": "res[a-z]*" } } } Fuzzy query GET employees/_search { "query": { "fuzzy": { "country": { "value": "Chnia", "fuzziness": "2" } } } } Boosting POST employees/_search { "query": { "multi_match" : { "query" : "versatile Engineer", "fields": ["position^3", "phrase"] } } } Sort Sort by a field GET employees/_search { "_source": ["name","experience","salary"], "sort": [ { "experience": { "order": "desc" } } ] } Sort by multiple field GET employees/_search { "_source": [ "name", "experience", "salary" ], "sort": [ { "experience": { "order": "desc" } }, { "salary": { "order": "desc" } } ] } Compound query Bool 下面一共可以放这些字段 must The conditions or queries in this must occur in the documents to consider them a match. Also, this contributes to the score value.  Eg: if we keep query A and query B in the must section, each document in the result would satisfy both the queries, ie query A AND query B should The conditions/queries should match.   Result = query A OR query B filter Same as the must clause, but the score will be ignored must_not The conditions/queries specified must not occur in the documents. Scoring is ignored and kept as 0 as the results are ignored. POST _search { "query": { "bool" : { "must" : [], "filter": [], "must_not" : [], "should" : [] } } } Multiple conditions POST employees/_search { "query": { "bool": { "must": [ { "match": { "position": "manager" } }, { "range": { "experience": { "gte": 12 } } } ], "should": [ { "match": { "phrase": "versatile" } } ] } } } Condition combo 如果要查询下面这样的SQL，对应的condition是？ SQL: (company = Yamaha OR company = Yozio ) AND (position = manager OR position = associate ) AND (salary&gt;=100000) POST employees/_search { "query": { "bool": { "must": [ { "bool": { "should": [{ "match": { "company": "Talane" } }, { "match": { "company": "Yamaha" } }] } }, { "bool": { "should": [ { "match": { "position": "manager" } }, { "match": { "position": "Associate" } } ] } }, { "bool": { "must": [ { "range": { "salary": { "gte": 100000 } } } ] } }] } } } Boosting POST employees/_search { "query": { "boosting" : { "positive" : { "match": { "country": "china" } }, "negative" : { "match": { "company": "Talane" } }, "negative_boost" : 0.5 } } } Function score Change the score of search documents by weight GET employees/_search { "_source": ["position","phrase"], "query": { "function_score": { "query": { "match": { "position": "manager" } }, "functions": [ { "filter": { "match": { "phrase": "coherent" } }, "weight": 2 }, { "filter": { "match": { "phrase": "emulation" } }, "weight": 10 } ], "score_mode": "multiply", "boost": "5", "boost_mode": "multiply" } } }]]></summary></entry><entry><title type="html">【Basic】Python Pandas</title><link href="http://localhost:4000/work/pandas/basics/2022/07/01/pandas-usage.html" rel="alternate" type="text/html" title="【Basic】Python Pandas" /><published>2022-07-01T11:18:07+08:00</published><updated>2022-07-01T11:18:07+08:00</updated><id>http://localhost:4000/work/pandas/basics/2022/07/01/pandas-usage</id><content type="html" xml:base="http://localhost:4000/work/pandas/basics/2022/07/01/pandas-usage.html"><![CDATA[<h1 id="pandas-operations">Pandas Operations</h1>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;pandas&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Pandas Operations]]></summary></entry><entry><title type="html">【博客】Threads</title><link href="http://localhost:4000/blog/2022/07/01/anxious-collection.html" rel="alternate" type="text/html" title="【博客】Threads" /><published>2022-07-01T00:27:58+08:00</published><updated>2022-07-01T00:27:58+08:00</updated><id>http://localhost:4000/blog/2022/07/01/anxious-collection</id><content type="html" xml:base="http://localhost:4000/blog/2022/07/01/anxious-collection.html"><![CDATA[<h1 id="threads">Threads</h1>
+<p>之所以叫threads，是因为想把一些混乱的逻辑梳理一下，目前形式不太好，有很多非常焦虑的事情。先放三篇文章：</p>
+
+<ol>
+  <li>
+    <p>银行放贷问题：<a href="https://www.zhihu.com/question/537888391/answer/2546066628?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=545672028217225216&amp;utm_content=group1_Answer&amp;utm_campaign=shareopn">link</a>
+<img src="/assets/images/2022-07-01-00-31-27.png" alt="Image" /></p>
+  </li>
+  <li>
+    <p>为什么房子断供的这么少？<a href="https://www.zhihu.com/question/498539515">link</a></p>
+  </li>
+</ol>
 
 <p>原回答已经删除了，主要是讲了国内外对于房子的区别。国外房子放贷给群众，如果群众断供，那么房子被收回拍卖，不需要继续还放贷，因此这个风险其实在放贷一方也就是银行。但是国内是，放贷交不上，房子断供，房子被收走你还要继续还贷，金融风险转嫁，国家赢麻了。
 <img src="/assets/images/2022-07-01-00-35-33.png" alt="Image" /></p>
 
-<p>为什么年轻人想躺平？<a href="https://www.zhihu.com/question/475116887/answer/2135736238?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=545672028217225216&amp;utm_content=group3_Answer&amp;utm_campaign=shareopn">link</a></p>
+<ol>
+  <li>为什么年轻人想躺平？<a href="https://www.zhihu.com/question/475116887/answer/2135736238?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=545672028217225216&amp;utm_content=group3_Answer&amp;utm_campaign=shareopn">link</a></li>
+</ol>
 
 <p>原因可能懂得都懂吧。资源被把持，普通人想拿到好的资源更难了，几乎不可能。
 <img src="/assets/images/2022-07-01-00-38-58.png" alt="Image" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[Threads 之所以叫threads，是因为想把一些混乱的逻辑梳理一下，目前形式不太好，有很多非常焦虑的事情。先放三篇文章： 银行放贷问题：link 为什么房子断供的这么少？link 原回答已经删除了，主要是讲了国内外对于房子的区别。国外房子放贷给群众，如果群众断供，那么房子被收回拍卖，不需要继续还放贷，因此这个风险其实在放贷一方也就是银行。但是国内是，放贷交不上，房子断供，房子被收走你还要继续还贷，金融风险转嫁，国家赢麻了。 为什么年轻人想躺平？link 原因可能懂得都懂吧。资源被把持，普通人想拿到好的资源更难了，几乎不可能。]]></summary></entry><entry><title type="html">【博客】【复盘】2022/06 工作反思</title><link href="http://localhost:4000/blog/reflection/2022_jun/2022/06/27/nth-week-reflection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/06 工作反思" /><published>2022-06-27T10:23:14+08:00</published><updated>2022-06-27T10:23:14+08:00</updated><id>http://localhost:4000/blog/reflection/2022_jun/2022/06/27/nth-week-reflection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_jun/2022/06/27/nth-week-reflection.html"><![CDATA[<h1 id="工作反思">工作反思</h1>
@@ -24,7 +549,7 @@
 
 <p>同样，在工作中，那些准备进入职场的也就早早开始准备。研究生是学历的敲门砖，实际上在刚刚进实验室或者学校的研究生一年级，他们就开始在不同的地方实习了。他们产生了足够多的比较，以至于在真正快毕业时，基本上是以胜利者收割offer的姿态拿到了最头部的offer。其他人也只能拿边角料。</p>
 
-<p>从这些思考中，我得到的take away是，在工作中，我必须把我能够想到的每一个细节做到完美，做到完美不能保证我就能得到我想要的东西，做到完美只能保证我少犯错，因为每个人都很完美，你只能保持一个高强度的状态，等待别人犯错，这时候才有你的机会。而这个等待的过程是漫长的，机会也都是转瞬即逝，也许还没有轮到我，我就已经谢幕了，希望我还能得到命运的眷顾，继续在这个社会上保持竞争力，保持清醒。保持清醒，保持清醒，保持清醒有何尝不是一种幸运呢。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Jun&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[工作反思 前两天和帝羲聊天，发现我的朋友们还有人关注这个博客的。停更的一个重要原因是，四月份的时候被公司的风控找到了，因为博客里面包含了公司的URL。实际上那个博客是想记录Makefile的一些常用写法，里面不涉及公司资产，只是有一行内网的地址忘了删除。后来风控告诉我要从所有的commits里面删除掉，导致我连删了两次repo。再后面我都不记得自己何时又重新上传了这个repo，且后面也无继续更新，我把后面的一些笔记都放到了notion里面，其实notion真挺好用的，我感觉可以开放notion的主页，当做自己的博客了。 最近对于工作的思考越来越多了，同时也和周围的很多朋友同事聊天，发现大家的反馈都差不多，在大部分希望事业还能继续发展的朋友和同事中，一些较为清醒的人有一个共识：找到一个可以提拔、欣赏你的leader，愿意给你好业务把你当成自己人培养，并真正给到好处，那么在事业上就能比较成功。通俗一点说：抱好大腿，吃香喝辣。否则将会过的较为悲惨，努力得再多，也只能是别人成功的垫脚石。 最为难受的是，现在的年轻人没有太多选择错误的空间。如果说在上个年代，选择错误还能够通过后期纠错走到一条正确的路上，只是稍微慢些，现在就会发现，那些优秀的人早就在一条快车道上飙车了，等你反应过来的时候，已经连别人的后脑勺都看不见了，横亘在你和那些后脑勺之间的，还是乌央乌央的一群人，那些人醒悟的比你早些，但同样已经很慢了。更惨的是没意识到危机的人，还在原来的路上慢慢悠悠晃，等到了死胡同的时候才发现拐弯已经来不及了。 举个例子，那些决心在科研道路上前行的人，例如清华的一些聪明人们，在大二的时候就开始进实验室，大三的时候决定在本校的已经把好的实验室推免名额都占上了，决定出国科研的已经拿了名校的offer，只剩下一些边角料的名额给其他985高校做推免。与此同时，他们在本科一般就有1-2篇paper上会，甚至还是顶会。是否有科研潜力也会在那个当下被人发掘，开始科研生涯。一个非常生动的例子是，我初中的一个竞赛生本科保送清华，进了清华的视觉实验室直博，在我研究生一年级，他博士三年级的时候，他Google Scholar的引用量就已经有1k+了，超过了很多高校的副教授甚至教授。但就算如此优秀，他也不能保证留在清华当老师。原因很简单很直白：上面的人没有下来，占住了位置，无关乎他们是否比这个新生代的小朋友更优秀，只在于他们把持着珍贵的资源。 同样，在工作中，那些准备进入职场的也就早早开始准备。研究生是学历的敲门砖，实际上在刚刚进实验室或者学校的研究生一年级，他们就开始在不同的地方实习了。他们产生了足够多的比较，以至于在真正快毕业时，基本上是以胜利者收割offer的姿态拿到了最头部的offer。其他人也只能拿边角料。 从这些思考中，我得到的take away是，在工作中，我必须把我能够想到的每一个细节做到完美，做到完美不能保证我就能得到我想要的东西，做到完美只能保证我少犯错，因为每个人都很完美，你只能保持一个高强度的状态，等待别人犯错，这时候才有你的机会。而这个等待的过程是漫长的，机会也都是转瞬即逝，也许还没有轮到我，我就已经谢幕了，希望我还能得到命运的眷顾，继续在这个社会上保持竞争力，保持清醒。保持清醒，保持清醒，保持清醒有何尝不是一种幸运呢。]]></summary></entry><entry><title type="html">【Basic】 Elastic Search</title><link href="http://localhost:4000/work/es/basics/2022/03/29/elastic-search.html" rel="alternate" type="text/html" title="【Basic】 Elastic Search" /><published>2022-03-29T12:40:40+08:00</published><updated>2022-03-29T12:40:40+08:00</updated><id>http://localhost:4000/work/es/basics/2022/03/29/elastic-search</id><content type="html" xml:base="http://localhost:4000/work/es/basics/2022/03/29/elastic-search.html"><![CDATA[]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;es&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">【Basic】推荐系统review</title><link href="http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system.html" rel="alternate" type="text/html" title="【Basic】推荐系统review" /><published>2022-03-22T11:40:40+08:00</published><updated>2022-03-22T11:40:40+08:00</updated><id>http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system</id><content type="html" xml:base="http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system.html"><![CDATA[<h1 id="广告召回">广告召回</h1>
+<p>从这些思考中，我得到的take away是，在工作中，我必须把我能够想到的每一个细节做到完美，做到完美不能保证我就能得到我想要的东西，做到完美只能保证我少犯错，因为每个人都很完美，你只能保持一个高强度的状态，等待别人犯错，这时候才有你的机会。而这个等待的过程是漫长的，机会也都是转瞬即逝，也许还没有轮到我，我就已经谢幕了，希望我还能得到命运的眷顾，继续在这个社会上保持竞争力，保持清醒。保持清醒，保持清醒，保持清醒有何尝不是一种幸运呢。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Jun&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[工作反思 前两天和帝羲聊天，发现我的朋友们还有人关注这个博客的。停更的一个重要原因是，四月份的时候被公司的风控找到了，因为博客里面包含了公司的URL。实际上那个博客是想记录Makefile的一些常用写法，里面不涉及公司资产，只是有一行内网的地址忘了删除。后来风控告诉我要从所有的commits里面删除掉，导致我连删了两次repo。再后面我都不记得自己何时又重新上传了这个repo，且后面也无继续更新，我把后面的一些笔记都放到了notion里面，其实notion真挺好用的，我感觉可以开放notion的主页，当做自己的博客了。 最近对于工作的思考越来越多了，同时也和周围的很多朋友同事聊天，发现大家的反馈都差不多，在大部分希望事业还能继续发展的朋友和同事中，一些较为清醒的人有一个共识：找到一个可以提拔、欣赏你的leader，愿意给你好业务把你当成自己人培养，并真正给到好处，那么在事业上就能比较成功。通俗一点说：抱好大腿，吃香喝辣。否则将会过的较为悲惨，努力得再多，也只能是别人成功的垫脚石。 最为难受的是，现在的年轻人没有太多选择错误的空间。如果说在上个年代，选择错误还能够通过后期纠错走到一条正确的路上，只是稍微慢些，现在就会发现，那些优秀的人早就在一条快车道上飙车了，等你反应过来的时候，已经连别人的后脑勺都看不见了，横亘在你和那些后脑勺之间的，还是乌央乌央的一群人，那些人醒悟的比你早些，但同样已经很慢了。更惨的是没意识到危机的人，还在原来的路上慢慢悠悠晃，等到了死胡同的时候才发现拐弯已经来不及了。 举个例子，那些决心在科研道路上前行的人，例如清华的一些聪明人们，在大二的时候就开始进实验室，大三的时候决定在本校的已经把好的实验室推免名额都占上了，决定出国科研的已经拿了名校的offer，只剩下一些边角料的名额给其他985高校做推免。与此同时，他们在本科一般就有1-2篇paper上会，甚至还是顶会。是否有科研潜力也会在那个当下被人发掘，开始科研生涯。一个非常生动的例子是，我初中的一个竞赛生本科保送清华，进了清华的视觉实验室直博，在我研究生一年级，他博士三年级的时候，他Google Scholar的引用量就已经有1k+了，超过了很多高校的副教授甚至教授。但就算如此优秀，他也不能保证留在清华当老师。原因很简单很直白：上面的人没有下来，占住了位置，无关乎他们是否比这个新生代的小朋友更优秀，只在于他们把持着珍贵的资源。 同样，在工作中，那些准备进入职场的也就早早开始准备。研究生是学历的敲门砖，实际上在刚刚进实验室或者学校的研究生一年级，他们就开始在不同的地方实习了。他们产生了足够多的比较，以至于在真正快毕业时，基本上是以胜利者收割offer的姿态拿到了最头部的offer。其他人也只能拿边角料。 从这些思考中，我得到的take away是，在工作中，我必须把我能够想到的每一个细节做到完美，做到完美不能保证我就能得到我想要的东西，做到完美只能保证我少犯错，因为每个人都很完美，你只能保持一个高强度的状态，等待别人犯错，这时候才有你的机会。而这个等待的过程是漫长的，机会也都是转瞬即逝，也许还没有轮到我，我就已经谢幕了，希望我还能得到命运的眷顾，继续在这个社会上保持竞争力，保持清醒。保持清醒，保持清醒，保持清醒有何尝不是一种幸运呢。]]></summary></entry><entry><title type="html">【Basic】推荐系统review</title><link href="http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system.html" rel="alternate" type="text/html" title="【Basic】推荐系统review" /><published>2022-03-22T11:40:40+08:00</published><updated>2022-03-22T11:40:40+08:00</updated><id>http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system</id><content type="html" xml:base="http://localhost:4000/work/ai/ai_basics/2022/03/22/recommender-system.html"><![CDATA[<h1 id="广告召回">广告召回</h1>
 
 <p>协同过滤，广告召回的重点内容，</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><category term="301-work-recommend" /><summary type="html"><![CDATA[广告召回 协同过滤，广告召回的重点内容，]]></summary></entry><entry><title type="html">【博客】【复盘】2022/3/6 - 2022/3/11工作反思</title><link href="http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/3/6 - 2022/3/11工作反思" /><published>2022-03-12T11:23:14+08:00</published><updated>2022-03-12T11:23:14+08:00</updated><id>http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_mar/2022/03/12/four-week-reflection.html"><![CDATA[<h1 id="整体回顾">整体回顾</h1>
 
@@ -266,35 +791,4 @@ Initiate them every time when you writing unit testing files. Specify testing db
 
 <h2 id="makefile">Makefile</h2>
 
-<p>A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Code Structure . ├── Makefile ├── README.md ├── app // 依赖注入 │ ├── container.go // 依赖注入容器 │ ├── wire.go // wire 依赖声明 │ └── wire_gen.go // wire 自动生成代码 ├── build.sh ├── conf // 项目配置 │ ├── db.conf // db配置 │ ├── db_boe.conf // boe db配置 │ └── kitex.yml // server配置 ├── consts // 公用常量定义 │ ├── consts1.go // 以常量类型划分文件 │ └── consts2.go ├── dal // 数据访问层，所有外部数据依赖 │ ├── db // DB访问 │ │ ├── conn.go // DB连接池 │ │ ├── table1.go // 以表(或数据结构)的粒度划分文件 │ │ ├── table1_test.go // 对应DB访问单测 │ │ ├── table2.go │ │ ├── table2_test.go │ │ └── main_test.go // 当前包单测的统一入口 │ ├── kv // kv访问，包括lc、redis、abase等 │ │ ├── main_test.go // 当前包单测的统一入口 │ │ ├── abase_conn.go // abase连接池 │ │ ├── redis_conn.go // redis连接池 │ │ ├── redis_model1.go // 以数据结构的粒度划分文件 │ │ └── redis_model1_test.go // 数据结构对应redis访问单测 │ ├── rpc // RPC访问 │ │ ├── article.go // 以client粒度划分文件，每个文件实现各自client的构造方法 │ │ ├── params.go // client构造的通用参数定义 │ │ └── user_packer.go │ └── tcc // TCC配置访问 │ ├── conf.go // 通用配置 │ └── demotion.go // 降级配置 ├── go.mod ├── go.sum ├── handler.go ├── idl // 以submodule方式管理的公司统一idl库 ├── kitex_gen // kitex生成代码 ├── main.go ├── mock // go mock根据dal层interface生成代码 │ ├── db │ │ ├── table1.go │ │ └── table2.go │ ├── kv │ │ └── redis_model1.go │ ├── rpc │ │ ├── article │ │ │ └── client.go │ │ └── user_packer │ │ └── client.go │ └── tcc │ ├── conf.go │ └── demotion.go ├── model // 统一的model定义，包括db model、内部model等 ├── operator // 数据操作层 │ ├── data │ │ └── channel.go │ ├── packer // 数据打包逻辑 │ │ ├── video_normal.go │ │ └── video_parker.go │ └── source // 数据loader，通过job manger实现 │ ├── article.go // article rpc的loader封装 │ ├── job_mgr.go // job mgr的定义及相关操作 │ ├── job_mgr_test.go │ ├── source.go // source常量及结果解析定义 │ └── user_packer.go ├── script // kitex自动生成脚本代码 ├── service // 业务逻辑层 │ ├── business1 // 接口较多较复杂时，以业务模块划分二级目录 │ │ └── business.go │ └── business2 │ ├── base.go // 通用的业务处理逻辑 │ ├── create.go // create业务逻辑 │ ├── create_test.go │ ├── main_test.go │ ├── mget.go │ └── update.go └── util // 通用工具，一般业务无关 ├── convert.go // 以功能粒度划分文件，方便维护 ├── convert_test.go ├── slice.go └── slice_test.go Concept Overview App Dependency Injection What is dependency injection? Could refer to this link for a detailed look. Dependency Injection - Wiki. The core idea behind dependency injection is to achieve seperation of concerns of construction and use of object. This picture shows how it is achieved. There are several services that would be used by the client. It have to create the instances of other objects. With the help of injector, the client doesn’t initiates service A and service B directly. Instead, the Injector will do the favor for the client. That’s exactly what wire is doing in golang. wire is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service NewXXXService in the corresponding directory. It it worth noting that wire dependency injection framework doesn’t support initialize two identical object. Refer to Multipal bindings for details. Q&amp;A What should be initiated using dependency injection? Anything that depends on others or provide service for others. What object should be initiated manually instead of using dependency injection? Global database connections, global configurations, etc. What should I do when doing unit testing about non-dependency injection? Initiate them every time when you writing unit testing files. Specify testing db connections. Makefile A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.]]></summary></entry><entry><title type="html">【Knowledge】Deep Learning Argot</title><link href="http://localhost:4000/work/2022/03/02/deep-learing-argot.html" rel="alternate" type="text/html" title="【Knowledge】Deep Learning Argot" /><published>2022-03-02T12:45:31+08:00</published><updated>2022-03-02T12:45:31+08:00</updated><id>http://localhost:4000/work/2022/03/02/deep-learing-argot</id><content type="html" xml:base="http://localhost:4000/work/2022/03/02/deep-learing-argot.html"><![CDATA[<h1 id="argot-definition">Argot Definition</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Argot</th>
-      <th>Explanation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Expressivity</td>
-      <td>模型的表达能力用来衡量参数化模型如神经网络的可以拟合的函数的复杂程度。深度神经网络的表达能力随着它的深度指数上升， 这意味着中等规模的神经网络就拥有表达监督， 半监督， 强化学习任务的能力[2]。 深度神经网络可以<a href="https://arxiv.org/abs/1611.03530">记住非常大的数据集</a>就是一个很好的佐证。</td>
-    </tr>
-    <tr>
-      <td>Generalization</td>
-      <td>泛化能力，推广模型到不同的场景中的能力，表达能力增强，则能力下降。因为表达能力代表了当前场景下的对特定问题的表达程度。</td>
-    </tr>
-    <tr>
-      <td>Regularization</td>
-      <td>正则化，为了防止过拟合而引入在目标函数的公式中，这其中有\(L_1\), \(L_2\), \(L_0\)正则项，他们都分别为了解决不同的问题而在不同的情况下使用。</td>
-    </tr>
-    <tr>
-      <td>Deep &amp; Shallow Model</td>
-      <td>针对不同的机器学习方法，使用了CNN，DNN的是Deep model，使用了传统的机器学习方法，例如各种回归，一般来说都是shallow model。</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Argot Definition Argot Explanation Expressivity 模型的表达能力用来衡量参数化模型如神经网络的可以拟合的函数的复杂程度。深度神经网络的表达能力随着它的深度指数上升， 这意味着中等规模的神经网络就拥有表达监督， 半监督， 强化学习任务的能力[2]。 深度神经网络可以记住非常大的数据集就是一个很好的佐证。 Generalization 泛化能力，推广模型到不同的场景中的能力，表达能力增强，则能力下降。因为表达能力代表了当前场景下的对特定问题的表达程度。 Regularization 正则化，为了防止过拟合而引入在目标函数的公式中，这其中有\(L_1\), \(L_2\), \(L_0\)正则项，他们都分别为了解决不同的问题而在不同的情况下使用。 Deep &amp; Shallow Model 针对不同的机器学习方法，使用了CNN，DNN的是Deep model，使用了传统的机器学习方法，例如各种回归，一般来说都是shallow model。]]></summary></entry><entry><title type="html">【博客】【复盘】2022/2/28 - 2022/3/4工作反思</title><link href="http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html" rel="alternate" type="text/html" title="【博客】【复盘】2022/2/28 - 2022/3/4工作反思" /><published>2022-03-02T11:23:14+08:00</published><updated>2022-03-02T11:23:14+08:00</updated><id>http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection</id><content type="html" xml:base="http://localhost:4000/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html"><![CDATA[<h1 id="整体回顾">整体回顾</h1>
-
-<h2 id="反思总结">反思总结</h2>
-
-<p>当前有一个非常深刻的感想，当汇报一个东西的时候，要尽可能的让更多的人支持你，包括明面上支持你的和那些隐形的支持者。对于这两种支持者，很重要的事情就是<strong>让他们看到你要汇报的内容</strong>，不然如果在你真正汇报的时候呈现出的内容让人大吃一惊，那么原本的支持者的态度也会变得模棱两可。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Reflection&quot;, &quot;2022_Mar&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[整体回顾 反思总结 当前有一个非常深刻的感想，当汇报一个东西的时候，要尽可能的让更多的人支持你，包括明面上支持你的和那些隐形的支持者。对于这两种支持者，很重要的事情就是让他们看到你要汇报的内容，不然如果在你真正汇报的时候呈现出的内容让人大吃一惊，那么原本的支持者的态度也会变得模棱两可。]]></summary></entry></feed>
+<p>A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Code Structure . ├── Makefile ├── README.md ├── app // 依赖注入 │ ├── container.go // 依赖注入容器 │ ├── wire.go // wire 依赖声明 │ └── wire_gen.go // wire 自动生成代码 ├── build.sh ├── conf // 项目配置 │ ├── db.conf // db配置 │ ├── db_boe.conf // boe db配置 │ └── kitex.yml // server配置 ├── consts // 公用常量定义 │ ├── consts1.go // 以常量类型划分文件 │ └── consts2.go ├── dal // 数据访问层，所有外部数据依赖 │ ├── db // DB访问 │ │ ├── conn.go // DB连接池 │ │ ├── table1.go // 以表(或数据结构)的粒度划分文件 │ │ ├── table1_test.go // 对应DB访问单测 │ │ ├── table2.go │ │ ├── table2_test.go │ │ └── main_test.go // 当前包单测的统一入口 │ ├── kv // kv访问，包括lc、redis、abase等 │ │ ├── main_test.go // 当前包单测的统一入口 │ │ ├── abase_conn.go // abase连接池 │ │ ├── redis_conn.go // redis连接池 │ │ ├── redis_model1.go // 以数据结构的粒度划分文件 │ │ └── redis_model1_test.go // 数据结构对应redis访问单测 │ ├── rpc // RPC访问 │ │ ├── article.go // 以client粒度划分文件，每个文件实现各自client的构造方法 │ │ ├── params.go // client构造的通用参数定义 │ │ └── user_packer.go │ └── tcc // TCC配置访问 │ ├── conf.go // 通用配置 │ └── demotion.go // 降级配置 ├── go.mod ├── go.sum ├── handler.go ├── idl // 以submodule方式管理的公司统一idl库 ├── kitex_gen // kitex生成代码 ├── main.go ├── mock // go mock根据dal层interface生成代码 │ ├── db │ │ ├── table1.go │ │ └── table2.go │ ├── kv │ │ └── redis_model1.go │ ├── rpc │ │ ├── article │ │ │ └── client.go │ │ └── user_packer │ │ └── client.go │ └── tcc │ ├── conf.go │ └── demotion.go ├── model // 统一的model定义，包括db model、内部model等 ├── operator // 数据操作层 │ ├── data │ │ └── channel.go │ ├── packer // 数据打包逻辑 │ │ ├── video_normal.go │ │ └── video_parker.go │ └── source // 数据loader，通过job manger实现 │ ├── article.go // article rpc的loader封装 │ ├── job_mgr.go // job mgr的定义及相关操作 │ ├── job_mgr_test.go │ ├── source.go // source常量及结果解析定义 │ └── user_packer.go ├── script // kitex自动生成脚本代码 ├── service // 业务逻辑层 │ ├── business1 // 接口较多较复杂时，以业务模块划分二级目录 │ │ └── business.go │ └── business2 │ ├── base.go // 通用的业务处理逻辑 │ ├── create.go // create业务逻辑 │ ├── create_test.go │ ├── main_test.go │ ├── mget.go │ └── update.go └── util // 通用工具，一般业务无关 ├── convert.go // 以功能粒度划分文件，方便维护 ├── convert_test.go ├── slice.go └── slice_test.go Concept Overview App Dependency Injection What is dependency injection? Could refer to this link for a detailed look. Dependency Injection - Wiki. The core idea behind dependency injection is to achieve seperation of concerns of construction and use of object. This picture shows how it is achieved. There are several services that would be used by the client. It have to create the instances of other objects. With the help of injector, the client doesn’t initiates service A and service B directly. Instead, the Injector will do the favor for the client. That’s exactly what wire is doing in golang. wire is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service NewXXXService in the corresponding directory. It it worth noting that wire dependency injection framework doesn’t support initialize two identical object. Refer to Multipal bindings for details. Q&amp;A What should be initiated using dependency injection? Anything that depends on others or provide service for others. What object should be initiated manually instead of using dependency injection? Global database connections, global configurations, etc. What should I do when doing unit testing about non-dependency injection? Initiate them every time when you writing unit testing files. Specify testing db connections. Makefile A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.]]></summary></entry></feed>

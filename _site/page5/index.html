@@ -280,6 +280,84 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/golang/2021/12/07/golang-async-map.html"><h2 itemprop="headline" class="item__header">Golang Map并发编程</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Golang Map并发读写
+
+直接并发读写
+
+如果直接对map进行并发读写，那么会造成Panic或者error，如下所示：
+
+package main
+
+func main() {
+  m := make(map[int]int)
+  go func() {
+    for {
+      read := m[0] // sync read
+    }
+  }()
+
+  go func() {
+    for {
+      m[0] = 1 // sync write
+    }
+  }()
+}
+
+
+上面程序有问题
+
+传统加锁读写
+
+package main
+
+func main() {
+  m := make(map[int]int)
+  mc := sync.Mutex
+
+  ...</div><p><a href="/work/golang/2021/12/07/golang-async-map.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-golang">301-work-golang</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-golang,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2021/12/07/item2vec.html"><h2 itemprop="headline" class="item__header">Item2Vec详解</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">item2vec
+
+Usage: item2vec learns item similarity.
+
+Motivation
+
+Item2item relations are important because different than the traditional user2item relations, it shows a more explicit user intent of purchasing. Therefore it has a higher click-through rate.
+
+Solution
+
+Skip Gram
+
+Skip-gram is used to predict context words given a target word.
+
+
+
+For...</div><p><a href="/ai/ai_basics/2021/12/07/item2vec.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ai_basics/2021/12/07/WAMPE.html"><h2 itemprop="headline" class="item__header">WMAPE详解</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">WMAPE
 
@@ -493,69 +571,8 @@ DNNs could learn low-di...</div><p><a href="/ai/ai_algorithms/2021/12/05/wide_&_
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月05日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-05T00:00:00+08:00">
     <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2021/12/05/logistic-regression.html"><h2 itemprop="headline" class="item__header">Logistic Regression详解</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Logistic Regression
-
-Advantage: Use logistic function
-Usage: Used to predict classification problems
-
-Introduction
-
-Logistic regression is used to predict classification result
-
-Details
-
-Suppose we try to predict whether an email is spam, we have attributes $x_1, x_2, … x_n$ for prediction.
-
-We define a function $z = \theta_0 + \theta_1x_1 + \th...</div><p><a href="/ai/ai_basics/2021/12/05/logistic-regression.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月05日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-05T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2021/12/05/dsmm.html"><h2 itemprop="headline" class="item__header">DSMM Item-based系统过滤</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">DSMM
-
-Advantage: Use DNN models to do this.
-Key word: DNN
-Usage: Used in text-based query-to-document retrieval.
-
-Objective
-
-Retrieve documents related with an input query.
-
-Proposed DNN architecture:
-
-
-
-Term vector
-
-Term vector use letter or word as a dimension and counts of that term.
-
-Word hashing
-
-In order to reduce the dimensionality of bag...</div><p><a href="/ai/ai_algorithms/2021/12/05/dsmm.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月05日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-05T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 49 篇文章，7 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 51 篇文章，7 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page4">
             <i class="fas fa-angle-left"></i>

@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【Basic】Python Pandas - Chengru's Blog</title>
 
-<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
-">
-<link rel="canonical" href="http://localhost:4000/page2/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="Pandas Operations">
+<link rel="canonical" href="http://localhost:4000/work/pandas/basics/2022/07/01/pandas-usage.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,236 +273,50 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/golang/2022/03/08/makefile.html"><h2 itemprop="headline" class="item__header">【Basic】 Makefile Basics</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Example Makefile
-
-.PHONY: generate update_submodule server rpc mock build run clean build_run
-
-fetch:
-	go get -u github.com/google/wire
-	go get -u github.com/golang/mock/gomock
-	go get -u github.com/smartystreets/goconvey/convey
-
-generate: update_submodule server rpc mock
-
-update_submodule:
-ifeq ($(wildcard idl/.*),)
-	git submodule init
-endif
-	g...</div><p><a href="/work/golang/2022/03/08/makefile.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【Basic】Python Pandas</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/work/2022-07-01-pandas-usage.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【Basic】Python Pandas"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-blog">301-work-blog</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月08日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-08T12:40:40+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/golang/2022/03/07/golang-rpc-service-structure.html"><h2 itemprop="headline" class="item__header">【Best Practice】 Golang Microservice Structure</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Code Structure
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 07月01日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-07-01T11:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-.
-├── Makefile          
-├── README.md
-├── app // 依赖注入
-│   ├── container.go // 依赖注入容器
-│   ├── wire.go      // wire 依赖声明
-│   └── wire_gen.go  // wire 自动生成代码
-├── build.sh         
-├── conf // 项目配置               
-│   ├── db.conf     // db配置
-│   ├── db_boe.conf // boe db配置
-│   └── kitex.yml   // server配置         
-├── consts // 公用常量定义...</div><p><a href="/work/golang/2022/03/07/golang-rpc-service-structure.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月07日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-07T10:40:40+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/2022/03/02/deep-learing-argot.html"><h2 itemprop="headline" class="item__header">【Knowledge】Deep Learning Argot</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Argot Definition
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h1 id="pandas-operations">Pandas Operations</h1>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2022-07-01T11:18:07+08:00"><!-- start custom article footer snippet -->
 
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/work/es/basics/2022/07/01/elastic-search.html">【Basic】 Elastic Search</a></div><div class="next"><span>下篇</span><a href="/work/web3/2022/07/14/web3-learning.html">Web3 Learning</a></div></div></div>
 
-  
-    
-      Argot
-      Explanation
-    
-  
-  
-    
-      Expressivity
-      模型的表达能力用来衡量参数化模型如神经网络的可以拟合的函数的复杂程度。深度神经网络的表达能力随着它的深度指数上升， 这意味着中等规模的神经网络就拥有表达监督， 半监督， 强化学习任务的能力[2]。 深度神经网络可以记住非常大的数据集就是一个很好的佐证。
-    
-    
-      Generalization
-      泛化能力，推广模型到不同的场景中的能力，表达能力增强，则能力下降。因为表达能力代表了当前场景下的对特定问题的表达程度。
-    
-    
-      Regulariz...</div><p><a href="/work/2022/03/02/deep-learing-argot.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月02日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-02T12:45:31+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html"><h2 itemprop="headline" class="item__header">【博客】【复盘】2022/2/28 - 2022/3/4工作反思</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">整体回顾
+</div>
 
-反思总结
-
-当前有一个非常深刻的感想，当汇报一个东西的时候，要尽可能的让更多的人支持你，包括明面上支持你的和那些隐形的支持者。对于这两种支持者，很重要的事情就是让他们看到你要汇报的内容，不然如果在你真正汇报的时候呈现出的内容让人大吃一惊，那么原本的支持者的态度也会变得模棱两可。</div><p><a href="/blog/reflection/2022_mar/2022/03/02/three-week-reflection.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月02日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-02T11:23:14+08:00">
-    <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/2022/03/01/concept-learning.html"><h2 itemprop="headline" class="item__header">【知识库】框架和概念学习</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Concept Collection
-
-
-  
-    
-      Category
-      Concept
-      Explanation
-      Pros
-      Cons
-    
-  
-  
-    
-      General Platform
-      Spark
-      A unified analytics engine for large-scale data processing. Spark: SparkSpark Explanation: Spark explanation
-      Spark is a fast  and resilient large distributed data processing platform.
-  ...</div><p><a href="/blog/2022/03/01/concept-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月01日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-01T14:20:08+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/reflection/2022_feb/2022/02/26/two-week-refelection.html"><h2 itemprop="headline" class="item__header">【博客】【复盘】2022/2/21 - 2022/2/26工作反思</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">整体回顾
-
-上周ToDo
-
-
-  准备谷歌面试 – 面试并没有成功进行，因为Google无法解决我的签证问题，我需要double check这个问题；
-    
-      再次熟悉所有的数据结构与算法的基本写法；
-      培养自己先考虑corner case与写test case的习惯；
-      总结没考虑到的corner case
-    
-  
-  阅读广告相关书籍
-    
-      wenjie share的公司文档 – half done
-      《Google AdSense实战宝典》 – 换成了《向上汇报》
-    
-  
-  工作细节规划
-    
-      明确组里面每个人都在做什么事情
-      明确组里面目前ROI最高的事情是什么
-      ...</div><p><a href="/blog/reflection/2022_feb/2022/02/26/two-week-refelection.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 02月26日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-02-26T21:38:17+08:00">
-    <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2022/02/25/ml-basic-knowledge.html"><h2 itemprop="headline" class="item__header">【Learning】ML Basic Knowledge</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Common Metrics
-
-
-  
-    
-      Name
-      Explanation
-      Key Params
-      Usage
-      Example
-    
-  
-  
-    
-      ROC Curve1
-      Receiver operating characteristic curve: A graph showing the performance of aclassification model at all classification threshhold.
-      y: True Positive Ratex: False Positive Rate
-      ROC curve is used to in...</div><p><a href="/ai/ai_basics/2022/02/25/ml-basic-knowledge.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 02月25日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-02-25T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2022/02/22/speaking-up.html"><h2 itemprop="headline" class="item__header">【博客】【阅读】向上汇报</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">向上管理
-
-
-  Nobody gives a sh*t about your wellbeing and what you did and what you ask for.
-
-
-
-  高管们，尤其是拿着高额年薪的人们，背负着比普通人能想象到的夸张得多的绩效压力，被高薪雇佣到一个公司，就必须为公司创造高额回报，包括大量节省成本或者带来巨大盈利。因此，汇报并不是为了得到赞扬、成为朋友或者升职加薪，汇报就是为了一个非常简单而纯粹的目的：服务于高层的决策，提供他们关心的内容。在这个层面，目前每个人都是工具，高管们不会同情或者共情到普通人。
-
-
-这几天正在读一本书《向上汇报》，我不知道书中的内容是否非常准确的描述了当前的情况，但基本面是符合逻辑的。且相对于我的菜鸟经验来说，就算内容不准确也比...</div><p><a href="/blog/read/2022/02/22/speaking-up.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 02月22日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-02-22T19:38:04+08:00">
-    <meta itemprop="keywords" content="301-work-blog"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 51 篇文章，7 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
-            <i class="fas fa-angle-left"></i>
-          </a></li><li>
-              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
-            </li><li>
-              <div class="button button--primary button--circle focus"><span>2</span></div>
-            </li><li>
-                  <a class="button button--secondary button--circle" href="/page3"><span>3</span></a>
-                </li><li>
-                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
-                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page7"><span>7</span></a>
-                </li><li><a class="button button--secondary button--circle" href="/page3">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/
+<script src="https://utteranc.es/client.js"
+        repo="Chengru-Song/Chengru-Song.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
-
-
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -529,7 +342,8 @@ endif
     });
   });
 })();
-</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -1066,6 +880,68 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
