@@ -9,9 +9,17 @@ sidebar:
     nav: BASICS
 category:
     [work, web3]
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#203028'
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: /assets/images/2022-07-14-14-32-12.png
 ---
 
 # Web3 Learning Goals
+<!--more-->
 
 ## Basic Knowledge
 1. What are the definitions of web3 from academic and industry?

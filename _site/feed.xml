@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-07-14T14:11:39+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
-</subtitle><author><name>Chengru Song</name></author><entry><title type="html">Web3 Learning</title><link href="http://localhost:4000/work/web3/2022/07/14/web3-learning.html" rel="alternate" type="text/html" title="Web3 Learning" /><published>2022-07-14T00:00:00+08:00</published><updated>2022-07-14T00:00:00+08:00</updated><id>http://localhost:4000/work/web3/2022/07/14/web3-learning</id><content type="html" xml:base="http://localhost:4000/work/web3/2022/07/14/web3-learning.html"><![CDATA[<h1 id="web3-learning-goals">Web3 Learning Goals</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-07-18T09:46:27+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【博客】Thoughts 1</title><link href="http://localhost:4000/blog/2022/07/18/thoughts-1.html" rel="alternate" type="text/html" title="【博客】Thoughts 1" /><published>2022-07-18T09:27:58+08:00</published><updated>2022-07-18T09:27:58+08:00</updated><id>http://localhost:4000/blog/2022/07/18/thoughts-1</id><content type="html" xml:base="http://localhost:4000/blog/2022/07/18/thoughts-1.html"><![CDATA[<p>最新感触，所有你当前希望逃避的东西，都会在未来加倍找到你。还是好好想想当前怎么解决这个问题，这样就不会在未来这个问题更加棘手，不得不解决的时候，让自己陷入更大的被动。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[最新感触，所有你当前希望逃避的东西，都会在未来加倍找到你。还是好好想想当前怎么解决这个问题，这样就不会在未来这个问题更加棘手，不得不解决的时候，让自己陷入更大的被动。]]></summary></entry><entry><title type="html">【Web3】Web3 Concepts</title><link href="http://localhost:4000/work/web3/2022/07/17/web3-concepts.html" rel="alternate" type="text/html" title="【Web3】Web3 Concepts" /><published>2022-07-17T16:11:09+08:00</published><updated>2022-07-17T16:11:09+08:00</updated><id>http://localhost:4000/work/web3/2022/07/17/web3-concepts</id><content type="html" xml:base="http://localhost:4000/work/web3/2022/07/17/web3-concepts.html"><![CDATA[<h1 id="web3-concepts">Web3 Concepts</h1>
+
+<p>The main idea behind web3 would be decentralization. It differs from web2 in data and information organization, as well as token-based economics.</p>
+
+<p>Compared with traditional applications, web3 applications have some salient features.</p>
+
+<ul>
+  <li>Open. Stored in open network. Therefore data is visable to all participants.</li>
+  <li>Trustless. A user could build connections to every other participants.</li>
+  <li></li>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;web3&quot;]" /><category term="301-work-web3" /><summary type="html"><![CDATA[Web3 Concepts The main idea behind web3 would be decentralization. It differs from web2 in data and information organization, as well as token-based economics. Compared with traditional applications, web3 applications have some salient features. Open. Stored in open network. Therefore data is visable to all participants. Trustless. A user could build connections to every other participants.]]></summary></entry><entry><title type="html">Web3 Learning</title><link href="http://localhost:4000/work/web3/2022/07/14/web3-learning.html" rel="alternate" type="text/html" title="Web3 Learning" /><published>2022-07-14T00:00:00+08:00</published><updated>2022-07-14T00:00:00+08:00</updated><id>http://localhost:4000/work/web3/2022/07/14/web3-learning</id><content type="html" xml:base="http://localhost:4000/work/web3/2022/07/14/web3-learning.html"><![CDATA[<h1 id="web3-learning-goals">Web3 Learning Goals</h1>
+<!--more-->
 
 <h2 id="basic-knowledge">Basic Knowledge</h2>
 <ol>
@@ -41,7 +52,7 @@
 <ol>
   <li>How can you make it a sideline?</li>
   <li>If you lack the reqired skills, how can you make up for it?</li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;web3&quot;]" /><summary type="html"><![CDATA[Web3 Learning Goals Basic Knowledge What are the definitions of web3 from academic and industry? Produce an article and necessary references. What entities and big names go after the concept actively? Produce a list about this What might be the roadmap of web3? An article and reference. What fields do you think relate to your current work and previous experience most? A list of all related topics and job opportunies opening for this one. Current architecture of web3 apps. A list of necessary skills required. What are the channels that you can receive latest information? A list of channels. Who can you reach out to that are active developers in web3? A list of people and track your communication process. Practice How can you make it a sideline? If you lack the reqired skills, how can you make up for it?]]></summary></entry><entry><title type="html">【Basic】 Elastic Search</title><link href="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html" rel="alternate" type="text/html" title="【Basic】 Elastic Search" /><published>2022-07-01T11:18:07+08:00</published><updated>2022-07-01T11:18:07+08:00</updated><id>http://localhost:4000/work/es/basics/2022/07/01/elastic-search</id><content type="html" xml:base="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html"><![CDATA[<h1 id="es-query">[ES] Query</h1>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;web3&quot;]" /><summary type="html"><![CDATA[Web3 Learning Goals]]></summary></entry><entry><title type="html">【Basic】 Elastic Search</title><link href="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html" rel="alternate" type="text/html" title="【Basic】 Elastic Search" /><published>2022-07-01T11:18:07+08:00</published><updated>2022-07-01T11:18:07+08:00</updated><id>http://localhost:4000/work/es/basics/2022/07/01/elastic-search</id><content type="html" xml:base="http://localhost:4000/work/es/basics/2022/07/01/elastic-search.html"><![CDATA[<h1 id="es-query">[ES] Query</h1>
 
 <p>Basic Concept: <a href="https://logz.io/blog/elasticsearch-queries">https://logz.io/blog/elasticsearch-queries/</a></p>
 
@@ -614,181 +625,4 @@
 
 <h2 id="后续动作">后续动作</h2>
 
-<p>大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[听Facebook前Engineer分享的感想 走在前面 在预见到一些情况可能出现的时候，很多人会想在非常前面，大概比这个事情真正会发生的时间早上1-2年。所以他们很早就开始出解决方案，这个方案对于我们来说可能是抄的，觉得好像他们一下子就出了一个非常成熟的方案，但实际上内部的人，在空闲时间想了非常多的解决方案。例如signal loss这个东西，早在两年前苹果开始又这个迹象要限制的时候，他们就已经在想一些可能的解决方案了。内部非常卷，实验了很多方法，最后才定下来PET的方案，最开始甚至还做过类似于拟合缺失信息的方案，所以看来任何一个东西都不是一蹴而就的，而是内部实验了很多东西并且验证可行性才搞出来的。他提到了engineering文化，大概就是技术人员会想更多，虽然我们可能没有这种文化，但是应该让自己保持警惕。 关于研究 聊天的时候发现有一个做了很久差分隐私的博士在会议里，以前也是在Facebook给为公司产出有隐私保护情况下的解决方案的。很显然，差分隐私根据我自己的knowledge来说更多是一个数学背景很强的问题，所以必然需要更加高级的人来产出这种问题的解决方案。看来做一个方向和不做一个方向在信息缺失的情况下就非常难以判断，我以为安全问题很难为公司带来产出，但是没想到这个竟然是能解决公司痛点的一个专业方向，并且FB和Google竟然还为此展开了军备竞赛，这真的让我难以想象。安全研究，区块链，到底哪些东西才是未来的出路，现在还是需要仔细思考，不断获取到更多的信息，和更多的人聊天。 后续动作 大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。]]></summary></entry><entry><title type="html">【Basic】 Makefile Basics</title><link href="http://localhost:4000/work/golang/2022/03/08/makefile.html" rel="alternate" type="text/html" title="【Basic】 Makefile Basics" /><published>2022-03-08T12:40:40+08:00</published><updated>2022-03-08T12:40:40+08:00</updated><id>http://localhost:4000/work/golang/2022/03/08/makefile</id><content type="html" xml:base="http://localhost:4000/work/golang/2022/03/08/makefile.html"><![CDATA[<h1 id="example-makefile">Example Makefile</h1>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.PHONY: generate update_submodule server rpc mock build run clean build_run
-
-fetch:
-	go get <span class="nt">-u</span> github.com/google/wire
-	go get <span class="nt">-u</span> github.com/golang/mock/gomock
-	go get <span class="nt">-u</span> github.com/smartystreets/goconvey/convey
-
-generate: update_submodule server rpc mock
-
-update_submodule:
-ifeq <span class="o">(</span><span class="si">$(</span>wildcard idl/.<span class="k">*</span><span class="si">)</span>,<span class="o">)</span>
-	git submodule init
-endif
-	git submodule update <span class="nt">--remote</span>
-
-server:
-	<span class="si">$(</span>idlgen<span class="si">)</span> <span class="nt">-module</span> <span class="si">$(</span>prefix<span class="si">)</span> <span class="nt">-service</span> <span class="si">$(</span>psm<span class="si">)</span> idl/video/kite_demo.thrift
-
-rpc:
-	<span class="si">$(</span>idlgen<span class="si">)</span> idl/content/arch/diting.thrift
-	<span class="si">$(</span>idlgen<span class="si">)</span> idl/video/user_packer.thrift
-	<span class="si">$(</span>idlgen<span class="si">)</span> idl/article/article_article.thrift
-	<span class="si">$(</span>idlgen<span class="si">)</span> idl/video/favourite.thrift
-
-mock:
-	<span class="nb">rm</span> <span class="nt">-rf</span> mock/<span class="k">*</span>
-	mockgen <span class="nt">-source</span><span class="o">=</span>dal/db/channel.go <span class="nt">-package</span><span class="o">=</span>dbmock <span class="nt">-destination</span><span class="o">=</span>mock/db/channel.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>dal/db/union_category.go <span class="nt">-package</span><span class="o">=</span>dbmock <span class="nt">-destination</span><span class="o">=</span>mock/db/union_category.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>dal/kv/redis_channel.go <span class="nt">-package</span><span class="o">=</span>kvmock <span class="nt">-destination</span><span class="o">=</span>mock/kv/redis_channel.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>dal/tcc/demotion.go <span class="nt">-package</span><span class="o">=</span>tccmock <span class="nt">-destination</span><span class="o">=</span>mock/tcc/demotion.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>dal/tcc/conf.go <span class="nt">-package</span><span class="o">=</span>tccmock <span class="nt">-destination</span><span class="o">=</span>mock/tcc/conf.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/content/arch/diting/ditingservice/client.go <span class="nt">-package</span><span class="o">=</span>ditingmock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/diting/client.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/video/user_packer/videouserpackerservice/client.go <span class="nt">-package</span><span class="o">=</span>userpackermock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/user_packer/client.go
-	mockgen <span class="nt">-source</span><span class="o">=</span>kitex_gen/article_article/articlearticleservice/client.go <span class="nt">-package</span><span class="o">=</span>articlemock <span class="nt">-destination</span><span class="o">=</span>mock/rpc/article/client.go
-
-<span class="nb">test</span>:
-	<span class="c"># 测试覆盖率和竞态检查</span>
-	go <span class="nb">test</span> <span class="nt">-v</span> <span class="nt">-count</span><span class="o">=</span>1 <span class="nt">-race</span> <span class="nt">-cover</span> <span class="nt">-covermode</span><span class="o">=</span>atomic <span class="nt">-failfast</span> <span class="nv">$$</span><span class="o">(</span>go list ./... | <span class="nb">grep</span> <span class="nt">-v</span> <span class="s1">'/kitex_gen\|/faas\|/cronjob\|/mock\|/idl'</span><span class="o">)</span>
-
-<span class="c"># make build_run</span>
-build_run: clean build run
-
-build:
-	./build.sh
-
-run:
-	./output/bootstrap.sh output
-
-clean:
-	<span class="nb">rm</span> <span class="nt">-rf</span> output
-</code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">.PHONY</code> at the beginning of file means that the command, for instance, <code class="language-plaintext highlighter-rouge">.PHONY: install</code>,</p>
-
-<ul>
-  <li>the word <code class="language-plaintext highlighter-rouge">install</code> doesn’t represent a file name in this Makefile</li>
-  <li>the Makefile has nothing to do with a file called <code class="language-plaintext highlighter-rouge">install</code> in the same directory.</li>
-</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Example Makefile .PHONY: generate update_submodule server rpc mock build run clean build_run fetch: go get -u github.com/google/wire go get -u github.com/golang/mock/gomock go get -u github.com/smartystreets/goconvey/convey generate: update_submodule server rpc mock update_submodule: ifeq ($(wildcard idl/.*),) git submodule init endif git submodule update --remote server: $(idlgen) -module $(prefix) -service $(psm) idl/video/kite_demo.thrift rpc: $(idlgen) idl/content/arch/diting.thrift $(idlgen) idl/video/user_packer.thrift $(idlgen) idl/article/article_article.thrift $(idlgen) idl/video/favourite.thrift mock: rm -rf mock/* mockgen -source=dal/db/channel.go -package=dbmock -destination=mock/db/channel.go mockgen -source=dal/db/union_category.go -package=dbmock -destination=mock/db/union_category.go mockgen -source=dal/kv/redis_channel.go -package=kvmock -destination=mock/kv/redis_channel.go mockgen -source=dal/tcc/demotion.go -package=tccmock -destination=mock/tcc/demotion.go mockgen -source=dal/tcc/conf.go -package=tccmock -destination=mock/tcc/conf.go mockgen -source=kitex_gen/content/arch/diting/ditingservice/client.go -package=ditingmock -destination=mock/rpc/diting/client.go mockgen -source=kitex_gen/video/user_packer/videouserpackerservice/client.go -package=userpackermock -destination=mock/rpc/user_packer/client.go mockgen -source=kitex_gen/article_article/articlearticleservice/client.go -package=articlemock -destination=mock/rpc/article/client.go test: # 测试覆盖率和竞态检查 go test -v -count=1 -race -cover -covermode=atomic -failfast $$(go list ./... | grep -v '/kitex_gen\|/faas\|/cronjob\|/mock\|/idl') # make build_run build_run: clean build run build: ./build.sh run: ./output/bootstrap.sh output clean: rm -rf output .PHONY at the beginning of file means that the command, for instance, .PHONY: install, the word install doesn’t represent a file name in this Makefile the Makefile has nothing to do with a file called install in the same directory.]]></summary></entry><entry><title type="html">【Best Practice】 Golang Microservice Structure</title><link href="http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure.html" rel="alternate" type="text/html" title="【Best Practice】 Golang Microservice Structure" /><published>2022-03-07T10:40:40+08:00</published><updated>2022-03-07T10:40:40+08:00</updated><id>http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure</id><content type="html" xml:base="http://localhost:4000/work/golang/2022/03/07/golang-rpc-service-structure.html"><![CDATA[<h1 id="code-structure">Code Structure</h1>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
-├── Makefile          
-├── README.md
-├── app // 依赖注入
-│   ├── container.go // 依赖注入容器
-│   ├── wire.go      // wire 依赖声明
-│   └── wire_gen.go  // wire 自动生成代码
-├── build.sh         
-├── conf // 项目配置               
-│   ├── db.conf     // db配置
-│   ├── db_boe.conf // boe db配置
-│   └── kitex.yml   // server配置         
-├── consts // 公用常量定义
-│   ├── consts1.go // 以常量类型划分文件
-│   └── consts2.go
-├── dal // 数据访问层，所有外部数据依赖
-│   ├── db // DB访问
-│   │   ├── conn.go        // DB连接池
-│   │   ├── table1.go      // 以表(或数据结构)的粒度划分文件
-│   │   ├── table1_test.go // 对应DB访问单测
-│   │   ├── table2.go
-│   │   ├── table2_test.go
-│   │   └── main_test.go   // 当前包单测的统一入口
-│   ├── kv // kv访问，包括lc、redis、abase等
-│   │   ├── main_test.go         // 当前包单测的统一入口
-│   │   ├── abase_conn.go        // abase连接池
-│   │   ├── redis_conn.go        // redis连接池
-│   │   ├── redis_model1.go      // 以数据结构的粒度划分文件
-│   │   └── redis_model1_test.go // 数据结构对应redis访问单测
-│   ├── rpc // RPC访问
-│   │   ├── article.go     // 以client粒度划分文件，每个文件实现各自client的构造方法
-│   │   ├── params.go      // client构造的通用参数定义
-│   │   └── user_packer.go
-│   └── tcc // TCC配置访问
-│       ├── conf.go     // 通用配置
-│       └── demotion.go // 降级配置
-├── go.mod
-├── go.sum
-├── handler.go
-├── idl // 以submodule方式管理的公司统一idl库
-├── kitex_gen // kitex生成代码
-├── main.go
-├── mock // go mock根据dal层interface生成代码
-│   ├── db
-│   │   ├── table1.go
-│   │   └── table2.go
-│   ├── kv
-│   │   └── redis_model1.go
-│   ├── rpc
-│   │   ├── article
-│   │   │   └── client.go
-│   │   └── user_packer
-│   │       └── client.go
-│   └── tcc
-│       ├── conf.go
-│       └── demotion.go
-├── model // 统一的model定义，包括db model、内部model等
-├── operator // 数据操作层
-│   ├── data
-│   │   └── channel.go
-│   ├── packer // 数据打包逻辑
-│   │   ├── video_normal.go
-│   │   └── video_parker.go
-│   └── source // 数据loader，通过job manger实现
-│       ├── article.go // article rpc的loader封装
-│       ├── job_mgr.go // job mgr的定义及相关操作
-│       ├── job_mgr_test.go
-│       ├── source.go  // source常量及结果解析定义
-│       └── user_packer.go
-├── script // kitex自动生成脚本代码
-├── service // 业务逻辑层
-│   ├── business1 // 接口较多较复杂时，以业务模块划分二级目录
-│   │   └── business.go
-│   └── business2
-│       ├── base.go        // 通用的业务处理逻辑
-│       ├── create.go      // create业务逻辑
-│       ├── create_test.go
-│       ├── main_test.go
-│       ├── mget.go
-│       └── update.go
-└── util // 通用工具，一般业务无关
-    ├── convert.go // 以功能粒度划分文件，方便维护
-    ├── convert_test.go
-    ├── slice.go
-    └── slice_test.go
-</code></pre></div></div>
-
-<h1 id="concept-overview">Concept Overview</h1>
-
-<h2 id="app-dependency-injection">App Dependency Injection</h2>
-
-<p>What is dependency injection? Could refer to this link for a detailed look. <a href="https://en.wikipedia.org/wiki/Dependency_injection#:~:text=In%20software%20engineering%2C%20dependency%20injection,object%20is%20called%20a%20service.">Dependency Injection - Wiki</a>. The core idea behind <strong>dependency injection</strong> is to achieve seperation of concerns of construction and use of object.</p>
-
-<p>This picture shows how it is achieved.</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/W3sDesign_Dependency_Injection_Design_Pattern_UML.jpg" alt="img" /></p>
-
-<p>There are several services that would be used by the client. It have to create the instances of other objects. With the help of <em>injector</em>, the client doesn’t initiates <code class="language-plaintext highlighter-rouge">service A</code> and <code class="language-plaintext highlighter-rouge">service B</code> directly. Instead, the <code class="language-plaintext highlighter-rouge">Injector</code> will do the favor for the client.</p>
-
-<p>That’s exactly what <code class="language-plaintext highlighter-rouge">wire</code> is doing in golang. <code class="language-plaintext highlighter-rouge">wire</code> is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service <code class="language-plaintext highlighter-rouge">NewXXXService</code> in the corresponding directory.</p>
-
-<p>It it worth noting that <code class="language-plaintext highlighter-rouge">wire</code> dependency injection framework <strong>doesn’t support initialize two identical object</strong>. Refer to <a href="https://github.com/google/wire/issues/206">Multipal bindings</a> for details.</p>
-
-<h3 id="qa">Q&amp;A</h3>
-
-<ol>
-  <li>What should be initiated using dependency injection?
-Anything that depends on others or provide service for others.</li>
-  <li>What object should be initiated manually instead of using dependency injection?
-Global database connections, global configurations, etc.</li>
-  <li>What should I do when doing unit testing about non-dependency injection?
-Initiate them every time when you writing unit testing files. Specify testing db connections.</li>
-</ol>
-
-<h2 id="makefile">Makefile</h2>
-
-<p>A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;golang&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Code Structure . ├── Makefile ├── README.md ├── app // 依赖注入 │ ├── container.go // 依赖注入容器 │ ├── wire.go // wire 依赖声明 │ └── wire_gen.go // wire 自动生成代码 ├── build.sh ├── conf // 项目配置 │ ├── db.conf // db配置 │ ├── db_boe.conf // boe db配置 │ └── kitex.yml // server配置 ├── consts // 公用常量定义 │ ├── consts1.go // 以常量类型划分文件 │ └── consts2.go ├── dal // 数据访问层，所有外部数据依赖 │ ├── db // DB访问 │ │ ├── conn.go // DB连接池 │ │ ├── table1.go // 以表(或数据结构)的粒度划分文件 │ │ ├── table1_test.go // 对应DB访问单测 │ │ ├── table2.go │ │ ├── table2_test.go │ │ └── main_test.go // 当前包单测的统一入口 │ ├── kv // kv访问，包括lc、redis、abase等 │ │ ├── main_test.go // 当前包单测的统一入口 │ │ ├── abase_conn.go // abase连接池 │ │ ├── redis_conn.go // redis连接池 │ │ ├── redis_model1.go // 以数据结构的粒度划分文件 │ │ └── redis_model1_test.go // 数据结构对应redis访问单测 │ ├── rpc // RPC访问 │ │ ├── article.go // 以client粒度划分文件，每个文件实现各自client的构造方法 │ │ ├── params.go // client构造的通用参数定义 │ │ └── user_packer.go │ └── tcc // TCC配置访问 │ ├── conf.go // 通用配置 │ └── demotion.go // 降级配置 ├── go.mod ├── go.sum ├── handler.go ├── idl // 以submodule方式管理的公司统一idl库 ├── kitex_gen // kitex生成代码 ├── main.go ├── mock // go mock根据dal层interface生成代码 │ ├── db │ │ ├── table1.go │ │ └── table2.go │ ├── kv │ │ └── redis_model1.go │ ├── rpc │ │ ├── article │ │ │ └── client.go │ │ └── user_packer │ │ └── client.go │ └── tcc │ ├── conf.go │ └── demotion.go ├── model // 统一的model定义，包括db model、内部model等 ├── operator // 数据操作层 │ ├── data │ │ └── channel.go │ ├── packer // 数据打包逻辑 │ │ ├── video_normal.go │ │ └── video_parker.go │ └── source // 数据loader，通过job manger实现 │ ├── article.go // article rpc的loader封装 │ ├── job_mgr.go // job mgr的定义及相关操作 │ ├── job_mgr_test.go │ ├── source.go // source常量及结果解析定义 │ └── user_packer.go ├── script // kitex自动生成脚本代码 ├── service // 业务逻辑层 │ ├── business1 // 接口较多较复杂时，以业务模块划分二级目录 │ │ └── business.go │ └── business2 │ ├── base.go // 通用的业务处理逻辑 │ ├── create.go // create业务逻辑 │ ├── create_test.go │ ├── main_test.go │ ├── mget.go │ └── update.go └── util // 通用工具，一般业务无关 ├── convert.go // 以功能粒度划分文件，方便维护 ├── convert_test.go ├── slice.go └── slice_test.go Concept Overview App Dependency Injection What is dependency injection? Could refer to this link for a detailed look. Dependency Injection - Wiki. The core idea behind dependency injection is to achieve seperation of concerns of construction and use of object. This picture shows how it is achieved. There are several services that would be used by the client. It have to create the instances of other objects. With the help of injector, the client doesn’t initiates service A and service B directly. Instead, the Injector will do the favor for the client. That’s exactly what wire is doing in golang. wire is an injector for golang. The package will deduct the relationship between each service components and initiates them for you. For each service that needs to be initiated, create a service NewXXXService in the corresponding directory. It it worth noting that wire dependency injection framework doesn’t support initialize two identical object. Refer to Multipal bindings for details. Q&amp;A What should be initiated using dependency injection? Anything that depends on others or provide service for others. What object should be initiated manually instead of using dependency injection? Global database connections, global configurations, etc. What should I do when doing unit testing about non-dependency injection? Initiate them every time when you writing unit testing files. Specify testing db connections. Makefile A good makefile could release the labor in typing command lines endlessly. Refer to this file for details about makefile.]]></summary></entry></feed>
+<p>大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[听Facebook前Engineer分享的感想 走在前面 在预见到一些情况可能出现的时候，很多人会想在非常前面，大概比这个事情真正会发生的时间早上1-2年。所以他们很早就开始出解决方案，这个方案对于我们来说可能是抄的，觉得好像他们一下子就出了一个非常成熟的方案，但实际上内部的人，在空闲时间想了非常多的解决方案。例如signal loss这个东西，早在两年前苹果开始又这个迹象要限制的时候，他们就已经在想一些可能的解决方案了。内部非常卷，实验了很多方法，最后才定下来PET的方案，最开始甚至还做过类似于拟合缺失信息的方案，所以看来任何一个东西都不是一蹴而就的，而是内部实验了很多东西并且验证可行性才搞出来的。他提到了engineering文化，大概就是技术人员会想更多，虽然我们可能没有这种文化，但是应该让自己保持警惕。 关于研究 聊天的时候发现有一个做了很久差分隐私的博士在会议里，以前也是在Facebook给为公司产出有隐私保护情况下的解决方案的。很显然，差分隐私根据我自己的knowledge来说更多是一个数学背景很强的问题，所以必然需要更加高级的人来产出这种问题的解决方案。看来做一个方向和不做一个方向在信息缺失的情况下就非常难以判断，我以为安全问题很难为公司带来产出，但是没想到这个竟然是能解决公司痛点的一个专业方向，并且FB和Google竟然还为此展开了军备竞赛，这真的让我难以想象。安全研究，区块链，到底哪些东西才是未来的出路，现在还是需要仔细思考，不断获取到更多的信息，和更多的人聊天。 后续动作 大哥好像希望搞一个proposal在内部寻求一些机会，赶紧加入他，感觉是个非常大佬。不过他的这些概念和理念在字节还没有被验证，还要先看他的proposal能不能通过。我们自己有的优势点在于安全上面的一些研究，可以通过这些证明自己的能力。]]></summary></entry></feed>

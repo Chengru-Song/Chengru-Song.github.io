@@ -280,6 +280,65 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/archi/interview/2021/12/07/service-mesh.html"><h2 itemprop="headline" class="item__header">Service mesh详解</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Definition
+
+Service Mesh是一个可配置的、低时延的架构层应用，主要应用在微服务框架中，用来处理内部微服务的海量数据通信的一种主要基于应用层API编写的框架。整体可以参考下图：
+
+
+
+我们从用户发起请求到请求被返回的流程对service mesh负责的各个功能和模块进行拆解。
+
+
+  Container Orchestration Framework
+这是一个系统引擎，当外部请求进入到系统内部时，首先访问到整个Framework，这个Framework能够对微服务框架的所有功能模块进行全局和局部的配置以及管理，并在这个基础上提供不同粒度的功能，例如维护服务发现表，进行内部网负载均衡等。
+  Load Balancing
+当有大量流量进入到系统内部时，该功能模块从tr...</div><p><a href="/work/archi/interview/2021/12/07/service-mesh.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-service-mesh">301-work-service-mesh</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-service-mesh,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/golang/2021/12/07/golang-goroutine-return-value.html"><h2 itemprop="headline" class="item__header">Goroutine截获输出和错误</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Goroutine获取输出
+通过chan获取到输出。
+参考这个程序代码:
+https://github.com/Chengru-Song/algo_practice/blob/master/conc/conc.go
+
+func ConcPattern() {
+	ch1 := make(chan int)
+	ch2 := make(chan int)
+
+	// var wg sync.WaitGroup
+	// wg.Add(1)
+	// wg.Wait()
+
+	go func(ch chan int) {
+		time.Sleep(time.Second * 1)
+		ch &lt;- 1
+	}(ch1)
+
+	go func(ch chan int) {
+		// defer wg.D...</div><p><a href="/work/golang/2021/12/07/golang-goroutine-return-value.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-golang">301-work-golang</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-golang,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/work/golang/2021/12/07/golang-async-map.html"><h2 itemprop="headline" class="item__header">Golang Map并发编程</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Golang Map并发读写
 
@@ -519,60 +578,8 @@ Key word: Encoding
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月06日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-06T00:00:00+08:00">
     <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2021/12/06/esmm.html"><h2 itemprop="headline" class="item__header">ESMM CVR预测详解</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">ESMM
-
-Advantage: Combine two nn together with by a dot product finally.
-Key word: DNN
-Usage: Predict CVR and CTR
-
-Predicting post-click conversion rate is the problem they try to solve.
-
-Why the Problem Is Difficult
-
-Current method has two problems, one is illustrated as the following.
-
-
-  
-    Sample selection bias problem means that the traini...</div><p><a href="/ai/ai_algorithms/2021/12/06/esmm.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月06日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-06T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2021/12/05/wide_&_deep.html"><h2 itemprop="headline" class="item__header">Wide&Deep Item-based content retrieval(基于内容的协同过滤)</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Wide&amp;Deep
-
-Advantage: 记忆和泛化能力的高度结合。
-Key word: DNN, Generalization, Regressor
-Usage: 用于推荐，结合线性模型的记忆能力，和不需要做出很好的特征工程就能拥有强大泛化能力的DNN模型，来达到更加精准的预测效果
-
-Motivation
-
-Categorial data using one-hot encoding representation could memorize a feature pair that correlates with the target label. But this requires feature engineering.
-
-DNNs could learn low-di...</div><p><a href="/ai/ai_algorithms/2021/12/05/wide_&_deep.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月05日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-05T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 51 篇文章，7 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 53 篇文章，7 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page4">
             <i class="fas fa-angle-left"></i>

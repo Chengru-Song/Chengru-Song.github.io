@@ -303,6 +303,88 @@
 <div class="layout--articles">
 <div class="article-list items items--divided">
 <article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2021/11/21/term-vector.html"><h2 itemprop="headline" class="item__header">Term-Vector含义</h2></a></header>
+          <div class="item__description">
+<div class="article__content" itemprop="description articleBody">Term-vector
+
+It means that each word forms a separate dimension:
+
+For a model containing only three words you would get:
+
+dict = { dog, cat, lion }
+
+Document 1
+“cat cat” → (0,2,0)
+
+Document 2
+“cat cat cat” → (0,3,0)
+
+Document 3
+“lion cat” → (0,1,1)
+
+Document 4
+“cat lion” → (0,1,1)</div>
+<p><a href="/ai/ai_basics/2021/11/21/term-vector.html">阅读更多</a></p>
+</div>
+<div class="article__info clearfix">
+<ul class="left-col menu">
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li>
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li>
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li>
+</ul>
+<ul class="right-col menu"><li>
+<i class="far fa-calendar-alt"></i> <span>2021年 11月21日</span>
+            </li></ul>
+</div>
+<meta itemprop="author" content="Chengru Song">
+<meta itemprop="datePublished" content="2021-11-21T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview">
+</div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2021/11/20/softmax.html"><h2 itemprop="headline" class="item__header">【ML】Softmax函数</h2></a></header>
+          <div class="item__description">
+<div class="article__content" itemprop="description articleBody">Softmax
+
+Advantage: Map the original output vector to a space of [0,1]
+Key word: Activation Function
+Usage: Normalize the output of a network to a probability distribution over predicted output classes.  Used in multiclass classification problems.
+
+
+  Form
+
+
+\[\begin{equation}
+P(y=j|x) = \frac{e^{x^Tw_j}}{\sum^K_{k=1}e^{x^Tw_k}}
+\end{equation}\]...</div>
+<p><a href="/ai/ai_basics/2021/11/20/softmax.html">阅读更多</a></p>
+</div>
+<div class="article__info clearfix">
+<ul class="left-col menu">
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li>
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li>
+<li>
+              <a class="button button--secondary button--pill button--sm" href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li>
+</ul>
+<ul class="right-col menu"><li>
+<i class="far fa-calendar-alt"></i> <span>2021年 11月20日</span>
+            </li></ul>
+</div>
+<meta itemprop="author" content="Chengru Song">
+<meta itemprop="datePublished" content="2021-11-20T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview">
+</div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ads/2021/11/19/Recommend.html"><h2 itemprop="headline" class="item__header">【Ads】Recommendation System Overview(推荐系统详解)</h2></a></header>
           <div class="item__description">
 <div class="article__content" itemprop="description articleBody">Recommendation Algorithms
@@ -397,7 +479,7 @@ You may want to config the site or writing a post next. Please feel free to crea
 </div>
 </div>
 <div class="layout--home"><div class="pagination">
-<p>共计 51 篇文章，7 页。</p>
+<p>共计 53 篇文章，7 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap">
 <li><a class="button button--secondary button--circle" href="/page6">
