@@ -49,7 +49,7 @@ typora-root-url: ../../../blog
 日常任务较为琐碎，考虑用以下方法进行优化，参考文章[《让事情都井井有条的GTD工作流》]([让事情都井井有条的GTD工作流 - 简书 (jianshu.com)](https://www.jianshu.com/p/e6a896ca6293))。
 <img src="/assets/images/2022-08-24-14-05-42.png" alt="Image" style="zoom:50%;" />
 
-1. 苹果日历自带提醒功能，而且可以提前5分钟提醒，对必须要参加的会议或者重要事件设置提前提醒时间<img src="/assets/images/image-20220824170622491.png" alt="image-20220824170622491" style="zoom:50%;" />
+1. 苹果日历自带提醒功能，而且可以提前5分钟提醒，对必须要参加的会议或者重要事件设置提前提醒时间<img src="/assets/images/image-20220825000256185.png" alt="image-20220825000256185" style="zoom:50%;" />
 
 2. 对于剩余时间进行切割，划分成不同的专注时长。让自己尽量在这个时间内更专注于某一件事情
 3. 利用印象笔记完成GTD工作流的整理。
