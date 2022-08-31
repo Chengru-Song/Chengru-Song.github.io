@@ -280,6 +280,46 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/golang/2021/12/17/golang-slice.html"><h2 itemprop="headline" class="item__header">Golang Slice解析</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Golang Slice解析
+
+slice实现
+
+Slice是Golang提供的数据结构，slice的底层实现是这样的：
+
+// Definition of slice
+type slice struct {
+    array unsafe.Pointer // Pointer to underlying data array
+    len int // slice length
+    cap int // max array size
+}
+
+
+slice更新操作
+
+由于slice传递至函数的是引用，所以作为函数参数传入到函数体内，对slice进行改变是会影响最终结果的。例如下面的例子：
+
+func changeArr(arr []int) {
+  arr[0] = 1
+}
+
+s...</div><p><a href="/work/golang/2021/12/17/golang-slice.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-golang">301-work-golang</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月17日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-17T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-golang,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/2021/12/17/golang-map-underlying.html"><h2 itemprop="headline" class="item__header">Golang Map Underlying</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody"></div><p><a href="/2021/12/17/golang-map-underlying.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月17日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-17T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/work/interview/ads/2021/12/10/ads-system.html"><h2 itemprop="headline" class="item__header">广告系统基础知识</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">广告系统
 
@@ -455,63 +495,8 @@ For...</div><p><a href="/ai/ai_basics/2021/12/07/item2vec.html">阅读更多</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
     <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2021/12/07/WAMPE.html"><h2 itemprop="headline" class="item__header">WMAPE详解</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">WMAPE
-
-Advantage: The advantage of this metric over MAPE is that this overcomes the ‘infinite error’ issue.
-Key word: Evaluation
-Usage: A measure of prediction accuracy of a forecasting method.
-
-WMAPE: weighted mean absolute percentage error’
-
-A measure of prediction accuracy of a forecasting method.
-
-\[\begin{equation}
-WMAPE = \frac{\sum^n_{t=1...</div><p><a href="/ai/ai_basics/2021/12/07/WAMPE.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2021/12/07/LSTM-CNN.html"><h2 itemprop="headline" class="item__header">LSTM+CNN详解</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">LSTM + CNN
-
-Introduction
-
-
-
-Solution
-
-
-
-Why sigmoid?
-
-Sigmoid function is 0 - 1 layout, it could be used to remember or forget something.
-
-Why tanh
-
-We want to avoid vanishing gradient problem. The second derivative of tanh is mo</div><p><a href="/ai/ai_algorithms/2021/12/07/LSTM-CNN.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 55 篇文章，7 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 57 篇文章，8 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page4">
             <i class="fas fa-angle-left"></i>
@@ -523,8 +508,8 @@ We want to avoid vanishing gradient problem. The second derivative of tanh is mo
               <div class="button button--primary button--circle focus"><span>5</span></div>
             </li><li>
                   <a class="button button--secondary button--circle" href="/page6"><span>6</span></a>
-                </li><li>
-                  <a class="button button--secondary button--circle" href="/page7"><span>7</span></a>
+                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
+                  <a class="button button--secondary button--circle" href="/page8"><span>8</span></a>
                 </li><li><a class="button button--secondary button--circle" href="/page6">
             <i class="fas fa-angle-right"></i>
           </a></li></ul>
