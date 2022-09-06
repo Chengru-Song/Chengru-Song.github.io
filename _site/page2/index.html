@@ -280,6 +280,21 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/web3/2022/07/14/web3-learning.html"><h2 itemprop="headline" class="item__header">Web3 Learning</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Web3 Learning Goals</div><p><a href="/work/web3/2022/07/14/web3-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 07月14日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-07-14T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/pandas/basics/2022/07/01/pandas-usage.html"><h2 itemprop="headline" class="item__header">【Basic】Python Pandas</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Pandas Operations</div><p><a href="/work/pandas/basics/2022/07/01/pandas-usage.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 07月01日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-07-01T11:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/work/es/basics/2022/07/01/elastic-search.html"><h2 itemprop="headline" class="item__header">【Basic】 Elastic Search</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">[ES] Query
 
@@ -404,59 +419,8 @@ Concepts
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月11日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-11T11:23:14+08:00">
     <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/golang/2022/03/08/makefile.html"><h2 itemprop="headline" class="item__header">【Basic】 Makefile Basics</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Example Makefile
-
-.PHONY: generate update_submodule server rpc mock build run clean build_run
-
-fetch:
-	go get -u github.com/google/wire
-	go get -u github.com/golang/mock/gomock
-	go get -u github.com/smartystreets/goconvey/convey
-
-generate: update_submodule server rpc mock
-
-update_submodule:
-ifeq ($(wildcard idl/.*),)
-	git submodule init
-endif
-	g...</div><p><a href="/work/golang/2022/03/08/makefile.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月08日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-08T12:40:40+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/golang/2022/03/07/golang-rpc-service-structure.html"><h2 itemprop="headline" class="item__header">【Best Practice】 Golang Microservice Structure</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Code Structure
-
-.
-├── Makefile          
-├── README.md
-├── app // 依赖注入
-│   ├── container.go // 依赖注入容器
-│   ├── wire.go      // wire 依赖声明
-│   └── wire_gen.go  // wire 自动生成代码
-├── build.sh         
-├── conf // 项目配置               
-│   ├── db.conf     // db配置
-│   ├── db_boe.conf // boe db配置
-│   └── kitex.yml   // server配置         
-├── consts // 公用常量定义...</div><p><a href="/work/golang/2022/03/07/golang-rpc-service-structure.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 03月07日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-03-07T10:40:40+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 57 篇文章，8 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 59 篇文章，8 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>
