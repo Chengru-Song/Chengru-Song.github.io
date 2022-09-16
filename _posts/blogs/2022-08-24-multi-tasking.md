@@ -13,6 +13,14 @@ typora-root-url: ../../../blog
 
 # Multi-tasking
 
+**Update on 8th Sep**: 
+
+发现最困，自制力最差的时间是下午的4-7点，通常在这个时间会犯困，吃零食，难以控制自己，且疲惫。
+
+**如何解决**
+
+
+
 ## What happened
 
 发现自己最近经常在multi-tasking，需要context switch，带来两个问题
