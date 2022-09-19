@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Knowledge】Deep Learning Argot
+title: 【AI】Deep Learning Argot
 aside:
   toc: true
 key: work_knowledge_archi&concept

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Goroutine截获输出和错误
+title: 【Golang】Goroutine截获输出和错误
 sidebar:
   nav: BASICS
 aside:

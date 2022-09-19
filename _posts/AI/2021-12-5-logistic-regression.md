@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Logistic Regression详解
+title: 【AI】Logistic Regression详解
 sidebar:
   nav: AI
 aside:

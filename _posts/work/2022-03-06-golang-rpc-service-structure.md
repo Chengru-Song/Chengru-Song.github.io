@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Best Practice】 Golang Microservice Structure
+title: 【Golang】 Golang Microservice Structure
 aside:
   toc: true
 key: golang_ms_structure

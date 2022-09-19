@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【工作】数据库基础知识
+title: 【Big-Data】数据库基础知识
 key: database_sql
 tags:
 - 301-work-database
@@ -165,7 +165,7 @@ Redis: <https://blog.csdn.net/ThinkWon/article/details/103522351>
     Ref: <https://www.w3schools.com/sql/sql_join_inner.asp>
 
 2. Left Join
-    
+   
     The `LEFT JOIN` keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
 
     Grammer:

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Cross Entropy Loss详解
+title: 【AI】Cross Entropy Loss详解
 sidebar:
   nav: AI
 aside:

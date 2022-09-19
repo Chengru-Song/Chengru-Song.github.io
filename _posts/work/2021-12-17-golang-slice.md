@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Golang Slice解析
+title: 【Golang】Golang Slice解析
 sidebar:
   nav: BASICS
 aside:

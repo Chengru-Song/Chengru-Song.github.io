@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Ads】Recommendation System Overview(推荐系统详解)
+title: 【Ad】Recommendation System Overview(推荐系统详解)
 aside:
   toc: true
 key: recommend
@@ -29,15 +29,15 @@ Usage: Recommendation Systems
 
 1. 相似度计算方法
     1. 余弦相似度，Cosine similarity
-    给定两个向量$A,B$，余弦相似性有点积和向量长度给出
+       给定两个向量$A,B$，余弦相似性有点积和向量长度给出
     
-        
+       
         $$\begin{equation}
         \text{similarity} = \cos(\theta) = \frac{A^\top \cdot B}{\parallel A \parallel \times \parallel B \parallel}
         \end{equation}$$
-        
+       
         Code:
-        
+       
         ```python
         def cosSimi():
             rg = np.random.default_rng(1)
@@ -46,16 +46,16 @@ Usage: Recommendation Systems
             cosSim = np.dot(a, b) / (nl.norm(a) * nl.norm(b))
             print(cosSim)
         ```
-        
+       
     2. 杰卡德相似度，Jaccard Similarity
-    给定两个集合$A, B$，定义为
-        
+       给定两个集合$A, B$，定义为
+       
         $$\begin{equation}\text{J(A, B)} = \frac{| A \bigcap B |}{ | A \bigcup B |} = \frac{|A\bigcap B|}{|A+B| - |A\bigcup B|}\end{equation}$$
-        
+       
         经常用户one-hot向量的相似度计算。
-        
+       
         code：
-        
+       
         ```python
         def jaccardSimi():
           a = np.random.randint(0, 2, 15)
@@ -65,11 +65,11 @@ Usage: Recommendation Systems
           union = np.logical_or(a, b)
           return intersection.sum() / float(union.sum())
         ```
-        
+       
 
 1. 利用相似度进行评分
     1. 相似度评分
-        
+       
         $$\begin{equation}
         r(u, i) = \sum_{v \in S(u) \bigcap N(i)} w_{uv} r_{vi}
         \end{equation}$$
@@ -86,7 +86,7 @@ Usage: Recommendation Systems
 - 根据相似度计算用户评分
 
 1. 物品相似度计算公式
-    
+   
     $$\begin{equation}
     w_{ij} = \frac{| N(i) \bigcap N(j) |}{|N(i)|}
     \end{equation}$$

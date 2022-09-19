@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Basic】Scala
+title: 【Big-Data】Scala
 aside:
   toc: true
 key: scala_basics

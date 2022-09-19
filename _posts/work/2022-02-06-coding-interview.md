@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【面试】Coding Interview
+title: 【Algo】Coding Interview
 aside:
   toc: true
 key: coding_interview

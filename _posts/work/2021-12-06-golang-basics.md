@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Golang语言基础（面经）
+title: 【Golang】Golang语言基础（面经）
 sidebar:
   nav: BASICS
 aside:

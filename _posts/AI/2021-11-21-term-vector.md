@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Term-Vector含义
+title: 【AI】Term-Vector含义
 sidebar:
   nav: AI
 aside:

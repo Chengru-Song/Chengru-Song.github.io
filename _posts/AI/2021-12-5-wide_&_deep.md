@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Wide&Deep Item-based content retrieval(基于内容的协同过滤)
+title: 【AI】Wide&Deep Item-based content retrieval(基于内容的协同过滤)
 sidebar:
   nav: AI
 aside:

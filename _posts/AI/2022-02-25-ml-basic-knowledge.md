@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Learning】ML Basic Knowledge
+title: 【AI】ML Basic Knowledge
 sidebar:
   nav: AI
 aside:
@@ -37,5 +37,4 @@ The difference between precision and recall is that precision measures how accur
 [^1]: [Google ML Basics](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=zh_cn)
 
 [^2]: [ROC curve](https://zhuanlan.zhihu.com/p/58587448)
-    
 

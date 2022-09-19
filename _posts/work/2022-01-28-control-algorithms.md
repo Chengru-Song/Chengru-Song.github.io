@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【工作】控制算法
+title: 【AI】控制算法
 key: control_algorithm
 tags:
 - 301-work-control_algorithm

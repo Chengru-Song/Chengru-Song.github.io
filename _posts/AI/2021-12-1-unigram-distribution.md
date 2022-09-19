@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Unigram Distribution(NLP中常用)
+title: 【AI】Unigram Distribution(NLP中常用)
 sidebar:
   nav: AI
 aside:

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【Basic】 Elastic Search
+title: 【ES】 Elastic Search
 aside:
   toc: true
 key: elastic_search
