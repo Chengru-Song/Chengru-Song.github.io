@@ -19,6 +19,8 @@ typora-root-url: ../../../blog
 
 简单来说，就是想把单行映射到产出表的多行，可以使用`lateral view`。
 
+<!--more-->
+
 # How to use it
 
 使用指南：[[Hive\]Lateral View使用指南_@SmartSi的博客-CSDN博客_lateral view](https://blog.csdn.net/SunnyYoona/article/details/62894761)
