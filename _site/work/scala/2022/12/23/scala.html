@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【Big-Data】Scala - Chengru's Blog</title>
 
-<meta name="description" content="Scala BasicsLearning Materials  scala coreHow to create a maven scala projectUsing Ideaarchetypenet.alchim31.maven:scala-archetype-simple">
+<meta name="description" content="Scala BasicsLearning Materials  scala core  scala spark unit test  scala underscore explained: Scala中下划线“_”的用法小结 - 简书 (jianshu.com)How to create a maven scal...">
 <link rel="canonical" href="http://localhost:4000/work/scala/2022/12/23/scala.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -300,6 +300,8 @@
 
 <ol>
   <li><a href="https://github.com/Baeldung/scala-tutorials/tree/master/scala-core-7">scala core</a></li>
+  <li><a href="https://boringml.com/docs/platforms/spark/testing-dataframes/">scala spark unit test</a></li>
+  <li>scala underscore explained: <a href="https://www.jianshu.com/p/d271afce8c71">Scala中下划线“_”的用法小结 - 简书 (jianshu.com)</a></li>
 </ol>
 
 <h2 id="how-to-create-a-maven-scala-project">How to create a maven scala project</h2>
@@ -311,6 +313,20 @@
 <p><code class="language-plaintext highlighter-rouge">net.alchim31.maven:scala-archetype-simple</code></p>
 
 <p><img src="/assets/images/image-20221223163937001.png" alt="image-20221223163937001" /></p>
+
+<h2 id="project-dependency">Project dependency</h2>
+
+<p>Reference</p>
+
+<p><a href="https://george-jen.gitbook.io/data-science-and-apache-spark/spark-and-scala-version">spark version v.s. scala version</a></p>
+
+<blockquote>
+  <p>Any version of Spark requries a specific version Scala.  When you build an application to be written Scala, you want to make sure yourScala version is compatible with Spark version you have.</p>
+</blockquote>
+
+<p>If you change the dependencies once and the IDE does not agree with what you just did. Right click on <code class="language-plaintext highlighter-rouge">pom.xml</code> and <code class="language-plaintext highlighter-rouge">reimport</code> the whole project. It should be working just fine.</p>
+
+<p><img src="/assets/images/image-20221227151614767.png" alt="image-20221227151614767" /></p>
 </div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2022-12-23T16:18:07+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->

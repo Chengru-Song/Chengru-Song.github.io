@@ -1,10 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2022-12-26T15:55:29+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
-</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【Basics】Functional Programming</title><link href="http://localhost:4000/work/basics/2022/12/26/functional-programming.html" rel="alternate" type="text/html" title="【Basics】Functional Programming" /><published>2022-12-26T11:44:07+08:00</published><updated>2022-12-26T11:44:07+08:00</updated><id>http://localhost:4000/work/basics/2022/12/26/functional-programming</id><content type="html" xml:base="http://localhost:4000/work/basics/2022/12/26/functional-programming.html"><![CDATA[<h1 id="functional-programming">Functional Programming</h1>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Functional Programming]]></summary></entry><entry><title type="html">【Big-Data】Scala</title><link href="http://localhost:4000/work/scala/2022/12/23/scala.html" rel="alternate" type="text/html" title="【Big-Data】Scala" /><published>2022-12-23T16:18:07+08:00</published><updated>2022-12-23T16:18:07+08:00</updated><id>http://localhost:4000/work/scala/2022/12/23/scala</id><content type="html" xml:base="http://localhost:4000/work/scala/2022/12/23/scala.html"><![CDATA[<h1 id="scala-basics">Scala Basics</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-01-10T21:13:28+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【阅读】The Tyranny of Merit. 傲慢的精英</title><link href="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html" rel="alternate" type="text/html" title="【阅读】The Tyranny of Merit. 傲慢的精英" /><published>2023-01-10T13:41:58+08:00</published><updated>2023-01-10T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit</id><content type="html" xml:base="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html"><![CDATA[<h1 id="综述">综述</h1>
+
+<p>interesting，优绩至上理论竟然会带来很大的副作用，而且其中一个甚至和看起来毫不相干的信奉上帝有关。</p>
+
+<p>信奉上帝相信我们做了善行，那么上帝会根据这个善行给予我们奖赏，反之会给我们惩罚。因此当一个人极度不幸的时候，很多人甚至怀疑这个人其实做过一些不为人知的恶行，这加深了对受难者的伤害。</p>
+
+<!--more-->
+
+<p>而且这种思想极度以人为中心，上帝大部分时间都在回应人类的行为。因此，即使是在上帝面前，我们也是在争取赢得自己的命运，这又是一层优绩主义带来的伤害。</p>
+
+<p>这是美国人写的书，这本书分别讨论了在历史中优绩主义的提现和现代优绩主义的提现。在历史中，这种优绩主义在信奉善有善报恶有恶报的人中有更为明显的体现。现代略有不同，现代美国经常主张自己的“美国梦”，每个人都能通过努力实现阶级跃迁，文凭也逐渐成为了大家最后能接受的偏见，即拥有更好学历的人是通过自己的努力实现的跨越，因此他们可以接受自己成为社会的精英并享受这种文凭给自己带来的优待。虽然实际上当前已经有非常多的人在表达精英统治的不满。而很多人也表达了希望大学文凭成为一个分类机器的观点。</p>
+
+<h1 id="分类机器">分类机器</h1>
+
+<p>大学作为分类机器，赞同这个观点的人基本上都认同，不同大学教授的课程的质量本身并不具有在未来具有区分度，而进入这个大学本身，即获取大学的文凭，是具有区分度的。</p>
+
+<p>当然，作者也是非常义正言辞的阐明了以此功用的大学文凭的不公平性。考虑到真实数字就是收入来自全美前1%的家庭占据了常青藤高校超过50%的名额，如果再去考虑这里面的深层逻辑，在美国有非常多的学生是通过捐款进入学校的，还有通过运动员身份进入学校的，这些运动往往都是高尔夫，赛艇，马术等运动，这些运动本身也是平常家庭很难负担的。同时看似平等的SAT，或者中国的高考，以一个分数作为分类标准的，同样非常具有不公平性。富人家庭的孩子能够在大学前教育花费超额的金钱进行培训，甚至是残疾人认证等，来获得不同程度的录取优惠。这同时也会加剧他们的傲慢—我是学习成绩好，智商高来到了这样的地方，这与我的家庭无关。但这同时也会让他们更加不快乐，因为相比于满足自己的求知欲而言，获得更高的分数是更重要的。</p>
+
+<p>综合我看到的另一篇文章，一些具有相当高智商水平的人进入到一些无关紧要，与其本身具有的智商水平并不匹配的岗位时，我认为这有可能是有意而为之。愚民，让聪明人做无关紧要的事，让他们脱离社会，沉浸在自己的世界里，可能是统治者的手段之一。作者讨论的东西当然是很好的，公平是一个天然具有吸引力的词，它让人神往，因此公平意味着可以相信自己。但位置不同，往往看到的公平不同，一个奋斗一生并取得一定成就的人，往往不希望让自己的成就只在当代，他希望延续。这是一个根植于深处的想法，不这么想的人往往是异类。为自己的后台创造良好的生存环境，是一个我在自然界也可以看到的现象，我认为这是一种兽性，是一种原始的欲望，而克制原始的欲望是一件非常难的事情。当你有机会作为规则的制定者，但是你制定的规则，并不会为你带来丝毫的便利，我认为这并不现实。因此尽管我们知道问题的弊端在哪里，但每一个走上那个位置的人都没有做出那样的选择，即使做出了，也很难在延续下去。</p>
+
+<p>那么在这种情况下，到底什么是好的，什么是能够让社会变好的呢？</p>
+
+<h1 id="给工作以尊严">给工作以尊严</h1>
+
+<p>对于不同的工作，我们很容易，甚至于是习惯于，给其分出三六九等。社会对于不同工作是有偏见的，例如水管工、农民工等，他们的工作是没有任何尊严的。有一个解决办法是不以优秀与否来赋予一份工作尊严，而是在道德标准上看这份工作对社会的贡献。例如清洁工，他们的存在让瘟疫的蔓延更加困难，因此当我们从道德角度来评判这一份工作，是应当对其付出更多认可与尊重的。</p>
+
+<p>尽管我十分认同作者说的内容，但我想站位的不同带来了很多执行上阻力。对于能够制定政策的人来说，他们的目标真的是让社会变得更好，每个人都有过得体面的权利吗？虽然大家都声称自己执政的目标是这个，但社会资源的总量是有限的，普通人分到了更多，就意味着这些需要从富人嘴里吐出来。这一套价值观很难真的在当前社会运行，除非物质资源真的极大丰富。但这个条件也许是一个错误假设，因为总可以引导出一些稀缺而我们又看重的资源，存在于这个社会，这样我们就能付出自己非常多的东西来得到这个资源，而这个资源的稀缺性正是人为营造的，例如中国的房地产。没有了房地产可能变成了农产品，汽车，凡是可以带来垄断且必须的产业，都可以被人为弄成稀缺资源，并一茬一茬割韭菜，直到这个社会，人成了稀缺资源，再也没有为上层提供营养的新鲜血液，这时努力活下来的人们才有了资源重新分配机会。作者不喜欢说资源重新分配，因为每个人获得的不是资源，而是对社会的贡献和他人对这份贡献的认可。这种认可会更加合理的分配这些资源。</p>
+
+<h1 id="写在最后">写在最后</h1>
+
+<p>作者提出了一些很好的想法，但对于普通人而言，他们目前的最优策略仍然是想尽办法成为这个体系的优绩者，就像上一本书说的，如果你不能改变游戏规则，那最好加入一个每个人都倾向于在这个规则下正常竞争的游戏。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[综述 interesting，优绩至上理论竟然会带来很大的副作用，而且其中一个甚至和看起来毫不相干的信奉上帝有关。 信奉上帝相信我们做了善行，那么上帝会根据这个善行给予我们奖赏，反之会给我们惩罚。因此当一个人极度不幸的时候，很多人甚至怀疑这个人其实做过一些不为人知的恶行，这加深了对受难者的伤害。]]></summary></entry><entry><title type="html">【阅读】kknmd house</title><link href="http://localhost:4000/blog/read/2023/01/06/house.html" rel="alternate" type="text/html" title="【阅读】kknmd house" /><published>2023-01-06T13:41:58+08:00</published><updated>2023-01-06T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2023/01/06/house</id><content type="html" xml:base="http://localhost:4000/blog/read/2023/01/06/house.html"><![CDATA[<h1 id="kk关于房价的思考">KK关于房价的思考</h1>
+
+<p>洞见事务背后的运行逻辑，是预测未来发展的重要因素。如果希望自己有一定的预测能力，需要对以下几点进行加强</p>
+
+<ol>
+  <li>掌握足够优质的信息来源；</li>
+  <li>对经济运行有较为充足的知识储备；</li>
+  <li>对历史的发展规律及其背后的原因有足够的了解；</li>
+  <li>基于这些了解能够产出action items。</li>
+</ol>
+
+<h2 id="一些摘抄">一些摘抄</h2>
+
+<p>关于房产投资的方向，也有几点心得：供大家参考：</p>
+
+<p>一、坚决不能投资自己不熟悉的城市</p>
+
+<p>二、坚决不投资中小城市，一般省会及计划单列以上城市问题都不大，但中小城市即使房价上涨也存在变现困难问题。</p>
+
+<p>三、坚决不投资距离大城市较偏远的旅游城市，比如山东乳山之类的，几乎无法变现。</p>
+
+<p>四、慎重投资大城市的郊区，除非价格绝对低。如果外来人口比较多，zf又有发展规划，且价格与城区相比有较大的价差，才可以考虑</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[KK关于房价的思考 洞见事务背后的运行逻辑，是预测未来发展的重要因素。如果希望自己有一定的预测能力，需要对以下几点进行加强 掌握足够优质的信息来源； 对经济运行有较为充足的知识储备； 对历史的发展规律及其背后的原因有足够的了解； 基于这些了解能够产出action items。 一些摘抄 关于房产投资的方向，也有几点心得：供大家参考： 一、坚决不能投资自己不熟悉的城市 二、坚决不投资中小城市，一般省会及计划单列以上城市问题都不大，但中小城市即使房价上涨也存在变现困难问题。 三、坚决不投资距离大城市较偏远的旅游城市，比如山东乳山之类的，几乎无法变现。 四、慎重投资大城市的郊区，除非价格绝对低。如果外来人口比较多，zf又有发展规划，且价格与城区相比有较大的价差，才可以考虑]]></summary></entry><entry><title type="html">【Basics】Graphx</title><link href="http://localhost:4000/work/basics/2023/01/04/graphx.html" rel="alternate" type="text/html" title="【Basics】Graphx" /><published>2023-01-04T11:44:07+08:00</published><updated>2023-01-04T11:44:07+08:00</updated><id>http://localhost:4000/work/basics/2023/01/04/graphx</id><content type="html" xml:base="http://localhost:4000/work/basics/2023/01/04/graphx.html"><![CDATA[<h1 id="reference">Reference</h1>
+
+<ol>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Graphx pregel code example: [Processing Hierarchical Data using Spark Graphx Pregel API</td>
+          <td>Qubole](https://www.qubole.com/blog/processing-hierarchical-data-using-spark-graphx-pregel-api)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>graphx official pregel api: <a href="https://spark.apache.org/docs/latest/graphx-programming-guide.html#pregel-api">GraphX - Spark 3.3.1 Documentation (apache.org)</a></li>
+  <li></li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Reference Graphx pregel code example: [Processing Hierarchical Data using Spark Graphx Pregel API Qubole](https://www.qubole.com/blog/processing-hierarchical-data-using-spark-graphx-pregel-api) graphx official pregel api: GraphX - Spark 3.3.1 Documentation (apache.org)]]></summary></entry><entry><title type="html">【阅读】Algorithms to Live By</title><link href="http://localhost:4000/blog/read/2022/12/31/algorithms-to-live-by.md.html" rel="alternate" type="text/html" title="【阅读】Algorithms to Live By" /><published>2022-12-31T13:41:58+08:00</published><updated>2022-12-31T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2022/12/31/algorithms-to-live-by.md</id><content type="html" xml:base="http://localhost:4000/blog/read/2022/12/31/algorithms-to-live-by.md.html"><![CDATA[<h1 id="algorithms-to-live-by">Algorithms to live by</h1>
+
+<p>我觉得很多人应该更熟悉这本书的中文译名，算法之美。看到了微信读书上对于这个译名的评价：为了追求所谓的“信达雅”而没有正确翻译出题目想表达的主题，乍一看还以为是讲算法的，实际上是讲算法在日常生活中的应用的。并且后半部分的翻译好像是为了赶工，看上去并没有针对中国人的表达习惯进行优化，非常像是机翻的，这就导致了后面几章的内容读起来比较晦涩。因此为了避免这个情况，我直接选择读原版的英文版。这反而对于我比较友好，因为上学学算法的时候就是英文教材，很多argot是可以直接代入和理解的，比阅读中文版更能让我理解作者表达的原意。</p>
+
+<p>Regardless of that，这本书讲的还是非常好的。通过算法引申到哪些现实问题其实是这个算法的真实映射，而如果算法本身能够提供解决问题的最优解，那么我们同样可以把这个策略用到我们的生活当中。</p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>This book is all about introducing how you can apply algorithms to your daily life decisions to make your life easier.</p>
+
+<h2 id="optimal-stopping">Optimal stopping</h2>
+
+<p>“the optimal solution takes the form of what we’ll call the <strong>Look-Then-Leap Rule:</strong> You set a predetermined amount of time for “looking”—that is, exploring your options, gathering data—in which you categorically don’t choose anyone, no matter how impressive. After that point, you enter the “leap” phase, prepared to instantly commit to anyone who outshines the best applicant you saw in the look phase.”</p>
+
+<p><img src="/assets/images/image-20230107160653033.png" alt="image-20230107160653033" /></p>
+
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/121ad852-5f33-4902-906d-8fd544e34380/8E109C18-FA7C-4FE3-A717-CCE2B943AEA8.png" alt="8E109C18-FA7C-4FE3-A717-CCE2B943AEA8.png" /></p>
+
+<p>This principle applies to any situation where you get a series of offers and pay a cost to seek or wait for the next.</p>
+
+<h2 id="exploreexploit">Explore/exploit</h2>
+
+<p>A situation where you don’t know which restaurant to go to, the existing known good or undiscovered ones.</p>
+
+<p>一个简单的策略</p>
+
+<p><strong>Win-Stay, Lose-Shift algorithm</strong>: choose an arm at random, and keep pulling it as long as it keeps paying off. If the arm doesn’t pay off after a particular pull, then switch to the other one. Although this simple strategy is far from a complete solution, Robbins proved in 1952 that it performs reliably better than chance.</p>
+
+<h2 id="the-gittins-index">The Gittins index</h2>
+
+<p>假设每次探索成功后，得到结果满意程度是上次的90%。那么就会有下面这张表。</p>
+
+<p><img src="/assets/images/image-20230107160711255.png" alt="image-20230107160711255" /></p>
+
+<h2 id="cache">cache</h2>
+
+<p>Cache在生活中会有一些可以优化工作流的场景，比如电脑桌面程序和网页，保留哪些，关掉哪些。哪些是可以保存在收藏夹的，哪些是可以不在收藏夹但是可以通过两个动作打开的。</p>
+
+<p>这么看的话可以把收藏夹问题抽象成一个多级缓存问题。对于这个处理原则可以是</p>
+
+<ol>
+  <li>哪些是最经常打开的？</li>
+  <li>哪些频率略低，可以花时间寻找的？</li>
+  <li>哪些可以直接放到文档里面，用到了再去找文档的？</li>
+</ol>
+
+<p>First, when you are deciding what to keep and what to throw away, LRU is potentially a good principle to use</p>
+
+<p>“Second, exploit geography. Make sure things are in whatever cache is closest to the place where they’re typically used.”</p>
+
+<p>难以想象，其实社会对于事件的遗忘程度也是一个艾宾浩斯曲线。</p>
+
+<h2 id="scheduling">Scheduling</h2>
+
+<p><strong>基本概念</strong></p>
+
+<ol>
+  <li>DDL优先：当你的事情没有重要性排序的时候，你只需要将每一个事情按照到达次序处理，找到快要DDL的事情来做就行。</li>
+  <li>Thrashing，当你的事情有优先级排序的时候，很多事情又同时在做，就会崩溃，你发现其实一直在做context swtich，最后其实什么也没做，在外界看来，这样甚至成了拖延症。</li>
+  <li>最小时间分片。操作系统实际上有个最小分片，小于这个分片，系统除了不断做context swtich，什么计算任务也无法完成，所以这个最小时间分片是无法继续分割的，必须做完才能做另一个任务。</li>
+</ol>
+
+<p><strong>Takeaway</strong></p>
+
+<ol>
+  <li>确定自己的最小处理时间分片。在一个分片内，尽量只做一件事。“The moral is that you should try to stay on a single task as long as possible without decreasing your responsiveness below the minimum acceptable limit.”</li>
+  <li>Interrupt coalesce. 把给你的中断尽可能合并，比如统一回复邮件。</li>
+  <li>对于概念2，可以随机处理事情，而不需要一直卡着优先级排序处理，否则在计算优先级这里又需要花很多时间。</li>
+</ol>
+
+<h2 id="bayes-rule">Bayes Rule</h2>
+
+<ol>
+  <li>How to predict the probabilities if it happens only once?
+    <ol>
+      <li>“Count the number of times it has happened in the past plus one, then divide by the number of opportunities plus two. ” da</li>
+    </ol>
+  </li>
+</ol>
+
+<p>人们总是会对最近发生的事情记忆更深，因此，往往会给最近的事情加更多的权重，这会让本来有可能预测准的事情不准。因此要谨慎对待类似的事情。</p>
+
+<h2 id="overfitting">Overfitting</h2>
+
+<p>顾名思义，这章基本上就是在讲，如何能通过正则化，噪声等来避免过拟合带来的影响。</p>
+
+<p>“how early to stop depends on the gap between what you can measure and what really matters.”</p>
+
+<h2 id="relaxation">Relaxation</h2>
+
+<p>这章有个很有意思的观点，relaxation在数学里面的典型代表就是Lagrangian方法，把所有的constraints都当成优化函数的一部分，成为一个新的函数。即利用限制条件来修正优化函数，通过限制条件的最终数值，求得参数值，就能得到原函数的最优解。</p>
+
+<p>类似的事情就是在生活中，我们面对很多选择的时候会受到很多限制条件的束缚。例如必须要工资在多少以上的，工作的位置必须在什么地方，等等。但如果目标是最合适自己的工作，就可以问自己，如果所有工作的工资都一样，我会选择什么？</p>
+
+<p>实际上，在很多时候一个合适的放缩能找到的答案就是最优解了。</p>
+
+<h2 id="randomness">Randomness</h2>
+
+<p>随机，有时候是解决untractable问题的良药。比方说公私钥机制里面的大整数分解问题，本身找到一个数字是哪两个质数的乘积是一个只能穷举的算法，但是如果你可以接受一些错误率，用一些随机的方法，可以在错误率很小的情况下进行验证。</p>
+
+<h2 id="networking">Networking</h2>
+
+<p>Networking里面的慢启动和拥塞避免算法竟然可以映射到职场里！</p>
+
+<p><img src="/assets/images/image-20230107160731675.png" alt="image-20230107160731675" /></p>
+
+<p>考虑这个拥塞避免算法的本质是什么：在不知道对面capacity的情况下，怎么能快速试出来？</p>
+
+<p>在工作中，作为领导，不知道这个人上限是什么的情况下，怎么能快速试出来？</p>
+
+<p>快速指数级升职，直到他无法做好目前的工作。然后降到当前职级的一半（或者工作负载的一半）然后再线性提升。</p>
+
+<h2 id="game-theory">Game theory</h2>
+
+<p>在博弈论里，有一些假设就是每个人都是理性人，大家会做出在当前对自己局面最好的选择。</p>
+
+<p>尽管比较难以接受，即使我们现在全部都变成自动驾驶，有成熟的算法来帮我们规划，在最好的情况下，堵车只能比现在少$\frac{1}{3}$。</p>
+
+<p>在一些不行的Game里面，无论一个人怎么努力，最好的结局是也只是到达一个这个游戏的均衡点。作者用了黑五商店开门举了例子，以往黑五商场开门时间都是早晨8点。但是突然商场A说自己改成凌晨0点开门，对于其他商场来说，必须也在0点开门，这样才能保证销量。因此所有的商场都在0点开门，而谁也没有多挣到钱。这就是一个bad Game。</p>
+
+<p>因此给我们的启示是</p>
+
+<p>“If changing strategies doesn’t help, you can try to change the game. And if that’s not possible, you can at least exercise some control about which games you choose to play. The road to hell is paved with intractable recursions, bad equilibria, and information cascades. Seek out games where honesty is the dominant strategy. Then just be yourself.”</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[Algorithms to live by 我觉得很多人应该更熟悉这本书的中文译名，算法之美。看到了微信读书上对于这个译名的评价：为了追求所谓的“信达雅”而没有正确翻译出题目想表达的主题，乍一看还以为是讲算法的，实际上是讲算法在日常生活中的应用的。并且后半部分的翻译好像是为了赶工，看上去并没有针对中国人的表达习惯进行优化，非常像是机翻的，这就导致了后面几章的内容读起来比较晦涩。因此为了避免这个情况，我直接选择读原版的英文版。这反而对于我比较友好，因为上学学算法的时候就是英文教材，很多argot是可以直接代入和理解的，比阅读中文版更能让我理解作者表达的原意。 Regardless of that，这本书讲的还是非常好的。通过算法引申到哪些现实问题其实是这个算法的真实映射，而如果算法本身能够提供解决问题的最优解，那么我们同样可以把这个策略用到我们的生活当中。 Abstract This book is all about introducing how you can apply algorithms to your daily life decisions to make your life easier. Optimal stopping “the optimal solution takes the form of what we’ll call the Look-Then-Leap Rule: You set a predetermined amount of time for “looking”—that is, exploring your options, gathering data—in which you categorically don’t choose anyone, no matter how impressive. After that point, you enter the “leap” phase, prepared to instantly commit to anyone who outshines the best applicant you saw in the look phase.” This principle applies to any situation where you get a series of offers and pay a cost to seek or wait for the next. Explore/exploit A situation where you don’t know which restaurant to go to, the existing known good or undiscovered ones. 一个简单的策略 Win-Stay, Lose-Shift algorithm: choose an arm at random, and keep pulling it as long as it keeps paying off. If the arm doesn’t pay off after a particular pull, then switch to the other one. Although this simple strategy is far from a complete solution, Robbins proved in 1952 that it performs reliably better than chance. The Gittins index 假设每次探索成功后，得到结果满意程度是上次的90%。那么就会有下面这张表。 cache Cache在生活中会有一些可以优化工作流的场景，比如电脑桌面程序和网页，保留哪些，关掉哪些。哪些是可以保存在收藏夹的，哪些是可以不在收藏夹但是可以通过两个动作打开的。 这么看的话可以把收藏夹问题抽象成一个多级缓存问题。对于这个处理原则可以是 哪些是最经常打开的？ 哪些频率略低，可以花时间寻找的？ 哪些可以直接放到文档里面，用到了再去找文档的？ First, when you are deciding what to keep and what to throw away, LRU is potentially a good principle to use “Second, exploit geography. Make sure things are in whatever cache is closest to the place where they’re typically used.” 难以想象，其实社会对于事件的遗忘程度也是一个艾宾浩斯曲线。 Scheduling 基本概念 DDL优先：当你的事情没有重要性排序的时候，你只需要将每一个事情按照到达次序处理，找到快要DDL的事情来做就行。 Thrashing，当你的事情有优先级排序的时候，很多事情又同时在做，就会崩溃，你发现其实一直在做context swtich，最后其实什么也没做，在外界看来，这样甚至成了拖延症。 最小时间分片。操作系统实际上有个最小分片，小于这个分片，系统除了不断做context swtich，什么计算任务也无法完成，所以这个最小时间分片是无法继续分割的，必须做完才能做另一个任务。 Takeaway 确定自己的最小处理时间分片。在一个分片内，尽量只做一件事。“The moral is that you should try to stay on a single task as long as possible without decreasing your responsiveness below the minimum acceptable limit.” Interrupt coalesce. 把给你的中断尽可能合并，比如统一回复邮件。 对于概念2，可以随机处理事情，而不需要一直卡着优先级排序处理，否则在计算优先级这里又需要花很多时间。 Bayes Rule How to predict the probabilities if it happens only once? “Count the number of times it has happened in the past plus one, then divide by the number of opportunities plus two. ” da 人们总是会对最近发生的事情记忆更深，因此，往往会给最近的事情加更多的权重，这会让本来有可能预测准的事情不准。因此要谨慎对待类似的事情。 Overfitting 顾名思义，这章基本上就是在讲，如何能通过正则化，噪声等来避免过拟合带来的影响。 “how early to stop depends on the gap between what you can measure and what really matters.” Relaxation 这章有个很有意思的观点，relaxation在数学里面的典型代表就是Lagrangian方法，把所有的constraints都当成优化函数的一部分，成为一个新的函数。即利用限制条件来修正优化函数，通过限制条件的最终数值，求得参数值，就能得到原函数的最优解。 类似的事情就是在生活中，我们面对很多选择的时候会受到很多限制条件的束缚。例如必须要工资在多少以上的，工作的位置必须在什么地方，等等。但如果目标是最合适自己的工作，就可以问自己，如果所有工作的工资都一样，我会选择什么？ 实际上，在很多时候一个合适的放缩能找到的答案就是最优解了。 Randomness 随机，有时候是解决untractable问题的良药。比方说公私钥机制里面的大整数分解问题，本身找到一个数字是哪两个质数的乘积是一个只能穷举的算法，但是如果你可以接受一些错误率，用一些随机的方法，可以在错误率很小的情况下进行验证。 Networking Networking里面的慢启动和拥塞避免算法竟然可以映射到职场里！ 考虑这个拥塞避免算法的本质是什么：在不知道对面capacity的情况下，怎么能快速试出来？ 在工作中，作为领导，不知道这个人上限是什么的情况下，怎么能快速试出来？ 快速指数级升职，直到他无法做好目前的工作。然后降到当前职级的一半（或者工作负载的一半）然后再线性提升。 Game theory 在博弈论里，有一些假设就是每个人都是理性人，大家会做出在当前对自己局面最好的选择。 尽管比较难以接受，即使我们现在全部都变成自动驾驶，有成熟的算法来帮我们规划，在最好的情况下，堵车只能比现在少$\frac{1}{3}$。 在一些不行的Game里面，无论一个人怎么努力，最好的结局是也只是到达一个这个游戏的均衡点。作者用了黑五商店开门举了例子，以往黑五商场开门时间都是早晨8点。但是突然商场A说自己改成凌晨0点开门，对于其他商场来说，必须也在0点开门，这样才能保证销量。因此所有的商场都在0点开门，而谁也没有多挣到钱。这就是一个bad Game。 因此给我们的启示是 “If changing strategies doesn’t help, you can try to change the game. And if that’s not possible, you can at least exercise some control about which games you choose to play. The road to hell is paved with intractable recursions, bad equilibria, and information cascades. Seek out games where honesty is the dominant strategy. Then just be yourself.”]]></summary></entry><entry><title type="html">【Blog】年度回顾</title><link href="http://localhost:4000/life/blog/2022/12/31/past-year-reflection.html" rel="alternate" type="text/html" title="【Blog】年度回顾" /><published>2022-12-31T11:44:07+08:00</published><updated>2022-12-31T11:44:07+08:00</updated><id>http://localhost:4000/life/blog/2022/12/31/past-year-reflection</id><content type="html" xml:base="http://localhost:4000/life/blog/2022/12/31/past-year-reflection.html"><![CDATA[]]></content><author><name>Chengru Song</name></author><category term="[&quot;life&quot;, &quot;Blog&quot;]" /><category term="301-life-blog" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">【Basics】Functional Programming</title><link href="http://localhost:4000/work/basics/2022/12/26/functional-programming.html" rel="alternate" type="text/html" title="【Basics】Functional Programming" /><published>2022-12-26T11:44:07+08:00</published><updated>2022-12-26T11:44:07+08:00</updated><id>http://localhost:4000/work/basics/2022/12/26/functional-programming</id><content type="html" xml:base="http://localhost:4000/work/basics/2022/12/26/functional-programming.html"><![CDATA[<h1 id="functional-programming">Functional Programming</h1>
+
+<p>What’s the novelty of functional programming?</p>
+
+<p><a href="https://www.zhihu.com/question/28292740/answer/40336090">什么是函数式编程思维？ - 用心阁的回答 - 知乎</a></p>
+
+<p><em>Functional Programming</em>通过建立映射的方式获取新的结果，因此是stateless的。想象成，数据流过一个个函数组成的管道，然后变成了另一个值。这是一个基本思想，实际编程的时候，就是返回新的object而不是经过改变的变量。</p>
+
+<h2 id="materials">Materials</h2>
+
+<ol>
+  <li><a href="https://github.com/hemanth/functional-programming-jargon">Functional Programming Jargon</a></li>
+  <li></li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Functional Programming What’s the novelty of functional programming? 什么是函数式编程思维？ - 用心阁的回答 - 知乎 Functional Programming通过建立映射的方式获取新的结果，因此是stateless的。想象成，数据流过一个个函数组成的管道，然后变成了另一个值。这是一个基本思想，实际编程的时候，就是返回新的object而不是经过改变的变量。 Materials Functional Programming Jargon]]></summary></entry><entry><title type="html">【Big-Data】Scala</title><link href="http://localhost:4000/work/scala/2022/12/23/scala.html" rel="alternate" type="text/html" title="【Big-Data】Scala" /><published>2022-12-23T16:18:07+08:00</published><updated>2022-12-23T16:18:07+08:00</updated><id>http://localhost:4000/work/scala/2022/12/23/scala</id><content type="html" xml:base="http://localhost:4000/work/scala/2022/12/23/scala.html"><![CDATA[<h1 id="scala-basics">Scala Basics</h1>
 
 <h2 id="learning-materials">Learning Materials</h2>
 
 <ol>
   <li><a href="https://github.com/Baeldung/scala-tutorials/tree/master/scala-core-7">scala core</a></li>
+  <li><a href="https://boringml.com/docs/platforms/spark/testing-dataframes/">scala spark unit test</a></li>
+  <li>scala underscore explained: <a href="https://www.jianshu.com/p/d271afce8c71">Scala中下划线“_”的用法小结 - 简书 (jianshu.com)</a></li>
 </ol>
 
 <h2 id="how-to-create-a-maven-scala-project">How to create a maven scala project</h2>
@@ -15,7 +218,21 @@
 
 <p><code class="language-plaintext highlighter-rouge">net.alchim31.maven:scala-archetype-simple</code></p>
 
-<p><img src="/assets/images/image-20221223163937001.png" alt="image-20221223163937001" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;scala&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Scala Basics Learning Materials scala core How to create a maven scala project Using Idea archetype net.alchim31.maven:scala-archetype-simple]]></summary></entry><entry><title type="html">【Basics】Git Rebase</title><link href="http://localhost:4000/work/git/2022/12/01/git-rebase.html" rel="alternate" type="text/html" title="【Basics】Git Rebase" /><published>2022-12-01T09:18:07+08:00</published><updated>2022-12-01T09:18:07+08:00</updated><id>http://localhost:4000/work/git/2022/12/01/git-rebase</id><content type="html" xml:base="http://localhost:4000/work/git/2022/12/01/git-rebase.html"><![CDATA[<h1 id="git-rebase">Git rebase</h1>
+<p><img src="/assets/images/image-20221223163937001.png" alt="image-20221223163937001" /></p>
+
+<h2 id="project-dependency">Project dependency</h2>
+
+<p>Reference</p>
+
+<p><a href="https://george-jen.gitbook.io/data-science-and-apache-spark/spark-and-scala-version">spark version v.s. scala version</a></p>
+
+<blockquote>
+  <p>Any version of Spark requries a specific version Scala.  When you build an application to be written Scala, you want to make sure yourScala version is compatible with Spark version you have.</p>
+</blockquote>
+
+<p>If you change the dependencies once and the IDE does not agree with what you just did. Right click on <code class="language-plaintext highlighter-rouge">pom.xml</code> and <code class="language-plaintext highlighter-rouge">reimport</code> the whole project. It should be working just fine.</p>
+
+<p><img src="/assets/images/image-20221227151614767.png" alt="image-20221227151614767" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;scala&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Scala Basics Learning Materials scala core scala spark unit test scala underscore explained: Scala中下划线“_”的用法小结 - 简书 (jianshu.com) How to create a maven scala project Using Idea archetype net.alchim31.maven:scala-archetype-simple Project dependency Reference spark version v.s. scala version Any version of Spark requries a specific version Scala. When you build an application to be written Scala, you want to make sure yourScala version is compatible with Spark version you have. If you change the dependencies once and the IDE does not agree with what you just did. Right click on pom.xml and reimport the whole project. It should be working just fine.]]></summary></entry><entry><title type="html">【Basics】Git Rebase</title><link href="http://localhost:4000/work/git/2022/12/01/git-rebase.html" rel="alternate" type="text/html" title="【Basics】Git Rebase" /><published>2022-12-01T09:18:07+08:00</published><updated>2022-12-01T09:18:07+08:00</updated><id>http://localhost:4000/work/git/2022/12/01/git-rebase</id><content type="html" xml:base="http://localhost:4000/work/git/2022/12/01/git-rebase.html"><![CDATA[<h1 id="git-rebase">Git rebase</h1>
 
 <h2 id="when-to-use">When to use</h2>
 
@@ -31,78 +248,7 @@
 
 <p>When you merge a branch, step 3 will actually look like this:</p>
 
-<p><img src="https://resources.jetbrains.com/help/img/idea/2022.2/merge_result_diagram.png" alt="merge result" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;git&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Git rebase When to use If you want to have a clean git commits history. If six features are being developed in parallel, they starts from different time and they launch in different times. When you need to roll back some features, you will discover that you have diverged from the main so much. What is git rebase When you merge a branch, step 3 will actually look like this:]]></summary></entry><entry><title type="html">【Big-Data】Flink开发总结</title><link href="http://localhost:4000/work/java/2022/10/24/big-data-flink.html" rel="alternate" type="text/html" title="【Big-Data】Flink开发总结" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/java/2022/10/24/big-data-flink</id><content type="html" xml:base="http://localhost:4000/work/java/2022/10/24/big-data-flink.html"><![CDATA[<h1 id="flink开发java版">Flink开发（Java版）</h1>
-
-<h2 id="11-data-conversion">1.1 Data Conversion</h2>
-
-<p>Reference: <a href="https://blog.csdn.net/lxhandlbb/article/details/83304153">Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客</a></p>
-
-<h3 id="111-imports">1.1.1 Imports</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.flink.streaming.api.scala.</span>
-<span class="kn">import</span> <span class="nn">org.apache.flink.table.api.scala._</span>
-<span class="kn">import</span> <span class="nn">org.apache.flink.api.scala._</span>
-<span class="kn">import</span> <span class="nn">scala.collection.JavaConverters._</span>
-</code></pre></div></div>
-
-<h3 id="112-register-datastream-of-dataset-as-table">1.1.2 Register Datastream of DataSet as Table</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get TableEnvironment</span>
-<span class="c1">// registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=...</span>
-<span class="c1">//register the Datastream as Table "myTable"with fields "fo","f1"</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDataStream</span><span class="o">(</span><span class="s">"myTable"</span><span class="o">,</span><span class="n">stream</span><span class="o">)</span>
-<span class="c1">//register the Datastream as table "myTable2"with fields "myLong","mystring"</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDatastream</span><span class="o">(</span><span class="s">"myTable2"</span><span class="o">,</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="err">'</span><span class="o">,</span><span class="n">myString</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="113-convert-a-datastream-or-dataset-into-a-table">1.1.3 Convert a DataStream or Dataset into a Table</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=..</span>
-<span class="c1">//convert the Datastream into a Table with default fields '_1,'_2</span>
-<span class="n">val</span> <span class="nl">table1:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDatastream</span><span class="o">(</span><span class="n">stream</span><span class="o">)</span>
-<span class="c1">//convert the Datastream into a Table with fields 'myLong,'myString</span>
-<span class="n">val</span> <span class="nl">table2:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDataStream</span><span class="o">(</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="o">,</span><span class="err">'</span><span class="n">myString</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="114-convert-a-table-into-a-datastream">1.1.4 Convert a table into a DataStream</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment.</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="c1">//Table with two fields (String name,Integer age)</span>
-<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
-<span class="c1">//convert the Table into an append Datastream of Row</span>
-<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into an append Datastream of Tuple2[String,Int]</span>
-<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataStream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]</span><span class="n">dsTuple</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendstream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into a retract Datastream of Row.</span>
-<span class="o">/</span><span class="mi">1</span>
-<span class="c1">//A retract stream of type X is a Datastream[(Boolean,X)].</span>
-<span class="c1">//</span>
-<span class="c1">//The boolean field indicates the type of the change.</span>
-<span class="c1">//</span>
-<span class="c1">//True is INSERT,false is DELETE.</span>
-<span class="n">val</span> <span class="nl">retractstream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Boolean</span><span class="o">,</span><span class="nc">Row</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toRetractstream</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="115-convert-table-into-a-dataset">1.1.5 Convert table into a DataSet</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="o">=</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="c1">//Table with two fields (String name,Integer age)</span>
-<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
-<span class="c1">//convert the Table into a DataSet of Row</span>
-<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataSet</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span> <span class="o">=</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into a DataSet of Tuple2[String,Int]</span>
-<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
-</code></pre></div></div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;java&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Flink开发（Java版） 1.1 Data Conversion Reference: Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客 1.1.1 Imports import org.apache.flink.streaming.api.scala. import org.apache.flink.table.api.scala._ import org.apache.flink.api.scala._ import scala.collection.JavaConverters._ 1.1.2 Register Datastream of DataSet as Table // get TableEnvironment // registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) val stream:Datastream[(Long,String)]=... //register the Datastream as Table "myTable"with fields "fo","f1" tableEnv.registerDataStream("myTable",stream) //register the Datastream as table "myTable2"with fields "myLong","mystring" tableEnv.registerDatastream("myTable2",stream,'myLong',myString) 1.1.3 Convert a DataStream or Dataset into a Table //get TableEnvironment //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment (env) val stream:Datastream[(Long,String)]=.. //convert the Datastream into a Table with default fields '_1,'_2 val table1:Table tableEnv.fromDatastream(stream) //convert the Datastream into a Table with fields 'myLong,'myString val table2:Table tableEnv.fromDataStream(stream,'myLong,'myString) 1.1.4 Convert a table into a DataStream //get TableEnvironment. //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into an append Datastream of Row val dsRow:DataStream[Row]tableEnv.toAppendStream[Row](table) //convert the Table into an append Datastream of Tuple2[String,Int] val dsTuple:DataStream[(String,Int)]dsTuple tableEnv.toAppendstream[(String,Int)](table) //convert the Table into a retract Datastream of Row. /1 //A retract stream of type X is a Datastream[(Boolean,X)]. // //The boolean field indicates the type of the change. // //True is INSERT,false is DELETE. val retractstream:Datastream[(Boolean,Row)]=tableEnv.toRetractstream [Row](table) 1.1.5 Convert table into a DataSet //get TableEnvironment //registration of a DataSet is equivalent val tableEnv = TableEnvironment.getTableEnvironment (env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into a DataSet of Row val dsRow:DataSet[Row] = tableEnv.toDataSet [Row](table) //convert the Table into a DataSet of Tuple2[String,Int] val dsTuple:DataSet[(String,Int)]=tableEnv.toDataSet[(String,Int)](table)]]></summary></entry><entry><title type="html">【Big-Data】Java Maven</title><link href="http://localhost:4000/work/maven/2022/10/24/maven.html" rel="alternate" type="text/html" title="【Big-Data】Java Maven" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/maven/2022/10/24/maven</id><content type="html" xml:base="http://localhost:4000/work/maven/2022/10/24/maven.html"><![CDATA[<h1 id="maven详解">Maven详解</h1>
+<p><img src="https://resources.jetbrains.com/help/img/idea/2022.2/merge_result_diagram.png" alt="merge result" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;git&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Git rebase When to use If you want to have a clean git commits history. If six features are being developed in parallel, they starts from different time and they launch in different times. When you need to roll back some features, you will discover that you have diverged from the main so much. What is git rebase When you merge a branch, step 3 will actually look like this:]]></summary></entry><entry><title type="html">【Big-Data】Java Maven</title><link href="http://localhost:4000/work/maven/2022/10/24/maven.html" rel="alternate" type="text/html" title="【Big-Data】Java Maven" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/maven/2022/10/24/maven</id><content type="html" xml:base="http://localhost:4000/work/maven/2022/10/24/maven.html"><![CDATA[<h1 id="maven详解">Maven详解</h1>
 
 <h2 id="maven-archetype">Maven archetype</h2>
 
@@ -813,540 +959,75 @@
       <td style="text-align: left">这是工程的版本号。在 artifact 的仓库中，它用来区分不同的版本。例如：<code class="language-plaintext highlighter-rouge">com.company.bank:consumer-banking:1.0 com.company.bank:consumer-banking:1.1</code></td>
     </tr>
   </tbody>
-</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;maven&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Maven详解 Maven archetype 可以理解为生成项目的template。在脚手架生成项目的时候使用的。 POM文件是Maven的入口文件，标签详解如下]]></summary></entry><entry><title type="html">【Big-Data】实时数仓架构设计</title><link href="http://localhost:4000/work/sql/basics/2022/10/11/big-data-tools.html" rel="alternate" type="text/html" title="【Big-Data】实时数仓架构设计" /><published>2022-10-11T09:18:07+08:00</published><updated>2022-10-11T09:18:07+08:00</updated><id>http://localhost:4000/work/sql/basics/2022/10/11/big-data-tools</id><content type="html" xml:base="http://localhost:4000/work/sql/basics/2022/10/11/big-data-tools.html"><![CDATA[<h1 id="用-flink-取代-spark-streaming知乎实时数仓架构演进">用 Flink 取代 Spark Streaming！知乎实时数仓架构演进</h1>
+</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;maven&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Maven详解 Maven archetype 可以理解为生成项目的template。在脚手架生成项目的时候使用的。 POM文件是Maven的入口文件，标签详解如下]]></summary></entry><entry><title type="html">【Big-Data】Flink开发总结</title><link href="http://localhost:4000/work/java/2022/10/24/big-data-flink.html" rel="alternate" type="text/html" title="【Big-Data】Flink开发总结" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/java/2022/10/24/big-data-flink</id><content type="html" xml:base="http://localhost:4000/work/java/2022/10/24/big-data-flink.html"><![CDATA[<h1 id="flink开发java版">Flink开发（Java版）</h1>
 
-<p>“数据智能” (Data Intelligence) 有一个必须且基础的环节，就是数据仓库的建设，同时，数据仓库也是公司数据发展到一定规模后必然会提供的一种基础服务。从智能商业的角度来讲，数据的结果代表了用户的反馈，获取结果的及时性就显得尤为重要，快速的获取数据反馈能够帮助公司更快的做出决策，更好的进行产品迭代，实时数仓在这一过程中起到了不可替代的作用。</p>
+<h2 id="11-data-conversion">1.1 Data Conversion</h2>
 
-<p>本文主要讲述知乎的实时数仓实践以及架构的演进，这包括以下几个方面：</p>
+<p>Reference: <a href="https://blog.csdn.net/lxhandlbb/article/details/83304153">Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客</a></p>
 
-<ul>
-  <li>实时数仓 1.0 版本，主题：ETL 逻辑实时化，技术方案：Spark Streaming。</li>
-  <li>实时数仓 2.0 版本，主题：数据分层，指标计算实时化，技术方案：Flink Streaming。</li>
-  <li>实时数仓未来展望：Streaming SQL 平台化，元信息管理系统化，结果验收自动化。</li>
-</ul>
+<h3 id="111-imports">1.1.1 Imports</h3>
 
-<!--more-->
-
-<h2 id="实时数仓-10-版本">实时数仓 1.0 版本</h2>
-
-<p>1.0 版本的实时数仓主要是对流量数据做实时 ETL，并不计算实时指标，也未建立起实时数仓体系，实时场景比较单一，对实时数据流的处理主要是为了提升数据平台的服务能力。实时数据的处理向上依赖数据的收集，向下关系到数据的查询和可视化，下图是实时数仓 1.0 版本的整体数据架构图。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156160710282342672.jpg" alt="img" /></p>
-
-<p>第一部分是数据采集，由三端 SDK 采集数据并通过 Log Collector Server 发送到 Kafka。第二部分是数据 ETL，主要完成对原始数据的清洗和加工并分实时和离线导入 Druid。第三部分是数据可视化，由 Druid 负责计算指标并通过 Web Server 配合前端完成数据可视化。</p>
-
-<p>其中第一、三部分的相关内容请分别参考：<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzU1NDA4NjU2MA%3D%3D%26mid%3D2247492083%26idx%3D1%26sn%3Db980426d28e958f35dae97033864202f%26scene%3D21%23wechat_redirect">知乎客户端埋点流程、模型和平台技术</a>，<a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3F__biz%3DMzU1NDA4NjU2MA%3D%3D%26mid%3D2247493991%26idx%3D1%26sn%3D412bd2ea88d559959ed957cea574dbd4%26scene%3D21%23wechat_redirect">Druid 与知乎数据分析平台</a>，此处我们详细介绍第二部分。由于实时数据流的稳定性不如离线数据流，当实时流出现问题后需要离线数据重刷历史数据，因此实时处理部分我们采用了 lambda 架构。</p>
-
-<p>Lambda 架构有高容错、低延时和可扩展的特点，为了实现这一设计，我们将 ETL 工作分为两部分：Streaming ETL 和 Batch ETL。</p>
-
-<h2 id="streaming-etl">Streaming ETL</h2>
-
-<p>这一部分我会介绍实时计算框架的选择、数据正确性的保证、以及 Streaming 中一些通用的 ETL 逻辑，最后还会介绍 Spark Streaming 在实时 ETL 中的稳定性实践。</p>
-
-<h2 id="计算框架选择">计算框架选择</h2>
-
-<p>在 2016 年年初，业界用的比较多的实时计算框架有 Storm 和 Spark Streaming。Storm 是纯流式框架，Spark Streaming 用 Micro Batch 模拟流式计算，前者比后者更实时，后者比前者吞吐量大且生态系统更完善，考虑到知乎的日志量以及初期对实时性的要求，我们选择了 Spark Streaming 作为实时数据的处理框架。</p>
-
-<h2 id="数据正确性保证">数据正确性保证</h2>
-
-<p>Spark Streaming 的端到端 Exactly-once 需要下游支持幂等、上游支持流量重放，这里我们在 Spark Streaming 这一层做到了 At-least-once，正常情况下数据不重不少，但在程序重启时可能会重发部分数据，为了实现全局的 Exactly-once，我们在下游做了去重逻辑，关于如何去重后面我会讲到。</p>
-
-<h2 id="通用-etl-逻辑">通用 ETL 逻辑</h2>
-
-<p>ETL 逻辑和埋点的数据结构息息相关，我们所有的埋点共用同一套 Proto Buffer Schema，大致如下所示。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>message LogEntry {
- optional BaseInfo base = 1;
- optional DetailInfo detail = 2;
- optional ExtraInfo extra = 3;
-}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.flink.streaming.api.scala.</span>
+<span class="kn">import</span> <span class="nn">org.apache.flink.table.api.scala._</span>
+<span class="kn">import</span> <span class="nn">org.apache.flink.api.scala._</span>
+<span class="kn">import</span> <span class="nn">scala.collection.JavaConverters._</span>
 </code></pre></div></div>
 
-<p>BaseInfo：日志中最基本的信息，包括用户信息、客户端信息、时间信息、网络信息等日志发送时的必要信息。DetailInfo：日志中的视图信息，包括当前视图、上一个视图等用于定位用户所在位置的信息。ExtraInfo：日志中与特定业务相关的额外信息。</p>
-
-<p>针对上述三种信息我们将 ETL 逻辑分为通用和非通用两类，通用逻辑和各个业务相关，主要应用于 Base 和 Detail 信息，非通用逻辑则是由需求方针对某次需求提出，主要应用于 Extra 信息。这里我们列举 3 个通用逻辑进行介绍，这包括：动态配置 Streaming、UTM 参数解析、新老用户识别。</p>
-
-<h2 id="动态配置-streaming">动态配置 Streaming</h2>
-
-<p>由于 Streaming 任务需要 7 * 24 小时运行，但有些业务逻辑，比如：存在一个元数据信息中心，当这个元数据发生变化时，需要将这种变化映射到数据流上方便下游使用数据，这种变化可能需要停止 Streaming 任务以更新业务逻辑，但元数据变化的频率非常高，且在元数据变化后如何及时通知程序的维护者也很难。动态配置 Streaming 为我们提供了一个解决方案，该方案如下图所示。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156160722310223333.jpg" alt="img" /></p>
-
-<p>我们可以把经常变化的元数据作为 Streaming Broadcast 变量，该变量扮演的角色类似于只读缓存，同时针对该变量可设置 TTL，缓存过期后 Executor 节点会重新向 Driver 请求最新的变量。通过这种机制可以非常自然的将元数据的变化映射到数据流上，无需重启任务也无需通知程序的维护者。</p>
-
-<h2 id="utm-参数解析">UTM 参数解析</h2>
-
-<p>UTM 的全称是 Urchin Tracking Module，是用于追踪网站流量来源的利器，关于 UTM 背景知识介绍可以参考网上其他内容，这里不再赘述。下图是我们解析 UTM 信息的完整逻辑。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156161399384563954.jpg" alt="img" /></p>
-
-<p>流量数据通过 UTM 参数解析后，我们可以很容易满足以下需求：</p>
-
-<ol>
-  <li>查看各搜索引擎导流情况以及这些流量来自于哪些热门搜索词。</li>
-  <li>市场部某次活动带来的流量大小，如：页面浏览数、独立访问用户数等。</li>
-  <li>从站内分享出去的链接在各分享平台（如：微信、微博）被浏览的情况。</li>
-</ol>
-
-<p>##</p>
-
-<h2 id="新老用户识别">新老用户识别</h2>
-
-<p>对于互联网公司而言，增长是一个永恒的话题，实时拿到新增用户量，对于增长运营十分重要。例如：一次投放 n 个渠道，如果能拿到每个渠道的实时新增用户数，就可以快速判断出那些渠道更有价值。我们用下图来表达 Streaming ETL 中是如何识别新老用户的。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156161403233721825.jpg" alt="img" /></p>
-
-<p>判断一个用户是不是新用户，最简单的办法就是维护一个历史用户池，对每条日志判断该用户是否存在于用户池中。由于日志量巨大，为了不影响 Streaming 任务的处理速度，我们设计了两层缓存：Thread Local Cache 和 Redis Cache，同时用 HBase 做持久化存储以保存历史用户。访问速度：本地内存 &gt; 远端内存 &gt; 远端磁盘，对于我们这个任务来说，只有 1% 左右的请求会打到 HBase，日志高峰期 26w/s，完全不会影响任务的实时性。当然本地缓存 LruCache 的容量大小和 Redis 的性能也是影响实时性的两个因素。</p>
-
-<p>Streaming ETL 除了上述几个通用场景外，还有一些其他逻辑，这些逻辑的存在有的是为了满足下游更方便的使用数据的需求，有的是对某些错误埋点的修复，总之 Streaming ETL 在整个实时数仓中处于指标计算的上游，有着不可替代的作用。</p>
-
-<h2 id="spark-streaming-在实时数仓-10-中的稳定性实践">Spark Streaming 在实时数仓 1.0 中的稳定性实践</h2>
-
-<ol>
-  <li>Spark Streaming 消费 Kafka 数据推荐使用 Direct 模式。我们早期使用的是 High Level 或者叫 Receiver 模式并使用了 checkpoint 功能，这种方式在更新程序逻辑时需要删除 checkpoint 否则新的程序逻辑就无法生效。另外，由于使用了 checkpoint 功能，Streaming 任务会保持和 Hdfs 通信，可能会因为 NameNode 的抖动导致 Streaming 任务抖动。因此，推荐使用 Direct 模式，关于这种模式和 Receiver 模式的详细对比，可以参考官方文档。</li>
-  <li>保证 Spark Streaming 任务的资源稳定。以 Yarn 为例，运行 Streaming 任务的队列能够分配到的最小资源小于了任务所需要的资源，任务会出现频繁丢失 Executor 的情况，这会导致 Streaming 任务变慢，因为丢失的 Executor 所对应的数据需要重新计算，同时还需要重新分配 Executor。</li>
-  <li>Spark Streaming 消费 Kafka 时需要做数据流限速。默认情况下 Spark Streaming 以尽可能大的速度读取消息队列，当 Streaming 任务挂了很久之后再次被启动时，由于拉取的数据量过大可能会导致上游的 Kafka 集群 IO 被打爆进而出现 Kafka 集群长时间阻塞。可以使用 Streaming Conf 参数做限速，限定每秒拉取的最大速度。</li>
-  <li>Spark Streaming 任务失败后需要自动拉起。长时间运行发现，Spark Streaming 并不能 7 * 24h 稳定运行，我们用 Supervisor 管理 Driver 进程，当任务挂掉后 Driver 进程将不复存在，此时 Supervisor 将重新拉起 Streaming 任务。</li>
-</ol>
-
-<p>##</p>
-
-<h2 id="batch-etl">Batch ETL</h2>
-
-<p>接下来要介绍的是 Lambda 架构的第二个部分：Batch ETL，此部分我们需要解决数据落地、离线 ETL、数据批量导入 Druid 等问题。针对数据落地我们自研了 map reduce 任务 Batch Loader，针对数据修复我们自研了离线任务 Repair ETL，离线修复逻辑和实时逻辑共用一套 ETL Lib，针对批量导入 ProtoParquet 数据到 Druid，我们扩展了 Druid 的导入插件。</p>
-
-<p>##</p>
-
-<h2 id="repair-etl">Repair ETL</h2>
-
-<p>数据架构图中有两个 Kafka，第一个 Kafka 存放的是原始日志，第二个 Kafka 存放的是实时 ETL 后的日志，我们将两个 Kafka 的数据全部落地，这样做的目的是为了保证数据链路的稳定性。因为实时 ETL 中有大量的业务逻辑，未知需求的逻辑也许会给整个流量数据带来安全隐患，而上游的 Log Collect Server 不存在任何业务逻辑只负责收发日志，相比之下第一个 Kafka 的数据要安全和稳定的多。Repair ETL 并不是经常启用，只有当实时 ETL 丢失数据或者出现逻辑错误时，才会启用该程序用于修复日志。</p>
-
-<p>##</p>
-
-<h2 id="batch-load-2-hdfs">Batch Load 2 HDFS</h2>
-
-<p>前面已经介绍过，我们所有的埋点共用同一套 Proto Buffer Schema，数据传输格式全部为二进制。我们自研了落地 Kafka PB 数据到 Hdfs 的 Map Reduce 任务 BatchLoader，该任务除了落地数据外，还负责对数据去重。在 Streaming ETL 阶段我们做到了 At-least-once，通过此处的 BatchLoader 去重我们实现了全局 Exactly-once。BatchLoader 除了支持落地数据、对数据去重外，还支持多目录分区（p_date/p_hour/p_plaform/p_logtype）、数据回放、自依赖管理（早期没有统一的调度器）等。截止到目前，BatchLoader 落地了 40+ 的 Kakfa Topic 数据。</p>
-
-<p>##</p>
-
-<h2 id="batch-load-2-druid">Batch Load 2 Druid</h2>
-
-<p>采用 Tranquility 实时导入 Druid，这种方式强制需要一个时间窗口，当上游数据延迟超过窗值后会丢弃窗口之外的数据，这种情况会导致实时报表出现指标错误。为了修复这种错误，我们通过 Druid 发起一个离线 Map Reduce 任务定期重导上一个时间段的数据。通过这里的 Batch 导入和前面的实时导入，实现了实时数仓的 Lambda 架构。</p>
-
-<p>实时数仓 1.0 的几个不足之处</p>
-
-<p>到目前为止我们已经介绍完 Lambda 架构实时数仓的几个模块，1.0 版本的实时数仓有以下几个不足：</p>
-
-<ol>
-  <li>所有的流量数据存放在同一个 Kafka Topic 中，如果下游每个业务线都要消费，这会导致全量数据被消费多次，Kafka 出流量太高无法满足该需求。</li>
-  <li>所有的指标计算全部由 Druid 承担，Druid 同时兼顾实时数据源和离线数据源的查询，随着数据量的暴涨 Druid 稳定性急剧下降，这导致各个业务的核心报表不能稳定产出。</li>
-  <li>由于每个业务使用同一个流量数据源配置报表，导致查询效率低下，同时无法对业务做数据隔离和成本计算。</li>
-</ol>
-
-<p>##</p>
-
-<h2 id="实时数仓-20-版本">实时数仓 2.0 版本</h2>
-
-<p>随着数据量的暴涨，Druid 中的流量数据源经常查询超时同时各业务消费实时数据的需求也开始增多，如果继续沿用实时数仓 1.0 架构，需要付出大量的额外成本。于是，在实时数仓 1.0 的基础上，我们建立起了实时数仓 2.0，梳理出了新的架构设计并开始着手建立实时数仓体系，新的架构如下图所示。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156161421394332126.jpg" alt="img" /></p>
-
-<p><strong>原始层</strong></p>
-
-<p>实时数仓 1.0 我们只对流量数据做 ETL 处理，在 2.0 版本中我们加入了对业务库的变更日志 Binlog 的处理，Binlog 日志在原始层为库级别或者 Mysql 实例级别，即：一个库或者实例的变更日志存放在同一个 Kafka Topic 中。同时随着公司业务的发展不断有新 App 产生，在原始层不仅采集「知乎」日志，像知乎极速版以及内部孵化项目的埋点数据也需要采集，不同 App 的埋点数据仍然使用同一套 PB Schema。</p>
-
-<p><strong>明细层</strong></p>
-
-<p>明细层是我们的 ETL 层，这一层数据是由原始层经过 Streaming ETL 后得到。其中对 Binlog 日志的处理主要是完成库或者实例日志到表日志的拆分，对流量日志主要是做一些通用 ETL 处理，由于我们使用的是同一套 PB 结构，对不同 App 数据处理的逻辑代码可以完全复用，这大大降低了我们的开发成本。</p>
-
-<p><strong>汇总层之明细汇总</strong></p>
-
-<p>明细汇总层是由明细层通过 ETL 得到，主要以宽表形式存在。业务明细汇总是由业务事实明细表和维度表 Join 得到，流量明细汇总是由流量日志按业务线拆分和流量维度 Join 得到。流量按业务拆分后可以满足各业务实时消费的需求，我们在流量拆分这一块做到了自动化，下图演示了流量数据自动切分的过程。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156161426253878467.jpg" alt="img" /></p>
-
-<p>Streaming Proxy 是流量分发模块，它消费上游 ETL 后的全量数据并定期读取埋点元信息，通过将流量数据与元信息数据进行「Join」完成按业务进行流量拆分的逻辑，同时也会对切分后的流量按业务做 ETL 处理。只要埋点元信息中新增一个埋点，那么这个埋点对应的数据就会自动切分到该业务的 Kafka 中，最终业务 Kafka 中的数据是独属于当前业务的且已经被通用 ETL 和业务 ETL 处理过，这大大降低了各个业务使用数据的成本。</p>
-
-<p><strong>汇总层之指标汇总</strong></p>
-
-<p>指标汇总层是由明细层或者明细汇总层通过聚合计算得到，这一层产出了绝大部分的实时数仓指标，这也是与实时数仓 1.0 最大的区别。知乎是一个生产内容的平台，对业务指标的汇总我们可以从内容角度和用户角度进行汇总，从内容角度我们可以实时统计内容（内容可以是答案、问题、文章、视频、想法）的被点赞数、被关注数、被收藏数等指标，从用户角度我可以实时统计用户的粉丝数、回答数、提问数等指标。对流量指标的汇总我们分为各业务指标汇总和全局指标汇总。对各业务指标汇总，我们可以实时统计首页、搜索、视频、想法等业务的卡片曝光数、卡片点击数、CTR 等，对全局指标汇总我们主要以实时会话为主，实时统计一个会话内的 PV 数、卡片曝光数、点击数、浏览深度、会话时长等指标。</p>
-
-<p><strong>指标汇总层的存储选型</strong></p>
-
-<p>不同于明细层和明细汇总层，指标汇总层需要将实时计算好的指标存储起来以供应用层使用。我们根据不同的场景选用了 HBase 和 Redis 作为实时指标的存储引擎。Redis 的场景主要是满足带 Update 操作且 OPS 较高的需求，例如：实时统计全站所有内容（问题、答案、文章等）的累计 PV 数，由于浏览内容产生大量的 PV 日志，可能高达几万或者几十万每秒，需要对每一条内容的 PV 进行实时累加，这种场景下选用 Redis 更为合适。HBase 的场景主要是满足高频 Append 操作、低频随机读取且指标列较多的需求，例如：每分钟统计一次所有内容的被点赞数、被关注数、被收藏数等指标，将每分钟聚合后的结果行 Append 到 HBase 并不会带来性能和存储量的问题，但这种情况下 Redis 在存储量上可能会出现瓶颈。</p>
-
-<p><strong>指标计算打通指标系统和可视化系统</strong></p>
-
-<p>指标口径管理依赖指标系统，指标可视化依赖可视化系统，我们通过下图的需求开发过程来讲解如何将三者联系起来。</p>
-
-<p><img src="https://tianchi-public.oss-cn-hangzhou.aliyuncs.com/public/files/forum/156161430544850618.jpg" alt="img" /></p>
-
-<ol>
-  <li>\1. 需求方整理好需求文档后向数仓工程师提出需求并约会议评审需求，需求文档中必须包含指标的计算口径和指标对应的维度。</li>
-  <li>\2. 数仓工程师根据需求文档对需求进行评审，评审不通过则返回需求方进一步整理需求并重新提需。</li>
-  <li>\3. 在需求评审通过后，数仓工程师开始排期开发</li>
-</ol>
-
-<ul>
-  <li>- 首先在可视化系统中创建一个数据源，这个数据源是后期配置实时报表的数据源，创建数据源也即在 HBase 中创建一张 HBase 表。</li>
-  <li>- 针对该数据源创建指标列，创建指标列也即在 HBase 列族中创建列，创建指标列的同时会将该指标信息录入指标管理系统。</li>
-  <li>- 针对该数据源绑定维表，这个维表是后期配置多维报表时选用维度值要用的，如果要绑定的维表已经存在，则直接绑定，否则需要导入维表。</li>
-  <li>- 一个完整的数据源创建后，数仓工程师才能开发实时应用程序，通过应用程序将多维指标实时写入已创建的数据源中。</li>
-</ul>
-
-<p>需求方根据已创建的数据源直接配置实时报表。</p>
-
-<p>**
-**</p>
-
-<p><strong>应用层</strong></p>
-
-<p>应用层主要是使用汇总层数据以满足业务需求。应用层主要分三块：1. 通过直接读取指标汇总数据做实时可视化，满足固化的实时报表需求，这部分由实时大盘服务承担；2. 推荐算法等业务直接消费明细汇总数据做实时推荐；3. 通过 Tranquility 程序实时摄入明细汇总数据到 Druid，满足实时多维即席分析需求。</p>
-
-<p>##</p>
-
-<h2 id="实时数仓-20-中的技术实现">实时数仓 2.0 中的技术实现</h2>
-
-<p>相比实时数仓 1.0 以 Spark Streaming 作为主要实现技术，在实时数仓 2.0 中，我们将 Flink 作为指标汇总层的主要计算框架。Flink 相比 Spark Streaming 有更明显的优势，主要体现在：低延迟、Exactly-once 语义支持、Streaming SQL 支持、状态管理、丰富的时间类型和窗口计算、CEP 支持等。</p>
-
-<p>我们在实时数仓 2.0 中主要以 Flink 的 Streaming SQL 作为实现方案。使用 Streaming SQL 有以下优点：易于平台化、开发效率高、维度成本低等。目前 Streaming SQL 使用起来也有一些缺陷：1. 语法和 Hive SQL 有一定区别，初使用时需要适应；2.UDF 不如 Hive 丰富，写 UDF 的频率高于 Hive。</p>
-
-<p>##</p>
-
-<h2 id="实时数仓-20-取得的进展">实时数仓 2.0 取得的进展</h2>
-
-<ol>
-  <li>1.在明细汇总层通过流量切分满足了各个业务实时消费日志的需求。目前完成流量切分的业务达到 14+，由于各业务消费的是切分后的流量，Kafka 出流量下降了一个数量级。</li>
-  <li>2.各业务核心实时报表可以稳定产出。由于核心报表的计算直接由数仓负责，可视化系统直接读取实时结果，保证了实时报表的稳定性，目前多个业务拥有实时大盘，实时报表达 40+。</li>
-  <li>3.提升了即席查询的稳定性。核心报表的指标计算转移到数仓，Druid 只负责即席查询，多维分析类的需求得到了满足。</li>
-  <li>成本计算需求得到了解决。由于各业务拥有了独立的数据源且各核心大盘由不同的实时程序负责，可以方便的统计各业务使用的存储资源和计算资源。</li>
-</ol>
-
-<p>##</p>
-
-<h2 id="实时数仓未来展望">实时数仓未来展望</h2>
-
-<p>从实时数仓 1.0 到 2.0，不管是数据架构还是技术方案，我们在深度和广度上都有了更多的积累。随着公司业务的快速发展以及新技术的诞生，实时数仓也会不断的迭代优化。短期可预见的我们会从以下方面进一步提升实时数仓的服务能力：</p>
-
-<ol>
-  <li>Streaming SQL 平台化。目前 Streaming SQL 任务是以代码开发 maven 打包的方式提交任务，开发成本高，后期随着 Streaming SQL 平台的上线，实时数仓的开发方式也会由 Jar 包转变为 SQL 文件。</li>
-  <li>实时数据元信息管理系统化。对数仓元信息的管理可以大幅度降低使用数据的成本，离线数仓的元信息管理已经基本完善，实时数仓的元信息管理才刚刚开始。</li>
-  <li>实时数仓结果验收自动化。对实时结果的验收只能借助与离线数据指标对比的方式，以 Hive 和 Kafka 数据源为例，分别执行 Hive SQL 和 Flink SQL，统计结果并对比是否一致实现实时结果验收的自动化。</li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;sql&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[用 Flink 取代 Spark Streaming！知乎实时数仓架构演进 “数据智能” (Data Intelligence) 有一个必须且基础的环节，就是数据仓库的建设，同时，数据仓库也是公司数据发展到一定规模后必然会提供的一种基础服务。从智能商业的角度来讲，数据的结果代表了用户的反馈，获取结果的及时性就显得尤为重要，快速的获取数据反馈能够帮助公司更快的做出决策，更好的进行产品迭代，实时数仓在这一过程中起到了不可替代的作用。 本文主要讲述知乎的实时数仓实践以及架构的演进，这包括以下几个方面： 实时数仓 1.0 版本，主题：ETL 逻辑实时化，技术方案：Spark Streaming。 实时数仓 2.0 版本，主题：数据分层，指标计算实时化，技术方案：Flink Streaming。 实时数仓未来展望：Streaming SQL 平台化，元信息管理系统化，结果验收自动化。]]></summary></entry><entry><title type="html">【Big-Data】Lateral View多列转多行</title><link href="http://localhost:4000/work/sql/basics/2022/09/19/lateral-view.html" rel="alternate" type="text/html" title="【Big-Data】Lateral View多列转多行" /><published>2022-09-19T09:18:07+08:00</published><updated>2022-09-19T09:18:07+08:00</updated><id>http://localhost:4000/work/sql/basics/2022/09/19/lateral-view</id><content type="html" xml:base="http://localhost:4000/work/sql/basics/2022/09/19/lateral-view.html"><![CDATA[<h1 id="what-is-lateral-view">What is Lateral view</h1>
-
-<blockquote>
-  <p>The <code class="language-plaintext highlighter-rouge">LATERAL VIEW</code> clause is used in conjunction with generator functions such as <code class="language-plaintext highlighter-rouge">EXPLODE</code>, which will generate a virtual table containing one or more rows. <code class="language-plaintext highlighter-rouge">LATERAL VIEW</code> will apply the rows to each original output row.</p>
-</blockquote>
-
-<p>简单来说，就是想把单行映射到产出表的多行，可以使用<code class="language-plaintext highlighter-rouge">lateral view</code>。</p>
-
-<!--more-->
-
-<h1 id="how-to-use-it">How to use it</h1>
-
-<p>使用指南：[<a href="https://blog.csdn.net/SunnyYoona/article/details/62894761">Hive]Lateral View使用指南_@SmartSi的博客-CSDN博客_lateral view</a></p>
-
-<p>官方文档：<a href="https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-lateral-view.html">LATERAL VIEW Clause - Spark 3.3.0 Documentation (apache.org)</a></p>
-
-<h1 id="多列转多行">多列转多行</h1>
-
-<p>需求描述：原来表有多列，例如，id, src_a, src_b, src_c，现在转变成id, src，而src是原来三列变成了三行，即多列转多行的操作。</p>
-
-<p>实现方法：<a href="https://blog.csdn.net/weixin_42867475/article/details/108549126">hive实现多列转行_面向搜索引擎写bug的博客-CSDN博客_hive 多列转行</a></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span>
-    <span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">label</span><span class="p">,</span>
-    <span class="n">b</span><span class="p">.</span><span class="n">value</span>
-<span class="k">from</span>
-    <span class="n">test0912_wkl</span> <span class="n">a</span> <span class="k">LATERAL</span> <span class="k">VIEW</span> <span class="n">explode</span> <span class="p">(</span>
-        <span class="k">map</span><span class="p">(</span>
-            <span class="s1">'yuwen'</span><span class="p">,</span>
-            <span class="n">yuwen</span><span class="p">,</span>
-            <span class="s1">'shuxue'</span><span class="p">,</span>
-            <span class="n">shuxue</span><span class="p">,</span>
-            <span class="s1">'yingyu'</span><span class="p">,</span>
-            <span class="n">yingyu</span>
-        <span class="p">)</span>
-    <span class="p">)</span> <span class="n">b</span> <span class="k">as</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span>
+<h3 id="112-register-datastream-of-dataset-as-table">1.1.2 Register Datastream of DataSet as Table</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get TableEnvironment</span>
+<span class="c1">// registration of a DataSet is equivalent</span>
+<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
+<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=...</span>
+<span class="c1">//register the Datastream as Table "myTable"with fields "fo","f1"</span>
+<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDataStream</span><span class="o">(</span><span class="s">"myTable"</span><span class="o">,</span><span class="n">stream</span><span class="o">)</span>
+<span class="c1">//register the Datastream as table "myTable2"with fields "myLong","mystring"</span>
+<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDatastream</span><span class="o">(</span><span class="s">"myTable2"</span><span class="o">,</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="err">'</span><span class="o">,</span><span class="n">myString</span><span class="o">)</span>
 </code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span>
-    <span class="n">t</span><span class="p">.</span><span class="n">uid</span> <span class="k">as</span> <span class="n">src</span><span class="p">,</span>
-    <span class="n">ori</span> <span class="k">as</span> <span class="n">dst</span>
-<span class="k">from</span>
-    <span class="p">(</span>
-        <span class="k">select</span>
-            <span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
-            <span class="n">a</span><span class="p">.</span><span class="n">email</span><span class="p">,</span>
-            <span class="n">a</span><span class="p">.</span><span class="n">phone</span><span class="p">,</span>
-            <span class="n">a</span><span class="p">.</span><span class="n">uuid</span>
-        <span class="k">from</span>
-            <span class="n">tablea</span> <span class="n">a</span>
-            <span class="k">join</span> <span class="p">(</span>
-                <span class="k">select</span>
-                    <span class="n">id</span><span class="p">,</span>
-                    <span class="k">count</span><span class="p">(</span><span class="k">distinct</span> <span class="n">uuid</span><span class="p">)</span> <span class="k">as</span> <span class="n">uuid_count</span>
-                <span class="k">from</span>
-                    <span class="n">tablea</span>
-                <span class="k">where</span>
-                    <span class="nb">date</span> <span class="o">=</span> <span class="s1">'${date}'</span>
-                    <span class="k">and</span> <span class="n">id</span> <span class="o">!=</span> <span class="s1">'false'</span>
-                    <span class="k">and</span> <span class="n">uuid</span> <span class="o">!=</span> <span class="mi">0</span>
-                    <span class="k">and</span> <span class="n">id</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
-                <span class="k">group</span> <span class="k">by</span>
-                    <span class="n">id</span>
-            <span class="p">)</span> <span class="n">b</span> <span class="k">on</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span>
-        <span class="k">where</span>
-            <span class="n">a</span><span class="p">.</span><span class="nb">date</span> <span class="o">=</span> <span class="s1">'${date}'</span>
-        <span class="k">union</span>
-        <span class="k">select</span>
-            <span class="n">id</span><span class="p">,</span>
-            <span class="n">email</span><span class="p">,</span>
-            <span class="n">phone</span><span class="p">,</span>
-            <span class="n">uuid</span>
-        <span class="k">from</span>
-            <span class="n">tablea</span>
-        <span class="k">where</span>
-            <span class="nb">date</span> <span class="o">=</span> <span class="s1">'${date}'</span>
-            <span class="k">and</span> <span class="p">(</span>
-                <span class="n">email</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
-                <span class="k">or</span> <span class="n">phone</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
-                <span class="k">or</span> <span class="n">id</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
-            <span class="p">)</span>
-            <span class="k">and</span> <span class="n">uuid</span> <span class="o">!=</span> <span class="mi">0</span>
-    <span class="p">)</span> <span class="n">t</span> <span class="k">lateral</span> <span class="k">view</span> <span class="n">explode</span> <span class="p">(</span>
-        <span class="n">array</span> <span class="p">(</span>
-            <span class="n">email</span><span class="p">,</span>
-            <span class="n">id</span><span class="p">,</span>
-            <span class="n">phone</span>
-        <span class="p">)</span>
-    <span class="p">)</span> <span class="n">p</span> <span class="k">as</span> <span class="n">ori</span>
-</code></pre></div></div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;sql&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[What is Lateral view The LATERAL VIEW clause is used in conjunction with generator functions such as EXPLODE, which will generate a virtual table containing one or more rows. LATERAL VIEW will apply the rows to each original output row. 简单来说，就是想把单行映射到产出表的多行，可以使用lateral view。]]></summary></entry><entry><title type="html">【阅读】提问的艺术：为什么你应该这样问</title><link href="http://localhost:4000/blog/read/2022/09/07/how-to-ask-questions.html" rel="alternate" type="text/html" title="【阅读】提问的艺术：为什么你应该这样问" /><published>2022-09-07T13:41:58+08:00</published><updated>2022-09-07T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2022/09/07/how-to-ask-questions</id><content type="html" xml:base="http://localhost:4000/blog/read/2022/09/07/how-to-ask-questions.html"><![CDATA[<h1 id="可行动指南">可行动指南</h1>
-
-<h2 id="封闭式问题">封闭式问题</h2>
-
-<p>要求对方给出是/否的回答，不能是一个开放的问题</p>
-
-<p>使用tips</p>
-
-<p>当你想获得直接而由衷的回答时，封闭式问题会很有效：用恰当的方式有目的地提出一个封闭式问题：是还是不是，对于提问者来说，是力量和高要求的最好结合。</p>
-
-<p><strong>什么时候问最合适</strong></p>
-
-<ul>
-  <li>当你需要弄清对方是否全身心投入时。</li>
-  <li>当你想找出对方的任何疑虑或犹豫时。</li>
-</ul>
-
-<p><strong>你还可以这样问</strong></p>
-
-<ul>
-  <li>你能够全心投入此事吗？</li>
-  <li>你是否愿意做这件事？</li>
-  <li>你现在能做出最后的决定吗？
-接下来这样问</li>
-  <li>这件事最能让你兴奋的是什么？</li>
-  <li>你最大的疑虑或顾虑是什么？</li>
-</ul>
-
-<p>别人发脾气时</p>
-
-<ul>
-  <li>你觉得怎样做是比较好的</li>
-</ul>
-
-<p>问为什么</p>
-
-<p>了解对方想这么做的原因，发自内心</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[可行动指南 封闭式问题 要求对方给出是/否的回答，不能是一个开放的问题 使用tips 当你想获得直接而由衷的回答时，封闭式问题会很有效：用恰当的方式有目的地提出一个封闭式问题：是还是不是，对于提问者来说，是力量和高要求的最好结合。 什么时候问最合适 当你需要弄清对方是否全身心投入时。 当你想找出对方的任何疑虑或犹豫时。 你还可以这样问 你能够全心投入此事吗？ 你是否愿意做这件事？ 你现在能做出最后的决定吗？ 接下来这样问 这件事最能让你兴奋的是什么？ 你最大的疑虑或顾虑是什么？ 别人发脾气时 你觉得怎样做是比较好的 问为什么 了解对方想这么做的原因，发自内心]]></summary></entry><entry><title type="html">【阅读】被讨厌的勇气</title><link href="http://localhost:4000/blog/read/2022/09/06/courage.html" rel="alternate" type="text/html" title="【阅读】被讨厌的勇气" /><published>2022-09-06T13:41:58+08:00</published><updated>2022-09-06T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2022/09/06/courage</id><content type="html" xml:base="http://localhost:4000/blog/read/2022/09/06/courage.html"><![CDATA[<p>人到底能不能改变？我们到底能不能改变，过去的经历对我们产生了影响吗，又如何破除这种过去事件对我们的影响呢？</p>
-
-<!--more-->
-
-<p><strong>我们的不幸到底是谁的错？</strong>
-<strong>我们能够成为别人吗？</strong>
-书中没有回答这个问题，而是绕开了这个问题，先关注目的，就是我们成为别人的目的是什么。能够成为自己梦想中的某个人就会很幸福吗？或者说达到我所认为的那种幸福吗，在这里面作者直接说了，如果成为别人的目的是为了获得自己想象中的幸福，那么就意味着现在我对自己不满意，我不幸福。这样的论断是对的吗？
-如果上述论断是对的，那么按照作者后面的逻辑，我们要解决的问题就变成了我们为什么不幸福的问题，从而怎样让自己获得幸福。将问题进行了转化。
-如果上述论断是不对的，那么我们要考虑的就不能转化为我们为什么不幸福。</p>
-
-<p><strong>不幸是自己选择的。</strong>
-客观存在着人与人之间的不平等。有些人生而有高贵，有些人在世界的泥淖中无法自拔，更不用提有品质的生活了。
-为了批判上述观点，首先提出了“善”的观点。在这里，“善”并不等于善良，而是有利的意思，就是说人的任何一种选择，都是朝着对自己有利的方向进行，而不幸也是这些选择之一。所以作者得出的结论是，有人之所以选择相信自己是不幸的，因为他们下意识觉得这些不幸对自己是有利的。</p>
-
-<p><strong>人们常常下定决心不改变</strong>
-这一节是第一次提到，勇气这个词，并把阿德勒心理学称为勇气心理学。虽然是第一次提到，但是也是对之前观点的总结。文中反复提到，如果把现在的自己看成由过去的经历塑造而成的这个概念，并且用脾气秉性这种称呼会让人产生一种现实无法改变的错觉，所以他采用了别的说法，把性格当作一种生活方式，一种可以改变和调节的东西。而改变最大的挑战就是不确定性，面对这种挑战的不安。</p>
-
-<p><strong>你的人生取决于当下</strong>
-人生取决于当下。主张人的过去和现在所经历的状态没有关系。同时也鼓励每一个人都能主动放弃过去的成见而去改变现在的自己，如果这个人真的在寻求改变，并且清楚地知道需要改变的内容是什么，和改变的目的是什么。</p>
-
-<p><strong>一切的烦恼都来自于人际关系</strong>
-为什么讨厌自己？
-把一些自我否定当成了“善”，即对自己有利。因为这样一来就仿佛找到了逃避的借口。将事件成功或者失败的原因归结到一些自己本身的特质上，这种方式容易让我们对事物有着本质上的恐惧感。或者说正是这种恐惧感造成了一系列的失败发生，这是一些互为因果的事情。是否过于绝对了呢让我开始怀疑？本质上我们应该保证的是什么呢？造成我紧张以致于脑袋一片空白的原因是我对自己的“善”？而且很多烦恼不是源于自身吗，为什么会和人际关系挂上钩？</p>
-
-<p><strong>一切烦恼都是人际关系的烦恼</strong>
-所有烦恼都来自于人际关系吗？这部分相当于反复论证了一件事情就是，我们对客观事实的主观感受造成了我们的各种心态，不管是好的还是不好的。使用了一个自卑感的例子来论证这件事。但是我认为这里有些牵强，因为有些事情就是达到了才有快乐产生，例如身高矮小的人在男女交往中普遍不占有优势，我自认为这不是我的劣势这件事并不能改变因身材矮小而不受欢迎这件事。除非，我能与自己达成和解，告诉自己也许我并不需要这些优势。</p>
-
-<p><strong>越自负的人越自卑</strong>
-其实这些现实生活中是有体现的。类似于报复性消费可能就是因为曾经特别贫穷而导致的。这里有个词叫做，弱势特权，它很多情况下在我们的文化中根深蒂固，我不得不说这也是我非常反感的地方，通过自己的弱势、不幸、痛苦的诉说来达到支配他人言行的目的，不幸当作武器，就是弱势特权。</p>
-
-<p><strong>有关竞争</strong>
-关于竞争的论述持续了几章，作者首先强调了，有竞争就有胜者和败者，而无论作为哪一方都无可避免会陷入或者焦虑或者自卑，无法保持内心的宁静。但是不竞争岂不是在逃避？对此的解释是，这不是逃避而是一种心态上的选择，你选择和他们做朋友，那么整体而言就会跳出逃避这个怪圈，而战胜自己，达到自己期望的目标是更加合适的选择。对于一些匪夷所思的事情的发生，多考虑触发这件事人的目的而非原因，就可以达到更好的效果。</p>
-
-<p>有些地方是有强词夺理的感觉，也不是所有事情都可以用目的论解释清楚的。阿德勒将一个人惹你讨厌的原因归为，这是为了逃避和这类的人交往而给自己下的定义。目的是为了逃避。但是有些人确实令人讨厌，我的目的也不是讨厌，而是拒绝和这些人同流合污。</p>
-
-<p><strong>自由就是不再寻求认可</strong>
-破除自己想要寻求认可的欲望，是一切的开始。
-追求自身的自由，就是不把满足别人的期待当做理所当然的一件事。很有可能没人认可或者赞同，那么我们是否还能坚持自己的价值观去做事呢？</p>
-
-<p><strong>放下别人的课题</strong>
-分清什么是自己可以解决的，什么是自己不能解决的，这是非常重要的一件事，人总会越界去管理自己不该做的事情，如果你能将两者分清，那么自然会避免一些不必要的生气。</p>
-
-<p><strong>课题分离</strong>
-格尔迪奥斯绳结的故事，很多事情是十分复杂的，我们断然不能从原本的方式入手，而是应该用课题分离的方式来斩断这样的纠缠。</p>
-
-<p><strong>对认可的追求扼杀了自我</strong>
-实际上，我们追求他人的认可，这会给我们带来自信与勇气，但是他人的不认可，也是造成悲伤与失落。那么，走别人认可的路就不好吗。并不是，可能很好走，不会迷路。走自己的路可能会迷路，甚至于该如何生存这样的难题。那么选择这样的路，意义在于哪里呢？仅仅是不受他人目光的约束，追求“自由”吗？</p>
-
-<p><strong>被讨厌的勇气</strong>
-在这里和前面的有所冲突，之前说了别人讨厌是因为自己想要逃避和这个人交往。而自己被讨厌，是需要一种敢于被讨厌的勇气。自己可以被讨厌，那为何不能讨厌别人呢？</p>
-
-<p><strong>修复人际关系</strong>
-所有决定都掌握在自己手中而非他人。能否改变他人已经是分离的课题了。但是能否改变自身，是一件很容易的事情。</p>
-
-<p><strong>要有被讨厌的勇气</strong>
-课题分离只是一个出发点，它看起来好像会让人变得冷漠。因为看起来实在是太不争了，好像一切都只能随缘。那么如果只是一个起点，该如何进行呢。</p>
-
-<p>自己的人生自己决定，在乎自己在他人眼中的样子，本身就是一种很以自我为中心的体验。我也一直以为这点十分重要，就像一个人十分可靠，那么很多事才会放心交给你来做。但如果不在意他人的评价，就算是一些负面的，那么如何取得成功或者进步的机会呢？</p>
-
-<p><strong>从我能给别人带来什么出发会解决上面的问题吗？</strong></p>
-
-<p>作者提到了共同体的概念。甚至于说是最重要的概念。阿德勒并不想因为课题分离而把自己与社会和人际关系割裂开来，所以提出共同体，即自己总能在一个更大的范围内找到归属感，而并非一个小的空间，这样就能够使自己不局限。</p>
-
-<p>作者还提到了在人际关系中既不能表扬也不能批评，那该如何让对方看到反馈呢，又该如何进步呢？</p>
-
-<p>作者给出的是一个不对他人的做法进行评价，而是对自己的心情进行描述的做法。简而言之就是，表达感谢，并强调对自己带来了很大的帮助。那么，这不是一种以自我为中心的说法吗？
-不是以有用为基础判断自己的价值，存在就是一种价值。</p>
-
-<p><strong>人生的意义在于哪里？</strong>
-无条件的信赖，这是一种人生达观，把这种态度对应到阿德勒哲学中就是课题分离。无条件信赖对方，是自己所能采取的态度，对方是否选择背叛，这是自己无法决定的。被欺骗的可能性是一定有的，但是如果总把自己的人生建立在怀疑的基础之上，那将是永远无法建立深厚感情关系的。虽然这时候我想到了大国博弈，还有各种兵不厌诈的操作，可能一个失误是家毁人亡。这种情况和人际关系是否就无关了，这样的情况要割裂开。</p>
-
-<p>有些观点是非常让人困惑的。作为一个人，我生活在一个共同体中，那么我的一些付出就是对这个共同体所做的贡献，那么这样想会避免不好的心态。但这怎么想都是自我欺骗，我并不能改变自己不被人重视而自己默默付出这件事的事实。</p>
-
-<p>工作狂却是一种靠行为标准来认可自己的方式，这种方式的不可取之处在于我们总有一天会停止工作，那么我们又该如何对自己进行认可呢？这回到了那个，存在就是一种认可的标准上。</p>
-
-<p>认可欲求，他者贡献和他者依赖，这些都是获得幸福感的方式，对于我们来说，获得认可的欲求是正常的，而这种欲求的满足不需要别人对自己认可，而是自己对自己的认可。</p>
-
-<p>我不知道是否因为我自己有过一段思考，以至于读到我认同的部分就会有种正确感。人生的目的不是山顶，山顶只是一刹那，这一刹那并不重要，重要的是从登山开始我们的人生就已经书写了。我们也无法时刻看到自己是否能够成功，我们只能，专注于此时此刻，至于结果那都是无法在自己预见范围内的，正好对应了我之前对自己的思考，无论我做什么紧张的事情，需要一锤定音的事情，都需要注重于这件事情本身而不是结果，注重于当下而不是未来。</p>
-
-<p>真正做好此时此刻的人，即使今天到达了生命的终点也没什么遗憾了。这是一件很重要的事情，在我们自己的生命中，如果经常关注今天不想这么平凡度过而不愿意睡觉，那正好反映了自己没有为了一个目标在每天起舞，而是将今天托付给未来，那么假如今天就会死去，也会感叹，自己有未竟的事业。</p>
-
-<p>人生的意义，是自己赋予的，而不是一个稳定的定义。它对于任何人都是不一样的。人生而不同，每个人对人生意义的定义也自然会随之不同，但这种不同，也应该是在一个范围内的不同，一个对共同体认知，对自我贡献的肯定，对结果充满乐观的肯定。踏出未知一步的是自己，也只能是自己，这是勇气的哲学，是敢于面对未知的哲学。</p>
-
-<p>To-Read List</p>
-
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />柏拉图的对话篇</li>
-</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[人到底能不能改变？我们到底能不能改变，过去的经历对我们产生了影响吗，又如何破除这种过去事件对我们的影响呢？]]></summary></entry><entry><title type="html">【阅读】这本书能让你睡得好</title><link href="http://localhost:4000/blog/read/2022/09/05/good-sleep.html" rel="alternate" type="text/html" title="【阅读】这本书能让你睡得好" /><published>2022-09-05T13:41:58+08:00</published><updated>2022-09-05T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2022/09/05/good-sleep</id><content type="html" xml:base="http://localhost:4000/blog/read/2022/09/05/good-sleep.html"><![CDATA[<h1 id="可行动指南">可行动指南</h1>
-
-<ol>
-  <li>11点半以后必须关大灯，只开小灯；</li>
-  <li>饮食以下原则，
-    <ol>
-      <li>不吃加工食品；</li>
-      <li>硒：影响甲状腺功能，葵花籽、牛肉、鸡肉</li>
-      <li>维生素C：<strong>少食易早醒</strong>。富含维生素C的食物包括卡姆果、余甘子、针叶樱桃等高级食品，以及灯笼椒、绿叶蔬菜、猕猴桃、草莓、柑橘类、木瓜等日常食物。</li>
-      <li>色氨酸：这是一种关键的营养成分，是人体<strong>血清素</strong>产生的先兆。色氨酸常见于火鸡、<strong>鸡肉、蛋类、番薯</strong>、奇亚籽、火麻仁、香蕉、南瓜子、杏仁、酸牛奶和绿叶蔬菜。</li>
-      <li>钾：《睡眠》期刊发表的研究发现，钾元素可能对<strong>有睡眠障碍</strong>的人有帮助。<strong>香蕉</strong>通常被认为是钾元素的最佳来源，但是还有许多更好的来源（尤其是你不想摄入过多糖分时）。<strong>绿叶蔬菜</strong>、土豆、掌状红皮藻（一种富含矿物质的海菜）、西蓝花、小型褐菇和牛油果中就富含钾元素。如果你喜欢牛油果沙拉，这大概是最好的消息了。</li>
-      <li>钙：富含生物可利用钙元素的食物包括甘蓝、羽衣甘蓝、芥菜叶、沙丁鱼、海菜和芝麻</li>
-      <li>Ω-3：牛津大学的一项研究发现，Ω-3有助于人体获得更深度、更舒适的睡眠。富含Ω-3的食物来源包括奇亚籽、南瓜子、火麻仁、核桃、比目鱼、鲑鱼和亚麻籽。</li>
-      <li>褪黑激素：一些食物中本身含有少量褪黑激素。研究发现，一些食物有助于提升人体褪黑激素的产生。酸樱桃显然是褪黑激素含量最高的食物来源。不过，核桃、生姜和芦笋中也含有少量褪黑激素。有些食物能自然提升人体褪黑激素的水平，其中包括菠萝（在某项研究中处于首位）、番茄、香蕉和橘子。</li>
-    </ol>
-  </li>
-  <li>工作屏幕以下原则
-    <ol>
-      <li>开启防蓝光模式</li>
-      <li>购买防蓝光镜片</li>
-      <li>深色模式</li>
-    </ol>
-  </li>
-  <li><a href="#形成routine">形成routine</a>，周末和日常follow相同的pattern</li>
-</ol>
-
-<h1 id="睡眠影响因素">睡眠影响因素</h1>
-
-<h2 id="一些激素">一些激素</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>名称</th>
-      <th>影响形式</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>褪黑素</td>
-      <td>让身体进入睡眠状态的激素，可能和人的衰老有关，会随着年龄的增长分泌逐渐变少，感觉现在的一些睡眠上的问题与此相关，因为即便在上高中，也很少会有睡眠问题</td>
-    </tr>
-    <tr>
-      <td>皮质醇</td>
-      <td>白天上升，夜晚下降，白天时候能够提供亢奋和活力的功效，但如果在错误的时间分泌，会让人出现，“亢奋又疲惫”的状态</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="应对方法">应对方法</h3>
-
-<ol>
-  <li>白天获取充足光照；</li>
-  <li>晚上尽量在11点后睡觉。</li>
-</ol>
-
-<h2 id="电子屏幕">电子屏幕</h2>
-
-<p>电子屏幕的危害在于其释放的蓝光会显著抑制褪黑素在夜间的释放，多看两小时屏幕可能会造成严重的昼夜节律的改变。</p>
-
-<h3 id="应对方法-1">应对方法</h3>
-
-<ol>
-  <li>防蓝光镜片</li>
-  <li>读书或者不释放蓝光的屏幕；</li>
-  <li>电脑装一些插件。</li>
-</ol>
-
-<h2 id="咖啡">咖啡</h2>
-
-<p>自己最近喝了太多咖啡，咖啡对睡眠的影响很大。</p>
-
-<p>如果一定要喝，控制在250ML左右，如果是买的外面的咖啡，控制在一杯。</p>
-
-<h2 id="饮食">饮食</h2>
-
-<h3 id="镁元素">镁元素</h3>
-
-<p>这个说的有点玄乎，就是过于容易被吸收且不稳定，最好的方法是外敷。鉴于当前条件受限，可以考虑先不进行这个</p>
-
-<h1 id="具体建议">具体建议</h1>
-
-<h2 id="形成routine">形成routine</h2>
-
-<p>如果想让你的小孩快速入睡，就是把事情变得可预期，即每天睡前做一样的事情，这样小孩的潜意识和身体就能意识到当前是一个入睡状态，每天如此她就能快速入睡。</p>
-
-<p>我们也是一样。一定要构建一个daily routine，睡前routine，帮助自己快速入睡并且睡个好觉；起床routine，帮助自己快速获得精力，开启一天的生活。</p>
-
-<p><strong>早起routine的建议：</strong></p>
-
-<ol>
-  <li>上厕所；</li>
-  <li>洗漱；</li>
-  <li>喝一杯温水；</li>
-  <li>简单锻炼（快速提升早起激素分泌）参考: <a href="https://m.gotokeep.com/training/albums?id=6011f834f63c767274a3c6b1&amp;_uid=5b98b522e666864d3f7dfe4e">晨练开启美好的清晨</a>；</li>
-  <li>高蛋白，或不含碳水的蔬菜，健康脂肪（坚果类）</li>
-</ol>
-
-<p><strong>睡前routine</strong>：</p>
-
-<ol>
-  <li>读书或听播客；</li>
-  <li>有条件的话，可提前一小时放下电子设备；</li>
-  <li>写日记</li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;Blog&quot;, &quot;Read&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[可行动指南 11点半以后必须关大灯，只开小灯； 饮食以下原则， 不吃加工食品； 硒：影响甲状腺功能，葵花籽、牛肉、鸡肉 维生素C：少食易早醒。富含维生素C的食物包括卡姆果、余甘子、针叶樱桃等高级食品，以及灯笼椒、绿叶蔬菜、猕猴桃、草莓、柑橘类、木瓜等日常食物。 色氨酸：这是一种关键的营养成分，是人体血清素产生的先兆。色氨酸常见于火鸡、鸡肉、蛋类、番薯、奇亚籽、火麻仁、香蕉、南瓜子、杏仁、酸牛奶和绿叶蔬菜。 钾：《睡眠》期刊发表的研究发现，钾元素可能对有睡眠障碍的人有帮助。香蕉通常被认为是钾元素的最佳来源，但是还有许多更好的来源（尤其是你不想摄入过多糖分时）。绿叶蔬菜、土豆、掌状红皮藻（一种富含矿物质的海菜）、西蓝花、小型褐菇和牛油果中就富含钾元素。如果你喜欢牛油果沙拉，这大概是最好的消息了。 钙：富含生物可利用钙元素的食物包括甘蓝、羽衣甘蓝、芥菜叶、沙丁鱼、海菜和芝麻 Ω-3：牛津大学的一项研究发现，Ω-3有助于人体获得更深度、更舒适的睡眠。富含Ω-3的食物来源包括奇亚籽、南瓜子、火麻仁、核桃、比目鱼、鲑鱼和亚麻籽。 褪黑激素：一些食物中本身含有少量褪黑激素。研究发现，一些食物有助于提升人体褪黑激素的产生。酸樱桃显然是褪黑激素含量最高的食物来源。不过，核桃、生姜和芦笋中也含有少量褪黑激素。有些食物能自然提升人体褪黑激素的水平，其中包括菠萝（在某项研究中处于首位）、番茄、香蕉和橘子。 工作屏幕以下原则 开启防蓝光模式 购买防蓝光镜片 深色模式 形成routine，周末和日常follow相同的pattern 睡眠影响因素 一些激素 名称 影响形式 褪黑素 让身体进入睡眠状态的激素，可能和人的衰老有关，会随着年龄的增长分泌逐渐变少，感觉现在的一些睡眠上的问题与此相关，因为即便在上高中，也很少会有睡眠问题 皮质醇 白天上升，夜晚下降，白天时候能够提供亢奋和活力的功效，但如果在错误的时间分泌，会让人出现，“亢奋又疲惫”的状态 应对方法 白天获取充足光照； 晚上尽量在11点后睡觉。 电子屏幕 电子屏幕的危害在于其释放的蓝光会显著抑制褪黑素在夜间的释放，多看两小时屏幕可能会造成严重的昼夜节律的改变。 应对方法 防蓝光镜片 读书或者不释放蓝光的屏幕； 电脑装一些插件。 咖啡 自己最近喝了太多咖啡，咖啡对睡眠的影响很大。 如果一定要喝，控制在250ML左右，如果是买的外面的咖啡，控制在一杯。 饮食 镁元素 这个说的有点玄乎，就是过于容易被吸收且不稳定，最好的方法是外敷。鉴于当前条件受限，可以考虑先不进行这个 具体建议 形成routine 如果想让你的小孩快速入睡，就是把事情变得可预期，即每天睡前做一样的事情，这样小孩的潜意识和身体就能意识到当前是一个入睡状态，每天如此她就能快速入睡。 我们也是一样。一定要构建一个daily routine，睡前routine，帮助自己快速入睡并且睡个好觉；起床routine，帮助自己快速获得精力，开启一天的生活。 早起routine的建议： 上厕所； 洗漱； 喝一杯温水； 简单锻炼（快速提升早起激素分泌）参考: 晨练开启美好的清晨； 高蛋白，或不含碳水的蔬菜，健康脂肪（坚果类） 睡前routine： 读书或听播客； 有条件的话，可提前一小时放下电子设备； 写日记]]></summary></entry></feed>
+<h3 id="113-convert-a-datastream-or-dataset-into-a-table">1.1.3 Convert a DataStream or Dataset into a Table</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
+<span class="c1">//registration of a DataSet is equivalent</span>
+<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
+<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=..</span>
+<span class="c1">//convert the Datastream into a Table with default fields '_1,'_2</span>
+<span class="n">val</span> <span class="nl">table1:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDatastream</span><span class="o">(</span><span class="n">stream</span><span class="o">)</span>
+<span class="c1">//convert the Datastream into a Table with fields 'myLong,'myString</span>
+<span class="n">val</span> <span class="nl">table2:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDataStream</span><span class="o">(</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="o">,</span><span class="err">'</span><span class="n">myString</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="114-convert-a-table-into-a-datastream">1.1.4 Convert a table into a DataStream</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment.</span>
+<span class="c1">//registration of a DataSet is equivalent</span>
+<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
+<span class="c1">//Table with two fields (String name,Integer age)</span>
+<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
+<span class="c1">//convert the Table into an append Datastream of Row</span>
+<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
+<span class="c1">//convert the Table into an append Datastream of Tuple2[String,Int]</span>
+<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataStream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]</span><span class="n">dsTuple</span>
+<span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendstream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
+<span class="c1">//convert the Table into a retract Datastream of Row.</span>
+<span class="o">/</span><span class="mi">1</span>
+<span class="c1">//A retract stream of type X is a Datastream[(Boolean,X)].</span>
+<span class="c1">//</span>
+<span class="c1">//The boolean field indicates the type of the change.</span>
+<span class="c1">//</span>
+<span class="c1">//True is INSERT,false is DELETE.</span>
+<span class="n">val</span> <span class="nl">retractstream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Boolean</span><span class="o">,</span><span class="nc">Row</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toRetractstream</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="115-convert-table-into-a-dataset">1.1.5 Convert table into a DataSet</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
+<span class="c1">//registration of a DataSet is equivalent</span>
+<span class="n">val</span> <span class="n">tableEnv</span> <span class="o">=</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
+<span class="c1">//Table with two fields (String name,Integer age)</span>
+<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
+<span class="c1">//convert the Table into a DataSet of Row</span>
+<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataSet</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span> <span class="o">=</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
+<span class="c1">//convert the Table into a DataSet of Tuple2[String,Int]</span>
+<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
+</code></pre></div></div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;java&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Flink开发（Java版） 1.1 Data Conversion Reference: Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客 1.1.1 Imports import org.apache.flink.streaming.api.scala. import org.apache.flink.table.api.scala._ import org.apache.flink.api.scala._ import scala.collection.JavaConverters._ 1.1.2 Register Datastream of DataSet as Table // get TableEnvironment // registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) val stream:Datastream[(Long,String)]=... //register the Datastream as Table "myTable"with fields "fo","f1" tableEnv.registerDataStream("myTable",stream) //register the Datastream as table "myTable2"with fields "myLong","mystring" tableEnv.registerDatastream("myTable2",stream,'myLong',myString) 1.1.3 Convert a DataStream or Dataset into a Table //get TableEnvironment //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment (env) val stream:Datastream[(Long,String)]=.. //convert the Datastream into a Table with default fields '_1,'_2 val table1:Table tableEnv.fromDatastream(stream) //convert the Datastream into a Table with fields 'myLong,'myString val table2:Table tableEnv.fromDataStream(stream,'myLong,'myString) 1.1.4 Convert a table into a DataStream //get TableEnvironment. //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into an append Datastream of Row val dsRow:DataStream[Row]tableEnv.toAppendStream[Row](table) //convert the Table into an append Datastream of Tuple2[String,Int] val dsTuple:DataStream[(String,Int)]dsTuple tableEnv.toAppendstream[(String,Int)](table) //convert the Table into a retract Datastream of Row. /1 //A retract stream of type X is a Datastream[(Boolean,X)]. // //The boolean field indicates the type of the change. // //True is INSERT,false is DELETE. val retractstream:Datastream[(Boolean,Row)]=tableEnv.toRetractstream [Row](table) 1.1.5 Convert table into a DataSet //get TableEnvironment //registration of a DataSet is equivalent val tableEnv = TableEnvironment.getTableEnvironment (env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into a DataSet of Row val dsRow:DataSet[Row] = tableEnv.toDataSet [Row](table) //convert the Table into a DataSet of Tuple2[String,Int] val dsTuple:DataSet[(String,Int)]=tableEnv.toDataSet[(String,Int)](table)]]></summary></entry></feed>

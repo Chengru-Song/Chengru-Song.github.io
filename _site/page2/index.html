@@ -280,6 +280,130 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/maven/2022/10/24/maven.html"><h2 itemprop="headline" class="item__header">【Big-Data】Java Maven</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Maven详解
+
+Maven archetype
+
+可以理解为生成项目的template。在脚手架生成项目的时候使用的。
+
+POM文件是Maven的入口文件，标签详解如下</div><p><a href="/work/maven/2022/10/24/maven.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 10月24日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-10-24T09:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/java/2022/10/24/big-data-flink.html"><h2 itemprop="headline" class="item__header">【Big-Data】Flink开发总结</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Flink开发（Java版）
+
+1.1 Data Conversion
+
+Reference: Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客
+
+1.1.1 Imports
+
+import org.apache.flink.streaming.api.scala.
+import org.apache.flink.table.api.scala._
+import org.apache.flink.api.scala._
+import scala.collection.JavaConverters._
+
+
+1.1.2 Register Datastream of DataSet as Table
+
+// get TableEnvir...</div><p><a href="/work/java/2022/10/24/big-data-flink.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 10月24日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-10-24T09:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/sql/basics/2022/10/11/big-data-tools.html"><h2 itemprop="headline" class="item__header">【Big-Data】实时数仓架构设计</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">用 Flink 取代 Spark Streaming！知乎实时数仓架构演进
+
+“数据智能” (Data Intelligence) 有一个必须且基础的环节，就是数据仓库的建设，同时，数据仓库也是公司数据发展到一定规模后必然会提供的一种基础服务。从智能商业的角度来讲，数据的结果代表了用户的反馈，获取结果的及时性就显得尤为重要，快速的获取数据反馈能够帮助公司更快的做出决策，更好的进行产品迭代，实时数仓在这一过程中起到了不可替代的作用。
+
+本文主要讲述知乎的实时数仓实践以及架构的演进，这包括以下几个方面：
+
+
+  实时数仓 1.0 版本，主题：ETL 逻辑实时化，技术方案：Spark Streaming。
+  实时数仓 2.0 版本，主题：数据分层，指标计算实时化，技术方案：Flink St...</div><p><a href="/work/sql/basics/2022/10/11/big-data-tools.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 10月11日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-10-11T09:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/sql/basics/2022/09/19/lateral-view.html"><h2 itemprop="headline" class="item__header">【Big-Data】Lateral View多列转多行</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">What is Lateral view
+
+
+  The LATERAL VIEW clause is used in conjunction with generator functions such as EXPLODE, which will generate a virtual table containing one or more rows. LATERAL VIEW will apply the rows to each original output row.
+
+
+简单来说，就是想把单行映射到产出表的多行，可以使用lateral view。</div><p><a href="/work/sql/basics/2022/09/19/lateral-view.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 09月19日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-09-19T09:18:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/blog/read/2022/09/07/how-to-ask-questions.html"><h2 itemprop="headline" class="item__header">【阅读】提问的艺术：为什么你应该这样问</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">可行动指南
+
+封闭式问题
+
+要求对方给出是/否的回答，不能是一个开放的问题
+
+使用tips
+
+当你想获得直接而由衷的回答时，封闭式问题会很有效：用恰当的方式有目的地提出一个封闭式问题：是还是不是，对于提问者来说，是力量和高要求的最好结合。
+
+什么时候问最合适
+
+
+  当你需要弄清对方是否全身心投入时。
+  当你想找出对方的任何疑虑或犹豫时。
+
+
+你还可以这样问
+
+
+  你能够全心投入此事吗？
+  你是否愿意做这件事？
+  你现在能做出最后的决定吗？
+接下来这样问
+  这件事最能让你兴奋的是什么？
+  你最大的疑虑或顾虑是什么？
+
+
+别人发脾气时
+
+
+  你觉得怎样做是比较好的
+
+
+问为什么
+
+了解对方想这么做的原因，发自内心</div><p><a href="/blog/read/2022/09/07/how-to-ask-questions.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 09月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-09-07T13:41:58+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/blog/read/2022/09/06/courage.html"><h2 itemprop="headline" class="item__header">【阅读】被讨厌的勇气</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">人到底能不能改变？我们到底能不能改变，过去的经历对我们产生了影响吗，又如何破除这种过去事件对我们的影响呢？</div><p><a href="/blog/read/2022/09/06/courage.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
@@ -334,88 +458,8 @@
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 09月02日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-09-02T00:11:04+08:00">
     <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/scala/basics/2022/08/30/scala-language.html"><h2 itemprop="headline" class="item__header">【Big-Data】Scala</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">What is Scala
-
-Scala is used in Big Data Processing, Machine Learning, Streaming Services, etc. It is designed to run big data applications based on Java. If your application requires big data processing which contains logs of SQL-like quries, and those query results needs some further processing according to some business logic implementations,...</div><p><a href="/work/scala/basics/2022/08/30/scala-language.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 08月30日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-08-30T11:18:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/work/2022/08/29/new_topic_expertise.html"><h2 itemprop="headline" class="item__header">【博客】成为专家</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">TL;DR
-
-TLDR</div><p><a href="/blog/work/2022/08/29/new_topic_expertise.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 08月29日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-08-29T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-work-basics"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/work/2022/08/24/multi-tasking.html"><h2 itemprop="headline" class="item__header">【博客】Multi-tasking</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Multi-tasking
-
-Update on 8th Sep:
-
-发现最困，自制力最差的时间是下午的4-7点，通常在这个时间会犯困，吃零食，难以控制自己，且疲惫。
-
-如何解决
-
-What happened
-
-发现自己最近经常在multi-tasking，需要context switch，带来两个问题
-
-
-  工作效率下降；
-  工作重点不能很好把握；
-  切换回来的时候需要重新进入到context。
-
-
-What can I do
-
-
-  每天进入工作状态之前，先整理一下今天的ToDo，确定会议时间都在哪个时段，给会议分级标注重要程度；
-  在每次进行context switch之前，用五分钟时间保存工作状态，便于切换回当前状态；(参考doc writing)
-  临时需要回复的重...</div><p><a href="/blog/work/2022/08/24/multi-tasking.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 08月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-08-24T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/2022/07/18/thoughts-1.html"><h2 itemprop="headline" class="item__header">【博客】Thoughts 1</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">最新感触，所有你当前希望逃避的东西，都会在未来加倍找到你。还是好好想想当前怎么解决这个问题，这样就不会在未来这个问题更加棘手，不得不解决的时候，让自己陷入更大的被动。</div><p><a href="/blog/2022/07/18/thoughts-1.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 07月18日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-07-18T09:27:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/web3/2022/07/17/web3-mckinsey-metaverse-study.html"><h2 itemprop="headline" class="item__header">【Web3】麦肯锡元宇宙研究报告精读解析</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Value Creation in the metaverse
-
-Metaverse更像是web3的一个产品形态，一个集大成者，而并非web3的所有体现。但作为web3的一个重要应用，Metaverse有无可替代的作用。就像图像识别之于人工智能，正因为有具体应用的蓬勃发展，其底层技术的潜力才得到了更多的认可以及开发。
-
-本文基于McKinsey对Metaverse的研究报告《Value Creation in the Metaverse》，对其进行精读和分析，从经济和业务的角度对发展前景和发展方向进行深度剖析，并试图回答以下几个问题
-
-
-  什么是Metaverse？
-  是什么因素驱动了大家对Metaverse的投资？
-  Metaverse的消费者和业务的演进是怎样的？
-  Met...</div><p><a href="/work/web3/2022/07/17/web3-mckinsey-metaverse-study.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-web3">301-work-web3</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 07月17日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-07-17T16:11:09+08:00">
-    <meta itemprop="keywords" content="301-work-web3"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 65 篇文章，9 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 70 篇文章，9 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>
