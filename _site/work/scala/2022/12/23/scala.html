@@ -327,6 +327,65 @@
 <p>If you change the dependencies once and the IDE does not agree with what you just did. Right click on <code class="language-plaintext highlighter-rouge">pom.xml</code> and <code class="language-plaintext highlighter-rouge">reimport</code> the whole project. It should be working just fine.</p>
 
 <p><img src="/assets/images/image-20221227151614767.png" alt="image-20221227151614767" /></p>
+
+<h2 id="usages">Usages</h2>
+
+<ol>
+  <li>Merge two array list and deduplicate</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">mergeSiloList</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)],</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">resultMap</span> <span class="k">=</span> <span class="nv">scala</span><span class="o">.</span><span class="py">collection</span><span class="o">.</span><span class="py">mutable</span><span class="o">.</span><span class="py">Map</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">)</span>, <span class="kt">String</span><span class="o">]()</span>
+
+    <span class="nf">for</span> <span class="o">((</span><span class="n">id</span><span class="o">,</span> <span class="n">idType</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">a</span> <span class="o">++</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">val</span> <span class="nv">key</span> <span class="k">=</span> <span class="n">id</span> <span class="o">-&gt;</span> <span class="n">belongsTo</span>
+      <span class="nf">if</span> <span class="o">(!</span><span class="nv">resultMap</span><span class="o">.</span><span class="py">contains</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+        <span class="nv">resultMap</span><span class="o">.</span><span class="py">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">idType</span><span class="o">)</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="nv">resultMap</span><span class="o">.</span><span class="py">toArray</span><span class="o">.</span><span class="py">map</span> <span class="o">{</span> <span class="nf">case</span> <span class="o">((</span><span class="n">id</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">),</span> <span class="n">idType</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">idType</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">)</span> <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Compare two lists</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">compareTwoArray</span><span class="o">(</span><span class="n">a1</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)],</span> <span class="n">a2</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="nv">a1</span><span class="o">.</span><span class="py">filterNot</span><span class="o">(</span><span class="n">t1</span> <span class="k">=&gt;</span> <span class="nv">a2</span><span class="o">.</span><span class="py">exists</span><span class="o">(</span><span class="n">t2</span> <span class="k">=&gt;</span> <span class="nv">t1</span><span class="o">.</span><span class="py">_1</span> <span class="o">==</span> <span class="nv">t2</span><span class="o">.</span><span class="py">_1</span><span class="o">))</span>
+    <span class="c1">// another way</span>
+    <span class="c1">// attr.forall({case (id, _, _) =&gt; srcId != id})</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>convert an array to a string</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">propertyList</span><span class="o">.</span><span class="py">foldLeft</span><span class="o">(</span><span class="s">""</span><span class="o">)((</span><span class="n">acc</span><span class="o">,</span> <span class="n">obj</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">s</span><span class="s">"(${obj._1}, ${obj._2}, ${obj._3})\t"</span><span class="o">))</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Insert VertexRDD to hive</p>
+
+    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.apache.spark.sql.</span><span class="o">{</span><span class="nc">Row</span><span class="o">,</span> <span class="nc">SparkSession</span><span class="o">}</span>
+   
+<span class="c1">// Assuming sparkSession is already created</span>
+   
+<span class="c1">// Convert the VertexRDD to a DataFrame</span>
+<span class="k">val</span> <span class="nv">vertexRows</span> <span class="k">=</span> <span class="nv">vertexRDD</span><span class="o">.</span><span class="py">map</span><span class="o">{</span> <span class="nf">case</span> <span class="o">(</span><span class="n">vid</span><span class="o">,</span> <span class="n">vprop</span><span class="o">)</span> <span class="k">=&gt;</span>
+  <span class="nc">Row</span><span class="o">(</span><span class="n">vid</span><span class="o">,</span> <span class="nv">vprop</span><span class="o">.</span><span class="py">property1</span><span class="o">,</span> <span class="nv">vprop</span><span class="o">.</span><span class="py">property2</span><span class="o">,</span> <span class="o">...)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="nv">vertexSchema</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"property1"</span><span class="o">,</span> <span class="s">"property2"</span><span class="o">,</span> <span class="o">...)</span>
+<span class="k">val</span> <span class="nv">vertexDF</span> <span class="k">=</span> <span class="nv">sparkSession</span><span class="o">.</span><span class="py">createDataFrame</span><span class="o">(</span><span class="n">vertexRows</span><span class="o">,</span> <span class="n">vertexSchema</span><span class="o">)</span>
+   
+<span class="c1">// Write the DataFrame to Hive</span>
+<span class="nv">vertexDF</span><span class="o">.</span><span class="py">write</span><span class="o">.</span><span class="py">mode</span><span class="o">(</span><span class="s">"overwrite"</span><span class="o">).</span><span class="py">saveAsTable</span><span class="o">(</span><span class="s">"database.table_name"</span><span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
 </div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2022-12-23T16:18:07+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->

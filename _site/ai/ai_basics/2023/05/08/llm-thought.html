@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>AI - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】LLM Thoughts - Chengru's Blog</title>
 
-<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
-">
-<link rel="canonical" href="http://localhost:4000/assets/category/work/AI/AI.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="背景可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效...">
+<link rel="canonical" href="http://localhost:4000/ai/ai_basics/2023/05/08/llm-thought.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -266,7 +265,7 @@
 
     <div class="grid page__grid">
 
-      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2 active"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main cell cell--auto">
+      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -280,141 +279,110 @@
 </svg>
 <a title="A personal blog website for sharing of technology, reflection and branding. 
 " href="/">Chengru's Blog</a></div><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></div><nav class="navigation">
-        <ul><li class="navigation__item"><a href="/assets/category/work/basics/basics.html">工作</a></li><li class="navigation__item navigation__item--active"><a href="/assets/category/work/AI/AI.html">人工智能</a></li><li class="navigation__item"><a href="/archive.html">归档</a></li><li class="navigation__item"><a href="/assets/resume/">简历</a></li><li class="navigation__item"><a href="/about.html">关于</a></li><li class="navigation__item"><a href="/assets/category/blog/">博客</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
+        <ul><li class="navigation__item"><a href="/assets/category/work/basics/basics.html">工作</a></li><li class="navigation__item"><a href="/assets/category/work/AI/AI.html">人工智能</a></li><li class="navigation__item"><a href="/archive.html">归档</a></li><li class="navigation__item"><a href="/assets/resume/">简历</a></li><li class="navigation__item"><a href="/about.html">关于</a></li><li class="navigation__item"><a href="/assets/category/blog/">博客</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li></ul>
       </nav></div>
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><div class="article__header"><header><h1>AI</h1></header></div><meta itemprop="headline" content="AI"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><ul>
-    
-        
-        
-        08/05/2023
-        <font size="3"><a href=/ai/ai_basics/2023/05/08/llm-thought.html title=AI>【AI】LLM Thoughts</a></font>
-        <br>
-        
-        25/02/2022
-        <font size="3"><a href=/ai/ai_basics/2022/02/25/ml-basic-knowledge.html title=AI>【AI】ML Basic Knowledge</a></font>
-        <br>
-        
-        07/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/07/item2vec.html title=AI>【AI】Item2Vec详解</a></font>
-        <br>
-        
-        07/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/07/WAMPE.html title=AI>【AI】WMAPE详解</a></font>
-        <br>
-        
-        07/12/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/12/07/LSTM-CNN.html title=AI>【AI】LSTM+CNN详解</a></font>
-        <br>
-        
-        06/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/06/one-hot.html title=AI>【AI】One-hot Vector实例</a></font>
-        <br>
-        
-        06/12/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/12/06/esmm.html title=AI>【AI】ESMM CVR预测详解</a></font>
-        <br>
-        
-        05/12/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/12/05/wide_&_deep.html title=AI>【AI】Wide&Deep Item-based content retrieval(基于内容的协同过滤)</a></font>
-        <br>
-        
-        05/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/05/logistic-regression.html title=AI>【AI】Logistic Regression详解</a></font>
-        <br>
-        
-        05/12/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/12/05/dsmm.html title=AI>【AI】DSMM Item-based系统过滤</a></font>
-        <br>
-        
-        05/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/05/cross-entropy-loss.html title=AI>【AI】Cross Entropy Loss详解</a></font>
-        <br>
-        
-        01/12/2021
-        <font size="3"><a href=/ai/ai_basics/2021/12/01/unigram-distribution.html title=AI>【AI】Unigram Distribution(NLP中常用)</a></font>
-        <br>
-        
-        01/12/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/12/01/gbdt.html title=AI>【AI】GBDT(Gradient Boosting Decision Tree)详解</a></font>
-        <br>
-        
-        25/11/2021
-        <font size="3"><a href=/ai/ai_algorithms/2021/11/25/ARIMA.html title=AI>【AI】Arima模型详解</a></font>
-        <br>
-        
-        21/11/2021
-        <font size="3"><a href=/ai/ai_basics/2021/11/21/term-vector.html title=AI>【AI】Term-Vector含义</a></font>
-        <br>
-        
-        20/11/2021
-        <font size="3"><a href=/ai/ai_basics/2021/11/20/softmax.html title=AI>【AI】Softmax函数</a></font>
-        <br>
-        
-        19/11/2021
-        <font size="3"><a href=/ai/ads/2021/11/19/Recommend.html title=AI>【Ad】Recommendation System Overview(推荐系统详解)</a></font>
-        <br>
-        
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】LLM Thoughts</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2023-05-08-llm-thought.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】LLM Thoughts"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-08T16:46:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h1 id="背景">背景</h1>
+
+<p>可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。</p>
+
+<p>2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。</p>
+
+<p>对于一个从事编程行业的人来说，哪些应该是我的关注点呢？</p>
+
+<h1 id="breakdown">Breakdown</h1>
+
+<p>首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune，怎么做呢？不能有一个想法就去训练，成本太高了，肯定需要有一些快速试错和迭代的方法。这里我不太了解，后续关注一下准备再写一篇笔记。</p>
+
+<p>其次，基于大模型能做什么？现在的垂直市场是绝对的蓝海，因为没有一个非常Dominant的公司在垂直领域做到了一个足够爆款的App，就算做出来了，这个门槛也比较低，举个最简单的例子，MidJourney现在多少人在用？Bing现在都集成了Dall-E了，每个人都能上去画图，谁还会用收费的MidJourney吗？我觉得时间长了肯定没人用了，除非能在速度和质量或者易用性上产生明显的差异。当然目前来看，Bing这里暂时还不太行。</p>
+
+<p><img src="/assets/images/image-20230508204012732.png" alt="image-20230508204012732" /></p>
+
+<p>那么关于垂类应用，最有前景的是什么？我大胆预测一下是数据预处理 + ChatGPT。为什么是数据预处理，因为OpenAI给了一个Token Limit，就是一次发送给OpenAI的字符数量是有限的，并且是收费的，发过去的内容越多，分析的成本就越高，比如大数据分析，文章摘要等。因此这里肯定是可以有护城河的东西，因为这里有了现实的限制，就连OpenAI自己也没办法发送无限多的Token给自己的大模型。这里很多技巧就可以用上了，展示三个应用，都是最近Github上非常火的开源项目。</p>
+
+<ul>
+  <li><a href="https://github.com/pashpashpash/vault-ai">vault-ai</a>： 通过上传自己的文档，建立自己的私人知识库。</li>
+  <li><a href="https://github.com/bhaskatripathi/pdfGPT">pdfGPT</a>：上传PDF，然后可以对PDF进行提问。</li>
+  <li>ChatGPT code interpreter插件：上传csv文件，告诉ChatGPT你想生成的结果，某种结论或者图片都可以，然后生成Python Code并运行，返回给用户处理的结果。（直接拿到Python Code自己运行也是可以的，参考这篇文章：<a href="https://mp.weixin.qq.com/s/4jNYSW-AVKcpXuhRlUAu1w">WeChat Article</a></li>
 </ul>
+
+<p>前两个的思路都是非常接近的，把输入的文档处理成embedding，然后把问题也encode成embedding，把问题的embedding和所有输入的embedding的进行相关性查找，找到最相关的前n个文本块，和问题一起封装成一个prompt发送给ChatGPT，从而能够回答你的问题。</p>
+
+<p>PDFGPT的Flowchart</p>
+
+<pre><code class="language-mermaid">flowchart TB
+A[Input] --&gt; B[URL]
+A -- Upload File manually --&gt; C[Parse PDF]
+B --&gt; D[Parse PDF] -- Preprocess --&gt; E[Dynamic Text Chunks]
+C -- Preprocess --&gt; E[Dynamic Text Chunks with citation history]
+E --Fit--&gt;F[Generate text embedding with Deep Averaging Network Encoder on each chunk]
+F -- Query --&gt; G[Get Top Results]
+G -- K-Nearest Neighbour --&gt; K[Get Nearest Neighbour - matching citation references]
+K -- Generate Prompt --&gt; H[Generate Answer]
+H -- Output --&gt; I[Output]
+</code></pre>
+
+<p>最后一个是数据分析相关的，海量数据自然也是不能直接喂给ChatGPT的，因此OpenAI的思路就是读取一部分上传文件，csv读头部前几行即可，就能知道文件和什么相关，并且还有部分样例数据，随后根据用户的指令生成一些Python代码，执行代码并且把分析好的结果返回给用户。多了一些自动化，确实方便很多，这个能做比较小型的数据分析，大型的肯定无法通过上传文件做到。</p>
+
+<p>我们可以看到，这两者的预处理都是有损的，并不是和大模型直接交互的。既然是有损的，那么谁的损失更少，谁的结果更精准，让用户花费时间更少，同时自己的成本更低，谁就更有机会胜出。并且大模型不好实时更新，recommender总可以吧，这都是多么成熟的领域了，集成个语言大模型到自己的工作流里面也不会有多困难。但本身这里还有个tradeoff，能给大模型更多的信息总是更好的，这也导致了这些方法都是Token hungry的。对于数据分析来说，生成的Python更准确，prompt的字数越少，越能胜出。</p>
+
+<p>最后，知道这些了能做什么吗？我个人认为还是从实际需求入手，从自己的工作流入手，做一个特别垂直的事情。没有乔老爷那么敏锐的用户洞察力，自己工作流里遇到的问题，就是大家会遇到的问题。多了的地方只能通过聊天获取，但sizing有多大，这个就无法判断了。</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>来自Bing的总结：</p>
+
+<p>The text is about the recent developments in AI, especially large language models (LLM) and AI-generated content (AIGC). The author discusses the challenges and opportunities for programmers in this field. The author suggests that data preprocessing and chat-based applications are the most promising areas for innovation. The author also gives some examples of popular open-source projects that use LLM and AIGC, such as vault-ai, pdfGPT, and ChatGPT code interpreter. The author argues that both tools have some tradeoffs in terms of preprocessing, accuracy, cost and prompt length. The author suggests that the best way to use these tools is to find a specific and vertical problem from one’s own workflow.</p>
+
+<blockquote>
+  <p>这篇文章主要介绍了AI领域的最新进展，特别是大型语言模型(LLM)和AI生成内容(AIGC)。作者分析了这个领域中程序员面临的挑战和机遇。作者认为数据预处理和聊天式应用是最有创新潜力的领域。作者还举了一些使用LLM和AIGC的热门开源项目的例子，比如vaut-ai,pdfGPT,和ChatGPT code interpreter。作者指出这两种工具在预处理、准确性、成本和提示长度方面都有一些权衡。作者建议使用这些工具的最佳方法是找到一个自己工作流中的具体而垂直的问题。</p>
+</blockquote>
+
+<p><img src="/assets/images/image-20230508212354089.png" alt="image-20230508212354089" /></p>
+
+<p><img src="/assets/images/image-20230508212219199.png" alt="image-20230508212219199" /></p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2023-05-08T16:46:07+08:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></div></div></div>
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="Chengru-Song/Chengru-Song.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -440,7 +408,8 @@
     });
   });
 })();
-</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -1007,12 +976,82 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
     });
   });
 })();
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
 	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
 </script>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  window.Lazyload.js('https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js', function() {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
 
     </div>
     <script>(function () {

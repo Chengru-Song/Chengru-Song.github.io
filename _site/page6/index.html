@@ -280,6 +280,60 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/blog/read/2022/02/08/critical-thing.html"><h2 itemprop="headline" class="item__header">【博客】【阅读】最重要的事只有一件</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">基本法则
+
+找到关键的事
+
+利用待办事项清单管理自己的工作
+
+利用帕累托法则不断缩小对于成功贡献最大的事情
+
+作者建议的做事顺序是
+
+  缩减，将待办事项减少到最主要的几项；
+  极致，将需要极致的事情做好；
+  拒绝，学会用不同的方法对不重要的事情说不；
+  挑选，不需要做完待办清单所有事。
+
+
+作者不建议分心做事，一次只做一件事，频繁的任务切换也会浪费大约28%的时间。
+
+克制和自律是一件很难的事情，需要耗费大量的精力管理，时间长了人很容易疲惫。最好的方法是培养一个习惯，这个习惯可以让人比较容易延续一些较难的事情。
+
+作者的重要建议是，找到自己意志力最强的时间，做最重要的事情。同时健康饮食，合理安排处理任务的时间。
+
+找到平衡
+
+与其说是平衡，不如说生活中更多的是制衡，因为人生很难...</div><p><a href="/blog/read/2022/02/08/critical-thing.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 02月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-02-08T12:22:35+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/blog/2022/02/06/coding-interview.html"><h2 itemprop="headline" class="item__header">【Algo】Coding Interview</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">主要用来记录面试coding的代码技巧与解题思路。个人感觉总体来说面试代码很少会非常复杂，超过100行，一般来说100行以内都可以搞定，思路分析过程比题解更重要，如果没做出来的题可以分析一下，为什么没做出来。
+
+Graphs/Trees
+
+与树、图相关的算法主要就是几种遍历方法的熟练运用，其实很多题的内核都是可以依靠某种遍历方法来解。因此面对此类题的思考方法，我自己归纳为以下：
+
+
+  首先，对于二叉树，我需要的左右子树结果的顺序是什么？如果是左-&gt;根-&gt;右，那么中序遍历的写法，如果是左-&gt;右-&gt;根，那么是后序遍历的写法；
+  其次，每次遍历返回给我的结果需要什么，是一个全局最大值还是局部最优值？
+  最后我需要设置的递归结束的条件是什么？
+
+
+示例
+
+124....</div><p><a href="/blog/2022/02/06/coding-interview.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 02月06日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-02-06T15:10:20+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/work/algorithm/2022/01/28/control-algorithms.html"><h2 itemprop="headline" class="item__header">【AI】控制算法</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">控制算法
     
@@ -404,60 +458,8 @@ Redis: https://blog.csdn....</div><p><a href="/work/interview/database/2021/12/2
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月23日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-23T18:33:02+08:00">
     <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/golang/2021/12/17/golang-slice.html"><h2 itemprop="headline" class="item__header">【Golang】Golang Slice解析</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Golang Slice解析
-
-slice实现
-
-Slice是Golang提供的数据结构，slice的底层实现是这样的：
-
-// Definition of slice
-type slice struct {
-    array unsafe.Pointer // Pointer to underlying data array
-    len int // slice length
-    cap int // max array size
-}
-
-
-slice更新操作
-
-由于slice传递至函数的是引用，所以作为函数参数传入到函数体内，对slice进行改变是会影响最终结果的。例如下面的例子：
-
-func changeArr(arr []int) {
-  arr[0] = 1
-}
-
-s...</div><p><a href="/work/golang/2021/12/17/golang-slice.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-golang">301-work-golang</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月17日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-17T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-golang,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/interview/ads/2021/12/10/ads-system.html"><h2 itemprop="headline" class="item__header">【Ad】广告系统基础知识</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">广告系统
-
-基础知识</div><p><a href="/work/interview/ads/2021/12/10/ads-system.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ads">301-work-ads</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月10日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-10T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ads,301-work-basics,301-work-interview"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 70 篇文章，9 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 72 篇文章，9 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page5">
             <i class="fas fa-angle-left"></i>

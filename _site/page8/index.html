@@ -280,6 +280,92 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2021/12/07/LSTM-CNN.html"><h2 itemprop="headline" class="item__header">【AI】LSTM+CNN详解</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">LSTM + CNN
+
+Introduction
+
+
+
+Solution
+
+
+
+Why sigmoid?
+
+Sigmoid function is 0 - 1 layout, it could be used to remember or forget something.
+
+Why tanh
+
+We want to avoid vanishing gradient problem. The second derivative of tanh is mo</div><p><a href="/ai/ai_algorithms/2021/12/07/LSTM-CNN.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月07日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-07T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/golang/2021/12/06/golang-basics.html"><h2 itemprop="headline" class="item__header">【Golang】Golang语言基础（面经）</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Basic Knowledge
+
+声明
+
+
+  短变量声明只能在函数内部使用
+
+
+package main
+
+// myvar := 1 // false
+var myvar = 1 // right
+
+func main() {
+}
+
+
+
+  不能使用nil初始化未指定类型的变量
+
+
+var x = nil // false
+var x interface{} = nil // right
+_ = x
+
+
+
+  字符串没有nil
+
+
+var x string
+
+if x == nil { // err
+
+}
+if x == "" {
+  x = "default"
+}
+
+
+Slice &amp; Array
+
+首先Slice和Array是有区别的，Slice是指针，而Array已经预...</div><p><a href="/work/golang/2021/12/06/golang-basics.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-golang">301-work-golang</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-basics">301-work-basics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-interview">301-work-interview</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月06日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-06T00:00:00+08:00">
+    <meta itemprop="keywords" content="301-work-golang,301-work-basics,301-work-interview"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ai_basics/2021/12/06/one-hot.html"><h2 itemprop="headline" class="item__header">【AI】One-hot Vector实例</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">One-Hot Encoding
 
@@ -465,56 +551,8 @@ https://gombru.github.io/2018/05/23/cross_entropy_loss/</div><p><a href="/ai/ai_
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月05日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-05T00:00:00+08:00">
     <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2021/12/01/unigram-distribution.html"><h2 itemprop="headline" class="item__header">【AI】Unigram Distribution(NLP中常用)</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">unigram distribution
-
-Key word: Evaluation, Loss Function
-Usage: non-contextual probability of finding a specific word form in a corpus.</div><p><a href="/ai/ai_basics/2021/12/01/unigram-distribution.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月01日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2021/12/01/gbdt.html"><h2 itemprop="headline" class="item__header">【AI】GBDT(Gradient Boosting Decision Tree)详解</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">GBDT
-
-Advantage: The advantage of GBDT is that it achieve great performance. 
-对数据特征尺度不敏感，自动填补确实特征，可做特征筛选，效果较为突出。
-Key word: Regressor
-Usage: A regressor to forecast different labels or values
-
-Great Explanation
-
-GBDT Algorithms: Principles - Develop Paper
-
-Watch chapter 3 for formulation
-
-Adobe Acrobat
-
-Core idea
-
-Whether weak learners could be m...</div><p><a href="/ai/ai_algorithms/2021/12/01/gbdt.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-basics">301-work-basics</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-interview">301-work-interview</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2021年 12月01日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2021-12-01T00:00:00+08:00">
-    <meta itemprop="keywords" content="301-work-ai,301-work-basics,301-work-interview"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 70 篇文章，9 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 72 篇文章，9 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page7">
             <i class="fas fa-angle-left"></i>

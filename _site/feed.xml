@@ -1,5 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-01-10T21:13:28+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
-</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【阅读】The Tyranny of Merit. 傲慢的精英</title><link href="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html" rel="alternate" type="text/html" title="【阅读】The Tyranny of Merit. 傲慢的精英" /><published>2023-01-10T13:41:58+08:00</published><updated>2023-01-10T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit</id><content type="html" xml:base="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html"><![CDATA[<h1 id="综述">综述</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-05-08T22:21:21+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【AI】LLM Thoughts</title><link href="http://localhost:4000/ai/ai_basics/2023/05/08/llm-thought.html" rel="alternate" type="text/html" title="【AI】LLM Thoughts" /><published>2023-05-08T16:46:07+08:00</published><updated>2023-05-08T16:46:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/05/08/llm-thought</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/05/08/llm-thought.html"><![CDATA[<h1 id="背景">背景</h1>
+
+<p>可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。</p>
+
+<p>2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。</p>
+
+<p>对于一个从事编程行业的人来说，哪些应该是我的关注点呢？</p>
+
+<h1 id="breakdown">Breakdown</h1>
+
+<p>首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune，怎么做呢？不能有一个想法就去训练，成本太高了，肯定需要有一些快速试错和迭代的方法。这里我不太了解，后续关注一下准备再写一篇笔记。</p>
+
+<p>其次，基于大模型能做什么？现在的垂直市场是绝对的蓝海，因为没有一个非常Dominant的公司在垂直领域做到了一个足够爆款的App，就算做出来了，这个门槛也比较低，举个最简单的例子，MidJourney现在多少人在用？Bing现在都集成了Dall-E了，每个人都能上去画图，谁还会用收费的MidJourney吗？我觉得时间长了肯定没人用了，除非能在速度和质量或者易用性上产生明显的差异。当然目前来看，Bing这里暂时还不太行。</p>
+
+<p><img src="/assets/images/image-20230508204012732.png" alt="image-20230508204012732" /></p>
+
+<p>那么关于垂类应用，最有前景的是什么？我大胆预测一下是数据预处理 + ChatGPT。为什么是数据预处理，因为OpenAI给了一个Token Limit，就是一次发送给OpenAI的字符数量是有限的，并且是收费的，发过去的内容越多，分析的成本就越高，比如大数据分析，文章摘要等。因此这里肯定是可以有护城河的东西，因为这里有了现实的限制，就连OpenAI自己也没办法发送无限多的Token给自己的大模型。这里很多技巧就可以用上了，展示三个应用，都是最近Github上非常火的开源项目。</p>
+
+<ul>
+  <li><a href="https://github.com/pashpashpash/vault-ai">vault-ai</a>： 通过上传自己的文档，建立自己的私人知识库。</li>
+  <li><a href="https://github.com/bhaskatripathi/pdfGPT">pdfGPT</a>：上传PDF，然后可以对PDF进行提问。</li>
+  <li>ChatGPT code interpreter插件：上传csv文件，告诉ChatGPT你想生成的结果，某种结论或者图片都可以，然后生成Python Code并运行，返回给用户处理的结果。（直接拿到Python Code自己运行也是可以的，参考这篇文章：<a href="https://mp.weixin.qq.com/s/4jNYSW-AVKcpXuhRlUAu1w">WeChat Article</a></li>
+</ul>
+
+<p>前两个的思路都是非常接近的，把输入的文档处理成embedding，然后把问题也encode成embedding，把问题的embedding和所有输入的embedding的进行相关性查找，找到最相关的前n个文本块，和问题一起封装成一个prompt发送给ChatGPT，从而能够回答你的问题。</p>
+
+<p>PDFGPT的Flowchart</p>
+
+<pre><code class="language-mermaid">flowchart TB
+A[Input] --&gt; B[URL]
+A -- Upload File manually --&gt; C[Parse PDF]
+B --&gt; D[Parse PDF] -- Preprocess --&gt; E[Dynamic Text Chunks]
+C -- Preprocess --&gt; E[Dynamic Text Chunks with citation history]
+E --Fit--&gt;F[Generate text embedding with Deep Averaging Network Encoder on each chunk]
+F -- Query --&gt; G[Get Top Results]
+G -- K-Nearest Neighbour --&gt; K[Get Nearest Neighbour - matching citation references]
+K -- Generate Prompt --&gt; H[Generate Answer]
+H -- Output --&gt; I[Output]
+</code></pre>
+
+<p>最后一个是数据分析相关的，海量数据自然也是不能直接喂给ChatGPT的，因此OpenAI的思路就是读取一部分上传文件，csv读头部前几行即可，就能知道文件和什么相关，并且还有部分样例数据，随后根据用户的指令生成一些Python代码，执行代码并且把分析好的结果返回给用户。多了一些自动化，确实方便很多，这个能做比较小型的数据分析，大型的肯定无法通过上传文件做到。</p>
+
+<p>我们可以看到，这两者的预处理都是有损的，并不是和大模型直接交互的。既然是有损的，那么谁的损失更少，谁的结果更精准，让用户花费时间更少，同时自己的成本更低，谁就更有机会胜出。并且大模型不好实时更新，recommender总可以吧，这都是多么成熟的领域了，集成个语言大模型到自己的工作流里面也不会有多困难。但本身这里还有个tradeoff，能给大模型更多的信息总是更好的，这也导致了这些方法都是Token hungry的。对于数据分析来说，生成的Python更准确，prompt的字数越少，越能胜出。</p>
+
+<p>最后，知道这些了能做什么吗？我个人认为还是从实际需求入手，从自己的工作流入手，做一个特别垂直的事情。没有乔老爷那么敏锐的用户洞察力，自己工作流里遇到的问题，就是大家会遇到的问题。多了的地方只能通过聊天获取，但sizing有多大，这个就无法判断了。</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>来自Bing的总结：</p>
+
+<p>The text is about the recent developments in AI, especially large language models (LLM) and AI-generated content (AIGC). The author discusses the challenges and opportunities for programmers in this field. The author suggests that data preprocessing and chat-based applications are the most promising areas for innovation. The author also gives some examples of popular open-source projects that use LLM and AIGC, such as vault-ai, pdfGPT, and ChatGPT code interpreter. The author argues that both tools have some tradeoffs in terms of preprocessing, accuracy, cost and prompt length. The author suggests that the best way to use these tools is to find a specific and vertical problem from one’s own workflow.</p>
+
+<blockquote>
+  <p>这篇文章主要介绍了AI领域的最新进展，特别是大型语言模型(LLM)和AI生成内容(AIGC)。作者分析了这个领域中程序员面临的挑战和机遇。作者认为数据预处理和聊天式应用是最有创新潜力的领域。作者还举了一些使用LLM和AIGC的热门开源项目的例子，比如vaut-ai,pdfGPT,和ChatGPT code interpreter。作者指出这两种工具在预处理、准确性、成本和提示长度方面都有一些权衡。作者建议使用这些工具的最佳方法是找到一个自己工作流中的具体而垂直的问题。</p>
+</blockquote>
+
+<p><img src="/assets/images/image-20230508212354089.png" alt="image-20230508212354089" /></p>
+
+<p><img src="/assets/images/image-20230508212219199.png" alt="image-20230508212219199" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[背景 可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。 2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。 对于一个从事编程行业的人来说，哪些应该是我的关注点呢？ Breakdown 首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune，怎么做呢？不能有一个想法就去训练，成本太高了，肯定需要有一些快速试错和迭代的方法。这里我不太了解，后续关注一下准备再写一篇笔记。 其次，基于大模型能做什么？现在的垂直市场是绝对的蓝海，因为没有一个非常Dominant的公司在垂直领域做到了一个足够爆款的App，就算做出来了，这个门槛也比较低，举个最简单的例子，MidJourney现在多少人在用？Bing现在都集成了Dall-E了，每个人都能上去画图，谁还会用收费的MidJourney吗？我觉得时间长了肯定没人用了，除非能在速度和质量或者易用性上产生明显的差异。当然目前来看，Bing这里暂时还不太行。 那么关于垂类应用，最有前景的是什么？我大胆预测一下是数据预处理 + ChatGPT。为什么是数据预处理，因为OpenAI给了一个Token Limit，就是一次发送给OpenAI的字符数量是有限的，并且是收费的，发过去的内容越多，分析的成本就越高，比如大数据分析，文章摘要等。因此这里肯定是可以有护城河的东西，因为这里有了现实的限制，就连OpenAI自己也没办法发送无限多的Token给自己的大模型。这里很多技巧就可以用上了，展示三个应用，都是最近Github上非常火的开源项目。 vault-ai： 通过上传自己的文档，建立自己的私人知识库。 pdfGPT：上传PDF，然后可以对PDF进行提问。 ChatGPT code interpreter插件：上传csv文件，告诉ChatGPT你想生成的结果，某种结论或者图片都可以，然后生成Python Code并运行，返回给用户处理的结果。（直接拿到Python Code自己运行也是可以的，参考这篇文章：WeChat Article 前两个的思路都是非常接近的，把输入的文档处理成embedding，然后把问题也encode成embedding，把问题的embedding和所有输入的embedding的进行相关性查找，找到最相关的前n个文本块，和问题一起封装成一个prompt发送给ChatGPT，从而能够回答你的问题。 PDFGPT的Flowchart flowchart TB A[Input] --&gt; B[URL] A -- Upload File manually --&gt; C[Parse PDF] B --&gt; D[Parse PDF] -- Preprocess --&gt; E[Dynamic Text Chunks] C -- Preprocess --&gt; E[Dynamic Text Chunks with citation history] E --Fit--&gt;F[Generate text embedding with Deep Averaging Network Encoder on each chunk] F -- Query --&gt; G[Get Top Results] G -- K-Nearest Neighbour --&gt; K[Get Nearest Neighbour - matching citation references] K -- Generate Prompt --&gt; H[Generate Answer] H -- Output --&gt; I[Output] 最后一个是数据分析相关的，海量数据自然也是不能直接喂给ChatGPT的，因此OpenAI的思路就是读取一部分上传文件，csv读头部前几行即可，就能知道文件和什么相关，并且还有部分样例数据，随后根据用户的指令生成一些Python代码，执行代码并且把分析好的结果返回给用户。多了一些自动化，确实方便很多，这个能做比较小型的数据分析，大型的肯定无法通过上传文件做到。 我们可以看到，这两者的预处理都是有损的，并不是和大模型直接交互的。既然是有损的，那么谁的损失更少，谁的结果更精准，让用户花费时间更少，同时自己的成本更低，谁就更有机会胜出。并且大模型不好实时更新，recommender总可以吧，这都是多么成熟的领域了，集成个语言大模型到自己的工作流里面也不会有多困难。但本身这里还有个tradeoff，能给大模型更多的信息总是更好的，这也导致了这些方法都是Token hungry的。对于数据分析来说，生成的Python更准确，prompt的字数越少，越能胜出。 最后，知道这些了能做什么吗？我个人认为还是从实际需求入手，从自己的工作流入手，做一个特别垂直的事情。没有乔老爷那么敏锐的用户洞察力，自己工作流里遇到的问题，就是大家会遇到的问题。多了的地方只能通过聊天获取，但sizing有多大，这个就无法判断了。 Conclusion 来自Bing的总结： The text is about the recent developments in AI, especially large language models (LLM) and AI-generated content (AIGC). The author discusses the challenges and opportunities for programmers in this field. The author suggests that data preprocessing and chat-based applications are the most promising areas for innovation. The author also gives some examples of popular open-source projects that use LLM and AIGC, such as vault-ai, pdfGPT, and ChatGPT code interpreter. The author argues that both tools have some tradeoffs in terms of preprocessing, accuracy, cost and prompt length. The author suggests that the best way to use these tools is to find a specific and vertical problem from one’s own workflow. 这篇文章主要介绍了AI领域的最新进展，特别是大型语言模型(LLM)和AI生成内容(AIGC)。作者分析了这个领域中程序员面临的挑战和机遇。作者认为数据预处理和聊天式应用是最有创新潜力的领域。作者还举了一些使用LLM和AIGC的热门开源项目的例子，比如vaut-ai,pdfGPT,和ChatGPT code interpreter。作者指出这两种工具在预处理、准确性、成本和提示长度方面都有一些权衡。作者建议使用这些工具的最佳方法是找到一个自己工作流中的具体而垂直的问题。]]></summary></entry><entry><title type="html">【Basics】Useful Prompts</title><link href="http://localhost:4000/work/basics/2023/04/18/useful-prompts.html" rel="alternate" type="text/html" title="【Basics】Useful Prompts" /><published>2023-04-18T14:44:07+08:00</published><updated>2023-04-18T14:44:07+08:00</updated><id>http://localhost:4000/work/basics/2023/04/18/useful-prompts</id><content type="html" xml:base="http://localhost:4000/work/basics/2023/04/18/useful-prompts.html"><![CDATA[<h1 id="prompt-techniques">Prompt Techniques</h1>
+
+<h1 id="specific-prompts">Specific Prompts</h1>
+
+<h2 id="scala-prompts">Scala Prompts</h2>
+
+<ol>
+  <li>Incremental Id assignment
+    <ol>
+      <li>suppose I have a rdd called edgeDF which has src_id, dst_id columns. Now I want to turn srd_id and dst_id into a single column called vertex_id. Each vertex_id is unique and assign a new column called id with incremental number. 
+Finally, I want to assign the id column to src_id and dst_id in the original edgeDF. please write the scala program</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;basics&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Prompt Techniques Specific Prompts Scala Prompts Incremental Id assignment suppose I have a rdd called edgeDF which has src_id, dst_id columns. Now I want to turn srd_id and dst_id into a single column called vertex_id. Each vertex_id is unique and assign a new column called id with incremental number. Finally, I want to assign the id column to src_id and dst_id in the original edgeDF. please write the scala program]]></summary></entry><entry><title type="html">【阅读】The Tyranny of Merit. 傲慢的精英</title><link href="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html" rel="alternate" type="text/html" title="【阅读】The Tyranny of Merit. 傲慢的精英" /><published>2023-01-10T13:41:58+08:00</published><updated>2023-01-10T13:41:58+08:00</updated><id>http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit</id><content type="html" xml:base="http://localhost:4000/blog/read/2023/01/10/the-tyranny-of-merit.html"><![CDATA[<h1 id="综述">综述</h1>
 
 <p>interesting，优绩至上理论竟然会带来很大的副作用，而且其中一个甚至和看起来毫不相干的信奉上帝有关。</p>
 
@@ -232,7 +303,65 @@
 
 <p>If you change the dependencies once and the IDE does not agree with what you just did. Right click on <code class="language-plaintext highlighter-rouge">pom.xml</code> and <code class="language-plaintext highlighter-rouge">reimport</code> the whole project. It should be working just fine.</p>
 
-<p><img src="/assets/images/image-20221227151614767.png" alt="image-20221227151614767" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;scala&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Scala Basics Learning Materials scala core scala spark unit test scala underscore explained: Scala中下划线“_”的用法小结 - 简书 (jianshu.com) How to create a maven scala project Using Idea archetype net.alchim31.maven:scala-archetype-simple Project dependency Reference spark version v.s. scala version Any version of Spark requries a specific version Scala. When you build an application to be written Scala, you want to make sure yourScala version is compatible with Spark version you have. If you change the dependencies once and the IDE does not agree with what you just did. Right click on pom.xml and reimport the whole project. It should be working just fine.]]></summary></entry><entry><title type="html">【Basics】Git Rebase</title><link href="http://localhost:4000/work/git/2022/12/01/git-rebase.html" rel="alternate" type="text/html" title="【Basics】Git Rebase" /><published>2022-12-01T09:18:07+08:00</published><updated>2022-12-01T09:18:07+08:00</updated><id>http://localhost:4000/work/git/2022/12/01/git-rebase</id><content type="html" xml:base="http://localhost:4000/work/git/2022/12/01/git-rebase.html"><![CDATA[<h1 id="git-rebase">Git rebase</h1>
+<p><img src="/assets/images/image-20221227151614767.png" alt="image-20221227151614767" /></p>
+
+<h2 id="usages">Usages</h2>
+
+<ol>
+  <li>Merge two array list and deduplicate</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">mergeSiloList</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)],</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="nv">resultMap</span> <span class="k">=</span> <span class="nv">scala</span><span class="o">.</span><span class="py">collection</span><span class="o">.</span><span class="py">mutable</span><span class="o">.</span><span class="py">Map</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">)</span>, <span class="kt">String</span><span class="o">]()</span>
+
+    <span class="nf">for</span> <span class="o">((</span><span class="n">id</span><span class="o">,</span> <span class="n">idType</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">a</span> <span class="o">++</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">val</span> <span class="nv">key</span> <span class="k">=</span> <span class="n">id</span> <span class="o">-&gt;</span> <span class="n">belongsTo</span>
+      <span class="nf">if</span> <span class="o">(!</span><span class="nv">resultMap</span><span class="o">.</span><span class="py">contains</span><span class="o">(</span><span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+        <span class="nv">resultMap</span><span class="o">.</span><span class="py">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">idType</span><span class="o">)</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="nv">resultMap</span><span class="o">.</span><span class="py">toArray</span><span class="o">.</span><span class="py">map</span> <span class="o">{</span> <span class="nf">case</span> <span class="o">((</span><span class="n">id</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">),</span> <span class="n">idType</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">idType</span><span class="o">,</span> <span class="n">belongsTo</span><span class="o">)</span> <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Compare two lists</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">compareTwoArray</span><span class="o">(</span><span class="n">a1</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)],</span> <span class="n">a2</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)])</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="nv">a1</span><span class="o">.</span><span class="py">filterNot</span><span class="o">(</span><span class="n">t1</span> <span class="k">=&gt;</span> <span class="nv">a2</span><span class="o">.</span><span class="py">exists</span><span class="o">(</span><span class="n">t2</span> <span class="k">=&gt;</span> <span class="nv">t1</span><span class="o">.</span><span class="py">_1</span> <span class="o">==</span> <span class="nv">t2</span><span class="o">.</span><span class="py">_1</span><span class="o">))</span>
+    <span class="c1">// another way</span>
+    <span class="c1">// attr.forall({case (id, _, _) =&gt; srcId != id})</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>convert an array to a string</li>
+</ol>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">propertyList</span><span class="o">.</span><span class="py">foldLeft</span><span class="o">(</span><span class="s">""</span><span class="o">)((</span><span class="n">acc</span><span class="o">,</span> <span class="n">obj</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">s</span><span class="s">"(${obj._1}, ${obj._2}, ${obj._3})\t"</span><span class="o">))</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Insert VertexRDD to hive</p>
+
+    <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">org.apache.spark.sql.</span><span class="o">{</span><span class="nc">Row</span><span class="o">,</span> <span class="nc">SparkSession</span><span class="o">}</span>
+   
+<span class="c1">// Assuming sparkSession is already created</span>
+   
+<span class="c1">// Convert the VertexRDD to a DataFrame</span>
+<span class="k">val</span> <span class="nv">vertexRows</span> <span class="k">=</span> <span class="nv">vertexRDD</span><span class="o">.</span><span class="py">map</span><span class="o">{</span> <span class="nf">case</span> <span class="o">(</span><span class="n">vid</span><span class="o">,</span> <span class="n">vprop</span><span class="o">)</span> <span class="k">=&gt;</span>
+  <span class="nc">Row</span><span class="o">(</span><span class="n">vid</span><span class="o">,</span> <span class="nv">vprop</span><span class="o">.</span><span class="py">property1</span><span class="o">,</span> <span class="nv">vprop</span><span class="o">.</span><span class="py">property2</span><span class="o">,</span> <span class="o">...)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="nv">vertexSchema</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"property1"</span><span class="o">,</span> <span class="s">"property2"</span><span class="o">,</span> <span class="o">...)</span>
+<span class="k">val</span> <span class="nv">vertexDF</span> <span class="k">=</span> <span class="nv">sparkSession</span><span class="o">.</span><span class="py">createDataFrame</span><span class="o">(</span><span class="n">vertexRows</span><span class="o">,</span> <span class="n">vertexSchema</span><span class="o">)</span>
+   
+<span class="c1">// Write the DataFrame to Hive</span>
+<span class="nv">vertexDF</span><span class="o">.</span><span class="py">write</span><span class="o">.</span><span class="py">mode</span><span class="o">(</span><span class="s">"overwrite"</span><span class="o">).</span><span class="py">saveAsTable</span><span class="o">(</span><span class="s">"database.table_name"</span><span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;scala&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Scala Basics Learning Materials scala core scala spark unit test scala underscore explained: Scala中下划线“_”的用法小结 - 简书 (jianshu.com) How to create a maven scala project Using Idea archetype net.alchim31.maven:scala-archetype-simple Project dependency Reference spark version v.s. scala version Any version of Spark requries a specific version Scala. When you build an application to be written Scala, you want to make sure yourScala version is compatible with Spark version you have. If you change the dependencies once and the IDE does not agree with what you just did. Right click on pom.xml and reimport the whole project. It should be working just fine. Usages Merge two array list and deduplicate def mergeSiloList(a: Array[(String, String, String)], b: Array[(String, String, String)]): Array[(String, String, String)] = { val resultMap = scala.collection.mutable.Map[(String, String), String]() for ((id, idType, belongsTo) &lt;- a ++ b) { val key = id -&gt; belongsTo if (!resultMap.contains(key)) { resultMap.put(key, idType) } } resultMap.toArray.map { case ((id, belongsTo), idType) =&gt; (id, idType, belongsTo) } } Compare two lists def compareTwoArray(a1: Array[(String, String, String)], a2: Array[(String, String, String)]): Array[(String, String, String)] = { a1.filterNot(t1 =&gt; a2.exists(t2 =&gt; t1._1 == t2._1)) // another way // attr.forall({case (id, _, _) =&gt; srcId != id}) } convert an array to a string propertyList.foldLeft("")((acc, obj) =&gt; acc + s"(${obj._1}, ${obj._2}, ${obj._3})\t")) Insert VertexRDD to hive import org.apache.spark.sql.{Row, SparkSession} // Assuming sparkSession is already created // Convert the VertexRDD to a DataFrame val vertexRows = vertexRDD.map{ case (vid, vprop) =&gt; Row(vid, vprop.property1, vprop.property2, ...) } val vertexSchema = Seq("id", "property1", "property2", ...) val vertexDF = sparkSession.createDataFrame(vertexRows, vertexSchema) // Write the DataFrame to Hive vertexDF.write.mode("overwrite").saveAsTable("database.table_name")]]></summary></entry><entry><title type="html">【Basics】Git Rebase</title><link href="http://localhost:4000/work/git/2022/12/01/git-rebase.html" rel="alternate" type="text/html" title="【Basics】Git Rebase" /><published>2022-12-01T09:18:07+08:00</published><updated>2022-12-01T09:18:07+08:00</updated><id>http://localhost:4000/work/git/2022/12/01/git-rebase</id><content type="html" xml:base="http://localhost:4000/work/git/2022/12/01/git-rebase.html"><![CDATA[<h1 id="git-rebase">Git rebase</h1>
 
 <h2 id="when-to-use">When to use</h2>
 
@@ -248,786 +377,4 @@
 
 <p>When you merge a branch, step 3 will actually look like this:</p>
 
-<p><img src="https://resources.jetbrains.com/help/img/idea/2022.2/merge_result_diagram.png" alt="merge result" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;git&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Git rebase When to use If you want to have a clean git commits history. If six features are being developed in parallel, they starts from different time and they launch in different times. When you need to roll back some features, you will discover that you have diverged from the main so much. What is git rebase When you merge a branch, step 3 will actually look like this:]]></summary></entry><entry><title type="html">【Big-Data】Java Maven</title><link href="http://localhost:4000/work/maven/2022/10/24/maven.html" rel="alternate" type="text/html" title="【Big-Data】Java Maven" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/maven/2022/10/24/maven</id><content type="html" xml:base="http://localhost:4000/work/maven/2022/10/24/maven.html"><![CDATA[<h1 id="maven详解">Maven详解</h1>
-
-<h2 id="maven-archetype">Maven archetype</h2>
-
-<p>可以理解为生成项目的template。在脚手架生成项目的时候使用的。</p>
-
-<p>POM文件是Maven的入口文件，标签详解如下</p>
-
-<!--more-->
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-    <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0http://maven.apache.org/maven-v4_0_0.xsd"</span><span class="nt">&gt;</span>
-    <span class="c">&lt;!--父项目的坐标。如果项目中没有规定某个元素的值，那么父项目中的对应值即为项目的默认值。 坐标包括group ID，artifact ID和 
-        version。 --&gt;</span>
-    <span class="nt">&lt;parent&gt;</span>
-        <span class="c">&lt;!--被继承的父项目的构件标识符 --&gt;</span>
-        <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--被继承的父项目的全球唯一标识符 --&gt;</span>
-        <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--被继承的父项目的版本 --&gt;</span>
-        <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!-- 父项目的pom.xml文件的相对路径。相对路径允许你选择一个不同的路径。默认值是../pom.xml。Maven首先在构建当前项目的地方寻找父项 
-            目的pom，其次在文件系统的这个位置（relativePath位置），然后在本地仓库，最后在远程仓库寻找父项目的pom。 --&gt;</span>
-        <span class="nt">&lt;relativePath</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/parent&gt;</span>
-    <span class="c">&lt;!--声明项目描述符遵循哪一个POM模型版本。模型本身的版本很少改变，虽然如此，但它仍然是必不可少的，这是为了当Maven引入了新的特性或者其他模型变更的时候，确保稳定性。 --&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-    <span class="c">&lt;!--项目的全球唯一标识符，通常使用全限定的包名区分该项目和其他项目。并且构建时生成的路径也是由此生成， 如com.mycompany.app生成的相对路径为：/com/mycompany/app --&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>asia.banseon<span class="nt">&lt;/groupId&gt;</span>
-    <span class="c">&lt;!-- 构件的标识符，它和group ID一起唯一标识一个构件。换句话说，你不能有两个不同的项目拥有同样的artifact ID和groupID；在某个 
-        特定的group ID下，artifact ID也必须是唯一的。构件是项目产生的或使用的一个东西，Maven为项目产生的构件包括：JARs，源 码，二进制发布和WARs等。 --&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>banseon-maven2<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="c">&lt;!--项目产生的构件类型，例如jar、war、ear、pom。插件可以创建他们自己的构件类型，所以前面列的不是全部构件类型 --&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-    <span class="c">&lt;!--项目当前版本，格式为:主版本.次版本.增量版本-限定版本号 --&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-    <span class="c">&lt;!--项目的名称, Maven产生的文档用 --&gt;</span>
-    <span class="nt">&lt;name&gt;</span>banseon-maven<span class="nt">&lt;/name&gt;</span>
-    <span class="c">&lt;!--项目主页的URL, Maven产生的文档用 --&gt;</span>
-    <span class="nt">&lt;url&gt;</span>http://www.baidu.com/banseon<span class="nt">&lt;/url&gt;</span>
-    <span class="c">&lt;!-- 项目的详细描述, Maven 产生的文档用。 当这个元素能够用HTML格式描述时（例如，CDATA中的文本会被解析器忽略，就可以包含HTML标 
-        签）， 不鼓励使用纯文本描述。如果你需要修改产生的web站点的索引页面，你应该修改你自己的索引页文件，而不是调整这里的文档。 --&gt;</span>
-    <span class="nt">&lt;description&gt;</span>A maven project to study maven.<span class="nt">&lt;/description&gt;</span>
-    <span class="c">&lt;!--描述了这个项目构建环境中的前提条件。 --&gt;</span>
-    <span class="nt">&lt;prerequisites&gt;</span>
-        <span class="c">&lt;!--构建该项目或使用该插件所需要的Maven的最低版本 --&gt;</span>
-        <span class="nt">&lt;maven</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/prerequisites&gt;</span>
-    <span class="c">&lt;!--项目的问题管理系统(Bugzilla, Jira, Scarab,或任何你喜欢的问题管理系统)的名称和URL，本例为 jira --&gt;</span>
-    <span class="nt">&lt;issueManagement&gt;</span>
-        <span class="c">&lt;!--问题管理系统（例如jira）的名字， --&gt;</span>
-        <span class="nt">&lt;system&gt;</span>jira<span class="nt">&lt;/system&gt;</span>
-        <span class="c">&lt;!--该项目使用的问题管理系统的URL --&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://jira.baidu.com/banseon<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/issueManagement&gt;</span>
-    <span class="c">&lt;!--项目持续集成信息 --&gt;</span>
-    <span class="nt">&lt;ciManagement&gt;</span>
-        <span class="c">&lt;!--持续集成系统的名字，例如continuum --&gt;</span>
-        <span class="nt">&lt;system</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--该项目使用的持续集成系统的URL（如果持续集成系统有web接口的话）。 --&gt;</span>
-        <span class="nt">&lt;url</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--构建完成时，需要通知的开发者/用户的配置项。包括被通知者信息和通知条件（错误，失败，成功，警告） --&gt;</span>
-        <span class="nt">&lt;notifiers&gt;</span>
-            <span class="c">&lt;!--配置一种方式，当构建中断时，以该方式通知用户/开发者 --&gt;</span>
-            <span class="nt">&lt;notifier&gt;</span>
-                <span class="c">&lt;!--传送通知的途径 --&gt;</span>
-                <span class="nt">&lt;type</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--发生错误时是否通知 --&gt;</span>
-                <span class="nt">&lt;sendOnError</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--构建失败时是否通知 --&gt;</span>
-                <span class="nt">&lt;sendOnFailure</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--构建成功时是否通知 --&gt;</span>
-                <span class="nt">&lt;sendOnSuccess</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--发生警告时是否通知 --&gt;</span>
-                <span class="nt">&lt;sendOnWarning</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--不赞成使用。通知发送到哪里 --&gt;</span>
-                <span class="nt">&lt;address</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--扩展配置项 --&gt;</span>
-                <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/notifier&gt;</span>
-        <span class="nt">&lt;/notifiers&gt;</span>
-    <span class="nt">&lt;/ciManagement&gt;</span>
-    <span class="c">&lt;!--项目创建年份，4位数字。当产生版权信息时需要使用这个值。 --&gt;</span>
-    <span class="nt">&lt;inceptionYear</span> <span class="nt">/&gt;</span>
-    <span class="c">&lt;!--项目相关邮件列表信息 --&gt;</span>
-    <span class="nt">&lt;mailingLists&gt;</span>
-        <span class="c">&lt;!--该元素描述了项目相关的所有邮件列表。自动产生的网站引用这些信息。 --&gt;</span>
-        <span class="nt">&lt;mailingList&gt;</span>
-            <span class="c">&lt;!--邮件的名称 --&gt;</span>
-            <span class="nt">&lt;name&gt;</span>Demo<span class="nt">&lt;/name&gt;</span>
-            <span class="c">&lt;!--发送邮件的地址或链接，如果是邮件地址，创建文档时，mailto: 链接会被自动创建 --&gt;</span>
-            <span class="nt">&lt;post&gt;</span>banseon@126.com<span class="nt">&lt;/post&gt;</span>
-            <span class="c">&lt;!--订阅邮件的地址或链接，如果是邮件地址，创建文档时，mailto: 链接会被自动创建 --&gt;</span>
-            <span class="nt">&lt;subscribe&gt;</span>banseon@126.com<span class="nt">&lt;/subscribe&gt;</span>
-            <span class="c">&lt;!--取消订阅邮件的地址或链接，如果是邮件地址，创建文档时，mailto: 链接会被自动创建 --&gt;</span>
-            <span class="nt">&lt;unsubscribe&gt;</span>banseon@126.com<span class="nt">&lt;/unsubscribe&gt;</span>
-            <span class="c">&lt;!--你可以浏览邮件信息的URL --&gt;</span>
-            <span class="nt">&lt;archive&gt;</span>http:/hi.baidu.com/banseon/demo/dev/<span class="nt">&lt;/archive&gt;</span>
-        <span class="nt">&lt;/mailingList&gt;</span>
-    <span class="nt">&lt;/mailingLists&gt;</span>
-    <span class="c">&lt;!--项目开发者列表 --&gt;</span>
-    <span class="nt">&lt;developers&gt;</span>
-        <span class="c">&lt;!--某个项目开发者的信息 --&gt;</span>
-        <span class="nt">&lt;developer&gt;</span>
-            <span class="c">&lt;!--SCM里项目开发者的唯一标识符 --&gt;</span>
-            <span class="nt">&lt;id&gt;</span>HELLO WORLD<span class="nt">&lt;/id&gt;</span>
-            <span class="c">&lt;!--项目开发者的全名 --&gt;</span>
-            <span class="nt">&lt;name&gt;</span>banseon<span class="nt">&lt;/name&gt;</span>
-            <span class="c">&lt;!--项目开发者的email --&gt;</span>
-            <span class="nt">&lt;email&gt;</span>banseon@126.com<span class="nt">&lt;/email&gt;</span>
-            <span class="c">&lt;!--项目开发者的主页的URL --&gt;</span>
-            <span class="nt">&lt;url</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--项目开发者在项目中扮演的角色，角色元素描述了各种角色 --&gt;</span>
-            <span class="nt">&lt;roles&gt;</span>
-                <span class="nt">&lt;role&gt;</span>Project Manager<span class="nt">&lt;/role&gt;</span>
-                <span class="nt">&lt;role&gt;</span>Architect<span class="nt">&lt;/role&gt;</span>
-            <span class="nt">&lt;/roles&gt;</span>
-            <span class="c">&lt;!--项目开发者所属组织 --&gt;</span>
-            <span class="nt">&lt;organization&gt;</span>demo<span class="nt">&lt;/organization&gt;</span>
-            <span class="c">&lt;!--项目开发者所属组织的URL --&gt;</span>
-            <span class="nt">&lt;organizationUrl&gt;</span>http://hi.baidu.com/banseon<span class="nt">&lt;/organizationUrl&gt;</span>
-            <span class="c">&lt;!--项目开发者属性，如即时消息如何处理等 --&gt;</span>
-            <span class="nt">&lt;properties&gt;</span>
-                <span class="nt">&lt;dept&gt;</span>No<span class="nt">&lt;/dept&gt;</span>
-            <span class="nt">&lt;/properties&gt;</span>
-            <span class="c">&lt;!--项目开发者所在时区， -11到12范围内的整数。 --&gt;</span>
-            <span class="nt">&lt;timezone&gt;</span>-5<span class="nt">&lt;/timezone&gt;</span>
-        <span class="nt">&lt;/developer&gt;</span>
-    <span class="nt">&lt;/developers&gt;</span>
-    <span class="c">&lt;!--项目的其他贡献者列表 --&gt;</span>
-    <span class="nt">&lt;contributors&gt;</span>
-        <span class="c">&lt;!--项目的其他贡献者。参见developers/developer元素 --&gt;</span>
-        <span class="nt">&lt;contributor&gt;</span>
-            <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;url</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;organization</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;organizationUrl</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;roles</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;timezone</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;properties</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/contributor&gt;</span>
-    <span class="nt">&lt;/contributors&gt;</span>
-    <span class="c">&lt;!--该元素描述了项目所有License列表。 应该只列出该项目的license列表，不要列出依赖项目的 license列表。如果列出多个license，用户可以选择它们中的一个而不是接受所有license。 --&gt;</span>
-    <span class="nt">&lt;licenses&gt;</span>
-        <span class="c">&lt;!--描述了项目的license，用于生成项目的web站点的license页面，其他一些报表和validation也会用到该元素。 --&gt;</span>
-        <span class="nt">&lt;license&gt;</span>
-            <span class="c">&lt;!--license用于法律上的名称 --&gt;</span>
-            <span class="nt">&lt;name&gt;</span>Apache 2<span class="nt">&lt;/name&gt;</span>
-            <span class="c">&lt;!--官方的license正文页面的URL --&gt;</span>
-            <span class="nt">&lt;url&gt;</span>http://www.baidu.com/banseon/LICENSE-2.0.txt<span class="nt">&lt;/url&gt;</span>
-            <span class="c">&lt;!--项目分发的主要方式： repo，可以从Maven库下载 manual， 用户必须手动下载和安装依赖 --&gt;</span>
-            <span class="nt">&lt;distribution&gt;</span>repo<span class="nt">&lt;/distribution&gt;</span>
-            <span class="c">&lt;!--关于license的补充信息 --&gt;</span>
-            <span class="nt">&lt;comments&gt;</span>A business-friendly OSS license<span class="nt">&lt;/comments&gt;</span>
-        <span class="nt">&lt;/license&gt;</span>
-    <span class="nt">&lt;/licenses&gt;</span>
-    <span class="c">&lt;!--SCM(Source Control Management)标签允许你配置你的代码库，供Maven web站点和其它插件使用。 --&gt;</span>
-    <span class="nt">&lt;scm&gt;</span>
-        <span class="c">&lt;!--SCM的URL,该URL描述了版本库和如何连接到版本库。欲知详情，请看SCMs提供的URL格式和列表。该连接只读。 --&gt;</span>
-        <span class="nt">&lt;connection&gt;</span>
-            scm:svn:http://svn.baidu.com/banseon/maven/banseon/banseon-maven2-trunk(dao-trunk)
-        <span class="nt">&lt;/connection&gt;</span>
-        <span class="c">&lt;!--给开发者使用的，类似connection元素。即该连接不仅仅只读 --&gt;</span>
-        <span class="nt">&lt;developerConnection&gt;</span>
-            scm:svn:http://svn.baidu.com/banseon/maven/banseon/dao-trunk
-        <span class="nt">&lt;/developerConnection&gt;</span>
-        <span class="c">&lt;!--当前代码的标签，在开发阶段默认为HEAD --&gt;</span>
-        <span class="nt">&lt;tag</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--指向项目的可浏览SCM库（例如ViewVC或者Fisheye）的URL。 --&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://svn.baidu.com/banseon<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/scm&gt;</span>
-    <span class="c">&lt;!--描述项目所属组织的各种属性。Maven产生的文档用 --&gt;</span>
-    <span class="nt">&lt;organization&gt;</span>
-        <span class="c">&lt;!--组织的全名 --&gt;</span>
-        <span class="nt">&lt;name&gt;</span>demo<span class="nt">&lt;/name&gt;</span>
-        <span class="c">&lt;!--组织主页的URL --&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://www.baidu.com/banseon<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/organization&gt;</span>
-    <span class="c">&lt;!--构建项目需要的信息 --&gt;</span>
-    <span class="nt">&lt;build&gt;</span>
-        <span class="c">&lt;!--该元素设置了项目源码目录，当构建项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。 --&gt;</span>
-        <span class="nt">&lt;sourceDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--该元素设置了项目脚本源码目录，该目录和源码目录不同：绝大多数情况下，该目录下的内容 会被拷贝到输出目录(因为脚本是被解释的，而不是被编译的)。 --&gt;</span>
-        <span class="nt">&lt;scriptSourceDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--该元素设置了项目单元测试使用的源码目录，当测试项目的时候，构建系统会编译目录里的源码。该路径是相对于pom.xml的相对路径。 --&gt;</span>
-        <span class="nt">&lt;testSourceDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--被编译过的应用程序class文件存放的目录。 --&gt;</span>
-        <span class="nt">&lt;outputDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--被编译过的测试class文件存放的目录。 --&gt;</span>
-        <span class="nt">&lt;testOutputDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--使用来自该项目的一系列构建扩展 --&gt;</span>
-        <span class="nt">&lt;extensions&gt;</span>
-            <span class="c">&lt;!--描述使用到的构建扩展。 --&gt;</span>
-            <span class="nt">&lt;extension&gt;</span>
-                <span class="c">&lt;!--构建扩展的groupId --&gt;</span>
-                <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--构建扩展的artifactId --&gt;</span>
-                <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--构建扩展的版本 --&gt;</span>
-                <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/extension&gt;</span>
-        <span class="nt">&lt;/extensions&gt;</span>
-        <span class="c">&lt;!--当项目没有规定目标（Maven2 叫做阶段）时的默认值 --&gt;</span>
-        <span class="nt">&lt;defaultGoal</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--这个元素描述了项目相关的所有资源路径列表，例如和项目相关的属性文件，这些资源被包含在最终的打包文件里。 --&gt;</span>
-        <span class="nt">&lt;resources&gt;</span>
-            <span class="c">&lt;!--这个元素描述了项目相关或测试相关的所有资源路径 --&gt;</span>
-            <span class="nt">&lt;resource&gt;</span>
-                <span class="c">&lt;!-- 描述了资源的目标路径。该路径相对target/classes目录（例如${project.build.outputDirectory}）。举个例 
-                    子，如果你想资源在特定的包里(org.apache.maven.messages)，你就必须该元素设置为org/apache/maven /messages。然而，如果你只是想把资源放到源码目录结构里，就不需要该配置。 --&gt;</span>
-                <span class="nt">&lt;targetPath</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--是否使用参数值代替参数名。参数值取自properties元素或者文件里配置的属性，文件在filters元素里列出。 --&gt;</span>
-                <span class="nt">&lt;filtering</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--描述存放资源的目录，该路径相对POM路径 --&gt;</span>
-                <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--包含的模式列表，例如**/*.xml. --&gt;</span>
-                <span class="nt">&lt;includes</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--排除的模式列表，例如**/*.xml --&gt;</span>
-                <span class="nt">&lt;excludes</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/resource&gt;</span>
-        <span class="nt">&lt;/resources&gt;</span>
-        <span class="c">&lt;!--这个元素描述了单元测试相关的所有资源路径，例如和单元测试相关的属性文件。 --&gt;</span>
-        <span class="nt">&lt;testResources&gt;</span>
-            <span class="c">&lt;!--这个元素描述了测试相关的所有资源路径，参见build/resources/resource元素的说明 --&gt;</span>
-            <span class="nt">&lt;testResource&gt;</span>
-                <span class="nt">&lt;targetPath</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;filtering</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;includes</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;excludes</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/testResource&gt;</span>
-        <span class="nt">&lt;/testResources&gt;</span>
-        <span class="c">&lt;!--构建产生的所有文件存放的目录 --&gt;</span>
-        <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--产生的构件的文件名，默认值是${artifactId}-${version}。 --&gt;</span>
-        <span class="nt">&lt;finalName</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--当filtering开关打开时，使用到的过滤器属性文件列表 --&gt;</span>
-        <span class="nt">&lt;filters</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--子项目可以引用的默认插件信息。该插件配置项直到被引用时才会被解析或绑定到生命周期。给定插件的任何本地配置都会覆盖这里的配置 --&gt;</span>
-        <span class="nt">&lt;pluginManagement&gt;</span>
-            <span class="c">&lt;!--使用的插件列表 。 --&gt;</span>
-            <span class="nt">&lt;plugins&gt;</span>
-                <span class="c">&lt;!--plugin元素包含描述插件所需要的信息。 --&gt;</span>
-                <span class="nt">&lt;plugin&gt;</span>
-                    <span class="c">&lt;!--插件在仓库里的group ID --&gt;</span>
-                    <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                    <span class="c">&lt;!--插件在仓库里的artifact ID --&gt;</span>
-                    <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                    <span class="c">&lt;!--被使用的插件的版本（或版本范围） --&gt;</span>
-                    <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-                    <span class="c">&lt;!--是否从该插件下载Maven扩展（例如打包和类型处理器），由于性能原因，只有在真需要下载时，该元素才被设置成enabled。 --&gt;</span>
-                    <span class="nt">&lt;extensions</span> <span class="nt">/&gt;</span>
-                    <span class="c">&lt;!--在构建生命周期中执行一组目标的配置。每个目标可能有不同的配置。 --&gt;</span>
-                    <span class="nt">&lt;executions&gt;</span>
-                        <span class="c">&lt;!--execution元素包含了插件执行需要的信息 --&gt;</span>
-                        <span class="nt">&lt;execution&gt;</span>
-                            <span class="c">&lt;!--执行目标的标识符，用于标识构建过程中的目标，或者匹配继承过程中需要合并的执行目标 --&gt;</span>
-                            <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                            <span class="c">&lt;!--绑定了目标的构建生命周期阶段，如果省略，目标会被绑定到源数据里配置的默认阶段 --&gt;</span>
-                            <span class="nt">&lt;phase</span> <span class="nt">/&gt;</span>
-                            <span class="c">&lt;!--配置的执行目标 --&gt;</span>
-                            <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                            <span class="c">&lt;!--配置是否被传播到子POM --&gt;</span>
-                            <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                            <span class="c">&lt;!--作为DOM对象的配置 --&gt;</span>
-                            <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/execution&gt;</span>
-                    <span class="nt">&lt;/executions&gt;</span>
-                    <span class="c">&lt;!--项目引入插件所需要的额外依赖 --&gt;</span>
-                    <span class="nt">&lt;dependencies&gt;</span>
-                        <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                        <span class="nt">&lt;dependency&gt;</span>
-                            ......
-                        <span class="nt">&lt;/dependency&gt;</span>
-                    <span class="nt">&lt;/dependencies&gt;</span>
-                    <span class="c">&lt;!--任何配置是否被传播到子项目 --&gt;</span>
-                    <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                    <span class="c">&lt;!--作为DOM对象的配置 --&gt;</span>
-                    <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;/plugin&gt;</span>
-            <span class="nt">&lt;/plugins&gt;</span>
-        <span class="nt">&lt;/pluginManagement&gt;</span>
-        <span class="c">&lt;!--使用的插件列表 --&gt;</span>
-        <span class="nt">&lt;plugins&gt;</span>
-            <span class="c">&lt;!--参见build/pluginManagement/plugins/plugin元素 --&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;extensions</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;executions&gt;</span>
-                    <span class="nt">&lt;execution&gt;</span>
-                        <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;phase</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/execution&gt;</span>
-                <span class="nt">&lt;/executions&gt;</span>
-                <span class="nt">&lt;dependencies&gt;</span>
-                    <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                    <span class="nt">&lt;dependency&gt;</span>
-                        ......
-                    <span class="nt">&lt;/dependency&gt;</span>
-                <span class="nt">&lt;/dependencies&gt;</span>
-                <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
-        <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/build&gt;</span>
-    <span class="c">&lt;!--在列的项目构建profile，如果被激活，会修改构建处理 --&gt;</span>
-    <span class="nt">&lt;profiles&gt;</span>
-        <span class="c">&lt;!--根据环境参数或命令行参数激活某个构建处理 --&gt;</span>
-        <span class="nt">&lt;profile&gt;</span>
-            <span class="c">&lt;!--构建配置的唯一标识符。即用于命令行激活，也用于在继承时合并具有相同标识符的profile。 --&gt;</span>
-            <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--自动触发profile的条件逻辑。Activation是profile的开启钥匙。profile的力量来自于它 能够在某些特定的环境中自动使用某些特定的值；这些环境通过activation元素指定。activation元素并不是激活profile的唯一方式。 --&gt;</span>
-            <span class="nt">&lt;activation&gt;</span>
-                <span class="c">&lt;!--profile默认是否激活的标志 --&gt;</span>
-                <span class="nt">&lt;activeByDefault</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--当匹配的jdk被检测到，profile被激活。例如，1.4激活JDK1.4，1.4.0_2，而!1.4激活所有版本不是以1.4开头的JDK。 --&gt;</span>
-                <span class="nt">&lt;jdk</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--当匹配的操作系统属性被检测到，profile被激活。os元素可以定义一些操作系统相关的属性。 --&gt;</span>
-                <span class="nt">&lt;os&gt;</span>
-                    <span class="c">&lt;!--激活profile的操作系统的名字 --&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>Windows XP<span class="nt">&lt;/name&gt;</span>
-                    <span class="c">&lt;!--激活profile的操作系统所属家族(如 'windows') --&gt;</span>
-                    <span class="nt">&lt;family&gt;</span>Windows<span class="nt">&lt;/family&gt;</span>
-                    <span class="c">&lt;!--激活profile的操作系统体系结构 --&gt;</span>
-                    <span class="nt">&lt;arch&gt;</span>x86<span class="nt">&lt;/arch&gt;</span>
-                    <span class="c">&lt;!--激活profile的操作系统版本 --&gt;</span>
-                    <span class="nt">&lt;version&gt;</span>5.1.2600<span class="nt">&lt;/version&gt;</span>
-                <span class="nt">&lt;/os&gt;</span>
-                <span class="c">&lt;!--如果Maven检测到某一个属性（其值可以在POM中通过${名称}引用），其拥有对应的名称和值，Profile就会被激活。如果值 字段是空的，那么存在属性名称字段就会激活profile，否则按区分大小写方式匹配属性值字段 --&gt;</span>
-                <span class="nt">&lt;property&gt;</span>
-                    <span class="c">&lt;!--激活profile的属性的名称 --&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>mavenVersion<span class="nt">&lt;/name&gt;</span>
-                    <span class="c">&lt;!--激活profile的属性的值 --&gt;</span>
-                    <span class="nt">&lt;value&gt;</span>2.0.3<span class="nt">&lt;/value&gt;</span>
-                <span class="nt">&lt;/property&gt;</span>
-                <span class="c">&lt;!--提供一个文件名，通过检测该文件的存在或不存在来激活profile。missing检查文件是否存在，如果不存在则激活 profile。另一方面，exists则会检查文件是否存在，如果存在则激活profile。 --&gt;</span>
-                <span class="nt">&lt;file&gt;</span>
-                    <span class="c">&lt;!--如果指定的文件存在，则激活profile。 --&gt;</span>
-                    <span class="nt">&lt;exists&gt;</span>/usr/local/hudson/hudson-home/jobs/maven-guide-zh-to-production/workspace/
-                    <span class="nt">&lt;/exists&gt;</span>
-                    <span class="c">&lt;!--如果指定的文件不存在，则激活profile。 --&gt;</span>
-                    <span class="nt">&lt;missing&gt;</span>/usr/local/hudson/hudson-home/jobs/maven-guide-zh-to-production/workspace/
-                    <span class="nt">&lt;/missing&gt;</span>
-                <span class="nt">&lt;/file&gt;</span>
-            <span class="nt">&lt;/activation&gt;</span>
-            <span class="c">&lt;!--构建项目所需要的信息。参见build元素 --&gt;</span>
-            <span class="nt">&lt;build&gt;</span>
-                <span class="nt">&lt;defaultGoal</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;resources&gt;</span>
-                    <span class="nt">&lt;resource&gt;</span>
-                        <span class="nt">&lt;targetPath</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;filtering</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;includes</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;excludes</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/resource&gt;</span>
-                <span class="nt">&lt;/resources&gt;</span>
-                <span class="nt">&lt;testResources&gt;</span>
-                    <span class="nt">&lt;testResource&gt;</span>
-                        <span class="nt">&lt;targetPath</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;filtering</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;includes</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;excludes</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/testResource&gt;</span>
-                <span class="nt">&lt;/testResources&gt;</span>
-                <span class="nt">&lt;directory</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;finalName</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;filters</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;pluginManagement&gt;</span>
-                    <span class="nt">&lt;plugins&gt;</span>
-                        <span class="c">&lt;!--参见build/pluginManagement/plugins/plugin元素 --&gt;</span>
-                        <span class="nt">&lt;plugin&gt;</span>
-                            <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;extensions</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;executions&gt;</span>
-                                <span class="nt">&lt;execution&gt;</span>
-                                    <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;phase</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/execution&gt;</span>
-                            <span class="nt">&lt;/executions&gt;</span>
-                            <span class="nt">&lt;dependencies&gt;</span>
-                                <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                                <span class="nt">&lt;dependency&gt;</span>
-                                    ......
-                                <span class="nt">&lt;/dependency&gt;</span>
-                            <span class="nt">&lt;/dependencies&gt;</span>
-                            <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/plugin&gt;</span>
-                    <span class="nt">&lt;/plugins&gt;</span>
-                <span class="nt">&lt;/pluginManagement&gt;</span>
-                <span class="nt">&lt;plugins&gt;</span>
-                    <span class="c">&lt;!--参见build/pluginManagement/plugins/plugin元素 --&gt;</span>
-                    <span class="nt">&lt;plugin&gt;</span>
-                        <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;extensions</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;executions&gt;</span>
-                            <span class="nt">&lt;execution&gt;</span>
-                                <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;phase</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                            <span class="nt">&lt;/execution&gt;</span>
-                        <span class="nt">&lt;/executions&gt;</span>
-                        <span class="nt">&lt;dependencies&gt;</span>
-                            <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                            <span class="nt">&lt;dependency&gt;</span>
-                                ......
-                            <span class="nt">&lt;/dependency&gt;</span>
-                        <span class="nt">&lt;/dependencies&gt;</span>
-                        <span class="nt">&lt;goals</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/plugin&gt;</span>
-                <span class="nt">&lt;/plugins&gt;</span>
-            <span class="nt">&lt;/build&gt;</span>
-            <span class="c">&lt;!--模块（有时称作子项目） 被构建成项目的一部分。列出的每个模块元素是指向该模块的目录的相对路径 --&gt;</span>
-            <span class="nt">&lt;modules</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--发现依赖和扩展的远程仓库列表。 --&gt;</span>
-            <span class="nt">&lt;repositories&gt;</span>
-                <span class="c">&lt;!--参见repositories/repository元素 --&gt;</span>
-                <span class="nt">&lt;repository&gt;</span>
-                    <span class="nt">&lt;releases&gt;</span>
-                        <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/releases&gt;</span>
-                    <span class="nt">&lt;snapshots&gt;</span>
-                        <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/snapshots&gt;</span>
-                    <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;url</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;layout</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;/repository&gt;</span>
-            <span class="nt">&lt;/repositories&gt;</span>
-            <span class="c">&lt;!--发现插件的远程仓库列表，这些插件用于构建和报表 --&gt;</span>
-            <span class="nt">&lt;pluginRepositories&gt;</span>
-                <span class="c">&lt;!--包含需要连接到远程插件仓库的信息.参见repositories/repository元素 --&gt;</span>
-                <span class="nt">&lt;pluginRepository&gt;</span>
-                    <span class="nt">&lt;releases&gt;</span>
-                        <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/releases&gt;</span>
-                    <span class="nt">&lt;snapshots&gt;</span>
-                        <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/snapshots&gt;</span>
-                    <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;url</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;layout</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;/pluginRepository&gt;</span>
-            <span class="nt">&lt;/pluginRepositories&gt;</span>
-            <span class="c">&lt;!--该元素描述了项目相关的所有依赖。 这些依赖组成了项目构建过程中的一个个环节。它们自动从项目定义的仓库中下载。要获取更多信息，请看项目依赖机制。 --&gt;</span>
-            <span class="nt">&lt;dependencies&gt;</span>
-                <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                <span class="nt">&lt;dependency&gt;</span>
-                    ......
-                <span class="nt">&lt;/dependency&gt;</span>
-            <span class="nt">&lt;/dependencies&gt;</span>
-            <span class="c">&lt;!--不赞成使用. 现在Maven忽略该元素. --&gt;</span>
-            <span class="nt">&lt;reports</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--该元素包括使用报表插件产生报表的规范。当用户执行"mvn site"，这些报表就会运行。 在页面导航栏能看到所有报表的链接。参见reporting元素 --&gt;</span>
-            <span class="nt">&lt;reporting&gt;</span>
-                ......
-            <span class="nt">&lt;/reporting&gt;</span>
-            <span class="c">&lt;!--参见dependencyManagement元素 --&gt;</span>
-            <span class="nt">&lt;dependencyManagement&gt;</span>
-                <span class="nt">&lt;dependencies&gt;</span>
-                    <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-                    <span class="nt">&lt;dependency&gt;</span>
-                        ......
-                    <span class="nt">&lt;/dependency&gt;</span>
-                <span class="nt">&lt;/dependencies&gt;</span>
-            <span class="nt">&lt;/dependencyManagement&gt;</span>
-            <span class="c">&lt;!--参见distributionManagement元素 --&gt;</span>
-            <span class="nt">&lt;distributionManagement&gt;</span>
-                ......
-            <span class="nt">&lt;/distributionManagement&gt;</span>
-            <span class="c">&lt;!--参见properties元素 --&gt;</span>
-            <span class="nt">&lt;properties</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/profile&gt;</span>
-    <span class="nt">&lt;/profiles&gt;</span>
-    <span class="c">&lt;!--模块（有时称作子项目） 被构建成项目的一部分。列出的每个模块元素是指向该模块的目录的相对路径 --&gt;</span>
-    <span class="nt">&lt;modules</span> <span class="nt">/&gt;</span>
-    <span class="c">&lt;!--发现依赖和扩展的远程仓库列表。 --&gt;</span>
-    <span class="nt">&lt;repositories&gt;</span>
-        <span class="c">&lt;!--包含需要连接到远程仓库的信息 --&gt;</span>
-        <span class="nt">&lt;repository&gt;</span>
-            <span class="c">&lt;!--如何处理远程仓库里发布版本的下载 --&gt;</span>
-            <span class="nt">&lt;releases&gt;</span>
-                <span class="c">&lt;!--true或者false表示该仓库是否为下载某种类型构件（发布版，快照版）开启。 --&gt;</span>
-                <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--该元素指定更新发生的频率。Maven会比较本地POM和远程POM的时间戳。这里的选项是：always（一直），daily（默认，每日），interval：X（这里X是以分钟为单位的时间间隔），或者never（从不）。 --&gt;</span>
-                <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--当Maven验证构件校验文件失败时该怎么做：ignore（忽略），fail（失败），或者warn（警告）。 --&gt;</span>
-                <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/releases&gt;</span>
-            <span class="c">&lt;!-- 如何处理远程仓库里快照版本的下载。有了releases和snapshots这两组配置，POM就可以在每个单独的仓库中，为每种类型的构件采取不同的 
-                策略。例如，可能有人会决定只为开发目的开启对快照版本下载的支持。参见repositories/repository/releases元素 --&gt;</span>
-            <span class="nt">&lt;snapshots&gt;</span>
-                <span class="nt">&lt;enabled</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;updatePolicy</span> <span class="nt">/&gt;</span>
-                <span class="nt">&lt;checksumPolicy</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/snapshots&gt;</span>
-            <span class="c">&lt;!--远程仓库唯一标识符。可以用来匹配在settings.xml文件里配置的远程仓库 --&gt;</span>
-            <span class="nt">&lt;id&gt;</span>banseon-repository-proxy<span class="nt">&lt;/id&gt;</span>
-            <span class="c">&lt;!--远程仓库名称 --&gt;</span>
-            <span class="nt">&lt;name&gt;</span>banseon-repository-proxy<span class="nt">&lt;/name&gt;</span>
-            <span class="c">&lt;!--远程仓库URL，按protocol://hostname/path形式 --&gt;</span>
-            <span class="nt">&lt;url&gt;</span>http://192.168.1.169:9999/repository/<span class="nt">&lt;/url&gt;</span>
-            <span class="c">&lt;!-- 用于定位和排序构件的仓库布局类型-可以是default（默认）或者legacy（遗留）。Maven 2为其仓库提供了一个默认的布局；然 
-                而，Maven 1.x有一种不同的布局。我们可以使用该元素指定布局是default（默认）还是legacy（遗留）。 --&gt;</span>
-            <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
-        <span class="nt">&lt;/repository&gt;</span>
-    <span class="nt">&lt;/repositories&gt;</span>
-    <span class="c">&lt;!--发现插件的远程仓库列表，这些插件用于构建和报表 --&gt;</span>
-    <span class="nt">&lt;pluginRepositories&gt;</span>
-        <span class="c">&lt;!--包含需要连接到远程插件仓库的信息.参见repositories/repository元素 --&gt;</span>
-        <span class="nt">&lt;pluginRepository&gt;</span>
-            ......
-        <span class="nt">&lt;/pluginRepository&gt;</span>
-    <span class="nt">&lt;/pluginRepositories&gt;</span>
- 
- 
-    <span class="c">&lt;!--该元素描述了项目相关的所有依赖。 这些依赖组成了项目构建过程中的一个个环节。它们自动从项目定义的仓库中下载。要获取更多信息，请看项目依赖机制。 --&gt;</span>
-    <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="c">&lt;!--依赖的group ID --&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.apache.maven<span class="nt">&lt;/groupId&gt;</span>
-            <span class="c">&lt;!--依赖的artifact ID --&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>maven-artifact<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="c">&lt;!--依赖的版本号。 在Maven 2里, 也可以配置成版本号的范围。 --&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-            <span class="c">&lt;!-- 依赖类型，默认类型是jar。它通常表示依赖的文件的扩展名，但也有例外。一个类型可以被映射成另外一个扩展名或分类器。类型经常和使用的打包方式对应， 
-                尽管这也有例外。一些类型的例子：jar，war，ejb-client和test-jar。如果设置extensions为 true，就可以在 plugin里定义新的类型。所以前面的类型的例子不完整。 --&gt;</span>
-            <span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
-            <span class="c">&lt;!-- 依赖的分类器。分类器可以区分属于同一个POM，但不同构建方式的构件。分类器名被附加到文件名的版本号后面。例如，如果你想要构建两个单独的构件成 
-                JAR，一个使用Java 1.4编译器，另一个使用Java 6编译器，你就可以使用分类器来生成两个单独的JAR构件。 --&gt;</span>
-            <span class="nt">&lt;classifier&gt;&lt;/classifier&gt;</span>
-            <span class="c">&lt;!--依赖范围。在项目发布过程中，帮助决定哪些构件被包括进来。欲知详情请参考依赖机制。 - compile ：默认范围，用于编译 - provided：类似于编译，但支持你期待jdk或者容器提供，类似于classpath 
-                - runtime: 在执行时需要使用 - test: 用于test任务时使用 - system: 需要外在提供相应的元素。通过systemPath来取得 
-                - systemPath: 仅用于范围为system。提供相应的路径 - optional: 当项目自身被依赖时，标注依赖是否传递。用于连续依赖时使用 --&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-            <span class="c">&lt;!--仅供system范围使用。注意，不鼓励使用这个元素，并且在新的版本中该元素可能被覆盖掉。该元素为依赖规定了文件系统上的路径。需要绝对路径而不是相对路径。推荐使用属性匹配绝对路径，例如${java.home}。 --&gt;</span>
-            <span class="nt">&lt;systemPath&gt;&lt;/systemPath&gt;</span>
-            <span class="c">&lt;!--当计算传递依赖时， 从依赖构件列表里，列出被排除的依赖构件集。即告诉maven你只依赖指定的项目，不依赖项目的依赖。此元素主要用于解决版本冲突问题 --&gt;</span>
-            <span class="nt">&lt;exclusions&gt;</span>
-                <span class="nt">&lt;exclusion&gt;</span>
-                    <span class="nt">&lt;artifactId&gt;</span>spring-core<span class="nt">&lt;/artifactId&gt;</span>
-                    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
-                <span class="nt">&lt;/exclusion&gt;</span>
-            <span class="nt">&lt;/exclusions&gt;</span>
-            <span class="c">&lt;!--可选依赖，如果你在项目B中把C依赖声明为可选，你就需要在依赖于B的项目（例如项目A）中显式的引用对C的依赖。可选依赖阻断依赖的传递性。 --&gt;</span>
-            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
-    <span class="c">&lt;!--不赞成使用. 现在Maven忽略该元素. --&gt;</span>
-    <span class="nt">&lt;reports&gt;&lt;/reports&gt;</span>
-    <span class="c">&lt;!--该元素描述使用报表插件产生报表的规范。当用户执行"mvn site"，这些报表就会运行。 在页面导航栏能看到所有报表的链接。 --&gt;</span>
-    <span class="nt">&lt;reporting&gt;</span>
-        <span class="c">&lt;!--true，则，网站不包括默认的报表。这包括"项目信息"菜单中的报表。 --&gt;</span>
-        <span class="nt">&lt;excludeDefaults</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--所有产生的报表存放到哪里。默认值是${project.build.directory}/site。 --&gt;</span>
-        <span class="nt">&lt;outputDirectory</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--使用的报表插件和他们的配置。 --&gt;</span>
-        <span class="nt">&lt;plugins&gt;</span>
-            <span class="c">&lt;!--plugin元素包含描述报表插件需要的信息 --&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="c">&lt;!--报表插件在仓库里的group ID --&gt;</span>
-                <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--报表插件在仓库里的artifact ID --&gt;</span>
-                <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--被使用的报表插件的版本（或版本范围） --&gt;</span>
-                <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--任何配置是否被传播到子项目 --&gt;</span>
-                <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--报表插件的配置 --&gt;</span>
-                <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                <span class="c">&lt;!--一组报表的多重规范，每个规范可能有不同的配置。一个规范（报表集）对应一个执行目标 。例如，有1，2，3，4，5，6，7，8，9个报表。1，2，5构成A报表集，对应一个执行目标。2，5，8构成B报表集，对应另一个执行目标 --&gt;</span>
-                <span class="nt">&lt;reportSets&gt;</span>
-                    <span class="c">&lt;!--表示报表的一个集合，以及产生该集合的配置 --&gt;</span>
-                    <span class="nt">&lt;reportSet&gt;</span>
-                        <span class="c">&lt;!--报表集合的唯一标识符，POM继承时用到 --&gt;</span>
-                        <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
-                        <span class="c">&lt;!--产生报表集合时，被使用的报表的配置 --&gt;</span>
-                        <span class="nt">&lt;configuration</span> <span class="nt">/&gt;</span>
-                        <span class="c">&lt;!--配置是否被继承到子POMs --&gt;</span>
-                        <span class="nt">&lt;inherited</span> <span class="nt">/&gt;</span>
-                        <span class="c">&lt;!--这个集合里使用到哪些报表 --&gt;</span>
-                        <span class="nt">&lt;reports</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/reportSet&gt;</span>
-                <span class="nt">&lt;/reportSets&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
-        <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/reporting&gt;</span>
-    <span class="c">&lt;!-- 继承自该项目的所有子项目的默认依赖信息。这部分的依赖信息不会被立即解析,而是当子项目声明一个依赖（必须描述group ID和 artifact 
-        ID信息），如果group ID和artifact ID以外的一些信息没有描述，则通过group ID和artifact ID 匹配到这里的依赖，并使用这里的依赖信息。 --&gt;</span>
-    <span class="nt">&lt;dependencyManagement&gt;</span>
-        <span class="nt">&lt;dependencies&gt;</span>
-            <span class="c">&lt;!--参见dependencies/dependency元素 --&gt;</span>
-            <span class="nt">&lt;dependency&gt;</span>
-                ......
-            <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;/dependencies&gt;</span>
-    <span class="nt">&lt;/dependencyManagement&gt;</span>
-    <span class="c">&lt;!--项目分发信息，在执行mvn deploy后表示要发布的位置。有了这些信息就可以把网站部署到远程服务器或者把构件部署到远程仓库。 --&gt;</span>
-    <span class="nt">&lt;distributionManagement&gt;</span>
-        <span class="c">&lt;!--部署项目产生的构件到远程仓库需要的信息 --&gt;</span>
-        <span class="nt">&lt;repository&gt;</span>
-            <span class="c">&lt;!--是分配给快照一个唯一的版本号（由时间戳和构建流水号）？还是每次都使用相同的版本号？参见repositories/repository元素 --&gt;</span>
-            <span class="nt">&lt;uniqueVersion</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;id&gt;</span>banseon-maven2<span class="nt">&lt;/id&gt;</span>
-            <span class="nt">&lt;name&gt;</span>banseon maven2<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;url&gt;</span>file://${basedir}/target/deploy<span class="nt">&lt;/url&gt;</span>
-            <span class="nt">&lt;layout</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/repository&gt;</span>
-        <span class="c">&lt;!--构件的快照部署到哪里？如果没有配置该元素，默认部署到repository元素配置的仓库，参见distributionManagement/repository元素 --&gt;</span>
-        <span class="nt">&lt;snapshotRepository&gt;</span>
-            <span class="nt">&lt;uniqueVersion</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;id&gt;</span>banseon-maven2<span class="nt">&lt;/id&gt;</span>
-            <span class="nt">&lt;name&gt;</span>Banseon-maven2 Snapshot Repository<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;url&gt;</span>scp://svn.baidu.com/banseon:/usr/local/maven-snapshot<span class="nt">&lt;/url&gt;</span>
-            <span class="nt">&lt;layout</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/snapshotRepository&gt;</span>
-        <span class="c">&lt;!--部署项目的网站需要的信息 --&gt;</span>
-        <span class="nt">&lt;site&gt;</span>
-            <span class="c">&lt;!--部署位置的唯一标识符，用来匹配站点和settings.xml文件里的配置 --&gt;</span>
-            <span class="nt">&lt;id&gt;</span>banseon-site<span class="nt">&lt;/id&gt;</span>
-            <span class="c">&lt;!--部署位置的名称 --&gt;</span>
-            <span class="nt">&lt;name&gt;</span>business api website<span class="nt">&lt;/name&gt;</span>
-            <span class="c">&lt;!--部署位置的URL，按protocol://hostname/path形式 --&gt;</span>
-            <span class="nt">&lt;url&gt;</span>
-                scp://svn.baidu.com/banseon:/var/www/localhost/banseon-web
-            <span class="nt">&lt;/url&gt;</span>
-        <span class="nt">&lt;/site&gt;</span>
-        <span class="c">&lt;!--项目下载页面的URL。如果没有该元素，用户应该参考主页。使用该元素的原因是：帮助定位那些不在仓库里的构件（由于license限制）。 --&gt;</span>
-        <span class="nt">&lt;downloadUrl</span> <span class="nt">/&gt;</span>
-        <span class="c">&lt;!--如果构件有了新的group ID和artifact ID（构件移到了新的位置），这里列出构件的重定位信息。 --&gt;</span>
-        <span class="nt">&lt;relocation&gt;</span>
-            <span class="c">&lt;!--构件新的group ID --&gt;</span>
-            <span class="nt">&lt;groupId</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--构件新的artifact ID --&gt;</span>
-            <span class="nt">&lt;artifactId</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--构件新的版本号 --&gt;</span>
-            <span class="nt">&lt;version</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!--显示给用户的，关于移动的额外信息，例如原因。 --&gt;</span>
-            <span class="nt">&lt;message</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/relocation&gt;</span>
-        <span class="c">&lt;!-- 给出该构件在远程仓库的状态。不得在本地项目中设置该元素，因为这是工具自动更新的。有效的值有：none（默认），converted（仓库管理员从 
-            Maven 1 POM转换过来），partner（直接从伙伴Maven 2仓库同步过来），deployed（从Maven 2实例部 署），verified（被核实时正确的和最终的）。 --&gt;</span>
-        <span class="nt">&lt;status</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/distributionManagement&gt;</span>
-    <span class="c">&lt;!--以值替代名称，Properties可以在整个POM中使用，也可以作为触发条件（见settings.xml配置文件里activation元素的说明）。格式是&lt;name&gt;value&lt;/name&gt;。 --&gt;</span>
-    <span class="nt">&lt;properties</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div></div>
-
-<p>所有 POM 文件都需要 project 元素和三个必需字段：groupId，artifactId，version。</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">节点</th>
-      <th style="text-align: left">描述</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">project</td>
-      <td style="text-align: left">工程的根标签。</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">modelVersion</td>
-      <td style="text-align: left">模型版本需要设置为 4.0。</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">groupId</td>
-      <td style="text-align: left">这是工程组的标识。它在一个组织或者项目中通常是唯一的。例如，一个银行组织 com.companyname.project-group 拥有所有的和银行相关的项目。</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">artifactId</td>
-      <td style="text-align: left">这是工程的标识。它通常是工程的名称。例如，消费者银行。groupId 和 artifactId 一起定义了 artifact 在仓库中的位置。</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">version</td>
-      <td style="text-align: left">这是工程的版本号。在 artifact 的仓库中，它用来区分不同的版本。例如：<code class="language-plaintext highlighter-rouge">com.company.bank:consumer-banking:1.0 com.company.bank:consumer-banking:1.1</code></td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;maven&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Maven详解 Maven archetype 可以理解为生成项目的template。在脚手架生成项目的时候使用的。 POM文件是Maven的入口文件，标签详解如下]]></summary></entry><entry><title type="html">【Big-Data】Flink开发总结</title><link href="http://localhost:4000/work/java/2022/10/24/big-data-flink.html" rel="alternate" type="text/html" title="【Big-Data】Flink开发总结" /><published>2022-10-24T09:18:07+08:00</published><updated>2022-10-24T09:18:07+08:00</updated><id>http://localhost:4000/work/java/2022/10/24/big-data-flink</id><content type="html" xml:base="http://localhost:4000/work/java/2022/10/24/big-data-flink.html"><![CDATA[<h1 id="flink开发java版">Flink开发（Java版）</h1>
-
-<h2 id="11-data-conversion">1.1 Data Conversion</h2>
-
-<p>Reference: <a href="https://blog.csdn.net/lxhandlbb/article/details/83304153">Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客</a></p>
-
-<h3 id="111-imports">1.1.1 Imports</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.flink.streaming.api.scala.</span>
-<span class="kn">import</span> <span class="nn">org.apache.flink.table.api.scala._</span>
-<span class="kn">import</span> <span class="nn">org.apache.flink.api.scala._</span>
-<span class="kn">import</span> <span class="nn">scala.collection.JavaConverters._</span>
-</code></pre></div></div>
-
-<h3 id="112-register-datastream-of-dataset-as-table">1.1.2 Register Datastream of DataSet as Table</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// get TableEnvironment</span>
-<span class="c1">// registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=...</span>
-<span class="c1">//register the Datastream as Table "myTable"with fields "fo","f1"</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDataStream</span><span class="o">(</span><span class="s">"myTable"</span><span class="o">,</span><span class="n">stream</span><span class="o">)</span>
-<span class="c1">//register the Datastream as table "myTable2"with fields "myLong","mystring"</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">registerDatastream</span><span class="o">(</span><span class="s">"myTable2"</span><span class="o">,</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="err">'</span><span class="o">,</span><span class="n">myString</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="113-convert-a-datastream-or-dataset-into-a-table">1.1.3 Convert a DataStream or Dataset into a Table</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="n">val</span> <span class="nl">stream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Long</span><span class="o">,</span><span class="nc">String</span><span class="o">)]=..</span>
-<span class="c1">//convert the Datastream into a Table with default fields '_1,'_2</span>
-<span class="n">val</span> <span class="nl">table1:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDatastream</span><span class="o">(</span><span class="n">stream</span><span class="o">)</span>
-<span class="c1">//convert the Datastream into a Table with fields 'myLong,'myString</span>
-<span class="n">val</span> <span class="nl">table2:</span><span class="nc">Table</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">fromDataStream</span><span class="o">(</span><span class="n">stream</span><span class="o">,</span><span class="err">'</span><span class="n">myLong</span><span class="o">,</span><span class="err">'</span><span class="n">myString</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="114-convert-a-table-into-a-datastream">1.1.4 Convert a table into a DataStream</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment.</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span><span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="c1">//Table with two fields (String name,Integer age)</span>
-<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
-<span class="c1">//convert the Table into an append Datastream of Row</span>
-<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendStream</span><span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into an append Datastream of Tuple2[String,Int]</span>
-<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataStream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]</span><span class="n">dsTuple</span>
-<span class="n">tableEnv</span><span class="o">.</span><span class="na">toAppendstream</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into a retract Datastream of Row.</span>
-<span class="o">/</span><span class="mi">1</span>
-<span class="c1">//A retract stream of type X is a Datastream[(Boolean,X)].</span>
-<span class="c1">//</span>
-<span class="c1">//The boolean field indicates the type of the change.</span>
-<span class="c1">//</span>
-<span class="c1">//True is INSERT,false is DELETE.</span>
-<span class="n">val</span> <span class="nl">retractstream:</span><span class="nc">Datastream</span><span class="o">[(</span><span class="nc">Boolean</span><span class="o">,</span><span class="nc">Row</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toRetractstream</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-</code></pre></div></div>
-
-<h3 id="115-convert-table-into-a-dataset">1.1.5 Convert table into a DataSet</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//get TableEnvironment</span>
-<span class="c1">//registration of a DataSet is equivalent</span>
-<span class="n">val</span> <span class="n">tableEnv</span> <span class="o">=</span> <span class="nc">TableEnvironment</span><span class="o">.</span><span class="na">getTableEnvironment</span> <span class="o">(</span><span class="n">env</span><span class="o">)</span>
-<span class="c1">//Table with two fields (String name,Integer age)</span>
-<span class="n">val</span> <span class="nl">table:</span><span class="nc">Table</span> <span class="o">=..</span>
-<span class="c1">//convert the Table into a DataSet of Row</span>
-<span class="n">val</span> <span class="nl">dsRow:</span><span class="nc">DataSet</span><span class="o">[</span><span class="nc">Row</span><span class="o">]</span> <span class="o">=</span> <span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span> <span class="o">[</span><span class="nc">Row</span><span class="o">](</span><span class="n">table</span><span class="o">)</span>
-<span class="c1">//convert the Table into a DataSet of Tuple2[String,Int]</span>
-<span class="n">val</span> <span class="nl">dsTuple:</span><span class="nc">DataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)]=</span><span class="n">tableEnv</span><span class="o">.</span><span class="na">toDataSet</span><span class="o">[(</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">)](</span><span class="n">table</span><span class="o">)</span>
-</code></pre></div></div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;java&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Flink开发（Java版） 1.1 Data Conversion Reference: Flink DataStream /DataSet 与Table的互相转化_唐予之_的博客-CSDN博客 1.1.1 Imports import org.apache.flink.streaming.api.scala. import org.apache.flink.table.api.scala._ import org.apache.flink.api.scala._ import scala.collection.JavaConverters._ 1.1.2 Register Datastream of DataSet as Table // get TableEnvironment // registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) val stream:Datastream[(Long,String)]=... //register the Datastream as Table "myTable"with fields "fo","f1" tableEnv.registerDataStream("myTable",stream) //register the Datastream as table "myTable2"with fields "myLong","mystring" tableEnv.registerDatastream("myTable2",stream,'myLong',myString) 1.1.3 Convert a DataStream or Dataset into a Table //get TableEnvironment //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment (env) val stream:Datastream[(Long,String)]=.. //convert the Datastream into a Table with default fields '_1,'_2 val table1:Table tableEnv.fromDatastream(stream) //convert the Datastream into a Table with fields 'myLong,'myString val table2:Table tableEnv.fromDataStream(stream,'myLong,'myString) 1.1.4 Convert a table into a DataStream //get TableEnvironment. //registration of a DataSet is equivalent val tableEnv TableEnvironment.getTableEnvironment(env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into an append Datastream of Row val dsRow:DataStream[Row]tableEnv.toAppendStream[Row](table) //convert the Table into an append Datastream of Tuple2[String,Int] val dsTuple:DataStream[(String,Int)]dsTuple tableEnv.toAppendstream[(String,Int)](table) //convert the Table into a retract Datastream of Row. /1 //A retract stream of type X is a Datastream[(Boolean,X)]. // //The boolean field indicates the type of the change. // //True is INSERT,false is DELETE. val retractstream:Datastream[(Boolean,Row)]=tableEnv.toRetractstream [Row](table) 1.1.5 Convert table into a DataSet //get TableEnvironment //registration of a DataSet is equivalent val tableEnv = TableEnvironment.getTableEnvironment (env) //Table with two fields (String name,Integer age) val table:Table =.. //convert the Table into a DataSet of Row val dsRow:DataSet[Row] = tableEnv.toDataSet [Row](table) //convert the Table into a DataSet of Tuple2[String,Int] val dsTuple:DataSet[(String,Int)]=tableEnv.toDataSet[(String,Int)](table)]]></summary></entry></feed>
+<p><img src="https://resources.jetbrains.com/help/img/idea/2022.2/merge_result_diagram.png" alt="merge result" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;git&quot;]" /><category term="301-work-blog" /><category term="301-work-learning" /><summary type="html"><![CDATA[Git rebase When to use If you want to have a clean git commits history. If six features are being developed in parallel, they starts from different time and they launch in different times. When you need to roll back some features, you will discover that you have diverged from the main so much. What is git rebase When you merge a branch, step 3 will actually look like this:]]></summary></entry></feed>
