@@ -70,7 +70,7 @@ $$L = \frac{1}{T}\sum_{t}\log f(\omega_t,\omega_{t-1},...,\omega_{t-n+1};\theta)
 这个神经网络通常被称为Feedforward Neural Net Language Model（LLNM）。该模型通常的工作流程是
 
 - Training
-    - 初始化：在语料库中，一共有V个不同的单词，初始化V个长度为m的向量，生成一个$|V| \times m$大小的矩阵；
+    - 初始化：在语料库中，一共有V个不同的单词，初始化V个长度为m的向量，生成一个$\|V\| \times m$大小的矩阵；
     - 训练：每t个单词为一组，组成一个$t \times m$大小的矩阵作为Input Layer。经过hidden layers后经过最后的softmax得到一个概率vector，其中的第i个元素为下一个单词的概率。loss function是上文提到的L。
 - Inference
     - 推理阶段，对于一段给定的sequence，需要计算这段sequence和语料库中所有词的概率，找出概率最大的词，即为这段sequence的下一个词。
