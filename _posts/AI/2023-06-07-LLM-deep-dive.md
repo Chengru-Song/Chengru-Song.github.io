@@ -84,6 +84,7 @@ $$L = \frac{1}{T}\sum_{t}\log f(\omega_t,\omega_{t-1},...,\omega_{t-n+1};\theta)
 - Skip-gram
 
 这两者的对比可以参考下面的表格。
+
 | Feature | CBOW | Skip-gram |
 | --- | --- | --- |
 | Input | Context words | Target word |
@@ -104,9 +105,9 @@ NNLM和CBOW以及Skip-gram的区别是什么？
 
 1. NNLM
     1. Input Layer，对N个单词进行编码。
-    2. Projection Layer，使用投影矩阵，将N个单词投射成N \times D大小的矩阵；
-    3. Hidden Layer，将N \times D大小的矩阵进行计算，如果该层的神经元数量是H，那么需要进行N \times D \times H次计算；
-    4. Output Layer，最后需要进行H \times V次计算形成联立概率分布。
+    2. Projection Layer，使用投影矩阵，将N个单词投射成$N \times D$大小的矩阵；
+    3. Hidden Layer，将$N \times D$大小的矩阵进行计算，如果该层的神经元数量是H，那么需要进行$N \times D \times H$次计算；
+    4. Output Layer，最后需要进行$H \times V$次计算形成联立概率分布。
 2. CBOW
     1. Input Layer，对N个单词进行编码；
     2. Projection Layer，经过Projection Matrix以后，所有单词会被映射到一个相同的位置，因此这个projection Matrix会被所有Word vector共享；
@@ -117,7 +118,7 @@ NNLM和CBOW以及Skip-gram的区别是什么？
     3. Output Layer，将上一个单词映射到输出上；
     4. 上述过程需要重复C次，C可以看成N。
 
-可以看到CBOW移除了Hidden Layer，并且共享了Projection Matrix，且到Output使用了softmax。因此可以大幅减少运算量到Q = N \times D + D \times \log_{2}(V)。而Skip-gram因为需要计算每个单词，因此计算复杂度为Q = C \times (D + D \times \log_{2}(V))。
+可以看到CBOW移除了Hidden Layer，并且共享了Projection Matrix，且到Output使用了softmax。因此可以大幅减少运算量到$Q = N \times D + D \times \log_{2}(V)$。而Skip-gram因为需要计算每个单词，因此计算复杂度为$Q = C \times (D + D \times \log_{2}(V))$。
 
 ### Sequence 2 Sequence
 
@@ -127,7 +128,7 @@ NNLM和CBOW以及Skip-gram的区别是什么？
 
 所以该模型引入了Encoder和Decoder的概念。即，对于一个LSTM模型而言，这种算法会在计算时有一个固定大小的Hidden state，这个Hidden state的大小是固定的，能够把任意长度的input，encode成固定长度的embedding。Decoder也是一个LSTM模型，直接将Encoder的Hidden state作为其自身的Hidden state，通过一个Softmax Layer生成结果。
 
-![https://miro.medium.com/max/942/1*KtWwvLK-jpGPSnj3tStg-Q.png](https://miro.medium.com/max/942/1*KtWwvLK-jpGPSnj3tStg-Q.png)
+![Image](/assets/images/2023-07-16-22-34-21.png)
 
 这个方法本身可以看到有一个缺点，
 
@@ -151,25 +152,25 @@ Attention的本质是什么，就是在NN网络里面加上一些结构，让模
 
 ### GTP-2
 
-********************Motivation********************
+**Motivation**
 
 - 目前的NLP任务都非常专注在一个小的领域和数据集，导致了无法transfer到其他任务上；
 - 多目标学习在扩展数据集和目标上非常困难，导致了上述问题其实是一种妥协（想不专注也不行）；
 
-********Approach********
+**Approach**
 
 - 预训练：使用WebText数据集去来最大化下一个单词的可能性；
 - Evaluation：使用zero-shot在不同的NLP任务上进行fine-tune，并评估其表现。
 
 ### GPT-3
 
-**************Initiative**************
+**Initiative**
 
 GPT模型认为，正是因为很多NLP任务的数据集被限定在完成某些特定的任务，才使得这些模型的泛化效果这么差。如果数据集可以扩充到很大，那么这个模型的能力也会非常强大。
 
 但这样会碰到一个问题：数据集的标注太少了。与所有的文本数量相比，有标注的文本只占其中很少一部分。因此，GPT-2模型使用了非监督预训练和有监督训练相结合的方式，前者使用海量文本学习文本之间的模式，例如语法、格式和前后文，后者在前者的基础上针对不同的任务进行微调（fine-tune）。
 
-************************Architecture************************
+**Architecture**
 
 模型和训练：
 
