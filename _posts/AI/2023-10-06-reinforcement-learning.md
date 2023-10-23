@@ -99,6 +99,19 @@ $$
 
 没有，因为最优策略就是Value function最大的时候的策略值。
 
+### Learning Type
+
+[machine learning - What is the difference between policy-based, on-policy, value-based, off-policy, model-free and model-based? - Cross Validated (stackexchange.com)](https://stats.stackexchange.com/questions/407230/what-is-the-difference-between-policy-based-on-policy-value-based-off-policy)
+
+- On-policy v.s. Off-policy: 核心区别在于学习时，如何更新Q-value。
+  - Off-Policy会在每个Action后采取最好的Action来更新$Q(s,a)$，
+  - 而On-Policy会用当前策略更新$Q(s,a)$。
+
+- Policy-based v.s. Value-based: 
+  - Value-based: 先学习Value function，再根据这个Value function来学习最优策略.
+  - Policy-based：显式学习一个Policy的representation，mapping $ \pi: s -> a$，这个mapping关系是存储在内存中的。
+  - Actor-critic：是以上两者的混合。
+
 ## Markov Process
 
 RL问题都可以看成一个Markov decision Process，MDP将问题简化为，所有未来的状态，都有且只与当前状态有关，历史状态都已经被encode到当前状态下了。
@@ -194,9 +207,41 @@ $$
 
 
 
+### Monte Carlo Policy Gradient
+
+算法流程
+
+1. Start with a random policy that tells you what action to take in a given situation.
+2. Try out this policy by interacting with the environment and see what reward you get at each time step.
+3. After each episode, look at the reward you got at each time step and calculate a return for each step. The return is the sum of all the rewards you received after that time step.
+4. Use these returns to update the policy. The update tells the policy to favor actions that got a higher return, by increasing the probability of taking these actions. 
+5. Repeat steps 2-4 for multiple episodes until the policy gets better at the task.
+6. Use this improved policy to perform the intended task in the environment.
+
+优势
+
+1. Policy-based能够直接优化Policy本身；
+2. 可以处理有随机Action的情况；
+
+缺点
+
+- Noisy Gradient
+- High variance
+
+
+
 ## Actor-Critic
 
+Reference
 
+[Understanding Actor Critic Methods and A2C | by Chris Yoon | Towards Data Science](https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f)
+
+1. 要解决的问题是？
+
+传统的Policy Gradient方法有很大的instability，且训练的时候很难收敛。因此要解决RL中以上的两个难题。
+
+2. 为什么可以解决问题？
+   1. 
 
 ## TRPO
 
