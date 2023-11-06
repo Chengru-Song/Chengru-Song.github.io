@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-11-06T14:23:40+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【AI】LLM Learning</title><link href="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html" rel="alternate" type="text/html" title="【AI】LLM Learning" /><published>2023-11-03T22:56:07+08:00</published><updated>2023-11-03T22:56:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html"><![CDATA[<h1 id="pretrain">Pretrain</h1>
+
+<h2 id="performance-vs-data--size">Performance v.s. Data &amp; Size</h2>
+
+<blockquote>
+  <p>For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA</p>
+</blockquote>
+
+<p>用更多的数据训练，Size小一点也会有更好的效果。</p>
+
+<p>LLaMA</p>
+
+<p>Encoding: BPE</p>
+
+<p>Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs</p>
+
+<p>Epoch meaning:</p>
+
+<blockquote>
+  <p><a href="https://deepai.org/machine-learning-glossary-and-terms/epoch">In the context of machine learning, an epoch is one complete pass through the training data</a><a href="https://deepai.org/machine-learning-glossary-and-terms/epoch">1</a>. It is typical to train a deep neural network for multiple epochs, meaning that the same data is used repeatedly to update the model’s parameters.</p>
+</blockquote>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Pretrain Performance v.s. Data &amp; Size For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA 用更多的数据训练，Size小一点也会有更好的效果。 LLaMA Encoding: BPE Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs Epoch meaning: In the context of machine learning, an epoch is one complete pass through the training data1. It is typical to train a deep neural network for multiple epochs, meaning that the same data is used repeatedly to update the model’s parameters.]]></summary></entry><entry><title type="html">【AI】LLM Prompting</title><link href="http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting.html" rel="alternate" type="text/html" title="【AI】LLM Prompting" /><published>2023-10-28T16:20:07+08:00</published><updated>2023-10-28T16:20:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting.html"><![CDATA[<h1 id="background">Background</h1>
+
+<p>要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。</p>
+
+<ol>
+  <li>Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。</li>
+  <li>Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。</li>
+  <li>SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。</li>
+</ol>
+
+<h1 id="prompt-engineering">Prompt Engineering</h1>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p><a href="https://roadmap.sh/prompt-engineering">Roadmap</a></p>
+
+<p><img src="/assets/images/image-20231028162648178.png" alt="image-20231028162648178" /></p>
+
+<p><img src="/assets/images/image-20231106140554116.png" alt="image-20231106140554116" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Background 要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。 Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。 Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。 SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。 Prompt Engineering Roadmap Roadmap]]></summary></entry><entry><title type="html">【AI】LLM Agents</title><link href="http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents.html" rel="alternate" type="text/html" title="【AI】LLM Agents" /><published>2023-10-28T14:30:07+08:00</published><updated>2023-10-28T14:30:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents.html"><![CDATA[<h1 id="reference">Reference</h1>
+
+<ol>
+  <li><a href="https://github.com/xlang-ai/OpenAgents">xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com)</a></li>
+</ol>
+
+<h1 id="definition">Definition</h1>
+
+<ol>
+  <li>Agent
+    <ol>
+      <li>设定目标</li>
+      <li>breakdown the goal step by step</li>
+      <li>setup tasks for the goal</li>
+      <li>produce results for the goal</li>
+    </ol>
+  </li>
+  <li>OpenAI plugin
+    <ol>
+      <li>Interact with external entities to accomplish a specific task.</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Reference xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com) Definition Agent 设定目标 breakdown the goal step by step setup tasks for the goal produce results for the goal OpenAI plugin Interact with external entities to accomplish a specific task.]]></summary></entry><entry><title type="html">【Blog】First Principle</title><link href="http://localhost:4000/work/blog/2023/10/16/first-principle.html" rel="alternate" type="text/html" title="【Blog】First Principle" /><published>2023-10-16T15:27:07+08:00</published><updated>2023-10-16T15:27:07+08:00</updated><id>http://localhost:4000/work/blog/2023/10/16/first-principle</id><content type="html" xml:base="http://localhost:4000/work/blog/2023/10/16/first-principle.html"><![CDATA[<h1 id="reference">Reference</h1>
+
+<ol>
+  <li><a href="https://medium.com/@idtimw/思维模型03-first-principles-第一性原理-7571fc664faf">思维模型03 — First Principles  第一性原理  by ID.TIMW  Medium</a></li>
+</ol>
+
+<h1 id="what">What</h1>
+
+<p>第一原理（英语：First principle），哲学与逻辑名词，是一个最基本的命题或假设，不能被省略或删除，也不能被违反。第一原理相当于是在数学中的公理。最早由亚里斯多德提出。</p>
+
+<h2 id="苏格拉底式提问">苏格拉底式提问</h2>
+
+<p>对问题使用苏格拉底式提问是一个锻炼第一性原理思考的方法。</p>
+
+<ol>
+  <li>理清思维，寻找问题的源头：问题出在哪里，具体表现形式有哪些？</li>
+  <li>挑战假设：这个情况总是发生么？什么因素会导致问题出现？</li>
+  <li>证据为基础的论点：假设的证据在哪里？整理从哪里来的？证据是否可靠？</li>
+  <li>替代观点和角度/冲击其它想法：有什么其他的观点可以反驳？有没有其它的方法可以解决。</li>
+  <li>影响和后果：如果使用了方法会导致什么后果？</li>
+  <li>质疑问题：为什么会有这种疑问？为什么这个问题很重要？你认为哪个问题最有用？</li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;Blog&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[Reference 思维模型03 — First Principles 第一性原理 by ID.TIMW Medium What 第一原理（英语：First principle），哲学与逻辑名词，是一个最基本的命题或假设，不能被省略或删除，也不能被违反。第一原理相当于是在数学中的公理。最早由亚里斯多德提出。 苏格拉底式提问 对问题使用苏格拉底式提问是一个锻炼第一性原理思考的方法。 理清思维，寻找问题的源头：问题出在哪里，具体表现形式有哪些？ 挑战假设：这个情况总是发生么？什么因素会导致问题出现？ 证据为基础的论点：假设的证据在哪里？整理从哪里来的？证据是否可靠？ 替代观点和角度/冲击其它想法：有什么其他的观点可以反驳？有没有其它的方法可以解决。 影响和后果：如果使用了方法会导致什么后果？ 质疑问题：为什么会有这种疑问？为什么这个问题很重要？你认为哪个问题最有用？]]></summary></entry><entry><title type="html">【AI】LLM RLHF</title><link href="http://localhost:4000/ai/ai_basics/2023/10/15/llm-rlhf.html" rel="alternate" type="text/html" title="【AI】LLM RLHF" /><published>2023-10-15T22:30:07+08:00</published><updated>2023-10-15T22:30:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/15/llm-rlhf</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/15/llm-rlhf.html"><![CDATA[<h1 id="problem-to-solve">Problem to Solve</h1>
+
+<p>Alignment</p>
+
+<h1 id="solutions">Solutions</h1>
+
+<h2 id="actor-critic">Actor-Critic</h2>
+
+<ol>
+  <li>要解决的问题</li>
+</ol>
+
+<p>在RL的过程中，即学习策略，又学习价值函数，这样保证策略迭代的过程中，Value是逐渐变高的。</p>
+
+<ol>
+  <li>根本思想</li>
+</ol>
+
+<ul>
+  <li>为什么可以同时学习Value function和Policy function？
+    <ul>
+      <li>因为使用了能将二者结合的损失函数，例如时序差分残差</li>
+    </ul>
+  </li>
+  <li>
+    <p>可以在总回报中引入基线函数以减小方差，例如这种形式：</p>
+
+    <ul>
+      <li>
+\[\nabla_\theta J(\theta)=\mathbb{E}\left[\sum_{t=0}^{\infty} \nabla_\theta \log \pi_\theta\left(a_t \mid s_t\right)\left(Q^{\pi_\theta}\left(s_t, a_t\right)-b\left(s_t\right)\right)\right]\]
+      </li>
+      <li>原因：RL过程中，不同的策略可能带来的方差差异非常大，因此会使学习过程不稳定，引入基线函数可以使方差减小，从而增加学习的稳定性。</li>
+    </ul>
+  </li>
+  <li></li>
+</ul>
+
+<p>使用PPO进行fine-tune</p>
+
+<p><img src="/assets/images/image-20231017215844740.png" alt="image-20231017215844740" /></p>
+
+<p>发现PPO中的KL Divergence和开根和PM Score有一个近似的线性关系。（PM就是preference Model）</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Problem to Solve Alignment Solutions Actor-Critic 要解决的问题 在RL的过程中，即学习策略，又学习价值函数，这样保证策略迭代的过程中，Value是逐渐变高的。 根本思想 为什么可以同时学习Value function和Policy function？ 因为使用了能将二者结合的损失函数，例如时序差分残差 可以在总回报中引入基线函数以减小方差，例如这种形式： \[\nabla_\theta J(\theta)=\mathbb{E}\left[\sum_{t=0}^{\infty} \nabla_\theta \log \pi_\theta\left(a_t \mid s_t\right)\left(Q^{\pi_\theta}\left(s_t, a_t\right)-b\left(s_t\right)\right)\right]\] 原因：RL过程中，不同的策略可能带来的方差差异非常大，因此会使学习过程不稳定，引入基线函数可以使方差减小，从而增加学习的稳定性。 使用PPO进行fine-tune 发现PPO中的KL Divergence和开根和PM Score有一个近似的线性关系。（PM就是preference Model）]]></summary></entry><entry><title type="html">【AI】Multi-Modality Learning</title><link href="http://localhost:4000/ai/ai_basics/2023/10/12/multi-model.html" rel="alternate" type="text/html" title="【AI】Multi-Modality Learning" /><published>2023-10-12T20:50:07+08:00</published><updated>2023-10-12T20:50:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/12/multi-model</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/12/multi-model.html"><![CDATA[<h1 id="problem-trying-to-solve">Problem Trying to Solve</h1>
+
+<p>提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。</p>
+
+<h1 id="解决方法">解决方法</h1>
+
+<h2 id="llava">LLaVA</h2>
+
+<ol>
+  <li>要解决的关键问题
+    <ol>
+      <li>构建一个有reasoning ability的，可以follow instruction的多模态模型。</li>
+    </ol>
+  </li>
+  <li>算法的根本思想
+    <ol>
+      <li>通过GPT-4构建训练集（包括与图片相关的对话、细节描述和复杂推理），使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。</li>
+    </ol>
+  </li>
+  <li>算法流程
+    <ol>
+      <li></li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Problem Trying to Solve 提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。 解决方法 LLaVA 要解决的关键问题 构建一个有reasoning ability的，可以follow instruction的多模态模型。 算法的根本思想 通过GPT-4构建训练集（包括与图片相关的对话、细节描述和复杂推理），使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。 算法流程]]></summary></entry><entry><title type="html">【AI】LLM RL Modeling</title><link href="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html" rel="alternate" type="text/html" title="【AI】LLM RL Modeling" /><published>2023-10-08T17:50:07+08:00</published><updated>2023-10-08T17:50:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html"><![CDATA[<h1 id="rl-recap">RL Recap</h1>
+
+<p><a href="./2023-10-06-reinforcement-learning.md">RL Model</a></p>
+
+<h1 id="llm-description">LLM Description</h1>
+
+<p>根据上一个states，经过一个LLM，生成另一个states，一共生成max_tokens作为一次生成。生成的长度是prompt_len + max_token。</p>
+
+<h1 id="modeling">Modeling</h1>
+
+<ul>
+  <li><strong><em>Objective</em></strong>
+    <ul>
+      <li>生成尽可能多的Correct Format。</li>
+    </ul>
+  </li>
+  <li><strong><em>States</em></strong>
+    <ul>
+      <li>Input of current methods</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[RL Recap RL Model LLM Description 根据上一个states，经过一个LLM，生成另一个states，一共生成max_tokens作为一次生成。生成的长度是prompt_len + max_token。 Modeling Objective 生成尽可能多的Correct Format。 States Input of current methods]]></summary></entry><entry><title type="html">【Blog】Structural Thinking</title><link href="http://localhost:4000/work/blog/2023/10/08/structural-thinking.html" rel="alternate" type="text/html" title="【Blog】Structural Thinking" /><published>2023-10-08T13:27:07+08:00</published><updated>2023-10-08T13:27:07+08:00</updated><id>http://localhost:4000/work/blog/2023/10/08/structural-thinking</id><content type="html" xml:base="http://localhost:4000/work/blog/2023/10/08/structural-thinking.html"><![CDATA[<h1 id="overview">Overview</h1>
+
+<p>为什么突然想写这样一篇文章？因为最近我发现所有东西想做好，都需要有一套自己的SOP。简单来说就是一个structural thinking，对于一个较为常见的问题，有一个固定的思考套路。当然这不是说这个套路就是固定不变的，是说首先需要有，其次是需要根据这个套路不断迭代，优化这个套路直到这个套路可以快速的解决问题。可以是学习相关的，可以是工作相关的，但总体来说，我认为人就是他自己方法论的总和，这些方法论优化的越好，事情做的漂亮的可能性就越大。</p>
+
+<h1 id="study">Study</h1>
+
+<h2 id="algorithm">Algorithm</h2>
+
+<p>Algorithm类的本身比较单点，就是一个算法，但是可以发散的很多。比如有些算法其实是另一些算法的改进版，那光了解这一个算法肯定是不行的，需要了解之前的算法，而当一个算法需要的背景知识过多的时候，这个算法的学习成本就很陡峭了。</p>
+
+<p>背景知识不复杂时：</p>
+
+<ol>
+  <li>一句话总结这个算法要解决的问题是什么；</li>
+  <li>一句话总结这个算法的根本思想是什么；</li>
+  <li>算法的流程是什么；</li>
+  <li>用一个例子画出这个算法解题的每个步骤；</li>
+  <li>一句话总结为什么这个算法可以解决问题；</li>
+  <li>（nice to have）总结这个算法在所有解决该问题的思路里的优劣势；</li>
+  <li>用一个现实的例子对这个算法进行比喻，并讲给别人听。</li>
+</ol>
+
+<p>背景知识较为复杂时，</p>
+
+<h2 id="understanding-a-new-area">Understanding a new area</h2>
+
+<p>这是一个比较复杂的系统工程，怎么算是理解了一个新的领域？外面看和实际做差别很大，用大语言模型距离，什么方法对效果是有用的，有多大的用处，如何能更有用，如果一个方法效果不好，可能的原因是是什么，如何解决，每个方法大概能带来怎样的提升。</p>
+
+<ol>
+  <li>一句话总结这个领域试图解决的核心问题</li>
+  <li>三句话总结大家试图解决问题的核心思路有哪些</li>
+  <li>一句话总结大家是如何评估自己解决问题的程度（Benchmark）</li>
+  <li>给所有解决方案归类，指明其novelty，并用一句话点评方案的优劣</li>
+  <li>预测可能产生的工作以及大概方法</li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;work&quot;, &quot;Blog&quot;]" /><category term="301-work-blog" /><summary type="html"><![CDATA[Overview 为什么突然想写这样一篇文章？因为最近我发现所有东西想做好，都需要有一套自己的SOP。简单来说就是一个structural thinking，对于一个较为常见的问题，有一个固定的思考套路。当然这不是说这个套路就是固定不变的，是说首先需要有，其次是需要根据这个套路不断迭代，优化这个套路直到这个套路可以快速的解决问题。可以是学习相关的，可以是工作相关的，但总体来说，我认为人就是他自己方法论的总和，这些方法论优化的越好，事情做的漂亮的可能性就越大。 Study Algorithm Algorithm类的本身比较单点，就是一个算法，但是可以发散的很多。比如有些算法其实是另一些算法的改进版，那光了解这一个算法肯定是不行的，需要了解之前的算法，而当一个算法需要的背景知识过多的时候，这个算法的学习成本就很陡峭了。 背景知识不复杂时： 一句话总结这个算法要解决的问题是什么； 一句话总结这个算法的根本思想是什么； 算法的流程是什么； 用一个例子画出这个算法解题的每个步骤； 一句话总结为什么这个算法可以解决问题； （nice to have）总结这个算法在所有解决该问题的思路里的优劣势； 用一个现实的例子对这个算法进行比喻，并讲给别人听。 背景知识较为复杂时， Understanding a new area 这是一个比较复杂的系统工程，怎么算是理解了一个新的领域？外面看和实际做差别很大，用大语言模型距离，什么方法对效果是有用的，有多大的用处，如何能更有用，如果一个方法效果不好，可能的原因是是什么，如何解决，每个方法大概能带来怎样的提升。 一句话总结这个领域试图解决的核心问题 三句话总结大家试图解决问题的核心思路有哪些 一句话总结大家是如何评估自己解决问题的程度（Benchmark） 给所有解决方案归类，指明其novelty，并用一句话点评方案的优劣 预测可能产生的工作以及大概方法]]></summary></entry><entry><title type="html">【AI】Reinforcement Learning</title><link href="http://localhost:4000/ai/ai_basics/2023/10/06/reinforcement-learning.html" rel="alternate" type="text/html" title="【AI】Reinforcement Learning" /><published>2023-10-06T17:26:07+08:00</published><updated>2023-10-06T17:26:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/06/reinforcement-learning</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/06/reinforcement-learning.html"><![CDATA[<h1 id="reference">Reference</h1>
+
+<ol>
+  <li>
+    <p>Key concepts</p>
+
+    <p><a href="https://lilianweng.github.io/posts/2018-02-19-rl-overview/#key-concepts">A (Long) Peek into Reinforcement Learning</a></p>
+  </li>
+  <li>
+    <p>Policy Gradient</p>
+
+    <p><a href="https://lilianweng.github.io/posts/2018-04-08-policy-gradient/">Policy Gradient Algorithms</a></p>
+  </li>
+</ol>
+
+<h1 id="key-concepts">Key Concepts</h1>
+
+<h2 id="what">What</h2>
+
+<h3 id="定义">定义</h3>
+
+<blockquote>
+  <p>The agent’s <strong>policy</strong> $\pi(s)$ provides the guideline on what is the optimal action to take in a certain state with <strong>the goal to maximize the total rewards</strong>.</p>
+</blockquote>
+
+<p>关键词，在某个state下，采取何种策略，能够让rewards的<strong>总和</strong>最大。</p>
+
+<p><img src="/assets/images/image-20231006173349512.png" alt="image-20231006173349512" /></p>
+
+<h3 id="model">Model</h3>
+
+<p>模型就是对环境的一种<strong>描述</strong>，这种描述能够告诉参与者在当前状态下可采取的行动有哪些。主要由Transition probability function $P$ 和Reward function $R$ 组成。</p>
+
+<p>Reward function $R$，预测被Action trigger后的下一次的Reward。</p>
+
+\[R(s, a)=\mathbb{E}\left[R_{t+1} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} r \sum_{s^{\prime} \in \mathcal{S}} P\left(s^{\prime}, r \mid s, a\right)\]
+
+<p>Transition Function $P$，定义在采取某个Action的情况下，State的变化规律。</p>
+
+\[P_{s s^{\prime}}^a=P\left(s^{\prime} \mid s, a\right)=\mathbb{P}\left[S_{t+1}=s^{\prime} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} P\left(s^{\prime}, r \mid s, a\right)\]
+
+<h3 id="policy">Policy</h3>
+
+<p>Policy就是行为描述函数，在某个状态 $s$ 下，需要采取何种策略。</p>
+
+<ol>
+  <li>确定性Policy：$\pi(s) = a$</li>
+  <li>Stochastic Policy: $\pi(s) = \mathbb{P}[A = a \mid S = s]$</li>
+</ol>
+
+<h3 id="value-function">Value Function</h3>
+
+<p>通过对未来Reward的预测，来评价当前的state有多么rewarding。</p>
+
+\[G_t=R_{t+1}+\gamma R_{t+2}+\cdots=\sum_{k=0}^{\infty} \gamma^k R_{t+k+1}\]
+
+<p>$\gamma$ 是打折系数，这个系数在0~1之间，因为</p>
+
+<ol>
+  <li>未来的Reward是预测的，且可能不准；</li>
+  <li>未来的Reward无法提供及时反馈；</li>
+  <li>未来Reward需要无限tracking。</li>
+</ol>
+
+<p><strong>State value</strong>: 在State s时，可以获得的return。
+\(V_\pi(s)=\mathbb{E}_\pi\left[G_t \mid S_t=s\right]\)</p>
+
+<p><strong>Action Value</strong>：在某一个State下面采取某种Action所能得到的Value。也叫做Q-value
+\(Q_\pi(s, a)=\mathbb{E}_\pi\left[G_t \mid S_t=s, A_t=a\right]\)</p>
+
+<p>除此之外，因为我们有某种策略$\pi$，因此我们可以通过策略和Action Value来计算得到State Value。</p>
+
+\[V_\pi(s)=\sum_{a \in \mathcal{A}} Q_\pi(s, a) \pi(a \mid s)\]
+
+<p>还有一个定义叫做A-value，就是<strong>Advantage Value</strong>，是Action Value和State Value之间的差值，可以理解为采取某一个Action之后能比现在的State Value带来多少增益。</p>
+
+\[A_{\pi}(s, a) = Q_{\pi}(s, a) - V_{\pi}(s)\]
+
+<h3 id="optimal-value--policy">Optimal Value &amp; Policy</h3>
+
+<p>这就非常直白了，Optimal Value能够提供最大的Return，看公式$\eqref{op_v}$</p>
+
+\[V_*(s)=\max _\pi V_\pi(s), Q_*(s, a)=\max _\pi Q_\pi(s, a) \label{op_v}\]
+
+<p>与此相对应的最优策略可以表达为</p>
+
+\[\pi_*=\arg \max _\pi V_\pi(s), \pi_*=\arg \max _\pi Q_\pi(s, a)\]
+
+<p>这两者是否有冲突呢？</p>
+
+<p>没有，因为最优策略就是Value function最大的时候的策略值。</p>
+
+<h3 id="learning-type">Learning Type</h3>
+
+<p><a href="https://stats.stackexchange.com/questions/407230/what-is-the-difference-between-policy-based-on-policy-value-based-off-policy">machine learning - What is the difference between policy-based, on-policy, value-based, off-policy, model-free and model-based? - Cross Validated (stackexchange.com)</a></p>
+
+<ul>
+  <li>On-policy v.s. Off-policy: 核心区别在于学习时，如何更新Q-value。
+    <ul>
+      <li>Off-Policy会在每个Action后采取最好的Action来更新$Q(s,a)$，</li>
+      <li>而On-Policy会用当前策略更新$Q(s,a)$。</li>
+    </ul>
+  </li>
+  <li>Policy-based v.s. Value-based:
+    <ul>
+      <li>Value-based: 先学习Value function，再根据这个Value function来学习最优策略.</li>
+      <li>Policy-based：显式学习一个Policy的representation，mapping $ \pi: s -&gt; a$，这个mapping关系是存储在内存中的。</li>
+      <li>Actor-critic：是以上两者的混合。</li>
+      <li>本质区别：Value指的是给定State $s_t$ 和动作$a_t$，可以获得累积奖励的期望值，因此这是一个更注重于未来收益最大化的衡量方式；Policy指的是，找到策略$\pi_t$，使得累积奖励的期望值最大化。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="markov-process">Markov Process</h2>
+
+<p>RL问题都可以看成一个Markov decision Process，MDP将问题简化为，所有未来的状态，都有且只与当前状态有关，历史状态都已经被encode到当前状态下了。</p>
+
+<p><img src="/assets/images/image-20231007144448641.png" alt="image-20231007144448641" /></p>
+
+<p>注意一下公式$\eqref{eq_bellman}$，如果我们想直接获得最优解而不是策略，我们其实不需要考虑策略$\pi$，而是直接根据状态转移矩阵计算Q-value和State Value。</p>
+
+\[\begin{aligned}
+V_*(s) &amp; =\max _{a \in \mathcal{A}} Q_*(s, a) \\
+Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a V_*\left(s^{\prime}\right) \\
+V_*(s) &amp; =\max _{a \in \mathcal{A}}\left(R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a V_*\left(s^{\prime}\right)\right) \\
+Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a \max _{a^{\prime} \in \mathcal{A}} Q_*\left(s^{\prime}, a^{\prime}\right)
+\end{aligned} \label{eq_bellman}\]
+
+<h1 id="solutions">Solutions</h1>
+
+<p>解决问题的目标：习得一个能够最大化未来Reward的Policy。</p>
+
+<p>明确几个问题</p>
+
+<ol>
+  <li>Episode和Action的区别：一个episode是一系列actions和states的组合，一个episode表示一个学习周期已经结束，达到了既定目标。一个Action仅表示一个动作。</li>
+  <li></li>
+</ol>
+
+<h2 id="monte-carlo-method">Monte Carlo Method</h2>
+
+<ol>
+  <li>Reference：<a href="http://www-edlab.cs.umass.edu/cs689/lectures/RL Lecture 5.pdf">RL Lecture 5.pdf (umass.edu)</a></li>
+  <li>要解决的问题
+    <ol>
+      <li>在Model-free的场景下，习得一个episodic MDP模型的Value function的最大值 $V_{s_t}$ 和最优策略 $\pi_*(s)$ 。</li>
+    </ol>
+  </li>
+  <li>根本思想是什么
+    <ol>
+      <li>MC prediction: 根据state-Value function预测某个Policy在某个状态下的Value最大值。</li>
+      <li>MC control：the task that is <strong>finding the optimal policy that maximize the value function</strong> by alternating between policy evaluation and policy improvements.</li>
+    </ol>
+  </li>
+  <li>算法流程
+    <ol>
+      <li>MC Evaluation
+        <ol>
+          <li><img src="/assets/images/image-20231008161837614.png" alt="image-20231008161837614" /></li>
+        </ol>
+      </li>
+      <li>MC control
+        <ol>
+          <li><img src="/assets/images/image-20231008161904221.png" alt="image-20231008161904221" /></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>举例说明</li>
+</ol>
+
+<p>21点游戏</p>
+
+<ul>
+  <li><strong><em>Objective</em></strong>: having your card sum greater than the dealers without exceeding 21.</li>
+  <li><strong><em>States</em></strong>
+    <ul>
+      <li>current sum</li>
+      <li>dealer’s showing card</li>
+      <li>Do i have usable ace</li>
+    </ul>
+  </li>
+  <li><strong><em>Reward</em></strong>
+    <ul>
+      <li>+1 wining, 0 draw, -1 losing</li>
+    </ul>
+  </li>
+  <li><strong><em>Actions</em></strong>
+    <ul>
+      <li>Stick(stoping receiving cards),</li>
+      <li>hit(receive another card)</li>
+    </ul>
+  </li>
+  <li><strong><em>Policy</em></strong>
+    <ul>
+      <li>Stick if sum is 20/21, else hit.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>MC evaluation: 根据以上建模可以写一个MC Evaluation算法来确定这个Policy的Value是多少。</p>
+
+<p>MC Control: 以上述Policy作为初始Policy，随后在某个states下，以$\epsilon$ 的概率选择更新为一个mean(reward)更大的策略，例如更新策略为在sum为16且有ace的情况下应该stick。</p>
+
+<ol>
+  <li>为什么该算法可以解决问题</li>
+</ol>
+
+<p>通过MC Evaluation的迭代，计算每个episode的State Value function就能获得最大值。通过MC Control的迭代，在每个episode以一定概率选择Reward mean更高的Policy，可以获得最大Policy和最大的State Value。</p>
+
+<ol>
+  <li>优劣势</li>
+  <li>举例给人听
+    <ol>
+      <li></li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="policy-gradient">Policy Gradient</h2>
+
+<p>找到一个Policy gradient estimator并把这个estimator放到stochastic gradient ascent算法中进行迭代。</p>
+
+<p>一个非常常见的estimator长这样。</p>
+
+\[\hat{g}=\hat{\mathbb{E}}_t\left[\nabla_\theta \log \pi_\theta\left(a_t \mid s_t\right) \hat{A}_t\right]\]
+
+<p>计算gradient的时候直接对estimator求导。</p>
+
+<ol>
+  <li>为什么这个方法非常方便？
+    <ol>
+      <li>因为在代码里面，$\log \pi_\theta（a_t \mid s_t)$ 就是所有Token的log probabilities，大语言模型本质都是在预测下一个Token。在计算的时候，estimator的最优值可以直接通过求导得到。</li>
+      <li>estimator有很多自动求解器，非常方便。</li>
+    </ol>
+  </li>
+  <li>为什么这个方法有问题？
+    <ol>
+      <li>这个过程中有需要random sample，对sample之后的结果求导本身是无法解释的；</li>
+      <li>这种方法有可能导致Policy gradient非常大。</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="monte-carlo-policy-gradient">Monte Carlo Policy Gradient</h3>
+
+<p>算法流程</p>
+
+<ol>
+  <li>Start with a random policy that tells you what action to take in a given situation.</li>
+  <li>Try out this policy by interacting with the environment and see what reward you get at each time step.</li>
+  <li>After each episode, look at the reward you got at each time step and calculate a return for each step. The return is the sum of all the rewards you received after that time step.</li>
+  <li>Use these returns to update the policy. The update tells the policy to favor actions that got a higher return, by increasing the probability of taking these actions.</li>
+  <li>Repeat steps 2-4 for multiple episodes until the policy gets better at the task.</li>
+  <li>Use this improved policy to perform the intended task in the environment.</li>
+</ol>
+
+<p>优势</p>
+
+<ol>
+  <li>Policy-based能够直接优化Policy本身；</li>
+  <li>可以处理有随机Action的情况；</li>
+</ol>
+
+<p>缺点</p>
+
+<ul>
+  <li>Noisy Gradient</li>
+  <li>High variance</li>
+</ul>
+
+<h2 id="actor-critic">Actor-Critic</h2>
+
+<p>Reference</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[Understanding Actor Critic Methods and A2C</td>
+      <td>by Chris Yoon</td>
+      <td>Towards Data Science](https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>要解决的问题是？</li>
+</ol>
+
+<p>传统的Policy Gradient方法有很大的instability，且训练的时候很难收敛。因此要解决RL中以上的两个难题。</p>
+
+<ol>
+  <li>为什么可以解决问题？
+    <ol>
+      <li></li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="trpo">TRPO</h2>
+
+<p>针对Policy gradient存在的问题，有人提出了Trust Region Method，简单来说就是加入了一个constraint，目的是为了防止某一次策略更新和上一次的策略收益偏差过大。但看公式本身$\eqref{eq_trpo}$其实和Policy gradient的差别并不大，只是加了一个上次策略作为分母。</p>
+
+\[\begin{array}{ll}
+\underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_t\left[\frac{\pi_\theta\left(a_t \mid s_t\right)}{\pi_{\theta_{\text {old }}}\left(a_t \mid s_t\right)} \hat{A}_t\right] \\
+\text { subject to } &amp; \hat{\mathbb{E}}_t\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_t\right), \pi_\theta\left(\cdot \mid s_t\right)\right]\right] \leq \delta .
+\end{array} \label{eq_trpo}\]
+
+<p>在实际计算过程中，可以把使用surrogate Objective来代替这个constraint problem，比如下面这个Objective</p>
+
+\[\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_t\left[\frac{\pi_\theta\left(a_t \mid s_t\right)}{\pi_{\theta_{\text {old }}}\left(a_t \mid s_t\right)} \hat{A}_t- 
+\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_t\right), \pi_\theta\left(\cdot \mid s_t\right)\right]\right]\]
+
+<p>直接把constraint作为一个penalty。</p>
+
+<p>最大的问题在于这个$\beta$ 并不好选，实际处理的时候在不同问题上$\beta$ 的选择非常影响结果。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Reference Key concepts A (Long) Peek into Reinforcement Learning Policy Gradient Policy Gradient Algorithms Key Concepts What 定义 The agent’s policy $\pi(s)$ provides the guideline on what is the optimal action to take in a certain state with the goal to maximize the total rewards. 关键词，在某个state下，采取何种策略，能够让rewards的总和最大。 Model 模型就是对环境的一种描述，这种描述能够告诉参与者在当前状态下可采取的行动有哪些。主要由Transition probability function $P$ 和Reward function $R$ 组成。 Reward function $R$，预测被Action trigger后的下一次的Reward。 \[R(s, a)=\mathbb{E}\left[R_{t+1} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} r \sum_{s^{\prime} \in \mathcal{S}} P\left(s^{\prime}, r \mid s, a\right)\] Transition Function $P$，定义在采取某个Action的情况下，State的变化规律。 \[P_{s s^{\prime}}^a=P\left(s^{\prime} \mid s, a\right)=\mathbb{P}\left[S_{t+1}=s^{\prime} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} P\left(s^{\prime}, r \mid s, a\right)\] Policy Policy就是行为描述函数，在某个状态 $s$ 下，需要采取何种策略。 确定性Policy：$\pi(s) = a$ Stochastic Policy: $\pi(s) = \mathbb{P}[A = a \mid S = s]$ Value Function 通过对未来Reward的预测，来评价当前的state有多么rewarding。 \[G_t=R_{t+1}+\gamma R_{t+2}+\cdots=\sum_{k=0}^{\infty} \gamma^k R_{t+k+1}\] $\gamma$ 是打折系数，这个系数在0~1之间，因为 未来的Reward是预测的，且可能不准； 未来的Reward无法提供及时反馈； 未来Reward需要无限tracking。 State value: 在State s时，可以获得的return。 \(V_\pi(s)=\mathbb{E}_\pi\left[G_t \mid S_t=s\right]\) Action Value：在某一个State下面采取某种Action所能得到的Value。也叫做Q-value \(Q_\pi(s, a)=\mathbb{E}_\pi\left[G_t \mid S_t=s, A_t=a\right]\) 除此之外，因为我们有某种策略$\pi$，因此我们可以通过策略和Action Value来计算得到State Value。 \[V_\pi(s)=\sum_{a \in \mathcal{A}} Q_\pi(s, a) \pi(a \mid s)\] 还有一个定义叫做A-value，就是Advantage Value，是Action Value和State Value之间的差值，可以理解为采取某一个Action之后能比现在的State Value带来多少增益。 \[A_{\pi}(s, a) = Q_{\pi}(s, a) - V_{\pi}(s)\] Optimal Value &amp; Policy 这就非常直白了，Optimal Value能够提供最大的Return，看公式$\eqref{op_v}$ \[V_*(s)=\max _\pi V_\pi(s), Q_*(s, a)=\max _\pi Q_\pi(s, a) \label{op_v}\] 与此相对应的最优策略可以表达为 \[\pi_*=\arg \max _\pi V_\pi(s), \pi_*=\arg \max _\pi Q_\pi(s, a)\] 这两者是否有冲突呢？ 没有，因为最优策略就是Value function最大的时候的策略值。 Learning Type machine learning - What is the difference between policy-based, on-policy, value-based, off-policy, model-free and model-based? - Cross Validated (stackexchange.com) On-policy v.s. Off-policy: 核心区别在于学习时，如何更新Q-value。 Off-Policy会在每个Action后采取最好的Action来更新$Q(s,a)$， 而On-Policy会用当前策略更新$Q(s,a)$。 Policy-based v.s. Value-based: Value-based: 先学习Value function，再根据这个Value function来学习最优策略. Policy-based：显式学习一个Policy的representation，mapping $ \pi: s -&gt; a$，这个mapping关系是存储在内存中的。 Actor-critic：是以上两者的混合。 本质区别：Value指的是给定State $s_t$ 和动作$a_t$，可以获得累积奖励的期望值，因此这是一个更注重于未来收益最大化的衡量方式；Policy指的是，找到策略$\pi_t$，使得累积奖励的期望值最大化。 Markov Process RL问题都可以看成一个Markov decision Process，MDP将问题简化为，所有未来的状态，都有且只与当前状态有关，历史状态都已经被encode到当前状态下了。 注意一下公式$\eqref{eq_bellman}$，如果我们想直接获得最优解而不是策略，我们其实不需要考虑策略$\pi$，而是直接根据状态转移矩阵计算Q-value和State Value。 \[\begin{aligned} V_*(s) &amp; =\max _{a \in \mathcal{A}} Q_*(s, a) \\ Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a V_*\left(s^{\prime}\right) \\ V_*(s) &amp; =\max _{a \in \mathcal{A}}\left(R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a V_*\left(s^{\prime}\right)\right) \\ Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime}}^a \max _{a^{\prime} \in \mathcal{A}} Q_*\left(s^{\prime}, a^{\prime}\right) \end{aligned} \label{eq_bellman}\] Solutions 解决问题的目标：习得一个能够最大化未来Reward的Policy。 明确几个问题 Episode和Action的区别：一个episode是一系列actions和states的组合，一个episode表示一个学习周期已经结束，达到了既定目标。一个Action仅表示一个动作。 Monte Carlo Method Reference：RL Lecture 5.pdf (umass.edu) 要解决的问题 在Model-free的场景下，习得一个episodic MDP模型的Value function的最大值 $V_{s_t}$ 和最优策略 $\pi_*(s)$ 。 根本思想是什么 MC prediction: 根据state-Value function预测某个Policy在某个状态下的Value最大值。 MC control：the task that is finding the optimal policy that maximize the value function by alternating between policy evaluation and policy improvements. 算法流程 MC Evaluation MC control 举例说明 21点游戏 Objective: having your card sum greater than the dealers without exceeding 21. States current sum dealer’s showing card Do i have usable ace Reward +1 wining, 0 draw, -1 losing Actions Stick(stoping receiving cards), hit(receive another card) Policy Stick if sum is 20/21, else hit. MC evaluation: 根据以上建模可以写一个MC Evaluation算法来确定这个Policy的Value是多少。 MC Control: 以上述Policy作为初始Policy，随后在某个states下，以$\epsilon$ 的概率选择更新为一个mean(reward)更大的策略，例如更新策略为在sum为16且有ace的情况下应该stick。 为什么该算法可以解决问题 通过MC Evaluation的迭代，计算每个episode的State Value function就能获得最大值。通过MC Control的迭代，在每个episode以一定概率选择Reward mean更高的Policy，可以获得最大Policy和最大的State Value。 优劣势 举例给人听 Policy Gradient 找到一个Policy gradient estimator并把这个estimator放到stochastic gradient ascent算法中进行迭代。 一个非常常见的estimator长这样。 \[\hat{g}=\hat{\mathbb{E}}_t\left[\nabla_\theta \log \pi_\theta\left(a_t \mid s_t\right) \hat{A}_t\right]\] 计算gradient的时候直接对estimator求导。 为什么这个方法非常方便？ 因为在代码里面，$\log \pi_\theta（a_t \mid s_t)$ 就是所有Token的log probabilities，大语言模型本质都是在预测下一个Token。在计算的时候，estimator的最优值可以直接通过求导得到。 estimator有很多自动求解器，非常方便。 为什么这个方法有问题？ 这个过程中有需要random sample，对sample之后的结果求导本身是无法解释的； 这种方法有可能导致Policy gradient非常大。 Monte Carlo Policy Gradient 算法流程 Start with a random policy that tells you what action to take in a given situation. Try out this policy by interacting with the environment and see what reward you get at each time step. After each episode, look at the reward you got at each time step and calculate a return for each step. The return is the sum of all the rewards you received after that time step. Use these returns to update the policy. The update tells the policy to favor actions that got a higher return, by increasing the probability of taking these actions. Repeat steps 2-4 for multiple episodes until the policy gets better at the task. Use this improved policy to perform the intended task in the environment. 优势 Policy-based能够直接优化Policy本身； 可以处理有随机Action的情况； 缺点 Noisy Gradient High variance Actor-Critic Reference [Understanding Actor Critic Methods and A2C by Chris Yoon Towards Data Science](https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f) 要解决的问题是？ 传统的Policy Gradient方法有很大的instability，且训练的时候很难收敛。因此要解决RL中以上的两个难题。 为什么可以解决问题？ TRPO 针对Policy gradient存在的问题，有人提出了Trust Region Method，简单来说就是加入了一个constraint，目的是为了防止某一次策略更新和上一次的策略收益偏差过大。但看公式本身$\eqref{eq_trpo}$其实和Policy gradient的差别并不大，只是加了一个上次策略作为分母。 \[\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_t\left[\frac{\pi_\theta\left(a_t \mid s_t\right)}{\pi_{\theta_{\text {old }}}\left(a_t \mid s_t\right)} \hat{A}_t\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_t\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_t\right), \pi_\theta\left(\cdot \mid s_t\right)\right]\right] \leq \delta . \end{array} \label{eq_trpo}\] 在实际计算过程中，可以把使用surrogate Objective来代替这个constraint problem，比如下面这个Objective \[\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_t\left[\frac{\pi_\theta\left(a_t \mid s_t\right)}{\pi_{\theta_{\text {old }}}\left(a_t \mid s_t\right)} \hat{A}_t- \beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_t\right), \pi_\theta\left(\cdot \mid s_t\right)\right]\right]\] 直接把constraint作为一个penalty。 最大的问题在于这个$\beta$ 并不好选，实际处理的时候在不同问题上$\beta$ 的选择非常影响结果。]]></summary></entry><entry><title type="html">【AI】LLM Deep Dive</title><link href="http://localhost:4000/ai/ai_basics/2023/06/08/LLM-deep-dive.html" rel="alternate" type="text/html" title="【AI】LLM Deep Dive" /><published>2023-06-08T07:46:07+08:00</published><updated>2023-06-08T07:46:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/06/08/LLM-deep-dive</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/06/08/LLM-deep-dive.html"><![CDATA[<h1 id="overview">Overview</h1>
+
+<ol>
+  <li>什么是LLM？</li>
+  <li>LLM的Intuitive是什么？</li>
+  <li>LLM的原理是什么，底层是如何实现的？</li>
+  <li>相比于其他方法，LLM为什么能够达到更好的效果？</li>
+  <li>LLM产业运行的难点在哪里？</li>
+  <li>如果我现在起步，做和LLM什么相关工作比较好？机会点在哪里？</li>
+  <li>如果有一个LLM相关工作的Roadmap，这个Roadmap是什么？</li>
+  <li>如何与我现在的工作内容产生联系，让我更好起步？</li>
+</ol>
+
+<p>因为我算是LLM领域的小白，所以我想从NLP的历史出发，看看如何一步步演变成目前的形态。</p>
+
+<h1 id="background">Background</h1>
+
+<p>NLP的Intuitive是什么？为什么这种方法可行。</p>
+
+<h2 id="intuitive">Intuitive</h2>
+
+<h3 id="statistical-model">Statistical Model</h3>
+
+<p>参考这篇2001年的论文<a href="https://arxiv.org/pdf/cs/0108005.pdf">A Bit of Progress in Language Modeling</a>， 统计模型主要解决的问题是，<strong>一个单词序列出现的概率有多大</strong>。即给定一个单词序列$\omega_1, \omega_2, …, \omega_n$ ，这组单词序列出现的概率定义为$P(\omega_1…\omega_n)$，这个概率key被定义为一个组合概率：</p>
+
+\[P(\omega_1...\omega_n) = P(\omega_1) \times P(\omega_2 | \omega_1) \times P(\omega_3|\omega_1\omega_2) \times...\times P(\omega_n|\omega_1...\omega_{n-1})\]
+
+<p>但是句子的长度是不固定的，对于任意长度的句子，如果都用这样的概率计算，那么这个计算量是非常大的，因此有n-gram的概念，即在某$n-1$个单词出现后，第$n$个是某个单词的概率是多大。</p>
+
+<p>前两个词已经出现的情况下，第三个词出现的条件概率可以简化为在一个语料库中出现的频率。</p>
+
+\[P(\omega_i|\omega_{i-1}\omega_{i-2}) \approx \frac{C(\omega_i)C(\omega_{i-1})C(\omega_{i-2})}{C(\omega_{i-1})C(\omega_{i-2})}\]
+
+<p>这些概率模型有一些问题，比如光看统计特征，对于经常出现的或者只出现一次的词会有异常，因此引入了smoothing方法，这里不再赘述。</p>
+
+<p>这些方法都有一个本质的问题，就是扩展这个序列的长度就能收获更好的效果，但同时扩展这个长度会增加计算量。因此如何获取到词与词之间的关系，尤其是上下文比较长的时候，对Statistic  Model来说是一个无法解决的问题。简称<strong>the curse of dimensionality</strong>。</p>
+
+<h3 id="neural-statistic-network-model">Neural Statistic Network Model</h3>
+
+<p>NLP统计学模型的dimensionality的本质是什么？假如语料库中有$n$个单词，其本质就是这$n$个单词的联立概率分布。即给定$i-1$个单词，模型可以找到下一个概率最大的单词。考虑到这个概率模型过于庞大，因此在2003年的文章<a href="https://jmlr.csail.mit.edu/papers/volume3/bengio03a/bengio03a.pdf">A Neural Probabilistic Language Model</a>中提到可以使用神经网络将单词转化为一个特征向量，并用这个特征向量计算单词之间的概率分布。本质上是用神经网络来拟合这个联立概率方程。优点是这个特征向量是一个高密度向量，易于计算。</p>
+
+<p>这个模型的输入是上下文转化后的dense feature vector，输出是和这个单词相关的下个词的概率。即，</p>
+
+\[f(\omega_t,..., \omega_{t-n+1}) = \hat{P}(\omega_t | \omega_{t-1}...\omega_{t-n+1})\]
+
+<p>因此在训练时，设置损失函数是输出函数的log likelihood，即最大化以下这个方程时的$\theta$.</p>
+
+\[L = \frac{1}{T}\sum_{t}\log f(\omega_t,\omega_{t-1},...,\omega_{t-n+1};\theta) + R(\theta)\]
+
+<p>神经网络结构如下图所示：</p>
+
+<p><img src="/assets/images/image-20230616221548494.png" alt="image-20230616221548494" /></p>
+
+<p>这个神经网络通常被称为Feedforward Neural Net Language Model（LLNM）。该模型通常的工作流程是</p>
+
+<ul>
+  <li>Training
+    <ul>
+      <li>初始化：在语料库中，一共有V个不同的单词，初始化V个长度为m的向量，生成一个$|V| \times m$大小的矩阵；</li>
+      <li>训练：每t个单词为一组，组成一个$t \times m$大小的矩阵作为Input Layer。经过hidden layers后经过最后的softmax得到一个概率vector，其中的第i个元素为下一个单词的概率。loss function是上文提到的L。</li>
+    </ul>
+  </li>
+  <li>Inference
+    <ul>
+      <li>推理阶段，对于一段给定的sequence，需要计算这段sequence和语料库中所有词的概率，找出概率最大的词，即为这段sequence的下一个词。</li>
+      <li>Output layer：大小是V，即整个语料库的下一个单词的概率分布。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="word2vec">Word2Vec</h3>
+
+<p>以上还都是统计学模型，即产出本身还是一个联立概率分布，并没有针对Word vector之间的计算做优化。而word2vec模型本身可以直接通过向量计算得到Context或者下一个词，这是一个非常大的突破。word2vec有两种模型，分别是</p>
+
+<ul>
+  <li>CBOW（Continuous Bag-of-Words）</li>
+  <li>Skip-gram</li>
+</ul>
+
+<p>这两者的对比可以参考下面的表格。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>CBOW</th>
+      <th>Skip-gram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Input</td>
+      <td>Context words</td>
+      <td>Target word</td>
+    </tr>
+    <tr>
+      <td>Output</td>
+      <td>Target word</td>
+      <td>Context words</td>
+    </tr>
+    <tr>
+      <td>Training objective</td>
+      <td>Predict the target word</td>
+      <td>Predict the context words</td>
+    </tr>
+    <tr>
+      <td>Strengths</td>
+      <td>Faster to train, better accuracy for frequent words</td>
+      <td>Better accuracy for rare words, works well with small datasets</td>
+    </tr>
+    <tr>
+      <td>Weaknesses</td>
+      <td>Suffers from data sparsity, less flexible</td>
+      <td>Slower to train, less accurate for frequent words</td>
+    </tr>
+    <tr>
+      <td>Applications</td>
+      <td>Text classification, sentiment analysis, question answering</td>
+      <td>Machine translation, natural language generation</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Word2Vec和NNLM有什么不同呢？作者采用了两步进行训练</p>
+
+<ol>
+  <li>使用简单模型学习Word vectors；</li>
+  <li>基于上一步的简单模型，训练一个N-gram的NNLM模型。</li>
+</ol>
+
+<h3 id="cbow--skip-gram">CBOW &amp; Skip-gram</h3>
+
+<p>NNLM和CBOW以及Skip-gram的区别是什么？</p>
+
+<ol>
+  <li>NNLM
+    <ol>
+      <li>Input Layer，对N个单词进行编码。</li>
+      <li>Projection Layer，使用投影矩阵，将N个单词投射成$N \times D$大小的矩阵；</li>
+      <li>Hidden Layer，将$N \times D$大小的矩阵进行计算，如果该层的神经元数量是H，那么需要进行$N \times D \times H$次计算；</li>
+      <li>Output Layer，最后需要进行$H \times V$次计算形成联立概率分布。</li>
+    </ol>
+  </li>
+  <li>CBOW
+    <ol>
+      <li>Input Layer，对N个单词进行编码；</li>
+      <li>Projection Layer，经过Projection Matrix以后，所有单词会被映射到一个相同的位置，因此这个projection Matrix会被所有Word vector共享；</li>
+      <li>Output Layer，Huffman编码softmax，计算量可以变成log-linear的。</li>
+    </ol>
+  </li>
+  <li>Skip-Gram
+    <ol>
+      <li>Input Layer，某个单词的编码；</li>
+      <li>Projection Layer，将这个单词Project到D个神经元上；</li>
+      <li>Output Layer，将上一个单词映射到输出上；</li>
+      <li>上述过程需要重复C次，C可以看成N。</li>
+    </ol>
+  </li>
+</ol>
+
+<p>可以看到CBOW移除了Hidden Layer，并且共享了Projection Matrix，且到Output使用了softmax。因此可以大幅减少运算量到$Q = N \times D + D \times \log_{2}(V)$。而Skip-gram因为需要计算每个单词，因此计算复杂度为$Q = C \times (D + D \times \log_{2}(V))$。</p>
+
+<h3 id="sequence-2-sequence">Sequence 2 Sequence</h3>
+
+<p>如果说以上还都是基于统计学模型进行的基于词和Sequence之间分布关系，那么这个s2s的模型就是针对如果从一段话衍生出另一端的话的模型了。</p>
+
+<p>直观来看，这样的模型难点在于输入和输出都是不定长的，这也给模型的处理带来了很大的难度。</p>
+
+<p>所以该模型引入了Encoder和Decoder的概念。即，对于一个LSTM模型而言，这种算法会在计算时有一个固定大小的Hidden state，这个Hidden state的大小是固定的，能够把任意长度的input，encode成固定长度的embedding。Decoder也是一个LSTM模型，直接将Encoder的Hidden state作为其自身的Hidden state，通过一个Softmax Layer生成结果。</p>
+
+<p><img src="/assets/images/2023-07-16-22-34-21.png" alt="Image" /></p>
+
+<p>这个方法本身可以看到有一个缺点，</p>
+
+<ol>
+  <li>无法并行化计算；因为Recurrent需要用到上一步的结果。</li>
+</ol>
+
+<p>也有几个优点</p>
+
+<ol>
+  <li>能够捕捉全局特征；因为Hidden state可以保存全局结果；</li>
+</ol>
+
+<h3 id="attention-model">Attention Model</h3>
+
+<p>如果说引入了Recurrent Network会导致无法并行计算，能否结构这种循环，并同时捕捉到全局特征？</p>
+
+<p>Attention本质上就是在这个思考上提出的方法。可以看下面的图，首先Encoder是把6个相同的两层结构堆叠在一起，这个两层结构一层是Multi-head Attention Layer，一层是把结果和Input想加后再标准化。这样做就避免了必须在RNN中串行计算的缺点。Decoder的结构类似。</p>
+
+<p>Attention的本质是什么，就是在NN网络里面加上一些结构，让模型更关注Input和Output中更重要的模块，方法是给不同的Token分配不同的权重。那为什么下面这个网络结构可以做到这点呢？</p>
+
+<p>这里的Q，K，V实际上对应的Information Retrieval系统中的Query，Key和Value。即，给定一个Query，找到系统中最相近的Keys，再把Keys对应的Value作为返回，只是在语言模型的场景下，Value也是Embedding矩阵。原理是在矩阵乘法后给这些Keys做一个权重分配，找到Keys中权重最大的部分，随后再与结果矩阵点乘，得到结果，结果可以视作和Query（Input）最相关的一个Sequence，并返回。</p>
+
+<p>这种只有前向传播，没有回环结构的神经网络，很好的规避了LSTM模型无法并行化训练的缺陷，并做出了非常好的效果。</p>
+
+<h3 id="gtp-2">GTP-2</h3>
+
+<p><strong>Motivation</strong></p>
+
+<ul>
+  <li>目前的NLP任务都非常专注在一个小的领域和数据集，导致了无法transfer到其他任务上；</li>
+  <li>多目标学习在扩展数据集和目标上非常困难，导致了上述问题其实是一种妥协（想不专注也不行）；</li>
+</ul>
+
+<p><strong>Approach</strong></p>
+
+<ul>
+  <li>预训练：使用WebText数据集去来最大化下一个单词的可能性；</li>
+  <li>Evaluation：使用zero-shot在不同的NLP任务上进行fine-tune，并评估其表现。</li>
+</ul>
+
+<h3 id="gpt-3">GPT-3</h3>
+
+<p><strong>Initiative</strong></p>
+
+<p>GPT模型认为，正是因为很多NLP任务的数据集被限定在完成某些特定的任务，才使得这些模型的泛化效果这么差。如果数据集可以扩充到很大，那么这个模型的能力也会非常强大。</p>
+
+<p>但这样会碰到一个问题：数据集的标注太少了。与所有的文本数量相比，有标注的文本只占其中很少一部分。因此，GPT-2模型使用了非监督预训练和有监督训练相结合的方式，前者使用海量文本学习文本之间的模式，例如语法、格式和前后文，后者在前者的基础上针对不同的任务进行微调（fine-tune）。</p>
+
+<p><strong>Architecture</strong></p>
+
+<p>模型和训练：</p>
+
+<ul>
+  <li>训练了一个1750亿参数的自回归语言模型GPT-3</li>
+  <li>模型规模比之前最大的模型GPT-2（15亿参数）提高了100倍以上</li>
+  <li>使用了类似于GPT-2的transformer架构，但采用了稀疏注意力模式</li>
+  <li>在过滤后的Common Crawl数据以及像WebText2和BooksCorpus这样的精选数据集上进行训练</li>
+  <li>训练了8个规模从125M到13B的较小模型进行比较</li>
+</ul>
+
+<p>评估：</p>
+
+<ul>
+  <li>在零样本、一次样本和少量样本情况下，在二十多个NLP数据集上评估了模型</li>
+  <li>零样本：只有任务描述，没有样例</li>
+  <li>一次样本：任务描述 + 1个样例</li>
+  <li>少量样本：任务描述 + 最多100个样例</li>
+  <li>将GPT-3与SOTA微调模型和较小的GPT-3模型进行了比较</li>
+</ul>
+
+<p>结果：</p>
+
+<ul>
+  <li>GPT-3在许多数据集上取得了很好的结果，接近或超过了SOTA</li>
+  <li>在闭卷问答、翻译和任务适应方面表现特别强</li>
+  <li>在一些基于比较的任务（如NLI）方面表现较弱</li>
+  <li>随着模型规模的增加，零样本、一次样本和少量样本之间的差距越来越大</li>
+</ul>
+
+<p>分析：</p>
+
+<ul>
+  <li>测量了测试集受训练数据污染的影响</li>
+  <li>大多数数据集影响很小，但标记了一些有问题的情况</li>
+  <li>进行了与性别、种族和宗教相关的偏见分析</li>
+  <li>生成的样本难以区分是否为人类所写</li>
+</ul>
+
+<p>局限性：</p>
+
+<ul>
+  <li>与人类相比，样本效率仍然很低</li>
+  <li>偏见仍然存在，公平性难以完全描述</li>
+  <li>大型模型的部署存在障碍</li>
+  <li>类似于蒸馏的方向可以帮助解决这些问题</li>
+</ul>
+
+<p>更广泛的影响：</p>
+
+<ul>
+  <li>讨论了潜在的误用可能性和需要有误用抵抗能力的系统</li>
+  <li>描述和解决了测试集污染的问题</li>
+  <li>进行了模型偏差的初步分析</li>
+  <li>注意到了能源使用、公平性和潜在的负面社会影响问题</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<ol>
+  <li>为什么说大语言模型实际上是概率模型？
+    <ol>
+      <li>因为从始至终，大预言模型优化的都是在给定一个sequence的情况下，最大化所有单词中下一个单词的概率，即使是最新的方法也是如此。因此，可以把大模型看做从海量语料库中<strong>找规律</strong>，而不是这个模型真的理解他在做什么。</li>
+      <li>这也解释了为什么大语言模型会有幻觉，因为毕竟是统计规律，而只要想办法把这个统计特征hack了，就能改变这个模型的结果。</li>
+    </ol>
+  </li>
+  <li>为什么prompt有效？
+    <ol>
+      <li>因为大语言模型学习了单词之间的规律，还需要被下达某种指令，才能真正让它输出我们想要的结果。</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Overview 什么是LLM？ LLM的Intuitive是什么？ LLM的原理是什么，底层是如何实现的？ 相比于其他方法，LLM为什么能够达到更好的效果？ LLM产业运行的难点在哪里？ 如果我现在起步，做和LLM什么相关工作比较好？机会点在哪里？ 如果有一个LLM相关工作的Roadmap，这个Roadmap是什么？ 如何与我现在的工作内容产生联系，让我更好起步？ 因为我算是LLM领域的小白，所以我想从NLP的历史出发，看看如何一步步演变成目前的形态。 Background NLP的Intuitive是什么？为什么这种方法可行。 Intuitive Statistical Model 参考这篇2001年的论文A Bit of Progress in Language Modeling， 统计模型主要解决的问题是，一个单词序列出现的概率有多大。即给定一个单词序列$\omega_1, \omega_2, …, \omega_n$ ，这组单词序列出现的概率定义为$P(\omega_1…\omega_n)$，这个概率key被定义为一个组合概率： \[P(\omega_1...\omega_n) = P(\omega_1) \times P(\omega_2 | \omega_1) \times P(\omega_3|\omega_1\omega_2) \times...\times P(\omega_n|\omega_1...\omega_{n-1})\] 但是句子的长度是不固定的，对于任意长度的句子，如果都用这样的概率计算，那么这个计算量是非常大的，因此有n-gram的概念，即在某$n-1$个单词出现后，第$n$个是某个单词的概率是多大。 前两个词已经出现的情况下，第三个词出现的条件概率可以简化为在一个语料库中出现的频率。 \[P(\omega_i|\omega_{i-1}\omega_{i-2}) \approx \frac{C(\omega_i)C(\omega_{i-1})C(\omega_{i-2})}{C(\omega_{i-1})C(\omega_{i-2})}\] 这些概率模型有一些问题，比如光看统计特征，对于经常出现的或者只出现一次的词会有异常，因此引入了smoothing方法，这里不再赘述。 这些方法都有一个本质的问题，就是扩展这个序列的长度就能收获更好的效果，但同时扩展这个长度会增加计算量。因此如何获取到词与词之间的关系，尤其是上下文比较长的时候，对Statistic Model来说是一个无法解决的问题。简称the curse of dimensionality。 Neural Statistic Network Model NLP统计学模型的dimensionality的本质是什么？假如语料库中有$n$个单词，其本质就是这$n$个单词的联立概率分布。即给定$i-1$个单词，模型可以找到下一个概率最大的单词。考虑到这个概率模型过于庞大，因此在2003年的文章A Neural Probabilistic Language Model中提到可以使用神经网络将单词转化为一个特征向量，并用这个特征向量计算单词之间的概率分布。本质上是用神经网络来拟合这个联立概率方程。优点是这个特征向量是一个高密度向量，易于计算。 这个模型的输入是上下文转化后的dense feature vector，输出是和这个单词相关的下个词的概率。即， \[f(\omega_t,..., \omega_{t-n+1}) = \hat{P}(\omega_t | \omega_{t-1}...\omega_{t-n+1})\] 因此在训练时，设置损失函数是输出函数的log likelihood，即最大化以下这个方程时的$\theta$. \[L = \frac{1}{T}\sum_{t}\log f(\omega_t,\omega_{t-1},...,\omega_{t-n+1};\theta) + R(\theta)\] 神经网络结构如下图所示： 这个神经网络通常被称为Feedforward Neural Net Language Model（LLNM）。该模型通常的工作流程是 Training 初始化：在语料库中，一共有V个不同的单词，初始化V个长度为m的向量，生成一个$|V| \times m$大小的矩阵； 训练：每t个单词为一组，组成一个$t \times m$大小的矩阵作为Input Layer。经过hidden layers后经过最后的softmax得到一个概率vector，其中的第i个元素为下一个单词的概率。loss function是上文提到的L。 Inference 推理阶段，对于一段给定的sequence，需要计算这段sequence和语料库中所有词的概率，找出概率最大的词，即为这段sequence的下一个词。 Output layer：大小是V，即整个语料库的下一个单词的概率分布。 Word2Vec 以上还都是统计学模型，即产出本身还是一个联立概率分布，并没有针对Word vector之间的计算做优化。而word2vec模型本身可以直接通过向量计算得到Context或者下一个词，这是一个非常大的突破。word2vec有两种模型，分别是 CBOW（Continuous Bag-of-Words） Skip-gram 这两者的对比可以参考下面的表格。 Feature CBOW Skip-gram Input Context words Target word Output Target word Context words Training objective Predict the target word Predict the context words Strengths Faster to train, better accuracy for frequent words Better accuracy for rare words, works well with small datasets Weaknesses Suffers from data sparsity, less flexible Slower to train, less accurate for frequent words Applications Text classification, sentiment analysis, question answering Machine translation, natural language generation Word2Vec和NNLM有什么不同呢？作者采用了两步进行训练 使用简单模型学习Word vectors； 基于上一步的简单模型，训练一个N-gram的NNLM模型。 CBOW &amp; Skip-gram NNLM和CBOW以及Skip-gram的区别是什么？ NNLM Input Layer，对N个单词进行编码。 Projection Layer，使用投影矩阵，将N个单词投射成$N \times D$大小的矩阵； Hidden Layer，将$N \times D$大小的矩阵进行计算，如果该层的神经元数量是H，那么需要进行$N \times D \times H$次计算； Output Layer，最后需要进行$H \times V$次计算形成联立概率分布。 CBOW Input Layer，对N个单词进行编码； Projection Layer，经过Projection Matrix以后，所有单词会被映射到一个相同的位置，因此这个projection Matrix会被所有Word vector共享； Output Layer，Huffman编码softmax，计算量可以变成log-linear的。 Skip-Gram Input Layer，某个单词的编码； Projection Layer，将这个单词Project到D个神经元上； Output Layer，将上一个单词映射到输出上； 上述过程需要重复C次，C可以看成N。 可以看到CBOW移除了Hidden Layer，并且共享了Projection Matrix，且到Output使用了softmax。因此可以大幅减少运算量到$Q = N \times D + D \times \log_{2}(V)$。而Skip-gram因为需要计算每个单词，因此计算复杂度为$Q = C \times (D + D \times \log_{2}(V))$。 Sequence 2 Sequence 如果说以上还都是基于统计学模型进行的基于词和Sequence之间分布关系，那么这个s2s的模型就是针对如果从一段话衍生出另一端的话的模型了。 直观来看，这样的模型难点在于输入和输出都是不定长的，这也给模型的处理带来了很大的难度。 所以该模型引入了Encoder和Decoder的概念。即，对于一个LSTM模型而言，这种算法会在计算时有一个固定大小的Hidden state，这个Hidden state的大小是固定的，能够把任意长度的input，encode成固定长度的embedding。Decoder也是一个LSTM模型，直接将Encoder的Hidden state作为其自身的Hidden state，通过一个Softmax Layer生成结果。 这个方法本身可以看到有一个缺点， 无法并行化计算；因为Recurrent需要用到上一步的结果。 也有几个优点 能够捕捉全局特征；因为Hidden state可以保存全局结果； Attention Model 如果说引入了Recurrent Network会导致无法并行计算，能否结构这种循环，并同时捕捉到全局特征？ Attention本质上就是在这个思考上提出的方法。可以看下面的图，首先Encoder是把6个相同的两层结构堆叠在一起，这个两层结构一层是Multi-head Attention Layer，一层是把结果和Input想加后再标准化。这样做就避免了必须在RNN中串行计算的缺点。Decoder的结构类似。 Attention的本质是什么，就是在NN网络里面加上一些结构，让模型更关注Input和Output中更重要的模块，方法是给不同的Token分配不同的权重。那为什么下面这个网络结构可以做到这点呢？ 这里的Q，K，V实际上对应的Information Retrieval系统中的Query，Key和Value。即，给定一个Query，找到系统中最相近的Keys，再把Keys对应的Value作为返回，只是在语言模型的场景下，Value也是Embedding矩阵。原理是在矩阵乘法后给这些Keys做一个权重分配，找到Keys中权重最大的部分，随后再与结果矩阵点乘，得到结果，结果可以视作和Query（Input）最相关的一个Sequence，并返回。 这种只有前向传播，没有回环结构的神经网络，很好的规避了LSTM模型无法并行化训练的缺陷，并做出了非常好的效果。 GTP-2 Motivation 目前的NLP任务都非常专注在一个小的领域和数据集，导致了无法transfer到其他任务上； 多目标学习在扩展数据集和目标上非常困难，导致了上述问题其实是一种妥协（想不专注也不行）； Approach 预训练：使用WebText数据集去来最大化下一个单词的可能性； Evaluation：使用zero-shot在不同的NLP任务上进行fine-tune，并评估其表现。 GPT-3 Initiative GPT模型认为，正是因为很多NLP任务的数据集被限定在完成某些特定的任务，才使得这些模型的泛化效果这么差。如果数据集可以扩充到很大，那么这个模型的能力也会非常强大。 但这样会碰到一个问题：数据集的标注太少了。与所有的文本数量相比，有标注的文本只占其中很少一部分。因此，GPT-2模型使用了非监督预训练和有监督训练相结合的方式，前者使用海量文本学习文本之间的模式，例如语法、格式和前后文，后者在前者的基础上针对不同的任务进行微调（fine-tune）。 Architecture 模型和训练： 训练了一个1750亿参数的自回归语言模型GPT-3 模型规模比之前最大的模型GPT-2（15亿参数）提高了100倍以上 使用了类似于GPT-2的transformer架构，但采用了稀疏注意力模式 在过滤后的Common Crawl数据以及像WebText2和BooksCorpus这样的精选数据集上进行训练 训练了8个规模从125M到13B的较小模型进行比较 评估： 在零样本、一次样本和少量样本情况下，在二十多个NLP数据集上评估了模型 零样本：只有任务描述，没有样例 一次样本：任务描述 + 1个样例 少量样本：任务描述 + 最多100个样例 将GPT-3与SOTA微调模型和较小的GPT-3模型进行了比较 结果： GPT-3在许多数据集上取得了很好的结果，接近或超过了SOTA 在闭卷问答、翻译和任务适应方面表现特别强 在一些基于比较的任务（如NLI）方面表现较弱 随着模型规模的增加，零样本、一次样本和少量样本之间的差距越来越大 分析： 测量了测试集受训练数据污染的影响 大多数数据集影响很小，但标记了一些有问题的情况 进行了与性别、种族和宗教相关的偏见分析 生成的样本难以区分是否为人类所写 局限性： 与人类相比，样本效率仍然很低 偏见仍然存在，公平性难以完全描述 大型模型的部署存在障碍 类似于蒸馏的方向可以帮助解决这些问题 更广泛的影响： 讨论了潜在的误用可能性和需要有误用抵抗能力的系统 描述和解决了测试集污染的问题 进行了模型偏差的初步分析 注意到了能源使用、公平性和潜在的负面社会影响问题 Summary 为什么说大语言模型实际上是概率模型？ 因为从始至终，大预言模型优化的都是在给定一个sequence的情况下，最大化所有单词中下一个单词的概率，即使是最新的方法也是如此。因此，可以把大模型看做从海量语料库中找规律，而不是这个模型真的理解他在做什么。 这也解释了为什么大语言模型会有幻觉，因为毕竟是统计规律，而只要想办法把这个统计特征hack了，就能改变这个模型的结果。 为什么prompt有效？ 因为大语言模型学习了单词之间的规律，还需要被下达某种指令，才能真正让它输出我们想要的结果。]]></summary></entry></feed>

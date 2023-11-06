@@ -335,6 +335,14 @@
 
 <p>模型就是对环境的一种<strong>描述</strong>，这种描述能够告诉参与者在当前状态下可采取的行动有哪些。主要由Transition probability function $P$ 和Reward function $R$ 组成。</p>
 
+<p>Reward function $R$，预测被Action trigger后的下一次的Reward。</p>
+
+\[R(s, a)=\mathbb{E}\left[R_{t+1} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} r \sum_{s^{\prime} \in \mathcal{S}} P\left(s^{\prime}, r \mid s, a\right)\]
+
+<p>Transition Function $P$，定义在采取某个Action的情况下，State的变化规律。</p>
+
+\[P_{s s^{\prime}}^a=P\left(s^{\prime} \mid s, a\right)=\mathbb{P}\left[S_{t+1}=s^{\prime} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} P\left(s^{\prime}, r \mid s, a\right)\]
+
 <h3 id="policy">Policy</h3>
 
 <p>Policy就是行为描述函数，在某个状态 $s$ 下，需要采取何种策略。</p>
@@ -370,6 +378,8 @@
 
 <p>还有一个定义叫做A-value，就是<strong>Advantage Value</strong>，是Action Value和State Value之间的差值，可以理解为采取某一个Action之后能比现在的State Value带来多少增益。</p>
 
+\[A_{\pi}(s, a) = Q_{\pi}(s, a) - V_{\pi}(s)\]
+
 <h3 id="optimal-value--policy">Optimal Value &amp; Policy</h3>
 
 <p>这就非常直白了，Optimal Value能够提供最大的Return，看公式$\eqref{op_v}$</p>
@@ -383,6 +393,27 @@
 <p>这两者是否有冲突呢？</p>
 
 <p>没有，因为最优策略就是Value function最大的时候的策略值。</p>
+
+<h3 id="learning-type">Learning Type</h3>
+
+<p><a href="https://stats.stackexchange.com/questions/407230/what-is-the-difference-between-policy-based-on-policy-value-based-off-policy">machine learning - What is the difference between policy-based, on-policy, value-based, off-policy, model-free and model-based? - Cross Validated (stackexchange.com)</a></p>
+
+<ul>
+  <li>On-policy v.s. Off-policy: 核心区别在于学习时，如何更新Q-value。
+    <ul>
+      <li>Off-Policy会在每个Action后采取最好的Action来更新$Q(s,a)$，</li>
+      <li>而On-Policy会用当前策略更新$Q(s,a)$。</li>
+    </ul>
+  </li>
+  <li>Policy-based v.s. Value-based:
+    <ul>
+      <li>Value-based: 先学习Value function，再根据这个Value function来学习最优策略.</li>
+      <li>Policy-based：显式学习一个Policy的representation，mapping $ \pi: s -&gt; a$，这个mapping关系是存储在内存中的。</li>
+      <li>Actor-critic：是以上两者的混合。</li>
+      <li>本质区别：Value指的是给定State $s_t$ 和动作$a_t$，可以获得累积奖励的期望值，因此这是一个更注重于未来收益最大化的衡量方式；Policy指的是，找到策略$\pi_t$，使得累积奖励的期望值最大化。</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="markov-process">Markov Process</h2>
 
@@ -482,7 +513,12 @@ Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime
 <p>通过MC Evaluation的迭代，计算每个episode的State Value function就能获得最大值。通过MC Control的迭代，在每个episode以一定概率选择Reward mean更高的Policy，可以获得最大Policy和最大的State Value。</p>
 
 <ol>
-  <li></li>
+  <li>优劣势</li>
+  <li>举例给人听
+    <ol>
+      <li></li>
+    </ol>
+  </li>
 </ol>
 
 <h2 id="policy-gradient">Policy Gradient</h2>
@@ -510,7 +546,60 @@ Q_*(s, a) &amp; =R(s, a)+\gamma \sum_{s^{\prime} \in \mathcal{S}} P_{s s^{\prime
   </li>
 </ol>
 
+<h3 id="monte-carlo-policy-gradient">Monte Carlo Policy Gradient</h3>
+
+<p>算法流程</p>
+
+<ol>
+  <li>Start with a random policy that tells you what action to take in a given situation.</li>
+  <li>Try out this policy by interacting with the environment and see what reward you get at each time step.</li>
+  <li>After each episode, look at the reward you got at each time step and calculate a return for each step. The return is the sum of all the rewards you received after that time step.</li>
+  <li>Use these returns to update the policy. The update tells the policy to favor actions that got a higher return, by increasing the probability of taking these actions.</li>
+  <li>Repeat steps 2-4 for multiple episodes until the policy gets better at the task.</li>
+  <li>Use this improved policy to perform the intended task in the environment.</li>
+</ol>
+
+<p>优势</p>
+
+<ol>
+  <li>Policy-based能够直接优化Policy本身；</li>
+  <li>可以处理有随机Action的情况；</li>
+</ol>
+
+<p>缺点</p>
+
+<ul>
+  <li>Noisy Gradient</li>
+  <li>High variance</li>
+</ul>
+
 <h2 id="actor-critic">Actor-Critic</h2>
+
+<p>Reference</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[Understanding Actor Critic Methods and A2C</td>
+      <td>by Chris Yoon</td>
+      <td>Towards Data Science](https://towardsdatascience.com/understanding-actor-critic-methods-931b97b6df3f)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>要解决的问题是？</li>
+</ol>
+
+<p>传统的Policy Gradient方法有很大的instability，且训练的时候很难收敛。因此要解决RL中以上的两个难题。</p>
+
+<ol>
+  <li>为什么可以解决问题？
+    <ol>
+      <li></li>
+    </ol>
+  </li>
+</ol>
 
 <h2 id="trpo">TRPO</h2>
 

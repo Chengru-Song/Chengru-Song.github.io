@@ -10,7 +10,7 @@ date: 2023-11-03 22:56:07 +0800
 tags:
 - 301-work-ai
 category: [AI, AI_Basics]
-typora-root-url: ../../../blog3
+typora-root-url: ../../../blog
 mermaid: true
 ---
 

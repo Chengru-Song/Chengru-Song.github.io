@@ -10,7 +10,7 @@ date: 2023-10-28 16:20:07 +0800
 tags:
 - 301-work-ai
 category: [AI, AI_Basics]
-typora-root-url: ../../../blog3
+typora-root-url: ../../../blog
 mermaid: true
 ---
 
@@ -28,4 +28,6 @@ mermaid: true
 
 [Roadmap](https://roadmap.sh/prompt-engineering)
 
-![image-20231028162648178](/../blog/assets/images/image-20231028162648178.png)
+![image-20231028162648178](/assets/images/image-20231028162648178.png)
+
+![image-20231106140554116](/assets/images/image-20231106140554116.png)
