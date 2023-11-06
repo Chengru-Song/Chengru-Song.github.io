@@ -40,6 +40,18 @@ mermaid: true
 
 模型就是对环境的一种**描述**，这种描述能够告诉参与者在当前状态下可采取的行动有哪些。主要由Transition probability function $P$ 和Reward function $R$ 组成。
 
+Reward function $R$，预测被Action trigger后的下一次的Reward。
+
+$$
+R(s, a)=\mathbb{E}\left[R_{t+1} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} r \sum_{s^{\prime} \in \mathcal{S}} P\left(s^{\prime}, r \mid s, a\right)
+$$
+
+Transition Function $P$，定义在采取某个Action的情况下，State的变化规律。
+
+$$
+P_{s s^{\prime}}^a=P\left(s^{\prime} \mid s, a\right)=\mathbb{P}\left[S_{t+1}=s^{\prime} \mid S_t=s, A_t=a\right]=\sum_{r \in \mathcal{R}} P\left(s^{\prime}, r \mid s, a\right)
+$$
+
 ### Policy
 
 Policy就是行为描述函数，在某个状态 $s$ 下，需要采取何种策略。
@@ -81,6 +93,10 @@ $$
 
 还有一个定义叫做A-value，就是**Advantage Value**，是Action Value和State Value之间的差值，可以理解为采取某一个Action之后能比现在的State Value带来多少增益。
 
+$$
+A_{\pi}(s, a) = Q_{\pi}(s, a) - V_{\pi}(s)
+$$
+
 ### Optimal Value & Policy
 
 这就非常直白了，Optimal Value能够提供最大的Return，看公式$\eqref{op_v}$
@@ -111,6 +127,7 @@ $$
   - Value-based: 先学习Value function，再根据这个Value function来学习最优策略.
   - Policy-based：显式学习一个Policy的representation，mapping $ \pi: s -> a$，这个mapping关系是存储在内存中的。
   - Actor-critic：是以上两者的混合。
+  - 本质区别：Value指的是给定State $s_t$ 和动作$a_t$，可以获得累积奖励的期望值，因此这是一个更注重于未来收益最大化的衡量方式；Policy指的是，找到策略$\pi_t$，使得累积奖励的期望值最大化。
 
 ## Markov Process
 
