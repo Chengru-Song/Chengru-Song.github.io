@@ -431,12 +431,14 @@ LLaVA
 
   要解决的关键问题
     
-      构建一个有reasoning ability的，可以follow instruction的多模态模型。
+      构建一个有reasoning ability的，可以follow instruction的多模态模型；
+      Instruction following的MultiModal数据的缺失；
+      如何使用现有大模型把这几个功能融合在一起。
     
   
   算法的根本思想
     
-      通过GPT-4构建训练集（包括与图片相关的对话、细节描述和复杂推理），使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和...</div><p><a href="/ai/ai_basics/2023/10/12/multi-model.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+      ==通过GPT-4 Prompting构建训练集（包括与图片相关的对话、细节描述和复杂推理）==，使用了预训练的Vision Encoder(CLIP)把Image ...</div><p><a href="/ai/ai_basics/2023/10/12/multi-model.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月12日</span>

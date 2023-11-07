@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-11-06T14:23:40+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-11-07T12:12:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
 </subtitle><author><name>Chengru Song</name></author><entry><title type="html">【AI】LLM Learning</title><link href="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html" rel="alternate" type="text/html" title="【AI】LLM Learning" /><published>2023-11-03T22:56:07+08:00</published><updated>2023-11-03T22:56:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html"><![CDATA[<h1 id="pretrain">Pretrain</h1>
 
 <h2 id="performance-vs-data--size">Performance v.s. Data &amp; Size</h2>
@@ -132,20 +132,57 @@
 <ol>
   <li>要解决的关键问题
     <ol>
-      <li>构建一个有reasoning ability的，可以follow instruction的多模态模型。</li>
+      <li>构建一个有reasoning ability的，可以follow instruction的多模态模型；</li>
+      <li>Instruction following的MultiModal数据的缺失；</li>
+      <li>如何使用现有大模型把这几个功能融合在一起。</li>
     </ol>
   </li>
   <li>算法的根本思想
     <ol>
-      <li>通过GPT-4构建训练集（包括与图片相关的对话、细节描述和复杂推理），使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。</li>
+      <li>==通过GPT-4 Prompting构建训练集（包括与图片相关的对话、细节描述和复杂推理）==，使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。</li>
+      <li>Model Architect
+        <ol>
+          <li><img src="/assets/images/image-20231107102944935.png" alt="image-20231107102944935" /></li>
+        </ol>
+      </li>
     </ol>
   </li>
   <li>算法流程
     <ol>
-      <li></li>
+      <li>Pre-train alignment
+        <ol>
+          <li>LLM和Vision Encoder的weights都是frozen的，只学习Vision Encoder到LLM Token的projection matrix</li>
+        </ol>
+      </li>
+      <li>Fine-tune到各种下游任务
+        <ol>
+          <li>visual Encoder的weights frozen，LLM和Projection Matrix的weights更新以适应成为Chatbot等。还有一些为了刷榜做的adaption。</li>
+        </ol>
+      </li>
     </ol>
   </li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Problem Trying to Solve 提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。 解决方法 LLaVA 要解决的关键问题 构建一个有reasoning ability的，可以follow instruction的多模态模型。 算法的根本思想 通过GPT-4构建训练集（包括与图片相关的对话、细节描述和复杂推理），使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。 算法流程]]></summary></entry><entry><title type="html">【AI】LLM RL Modeling</title><link href="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html" rel="alternate" type="text/html" title="【AI】LLM RL Modeling" /><published>2023-10-08T17:50:07+08:00</published><updated>2023-10-08T17:50:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html"><![CDATA[<h1 id="rl-recap">RL Recap</h1>
+  <li>Experiments
+    <ol>
+      <li><img src="/assets/images/image-20231107104253614.png" alt="image-20231107104253614" /></li>
+      <li>Ablations
+        <ol>
+          <li>用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距<img src="/assets/images/image-20231107104739506.png" alt="image-20231107104739506" /></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>Take aways
+    <ol>
+      <li>LLaVA使用的prompts<img src="/assets/images/image-20231107104925859.png" alt="image-20231107104925859" /></li>
+      <li>LLaVA如何在Prompts里面用images做few-shot:https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43
+        <ol>
+          <li>在Prompts里面放base64编码的image</li>
+          <li>取出image并Tokenize送给大模型<img src="/assets/images/2023-11-07-12-12-09.png" alt="" /></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Problem Trying to Solve 提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。 解决方法 LLaVA 要解决的关键问题 构建一个有reasoning ability的，可以follow instruction的多模态模型； Instruction following的MultiModal数据的缺失； 如何使用现有大模型把这几个功能融合在一起。 算法的根本思想 ==通过GPT-4 Prompting构建训练集（包括与图片相关的对话、细节描述和复杂推理）==，使用了预训练的Vision Encoder(CLIP)把Image Token通过一个Projection matrix转化为一个文本长度的Embedding，并和文本的Embedding一起送入LLM得到prompt对应的结果（对话、描述和推理）。 Model Architect 算法流程 Pre-train alignment LLM和Vision Encoder的weights都是frozen的，只学习Vision Encoder到LLM Token的projection matrix Fine-tune到各种下游任务 visual Encoder的weights frozen，LLM和Projection Matrix的weights更新以适应成为Chatbot等。还有一些为了刷榜做的adaption。 Experiments Ablations 用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距 Take aways LLaVA使用的prompts LLaVA如何在Prompts里面用images做few-shot:https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43 在Prompts里面放base64编码的image 取出image并Tokenize送给大模型]]></summary></entry><entry><title type="html">【AI】LLM RL Modeling</title><link href="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html" rel="alternate" type="text/html" title="【AI】LLM RL Modeling" /><published>2023-10-08T17:50:07+08:00</published><updated>2023-10-08T17:50:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/08/llm-rl.html"><![CDATA[<h1 id="rl-recap">RL Recap</h1>
 
 <p><a href="./2023-10-06-reinforcement-learning.md">RL Model</a></p>
 
