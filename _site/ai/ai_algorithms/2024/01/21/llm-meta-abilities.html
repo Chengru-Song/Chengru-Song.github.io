@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】元能力探索：监督微调的能力 - Chengru's Blog</title>
 
-<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
-">
-<link rel="canonical" href="http://localhost:4000/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="大模型时代，数据质量远远大于数据质量。在解决业务问题时，我们经常需要把大模型适用于各种不同的下游任务。此时一个常用的方法是有监督微调。例如情感识别，输入是，我今天被老师表扬了，输出是，高兴。我们可以构造这样输入输出对，就可以对大模型有监督微调。那么，多少数据能够让模型以较高的准确率完成指令跟随呢？答案是仅需几百条...">
+<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/2024/01/21/llm-meta-abilities.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,18 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page layout--page--sidebar clearfix js-page-root">
+  <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
+  <div class="page__viewport">
+    <div class="page__actions d-print-none">
+      <div class="button button--circle button--lg box-shadow-2 sidebar-button js-sidebar-show">
+        <i class="fas fa-bars icon--show"></i>
+      </div>
+    </div>
+
+    <div class="grid page__grid">
+
+      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,196 +284,55 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html"><h2 itemprop="headline" class="item__header">【AI】Encoder-only Transformer</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">基于Transformer的大语言模型共有三种架构，分别是Encoder-only Model，Encoder-Decoder Model和Decoder-only Model。
-
-三者的本质区别：大模型的输出是文本还是Embedding。后者需要改模型结构才能适配其他下游任务。
-
-
-  Encoder-only： Input是Encoder Transformer，Output是Transformer结构的最后一层Hidden states，需要再加一层MLP才能适应到不同的下游任务。主要应用是训练高效的Embedding和各种文本分类问题。代表作：BERT。
-  Encoder-Decoder：Input是语言，经过Transformer Encoder变成Embedding，再由...</div><p><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月27日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-27T19:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/23/llm-encoder-decoder.html"><h2 itemprop="headline" class="item__header">【AI】Encoder-decoder Transformer</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Encoder-Decoder Transformer
-
-关于Transformer的三种架构的区别，可移步什么是Encoder-only Transformer这篇文章。
-
-本文主要讲Encoder-Decoder Transformer结构，其原始论文是最经典的Attention is all you need.
-
-
-  
-    模型介绍
-
-    
-      
-        Encoding：文本输入会把文本Encode成一种数字形式，也就是Tokenization，比如asynchronous会被encode成数字28，GPT使用的是BPE encoding方法，这个不赘述，感兴趣的话我可以后面再出一篇文章。
-      
-      
-        b. Encode...</div><p><a href="/ai/ai_algorithms/2024/01/23/llm-encoder-decoder.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月23日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-23T19:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/23/llm-sft.html"><h2 itemprop="headline" class="item__header">【AI】SFT，FT，和Multi-task Prompt Tuning还没分清吗</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">还在纠结这些名词之间的区别吗？给你讲清楚
-
-
-
-TLDR：主要差别在于训练数据的构造。
-
-
-  Pretrain
-    
-      无监督的，就纯用语料库来训练，比如webtext，Wikipedia等，预测下一个token的概率分布，并用cross-entropy loss作为loss Function来更新模型的参数；
-      Continuous Pretrain：在一个已经训练好的预训练模型上，用一些数据来进一步加强模型的某些方面的能力，这也是无监督的，数据也没有经过特殊构造，就是原始文本输入进去。
-    
-  
-  Fine-tune：这是比较大的名词，基本上所有在预训练模型上更新参数的方法都可以叫做Fine-tune。与此相关的名词基本上只有数据构造上的区别。
- ...</div><p><a href="/ai/ai_algorithms/2024/01/23/llm-sft.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月23日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-23T19:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/21/llm-meta-abilities.html"><h2 itemprop="headline" class="item__header">【AI】元能力探索：监督微调的能力</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">大模型时代，数据质量远远大于数据质量。
-
-在解决业务问题时，我们经常需要把大模型适用于各种不同的下游任务。此时一个常用的方法是有监督微调。例如情感识别，输入是，我今天被老师表扬了，输出是，高兴。我们可以构造这样输入输出对，就可以对大模型有监督微调。
-
-那么，多少数据能够让模型以较高的准确率完成指令跟随呢？答案是仅需几百条。
-
-在我们的场景下，我们仅筛选了400条高质量数据，对模型进行有监督微调，就能让这个模型的以较高的准确率完成该任务，更令人震惊的是，其中仅有24条包含某指令，而未来有类似指令的时候，模型也能准确识别到该指令的输入而产生对应的输出。
-
-总结一下，当我们需求仅是指令跟随能力的较为简单的任务时，使用高质量数据远好于多个低质量数据。</div><p><a href="/ai/ai_algorithms/2024/01/21/llm-meta-abilities.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】元能力探索：监督微调的能力</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-01-21-llm-meta-abilities.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】元能力探索：监督微调的能力"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月21日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-21T20:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2024/01/15/prompting-avoidance.html"><h2 itemprop="headline" class="item__header">【AI】大模型算法如何避免成为Prompt Engineer和数据清洗师</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">把prompting交给他人：Prompting是提升效果的重要手段，这个步骤是必要的，可以把这步交给产品或者后端，你只用效果最好的Prompt；
-  只做一次数据清洗：数据对大模型效果有至关重要的作用，这步必须自己做，但这个过程可以结合自己对业务的理解做一次非常全的数据清洗，然后训练一版模型，跑一版benchmark，如果各个指标都有提升，剩下的交给产品或者后端做基于新训练的模型做prompting，自己再同步做别的事情；
-  理解模型元能力提升的关键：大模型的指令跟随能力，推理能力，上下文学习能力，都是模型的元能力，这些能力是由一些特殊的训练方法和数据习得的，掌握了提升模型元能力的方法，就能对整体效果的把控性更强，也能进阶成更好的大模型算法。可以在第二步中多多探索不同数据对于模型各...</div><p><a href="/ai/ai_basics/2024/01/15/prompting-avoidance.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月15日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-15T08:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/24/video-modal.html"><h2 itemprop="headline" class="item__header">【AI】Scaling multimodal understanding to long videos</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">https://arxiv.org/pdf/2311.05698.pdf
+    <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-AJ Piergiovanni，Google Research
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><p>大模型时代，数据质量远远大于数据质量。</p>
 
-场景与问题
+<p>在解决业务问题时，我们经常需要把大模型适用于各种不同的下游任务。此时一个常用的方法是有监督微调。例如情感识别，输入是，我今天被老师表扬了，输出是，高兴。我们可以构造这样输入输出对，就可以对大模型有监督微调。</p>
 
-解决不同模态之间的Heterogenious Input问题是一个重要课题。因为
+<p>那么，多少数据能够让模型以较高的准确率完成指令跟随呢？答案是仅需几百条。</p>
 
+<p>在我们的场景下，我们仅筛选了400条高质量数据，对模型进行有监督微调，就能让这个模型的以较高的准确率完成该任务，更令人震惊的是，其中仅有24条包含某指令，而未来有类似指令的时候，模型也能准确识别到该指令的输入而产生对应的输出。</p>
 
-  输入体积上，视频和音频在体积上比文字大得多，因此这两者Input信息量是无法对齐的，需要通过模型对齐。
-  数据处理上，instruction following的Video QA模型的训练数据中包含提取出的文本信息（标题，简介等）是全局信息，而视频和音频都是和时间对齐的，其本身没有全局属性。
+<p>总结一下，当我们需求仅是指令跟随能力的较为简单的任务时，使用高质量数据远好于多个低质量数据。</p>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-01-21T20:56:07+08:00"><!-- start custom article footer snippet -->
 
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></div></div></div>
 
-一般思路
+</div>
 
-
-  Tokenize visual input - LLaVA</div><p><a href="/ai/ai_basics/2023/11/24/video-modal.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-24T08:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/03/llm-learning.html"><h2 itemprop="headline" class="item__header">【AI】LLM Learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Pretrain
-
-Performance v.s. Data &amp; Size
-
-
-  For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA
-
-
-用更多的数据训练，Size小一点也会有更好的效果。
-
-LLaMA
-
-Encoding: BPE
-
-Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs
-
-Epoch meaning:
-
-
-  In the context of mac...</div><p><a href="/ai/ai_basics/2023/11/03/llm-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月03日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-03T22:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/28/llm-prompting.html"><h2 itemprop="headline" class="item__header">【AI】LLM Prompting</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Background
-
-要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。
-
-
-  Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。
-  Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。
-  SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。
-
-
-Prompt Engineering
-
-Roadmap
-
-Roadmap</div><p><a href="/ai/ai_basics/2023/10/28/llm-prompting.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-28T16:20:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 90 篇文章，12 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
-            <i class="fas fa-angle-left"></i>
-          </div></li><li>
-              <div class="button button--primary button--circle focus"><span>1</span></div>
-            </li><li>
-                  <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-                </li><li>
-                  <a class="button button--secondary button--circle" href="/page3"><span>3</span></a>
-                </li><li>
-                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
-                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page12"><span>12</span></a>
-                </li><li><a class="button button--secondary button--circle" href="/page2">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/
+<script src="https://utteranc.es/client.js"
+        repo="Chengru-Song/Chengru-Song.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
-
-
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -489,7 +358,8 @@ Roadmap</div><p><a href="/ai/ai_basics/2023/10/28/llm-prompting.html">阅读更�
     });
   });
 })();
-</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -509,7 +379,7 @@ Roadmap</div><p><a href="/ai/ai_basics/2023/10/28/llm-prompting.html">阅读更�
   </div>
 </footer>
 </div></div>
-    </div><script>(function() {
+    </div></div></div><script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
     var $body = $('body'), $window = $(window);
@@ -1026,12 +896,112 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $pageMask = $('.js-page-mask');
+    var $pageRoot = $('.js-page-root');
+    var $sidebarShow = $('.js-sidebar-show');
+    var $sidebarHide = $('.js-sidebar-hide');
+
+    function freeze(e) {
+      if (e.target === $pageMask[0]) {
+        e.preventDefault();
+      }
+    }
+    function stopBodyScrolling(bool) {
+      if (bool === true) {
+        window.addEventListener('touchmove', freeze, { passive: false });
+      } else {
+        window.removeEventListener('touchmove', freeze, { passive: false });
+      }
+    }
+
+    $sidebarShow.on('click', function() {
+      stopBodyScrolling(true); $pageRoot.addClass('show-sidebar');
+    });
+    $sidebarHide.on('click', function() {
+      stopBodyScrolling(false); $pageRoot.removeClass('show-sidebar');
+    });
+  });
+})();
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
 	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
 </script>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  window.Lazyload.js('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.0-rc.1/mermaid.min.js', function() {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
 
     </div>
     <script>(function () {

@@ -347,18 +347,27 @@
       <li><img src="/assets/images/image-20231107104253614.png" alt="image-20231107104253614" /></li>
       <li>Ablations
         <ol>
-          <li>用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距<img src="/assets/images/image-20231107104739506.png" alt="image-20231107104739506" /></li>
+          <li>用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距</li>
+          <li><img src="/assets/images/image-20231107104739506.png" alt="image-20231107104739506" /></li>
         </ol>
       </li>
     </ol>
   </li>
   <li>Take aways
     <ol>
-      <li>LLaVA使用的prompts<img src="/assets/images/image-20231107104925859.png" alt="image-20231107104925859" /></li>
-      <li>LLaVA如何在Prompts里面用images做few-shot:https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43
+      <li>LLaVA使用的prompts
+        <ol>
+          <li><img src="/assets/images/image-20231107104925859.png" alt="image-20231107104925859" /></li>
+        </ol>
+      </li>
+      <li>LLaVA如何在Prompts里面用images做few-shot: https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43
         <ol>
           <li>在Prompts里面放base64编码的image</li>
-          <li>取出image并Tokenize送给大模型<img src="/assets/images/2023-11-07-12-12-09.png" alt="" /></li>
+          <li>取出image并Tokenize送给大模型
+            <ol>
+              <li><img src="/assets/images/2023-11-07-12-12-09.png" alt="" /></li>
+            </ol>
+          </li>
         </ol>
       </li>
     </ol>

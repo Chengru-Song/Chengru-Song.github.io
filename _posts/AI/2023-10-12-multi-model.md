@@ -44,9 +44,12 @@ mermaid: true
 4. Experiments
    1. ![image-20231107104253614](/assets/images/image-20231107104253614.png)
    2. Ablations
-      1. 用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距![image-20231107104739506](/assets/images/image-20231107104739506.png)
+      1. 用了不同版本的CLIP，最好的和最新的有0.96的差距，作者分析原因是现在的CLIP last layer更多关注图片的Global information，所以和他的前代相比，在描述图片细节的时候会有一些差距
+      1. ![image-20231107104739506](/assets/images/image-20231107104739506.png)
 5. Take aways
-   1. LLaVA使用的prompts![image-20231107104925859](/assets/images/image-20231107104925859.png)
-   2. LLaVA如何在Prompts里面用images做few-shot:https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43
+   1. LLaVA使用的prompts
+      1. ![image-20231107104925859](/assets/images/image-20231107104925859.png)
+   2. LLaVA如何在Prompts里面用images做few-shot: https://github.com/haotian-liu/LLaVA/blob/6944051041cd1ab3b68fd5c7920153d6cc1824a8/llava/mm_utils.py#L43
       1. 在Prompts里面放base64编码的image
-      2. 取出image并Tokenize送给大模型![](/assets/images/2023-11-07-12-12-09.png)
+      2. 取出image并Tokenize送给大模型
+         1. ![](/assets/images/2023-11-07-12-12-09.png)
