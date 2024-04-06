@@ -1,5 +1,1044 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-01-30T12:18:05+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
-</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【AI】多模态总结</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-transformer-arch-to-code.html" rel="alternate" type="text/html" title="【AI】多模态总结" /><published>2024-01-29T14:04:07+08:00</published><updated>2024-01-29T14:04:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-transformer-arch-to-code</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-transformer-arch-to-code.html"><![CDATA[<h1 id="多模态大模型">多模态大模型</h1>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[多模态大模型]]></summary></entry><entry><title type="html">【AI】Encoder-only Transformer</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only.html" rel="alternate" type="text/html" title="【AI】Encoder-only Transformer" /><published>2024-01-27T19:56:07+08:00</published><updated>2024-01-27T19:56:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only.html"><![CDATA[<p>基于Transformer的大语言模型共有三种架构，分别是Encoder-only Model，Encoder-Decoder Model和Decoder-only Model。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-04-06T21:38:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chengru’s Blog</title><subtitle>A personal blog website for sharing of technology, reflection and branding. 
+</subtitle><author><name>Chengru Song</name></author><entry><title type="html">【AI】LLaVA Multiple Images SFT</title><link href="http://localhost:4000/ai/ai_algorithms/2024/04/06/llava-sft.html" rel="alternate" type="text/html" title="【AI】LLaVA Multiple Images SFT" /><published>2024-04-06T09:21:07+08:00</published><updated>2024-04-06T09:21:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/04/06/llava-sft</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/04/06/llava-sft.html"><![CDATA[<h1 id="llava-mistral-multiple-images-sft">LLaVA Mistral Multiple Images SFT</h1>
+
+<p>LLaVA是2023年4月提出的针对多模态场景的，可多轮图文问答ChatBot模型。LLaVA通过简单地把1024维输出的CLIP特征用projector和语言模型的embedding拼接起来，就能实现该效果。</p>
+
+<p><img src="/assets/images/image-20240331212648086.png" alt="image-20240331212648086" /></p>
+
+<p>但是，在原文章中，作者是针对单图问答场景进行的训练，如果想实现一个<strong>多图输入场景</strong>的任务，应该如何改造结构以及构造训练数据呢？下面我们一起来看一下。</p>
+
+<h2 id="代码结构">代码结构</h2>
+
+<h3 id="启动命令">启动命令</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash llava/scripts/v1_5/finetune.sh
+</code></pre></div></div>
+
+<h3 id="训练入口">训练入口</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>llava/train/train.py
+</code></pre></div></div>
+
+<h3 id="训练框架">训练框架</h3>
+
+<ol>
+  <li>训练框架使用了Huggingface下的Trainer，Trainer是专门为了Transformer架构优化的训练器。进去之后可以看到作者了使用<code class="language-plaintext highlighter-rouge">deepspeed</code>训练框架，这里不再赘述。</li>
+</ol>
+
+<h3 id="fine-tune的整体流程">Fine-tune的整体流程</h3>
+
+<p><img src="/assets/images/llava_train.drawio.svg" alt="llava_train.drawio" /></p>
+
+<h3 id="关键代码">关键代码</h3>
+
+<h4 id="多轮对话预处理">多轮对话预处理</h4>
+
+<p>图像标记将在分词后的提示文本块之间插入。以下是该功能工作原理的分解：</p>
+
+<ol>
+  <li>提示通过 <code class="language-plaintext highlighter-rouge">&lt;image&gt;</code> 标记分割，创建一个块的列表。</li>
+  <li>使用提供的分词器对每个块进行分词，得到一个令牌 ID 的列表。</li>
+  <li>使用 <code class="language-plaintext highlighter-rouge">insert_separator</code> 函数将分词后的块列表与 <code class="language-plaintext highlighter-rouge">image_token_index</code>（代表图像的令牌）交错插入。</li>
+  <li><code class="language-plaintext highlighter-rouge">input_ids</code> 列表如下构建：
+    <ul>
+      <li>如果第一个分词后的块以序列开始（BOS）令牌开头，则 <code class="language-plaintext highlighter-rouge">input_ids</code> 的第一个元素设置为该 BOS 令牌。</li>
+      <li>通过迭代交错的分词块列表和 <code class="language-plaintext highlighter-rouge">image_token_index</code> 填充 <code class="language-plaintext highlighter-rouge">input_ids</code> 的剩余元素。</li>
+    </ul>
+  </li>
+</ol>
+
+<p>因此，结果的 <code class="language-plaintext highlighter-rouge">input_ids</code> 列表将具有以下结构：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[BOS_token（如果存在），tokens_from_chunk1, image_token, tokens_from_chunk2, image_token, ..., tokens_from_last_chunk]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">image_token_index</code> 将插入原始提示中每对连续块之间。</p>
+
+<p>例如，如果提示是 <code class="language-plaintext highlighter-rouge">"This is &lt;image&gt; a sample &lt;image&gt; prompt"</code>，且 <code class="language-plaintext highlighter-rouge">image_token_index</code> 是 1234，结果的 <code class="language-plaintext highlighter-rouge">input_ids</code> 列表可能看起来像：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[101, 1010, 2003, 1015, 1234, 2034, 3076, 1234, 2001, 1028, 102]
+</code></pre></div></div>
+
+<p>这里，令牌 ID 代表分词的单词，而值 1234 是插入块之间的 <code class="language-plaintext highlighter-rouge">image_token_index</code>。</p>
+
+<h2 id="大致改动">大致改动</h2>
+
+<p>要适应多图训练，首先要判断自己的任务是要图片和文字interleaved的形式还是separate的形式。</p>
+
+<ol>
+  <li>数据预处理：确保Input conversation中的image_token被正确替换了；</li>
+  <li>Model Forward：确保训练input_embedding是否按照期望顺序被cat在一起了。</li>
+</ol>
+
+<p>注意，因为LLaVA本身SFT时候，是把所有image的embedding都放到了最前面（通过对话预处理实现的），因此如果你训练改成interleaved的形式，可能导致其本身SFT Align的分布变化。</p>
+
+<h2 id="预训练数据组织">预训练数据组织</h2>
+
+<p>原SFT训练数据格式，为了展示用，复制了两条数据</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"conversations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please tell me what's unusual about this image: &lt;image&gt;"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A man is ironing his clothes on a vehicle. "</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What's funny about this?"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Because people don't usually do this at home."</span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"llava/image_folder(local image path)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"conversations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please tell me what's unusual about this image: &lt;image&gt;"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A man is ironing his clothes on a vehicle. "</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What's funny about this?"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Because people don't usually do this at home."</span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"llava/image_folder(local image path)"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>改动后SFT训练数据格式：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"conversations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please tell me what's unusual about this image: &lt;image&gt;"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A man is ironing his clothes on a vehicle. "</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What's funny about this?"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Because people don't usually do this at home."</span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"llava/image_folder(local image path)"</span><span class="p">,</span><span class="w"> </span><span class="s2">"llava/image_folder(local image path)"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"conversations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please tell me what's unusual about this image: &lt;image&gt;"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A man is ironing his clothes on a vehicle. "</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"human"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What's funny about this?"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gpt"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Because people don't usually do this at home."</span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"llava/image_folder(local image path)"</span><span class="p">,</span><span class="w"> </span><span class="s2">"llava/image_folder(local image path)"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="代码改动">代码改动</h2>
+
+<ol>
+  <li>（optional）修改image token的位置，我们把stack在前面的1个换成多个</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># llava/train/train.py
+</span><span class="k">def</span> <span class="nf">preprocess_multimodal</span><span class="p">(</span>
+    <span class="n">sources</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">data_args</span><span class="p">:</span> <span class="n">DataArguments</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="n">is_multimodal</span> <span class="o">=</span> <span class="n">data_args</span><span class="p">.</span><span class="n">is_multimodal</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_multimodal</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sources</span>
+
+    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">DEFAULT_IMAGE_TOKEN</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">]:</span>
+                <span class="n">replace_token</span> <span class="o">=</span> <span class="n">DEFAULT_IMAGE_TOKEN</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span>
+                <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">DEFAULT_IMAGE_TOKEN</span><span class="p">,</span> <span class="n">replace_token</span><span class="p">).</span><span class="n">strip</span><span class="p">()</span>
+                <span class="c1"># sentence['value'] = DEFAULT_IMAGE_TOKEN + '\n' + sentence['value']
+</span>                <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">].</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="s">"mmtag"</span> <span class="ow">in</span> <span class="n">conversation_lib</span><span class="p">.</span><span class="n">default_conversation</span><span class="p">.</span><span class="n">version</span><span class="p">:</span>
+                    <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="s">'value'</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">DEFAULT_IMAGE_TOKEN</span><span class="p">,</span> <span class="s">'&lt;Image&gt;'</span> <span class="o">+</span> <span class="n">DEFAULT_IMAGE_TOKEN</span> <span class="o">+</span> <span class="s">'&lt;/Image&gt;'</span><span class="p">)</span>
+            <span class="n">replace_token</span> <span class="o">=</span> <span class="n">DEFAULT_IMAGE_TOKEN</span>
+            <span class="k">if</span> <span class="n">data_args</span><span class="p">.</span><span class="n">mm_use_im_start_end</span><span class="p">:</span>
+                <span class="n">replace_token</span> <span class="o">=</span> <span class="n">DEFAULT_IM_START_TOKEN</span> <span class="o">+</span> <span class="n">replace_token</span> <span class="o">+</span> <span class="n">DEFAULT_IM_END_TOKEN</span>
+            <span class="n">sentence</span><span class="p">[</span><span class="s">"value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="s">"value"</span><span class="p">].</span><span class="n">replace</span><span class="p">(</span><span class="n">DEFAULT_IMAGE_TOKEN</span><span class="p">,</span> <span class="n">replace_token</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sources</span>
+</code></pre></div></div>
+
+<ol>
+  <li>修改多图Input</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># llava/train/train.py LazySupervisedDataset
+</span><span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">sources</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">list_data_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">sources</span> <span class="o">=</span> <span class="p">[</span><span class="n">sources</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">sources</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"Don't know why it is wrapped to a list"</span>  <span class="c1"># FIXME
+</span>        <span class="k">if</span> <span class="s">'image'</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">image_files</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">list_data_dict</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">'images'</span><span class="p">]</span>
+            <span class="n">image_folder</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">.</span><span class="n">image_folder</span>
+            <span class="n">processor</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">.</span><span class="n">image_processor</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">:</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_folder</span><span class="p">,</span> <span class="n">image_file</span><span class="p">)).</span><span class="n">convert</span><span class="p">(</span><span class="s">'RGB'</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">.</span><span class="n">image_aspect_ratio</span> <span class="o">==</span> <span class="s">'pad'</span><span class="p">:</span>
+                    <span class="k">def</span> <span class="nf">expand2square</span><span class="p">(</span><span class="n">pil_img</span><span class="p">,</span> <span class="n">background_color</span><span class="p">):</span>
+                        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">pil_img</span><span class="p">.</span><span class="n">size</span>
+                        <span class="k">if</span> <span class="n">width</span> <span class="o">==</span> <span class="n">height</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">pil_img</span>
+                        <span class="k">elif</span> <span class="n">width</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">:</span>
+                            <span class="n">result</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">pil_img</span><span class="p">.</span><span class="n">mode</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span> <span class="n">background_color</span><span class="p">)</span>
+                            <span class="n">result</span><span class="p">.</span><span class="n">paste</span><span class="p">(</span><span class="n">pil_img</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="n">height</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+                            <span class="k">return</span> <span class="n">result</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">result</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">pil_img</span><span class="p">.</span><span class="n">mode</span><span class="p">,</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">background_color</span><span class="p">)</span>
+                            <span class="n">result</span><span class="p">.</span><span class="n">paste</span><span class="p">(</span><span class="n">pil_img</span><span class="p">,</span> <span class="p">((</span><span class="n">height</span> <span class="o">-</span> <span class="n">width</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                            <span class="k">return</span> <span class="n">result</span>
+                    <span class="n">image</span> <span class="o">=</span> <span class="n">expand2square</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">processor</span><span class="p">.</span><span class="n">image_mean</span><span class="p">))</span>
+                    <span class="n">image</span> <span class="o">=</span> <span class="n">processor</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s">'pt'</span><span class="p">)[</span><span class="s">'pixel_values'</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">image</span> <span class="o">=</span> <span class="n">processor</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s">'pt'</span><span class="p">)[</span><span class="s">'pixel_values'</span><span class="p">]</span>
+                <span class="n">images</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                <span class="n">sources</span> <span class="o">=</span> <span class="n">preprocess_multimodal</span><span class="p">(</span>
+                    <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">([</span><span class="n">e</span><span class="p">[</span><span class="s">"conversations"</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">]),</span>
+                    <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sources</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">([</span><span class="n">e</span><span class="p">[</span><span class="s">"conversations"</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">])</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span>
+            <span class="n">sources</span><span class="p">,</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">tokenizer</span><span class="p">,</span>
+            <span class="n">has_image</span><span class="o">=</span><span class="p">(</span><span class="s">'image'</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">list_data_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">data_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">input_ids</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s">"input_ids"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                             <span class="n">labels</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s">"labels"</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># image exist in the data
+</span>        <span class="k">if</span> <span class="s">'images'</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">list_data_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span> <span class="o">=</span> <span class="n">images</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">.</span><span class="n">is_multimodal</span><span class="p">:</span>
+            <span class="c1"># image does not exist in the data, but the model is multimodal
+</span>            <span class="n">crop_size</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">data_args</span><span class="p">.</span><span class="n">image_processor</span><span class="p">.</span><span class="n">crop_size</span>
+            <span class="n">data_dict</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">[</span><span class="s">'height'</span><span class="p">],</span> <span class="n">crop_size</span><span class="p">[</span><span class="s">'width'</span><span class="p">])]</span>
+        <span class="k">return</span> <span class="n">data_dict</span>
+</code></pre></div></div>
+
+<ol>
+  <li>修改batch Input</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># llava/train/train.py
+</span><span class="o">@</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">DataCollatorForSupervisedDataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="s">"""Collate examples for supervised fine-tuning."""</span>
+
+    <span class="n">tokenizer</span><span class="p">:</span> <span class="n">transformers</span><span class="p">.</span><span class="n">PreTrainedTokenizer</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">input_ids</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">instance</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">]</span>
+                                  <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s">"input_ids"</span><span class="p">,</span> <span class="s">"labels"</span><span class="p">))</span>
+        <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">nn</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">rnn</span><span class="p">.</span><span class="n">pad_sequence</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="p">,</span>
+            <span class="n">batch_first</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">padding_value</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">tokenizer</span><span class="p">.</span><span class="n">pad_token_id</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">nn</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">rnn</span><span class="p">.</span><span class="n">pad_sequence</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span>
+                                                 <span class="n">batch_first</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                                 <span class="n">padding_value</span><span class="o">=</span><span class="n">IGNORE_INDEX</span><span class="p">)</span>
+        <span class="n">input_ids</span> <span class="o">=</span> <span class="n">input_ids</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="p">.</span><span class="n">tokenizer</span><span class="p">.</span><span class="n">model_max_length</span><span class="p">]</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="p">.</span><span class="n">tokenizer</span><span class="p">.</span><span class="n">model_max_length</span><span class="p">]</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+            <span class="n">attention_mask</span><span class="o">=</span><span class="n">input_ids</span><span class="p">.</span><span class="n">ne</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">tokenizer</span><span class="p">.</span><span class="n">pad_token_id</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">'image'</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">instance</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">x</span><span class="p">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">shape</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">images</span><span class="p">):</span>
+                <span class="n">batch</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">stack</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">batch</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span> <span class="o">=</span> <span class="n">images</span>
+
+        <span class="k">return</span> <span class="n">batch</span>
+</code></pre></div></div>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[LLaVA Mistral Multiple Images SFT LLaVA是2023年4月提出的针对多模态场景的，可多轮图文问答ChatBot模型。LLaVA通过简单地把1024维输出的CLIP特征用projector和语言模型的embedding拼接起来，就能实现该效果。 但是，在原文章中，作者是针对单图问答场景进行的训练，如果想实现一个多图输入场景的任务，应该如何改造结构以及构造训练数据呢？下面我们一起来看一下。 代码结构 启动命令 bash llava/scripts/v1_5/finetune.sh 训练入口 llava/train/train.py 训练框架 训练框架使用了Huggingface下的Trainer，Trainer是专门为了Transformer架构优化的训练器。进去之后可以看到作者了使用deepspeed训练框架，这里不再赘述。 Fine-tune的整体流程 关键代码 多轮对话预处理 图像标记将在分词后的提示文本块之间插入。以下是该功能工作原理的分解： 提示通过 &lt;image&gt; 标记分割，创建一个块的列表。 使用提供的分词器对每个块进行分词，得到一个令牌 ID 的列表。 使用 insert_separator 函数将分词后的块列表与 image_token_index（代表图像的令牌）交错插入。 input_ids 列表如下构建： 如果第一个分词后的块以序列开始（BOS）令牌开头，则 input_ids 的第一个元素设置为该 BOS 令牌。 通过迭代交错的分词块列表和 image_token_index 填充 input_ids 的剩余元素。 因此，结果的 input_ids 列表将具有以下结构： [BOS_token（如果存在），tokens_from_chunk1, image_token, tokens_from_chunk2, image_token, ..., tokens_from_last_chunk] image_token_index 将插入原始提示中每对连续块之间。 例如，如果提示是 "This is &lt;image&gt; a sample &lt;image&gt; prompt"，且 image_token_index 是 1234，结果的 input_ids 列表可能看起来像： [101, 1010, 2003, 1015, 1234, 2034, 3076, 1234, 2001, 1028, 102] 这里，令牌 ID 代表分词的单词，而值 1234 是插入块之间的 image_token_index。 大致改动 要适应多图训练，首先要判断自己的任务是要图片和文字interleaved的形式还是separate的形式。 数据预处理：确保Input conversation中的image_token被正确替换了； Model Forward：确保训练input_embedding是否按照期望顺序被cat在一起了。 注意，因为LLaVA本身SFT时候，是把所有image的embedding都放到了最前面（通过对话预处理实现的），因此如果你训练改成interleaved的形式，可能导致其本身SFT Align的分布变化。 预训练数据组织 原SFT训练数据格式，为了展示用，复制了两条数据 [ { "conversations": [ {"from": "human", "value": "Please tell me what's unusual about this image: &lt;image&gt;"}, {"from": "gpt", "value": "A man is ironing his clothes on a vehicle. "}, {"from": "human", "value": "What's funny about this?"}, {"from": "gpt", "value": "Because people don't usually do this at home."} ], "image": "llava/image_folder(local image path)" }, { "conversations": [ {"from": "human", "value": "Please tell me what's unusual about this image: &lt;image&gt;"}, {"from": "gpt", "value": "A man is ironing his clothes on a vehicle. "}, {"from": "human", "value": "What's funny about this?"}, {"from": "gpt", "value": "Because people don't usually do this at home."} ], "image": "llava/image_folder(local image path)" } ] 改动后SFT训练数据格式： [ { "conversations": [ {"from": "human", "value": "Please tell me what's unusual about this image: &lt;image&gt;"}, {"from": "gpt", "value": "A man is ironing his clothes on a vehicle. "}, {"from": "human", "value": "What's funny about this?"}, {"from": "gpt", "value": "Because people don't usually do this at home."} ], "images": ["llava/image_folder(local image path)", "llava/image_folder(local image path)"] }, { "conversations": [ {"from": "human", "value": "Please tell me what's unusual about this image: &lt;image&gt;"}, {"from": "gpt", "value": "A man is ironing his clothes on a vehicle. "}, {"from": "human", "value": "What's funny about this?"}, {"from": "gpt", "value": "Because people don't usually do this at home."} ], "images": ["llava/image_folder(local image path)", "llava/image_folder(local image path)"] } ] 代码改动 （optional）修改image token的位置，我们把stack在前面的1个换成多个 # llava/train/train.py def preprocess_multimodal( sources: Sequence[str], data_args: DataArguments ) -&gt; Dict: is_multimodal = data_args.is_multimodal if not is_multimodal: return sources for source in sources: for sentence in source: if DEFAULT_IMAGE_TOKEN in sentence['value']: replace_token = DEFAULT_IMAGE_TOKEN + '\n' sentence['value'] = sentence['value'].replace(DEFAULT_IMAGE_TOKEN, replace_token).strip() # sentence['value'] = DEFAULT_IMAGE_TOKEN + '\n' + sentence['value'] sentence['value'] = sentence['value'].strip() if "mmtag" in conversation_lib.default_conversation.version: sentence['value'] = sentence['value'].replace(DEFAULT_IMAGE_TOKEN, '&lt;Image&gt;' + DEFAULT_IMAGE_TOKEN + '&lt;/Image&gt;') replace_token = DEFAULT_IMAGE_TOKEN if data_args.mm_use_im_start_end: replace_token = DEFAULT_IM_START_TOKEN + replace_token + DEFAULT_IM_END_TOKEN sentence["value"] = sentence["value"].replace(DEFAULT_IMAGE_TOKEN, replace_token) return sources 修改多图Input # llava/train/train.py LazySupervisedDataset def __getitem__(self, i) -&gt; Dict[str, torch.Tensor]: sources = self.list_data_dict[i] if isinstance(i, int): sources = [sources] assert len(sources) == 1, "Don't know why it is wrapped to a list" # FIXME if 'image' in sources[0]: image_files = self.list_data_dict[i]['images'] image_folder = self.data_args.image_folder processor = self.data_args.image_processor images = [] for image in image_files: image = Image.open(os.path.join(image_folder, image_file)).convert('RGB') if self.data_args.image_aspect_ratio == 'pad': def expand2square(pil_img, background_color): width, height = pil_img.size if width == height: return pil_img elif width &gt; height: result = Image.new(pil_img.mode, (width, width), background_color) result.paste(pil_img, (0, (width - height) // 2)) return result else: result = Image.new(pil_img.mode, (height, height), background_color) result.paste(pil_img, ((height - width) // 2, 0)) return result image = expand2square(image, tuple(int(x*255) for x in processor.image_mean)) image = processor.preprocess(image, return_tensors='pt')['pixel_values'] else: image = processor.preprocess(image, return_tensors='pt')['pixel_values'] images.append(image) sources = preprocess_multimodal( copy.deepcopy([e["conversations"] for e in sources]), self.data_args) else: sources = copy.deepcopy([e["conversations"] for e in sources]) data_dict = preprocess( sources, self.tokenizer, has_image=('image' in self.list_data_dict[i])) if isinstance(i, int): data_dict = dict(input_ids=data_dict["input_ids"][0], labels=data_dict["labels"][0]) # image exist in the data if 'images' in self.list_data_dict[i]: data_dict['images'] = images elif self.data_args.is_multimodal: # image does not exist in the data, but the model is multimodal crop_size = self.data_args.image_processor.crop_size data_dict['images'] = [torch.zeros(3, crop_size['height'], crop_size['width'])] return data_dict 修改batch Input # llava/train/train.py @dataclass class DataCollatorForSupervisedDataset(object): """Collate examples for supervised fine-tuning.""" tokenizer: transformers.PreTrainedTokenizer def __call__(self, instances: Sequence[Dict]) -&gt; Dict[str, torch.Tensor]: input_ids, labels = tuple([instance[key] for instance in instances] for key in ("input_ids", "labels")) input_ids = torch.nn.utils.rnn.pad_sequence( input_ids, batch_first=True, padding_value=self.tokenizer.pad_token_id) labels = torch.nn.utils.rnn.pad_sequence(labels, batch_first=True, padding_value=IGNORE_INDEX) input_ids = input_ids[:, :self.tokenizer.model_max_length] labels = labels[:, :self.tokenizer.model_max_length] batch = dict( input_ids=input_ids, labels=labels, attention_mask=input_ids.ne(self.tokenizer.pad_token_id), ) if 'image' in instances[0]: images = [instance['images'] for instance in instances] if all(x is not None and x.shape == images[0].shape for x in images): batch['images'] = torch.stack(images) else: batch['images'] = images return batch]]></summary></entry><entry><title type="html">【AI】LLaVA MS Research</title><link href="http://localhost:4000/ai/ai_algorithms/2024/03/31/llava.html" rel="alternate" type="text/html" title="【AI】LLaVA MS Research" /><published>2024-03-31T21:25:07+08:00</published><updated>2024-03-31T21:25:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/03/31/llava</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/03/31/llava.html"><![CDATA[<h1 id="llava-microsoft-research">LLaVA Microsoft Research</h1>
+
+<h2 id="llava---202304---ms-research">LLaVA - 202304 - MS Research</h2>
+
+<ol>
+  <li>
+    <p>Existing Gap:</p>
+
+    <ol>
+      <li>之前的大部分工作都在做模态对齐，做图片的representation learning，而没有针对ChatBot（多轮对话，指令理解）这种场景优化。</li>
+    </ol>
+  </li>
+  <li>
+    <p>Contribution：这篇工作已经在BLIP-2之后了，所以Image的理解能力不是LLaVA希望提升的重点，LLaVA是想提升多模态模型的Instruction-Following ability，也就是特定的多轮QA场景。</p>
+
+    <ol>
+      <li>构造了三种Instruction的数据，包括多轮对话，图片描述和复杂推理。其中，图片描述是从多轮对话中选取出来的。分别构造了58k，23k和77k数据</li>
+    </ol>
+  </li>
+  <li>
+    <p>网络结构</p>
+
+    <ol>
+      <li>
+        <p>用了一个projection matrix直接把CLIP的最后一层Output feature映射到Language的Token space上面，和Instruction拼在一起给到LLM做推理。</p>
+
+        <p><img src="/assets/images/image-20240331212648086.png" alt="image-20240331212648086" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Training - 分成两步，模态对齐和Instruction tuning</p>
+
+    <ol>
+      <li>模态对齐：这步使用CC3M的Image caption数据进行模态对齐，<strong>只训练这个projection matrix</strong>，这里统一了两步训练数据的格式，都是Instruction + answer的形式，只是模态对齐时候的Input是固定Instruction(describe this image briefly) + Image，Output是Image的caption，构造了训练对。</li>
+      <li>端到端训练：这一部分训练LLM和Projection matrix，用了Science QA和多轮Chatbot对话的数据。</li>
+    </ol>
+  </li>
+  <li>
+    <p>结果</p>
+
+    <ol>
+      <li>
+        <p>评估：把Image+Instruction给到LLaVA，把GT的Image description和Instruction给到Text-only的GPT-4。在得到两个模型的response结果以后，再把Instruction和Visual information给到GPT-4，让GPT-4根据helpfulness, relevance, accuracy和response detailness按照1-10打分，同时输出给出打分的解释。</p>
+
+        <p><img src="/assets/images/image-20240331212711131.png" alt="image-20240331212711131" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Takeaway</p>
+
+    <ol>
+      <li>其实模态对齐可能不需要很复杂的结构？data才是王道？</li>
+      <li>LLaVA的图片理解能力到底是什么水平，和其他模型比起来？还不太清楚</li>
+      <li>一直以为LLaVA这种较为简单的alignment架构是最先提出来的，但实际上不是，大道至简，先用最简单的结构快速验证想法的话，LLaVA就是最好的选择。</li>
+    </ol>
+  </li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: Start
+op=&gt;operation: Your Operation
+cond=&gt;condition: Yes or No?
+e=&gt;end
+
+st-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;op
+</code></pre>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[LLaVA Microsoft Research LLaVA - 202304 - MS Research Existing Gap: 之前的大部分工作都在做模态对齐，做图片的representation learning，而没有针对ChatBot（多轮对话，指令理解）这种场景优化。 Contribution：这篇工作已经在BLIP-2之后了，所以Image的理解能力不是LLaVA希望提升的重点，LLaVA是想提升多模态模型的Instruction-Following ability，也就是特定的多轮QA场景。 构造了三种Instruction的数据，包括多轮对话，图片描述和复杂推理。其中，图片描述是从多轮对话中选取出来的。分别构造了58k，23k和77k数据 网络结构 用了一个projection matrix直接把CLIP的最后一层Output feature映射到Language的Token space上面，和Instruction拼在一起给到LLM做推理。 Training - 分成两步，模态对齐和Instruction tuning 模态对齐：这步使用CC3M的Image caption数据进行模态对齐，只训练这个projection matrix，这里统一了两步训练数据的格式，都是Instruction + answer的形式，只是模态对齐时候的Input是固定Instruction(describe this image briefly) + Image，Output是Image的caption，构造了训练对。 端到端训练：这一部分训练LLM和Projection matrix，用了Science QA和多轮Chatbot对话的数据。 结果 评估：把Image+Instruction给到LLaVA，把GT的Image description和Instruction给到Text-only的GPT-4。在得到两个模型的response结果以后，再把Instruction和Visual information给到GPT-4，让GPT-4根据helpfulness, relevance, accuracy和response detailness按照1-10打分，同时输出给出打分的解释。 Takeaway 其实模态对齐可能不需要很复杂的结构？data才是王道？ LLaVA的图片理解能力到底是什么水平，和其他模型比起来？还不太清楚 一直以为LLaVA这种较为简单的alignment架构是最先提出来的，但实际上不是，大道至简，先用最简单的结构快速验证想法的话，LLaVA就是最好的选择。 st=&gt;start: Start op=&gt;operation: Your Operation cond=&gt;condition: Yes or No? e=&gt;end st-&gt;op-&gt;cond cond(yes)-&gt;e cond(no)-&gt;op]]></summary></entry><entry><title type="html">【AI】BLIP-2 Salesforce</title><link href="http://localhost:4000/ai/ai_algorithms/2024/03/27/blip-2.html" rel="alternate" type="text/html" title="【AI】BLIP-2 Salesforce" /><published>2024-03-27T22:34:07+08:00</published><updated>2024-03-27T22:34:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/03/27/blip-2</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/03/27/blip-2.html"><![CDATA[<h2 id="blip-2--salesforce---202302">BLIP-2- Salesforce - 202302</h2>
+
+<ol>
+  <li>Existing Gap
+    <ol>
+      <li>之前的训练方法会导致LM的Catastrophic Forgetting（如果训练时候更新LM的Params）；</li>
+      <li>作者假设，在Pretrain阶段下，多模态大模型最重要的问题是解决模态对齐（Modality Alignment）。（为什么？因为文本生成能力依赖语言模型，所以让语言模型理解Image Token是很重要的。这里的模态对齐与CLIP的区别是什么？CLIP里面只有Encoder，没有Text Generation，可以把BLIP看做CLIP的带Text Generation的改良版。为什么可以做出这个假设？比较符合直觉，因为图片问答和文本问答最大的区别就在于是否有图片输入；因此可以假设LM本身具备问答能力，只是其无法理解Image Tokens）</li>
+    </ol>
+  </li>
+  <li>Contribution
+    <ol>
+      <li>设计了一个Generic compute-efficient的Vision Language Pretrain架构</li>
+      <li>设计了一个两阶段的训练过程，第一个阶段做vision-languange representation learning，第二阶段Boost LLM的对Image的生成能力。这两个阶段都是只训练Q-former，但是两阶段的目标不同。</li>
+    </ol>
+  </li>
+  <li>Method
+    <ol>
+      <li>
+        <p>设计了一个Q-former进行模态对齐，一阶段训练把Visual Token经过Q-former映射成一个Embedding，二阶段训练再把该Embedding到LLM的FC层进行训练，这样Visual info就成了LLM的一个Soft Prompt。①核心思想是什么？Prompt-tuning，只是Prompt变成了Visual Embedding。因为仔细观察发现，LLM的参数是没有动的，问答能力依赖于其自身的问答能力；②为什么设计了三个Loss，分别是做什么的？Contrastive Learning的Loss可参考CLIP，主要是兼顾大规模预训练的性能和训练效果；Generation Loss主要是用了Q-former右半部分生成caption，把Image Token作为生成的condition，但是这里由于Q-former结构设计上的限制，不能直接把Image Tokens作为condition，因此作者用Learned Queries作为Image Token的代理来实验Image conditioned Generation。Image Text Matching Loss就是预测一个image Text pair对是否是一对，为什么要设置这个Loss，作用有多大？个人感觉是为了刷benchmark设计的一个Loss，毕竟语言模型没有参数更新，作为Soft Prompt，改动一下Q-former对文本生成类下游任务估计影响不大，但是可以直接boost一波图文匹配类型的任务。https://github.com/salesforce/LAVIS/blob/main/lavis/models/blip2_models/blip2_qformer.py 参考这个里面的三个loss的写法。</p>
+
+        <p><img src="/assets/images/image-20240327223454795.png" alt="image-20240327223454795" /></p>
+      </li>
+      <li>
+        <p>第二阶段的训练过程，主要是为了找到Soft Visual Prompt。这里主要是用LLM的Generation Loss来训练Q-former+FC层。</p>
+
+        <p><img src="/assets/images/image-20240327223520625.png" alt="image-20240327223520625" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>训练 - 两阶段训练都更新相同的parameters，但是通过不同的Attention mask实现不同目标的学习。
+    <ol>
+      <li>一阶段：这里就是一个image representation Learning，单纯学习了Embedding而已，这个Embedding并没有在pretraining的时候align到任何LLM上面，只是用Q-former给出了Embedding。只是学习这个Embedding的方法是融合了3个Loss学到的。</li>
+      <li>二阶段：Generative pretraining，用一层LC把Q-Former的embedding接到LLM上，这一步的learnable params是什么？Q-former + LC层，用Language modelling loss、把第一阶段pretraining的结果align到不同的下游语言模型，这里实际上是一个Soft Prompt tuning，并没有update LM的参数。这样能避免LM的catastrophic forgetting问题</li>
+      <li>
+        <p>二阶段训练的Loss</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">t5_model</span><span class="p">(</span>
+     <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+     <span class="n">attention_mask</span><span class="o">=</span><span class="n">encoder_atts</span><span class="p">,</span>
+     <span class="n">decoder_attention_mask</span><span class="o">=</span><span class="n">output_tokens</span><span class="p">.</span><span class="n">attention_mask</span><span class="p">,</span>
+     <span class="n">return_dict</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+     <span class="n">labels</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
+ <span class="p">)</span>
+ <span class="n">loss</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">.</span><span class="n">loss</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>结果如何
+    <ol>
+      <li>
+        <p>以上思考可以看到，BLIP-2的最大优点就是训练参数非常小，而且能够adapt到不同的语言模型上。</p>
+
+        <p><img src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff5f9877d-efa3-421f-abfc-424549936dfb%2Ff93f040c-e879-4b8f-9b6a-a0a1012e588d%2FUntitled.png?table=block&amp;id=60916f5c-dc68-4f9e-a616-60adb64de274&amp;spaceId=f5f9877d-efa3-421f-abfc-424549936dfb&amp;width=2000&amp;userId=2286d82e-7cb0-47e1-9383-d9f02116f399&amp;cache=v2" alt="img" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>思考
+    <ol>
+      <li>这个模型非常适用在想保持LM的能力，同时GPU也不是很多，希望能包含一些Visual Info的业务场景。</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[BLIP-2- Salesforce - 202302 Existing Gap 之前的训练方法会导致LM的Catastrophic Forgetting（如果训练时候更新LM的Params）； 作者假设，在Pretrain阶段下，多模态大模型最重要的问题是解决模态对齐（Modality Alignment）。（为什么？因为文本生成能力依赖语言模型，所以让语言模型理解Image Token是很重要的。这里的模态对齐与CLIP的区别是什么？CLIP里面只有Encoder，没有Text Generation，可以把BLIP看做CLIP的带Text Generation的改良版。为什么可以做出这个假设？比较符合直觉，因为图片问答和文本问答最大的区别就在于是否有图片输入；因此可以假设LM本身具备问答能力，只是其无法理解Image Tokens） Contribution 设计了一个Generic compute-efficient的Vision Language Pretrain架构 设计了一个两阶段的训练过程，第一个阶段做vision-languange representation learning，第二阶段Boost LLM的对Image的生成能力。这两个阶段都是只训练Q-former，但是两阶段的目标不同。 Method 设计了一个Q-former进行模态对齐，一阶段训练把Visual Token经过Q-former映射成一个Embedding，二阶段训练再把该Embedding到LLM的FC层进行训练，这样Visual info就成了LLM的一个Soft Prompt。①核心思想是什么？Prompt-tuning，只是Prompt变成了Visual Embedding。因为仔细观察发现，LLM的参数是没有动的，问答能力依赖于其自身的问答能力；②为什么设计了三个Loss，分别是做什么的？Contrastive Learning的Loss可参考CLIP，主要是兼顾大规模预训练的性能和训练效果；Generation Loss主要是用了Q-former右半部分生成caption，把Image Token作为生成的condition，但是这里由于Q-former结构设计上的限制，不能直接把Image Tokens作为condition，因此作者用Learned Queries作为Image Token的代理来实验Image conditioned Generation。Image Text Matching Loss就是预测一个image Text pair对是否是一对，为什么要设置这个Loss，作用有多大？个人感觉是为了刷benchmark设计的一个Loss，毕竟语言模型没有参数更新，作为Soft Prompt，改动一下Q-former对文本生成类下游任务估计影响不大，但是可以直接boost一波图文匹配类型的任务。https://github.com/salesforce/LAVIS/blob/main/lavis/models/blip2_models/blip2_qformer.py 参考这个里面的三个loss的写法。 第二阶段的训练过程，主要是为了找到Soft Visual Prompt。这里主要是用LLM的Generation Loss来训练Q-former+FC层。 训练 - 两阶段训练都更新相同的parameters，但是通过不同的Attention mask实现不同目标的学习。 一阶段：这里就是一个image representation Learning，单纯学习了Embedding而已，这个Embedding并没有在pretraining的时候align到任何LLM上面，只是用Q-former给出了Embedding。只是学习这个Embedding的方法是融合了3个Loss学到的。 二阶段：Generative pretraining，用一层LC把Q-Former的embedding接到LLM上，这一步的learnable params是什么？Q-former + LC层，用Language modelling loss、把第一阶段pretraining的结果align到不同的下游语言模型，这里实际上是一个Soft Prompt tuning，并没有update LM的参数。这样能避免LM的catastrophic forgetting问题 二阶段训练的Loss outputs = self.t5_model( inputs_embeds=inputs_embeds, attention_mask=encoder_atts, decoder_attention_mask=output_tokens.attention_mask, return_dict=True, labels=targets, ) loss = outputs.loss 结果如何 以上思考可以看到，BLIP-2的最大优点就是训练参数非常小，而且能够adapt到不同的语言模型上。 思考 这个模型非常适用在想保持LM的能力，同时GPU也不是很多，希望能包含一些Visual Info的业务场景。]]></summary></entry><entry><title type="html">【AI】Flamingo</title><link href="http://localhost:4000/ai/ai_algorithms/2024/03/13/flamingo.html" rel="alternate" type="text/html" title="【AI】Flamingo" /><published>2024-03-13T22:04:07+08:00</published><updated>2024-03-13T22:04:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/03/13/flamingo</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/03/13/flamingo.html"><![CDATA[<h2 id="flamingo---deepmind---202204">Flamingo - Deepmind - 202204</h2>
+
+<ol>
+  <li>
+    <p>Existing Gap</p>
+
+    <ol>
+      <li>CLIP模型无法做文字生成，只能做分类，从已有数据中做选择；</li>
+      <li>能够用image作为language generation的condition来构造这个任务从而完成image caption，image QA这样的任务呢？</li>
+    </ol>
+  </li>
+  <li>
+    <p>Contribution</p>
+
+    <ol>
+      <li>提出了一个可以做few-shots来帮助LM做image caption和image QA任务的方法；具有生成能力。</li>
+      <li>提出了一个量化VLM能力的benchmark。</li>
+    </ol>
+  </li>
+  <li>
+    <p>Method</p>
+
+    <ol>
+      <li>
+        <p>方法的核心是如何把图片映射到LM的Space下面，使之成为Text Generation的condition，能够生成与之对应的文本。因此有两个问题，第一是如何建模，第二是如何训练</p>
+      </li>
+      <li>
+        <p>如何建模？visual feature如何映射到visual tokens？以一个Nomalize-free ResNet为例，Output feature是一个4D space，visual token一般是1D space。如何映射能够在减少信息丢失的前提下，尽可能表征一张图片。且visual token应该是Vocab size大小的整形。作者在这里用了perceiver resampler. Input在这里是</p>
+      </li>
+      <li>
+        <p>整体架构如下所示</p>
+
+        <p><img src="/assets/images/image-20240313224553378.png" alt="image-20240313224553378" /></p>
+      </li>
+      <li>
+        <p>其中，Gated x-attn如下所示</p>
+
+        <p><img src="/assets/images/image-20240313224613582.png" alt="image-20240313224613582" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>如何训练</p>
+
+    <ol>
+      <li>
+        <p>图文混合+图文pair数据集训练</p>
+      </li>
+      <li>
+        <p>关键一句话，不同数据集被assign了不同的权重作为训练的超参，这是performance的关键……大模型预训练全靠炼丹。</p>
+
+        <p><img src="https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff5f9877d-efa3-421f-abfc-424549936dfb%2F377c587a-c8a8-459a-a276-143398fc1fa0%2FUntitled.png?table=block&amp;id=fde4e3a4-30aa-427a-b296-c530f8d1c13c&amp;spaceId=f5f9877d-efa3-421f-abfc-424549936dfb&amp;width=2000&amp;userId=2286d82e-7cb0-47e1-9383-d9f02116f399&amp;cache=v2" alt="img" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>效果如何</p>
+
+    <p><img src="/assets/images/image-20240313224651708.png" alt="image-20240313224651708" /></p>
+  </li>
+  <li>
+    <p>思考</p>
+
+    <ol>
+      <li>Ablation Study应该熟读并背诵</li>
+      <li>数据混合非常重要，少了Video text会掉点，少了自己构造的数据也会掉点，少了最原始的Image text pair直接掉点9.8%。</li>
+      <li>Arch是试了好几遍才得到的，不是一上来就建模了这个Gated Xatten</li>
+      <li>Freezing LM对于任务很关键，否则最多会掉12%。即使用Pretrain的ckpt，只是用来Fine-tune，也会掉点非常严重。</li>
+      <li>这里Flamingo的方法明显有些不太赶趟了，现在很多都用的是更加复杂的visual encoder了。但这也侧面说明数据的重要性，vision encoder只要能大概表征图片的内容，加上一个projector到language就搞定了。</li>
+      <li>Vision的现在流行用ViT来代替传统的了</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Flamingo - Deepmind - 202204 Existing Gap CLIP模型无法做文字生成，只能做分类，从已有数据中做选择； 能够用image作为language generation的condition来构造这个任务从而完成image caption，image QA这样的任务呢？ Contribution 提出了一个可以做few-shots来帮助LM做image caption和image QA任务的方法；具有生成能力。 提出了一个量化VLM能力的benchmark。 Method 方法的核心是如何把图片映射到LM的Space下面，使之成为Text Generation的condition，能够生成与之对应的文本。因此有两个问题，第一是如何建模，第二是如何训练 如何建模？visual feature如何映射到visual tokens？以一个Nomalize-free ResNet为例，Output feature是一个4D space，visual token一般是1D space。如何映射能够在减少信息丢失的前提下，尽可能表征一张图片。且visual token应该是Vocab size大小的整形。作者在这里用了perceiver resampler. Input在这里是 整体架构如下所示 其中，Gated x-attn如下所示 如何训练 图文混合+图文pair数据集训练 关键一句话，不同数据集被assign了不同的权重作为训练的超参，这是performance的关键……大模型预训练全靠炼丹。 效果如何 思考 Ablation Study应该熟读并背诵 数据混合非常重要，少了Video text会掉点，少了自己构造的数据也会掉点，少了最原始的Image text pair直接掉点9.8%。 Arch是试了好几遍才得到的，不是一上来就建模了这个Gated Xatten Freezing LM对于任务很关键，否则最多会掉12%。即使用Pretrain的ckpt，只是用来Fine-tune，也会掉点非常严重。 这里Flamingo的方法明显有些不太赶趟了，现在很多都用的是更加复杂的visual encoder了。但这也侧面说明数据的重要性，vision encoder只要能大概表征图片的内容，加上一个projector到language就搞定了。 Vision的现在流行用ViT来代替传统的了]]></summary></entry><entry><title type="html">【AI】CLIP</title><link href="http://localhost:4000/ai/ai_algorithms/2024/02/28/openai-clip.html" rel="alternate" type="text/html" title="【AI】CLIP" /><published>2024-02-28T14:04:07+08:00</published><updated>2024-02-28T14:04:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/02/28/openai-clip</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/02/28/openai-clip.html"><![CDATA[<h2 id="clip---openai---2021">CLIP - OpenAI - 2021</h2>
+
+<ol>
+  <li>
+    <p>Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？</p>
+  </li>
+  <li>
+    <p>当前进展</p>
+
+    <ol>
+      <li>NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？</li>
+      <li>原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的；</li>
+      <li>所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？</li>
+      <li>这样的数据集，网络上有很多图，这些图是有文字描述的，是否能用这样的文字作为Image representation的监督信号呢？</li>
+      <li>所以，CLIP的核心假设就是，<strong>文字能够作为Image perception的一个监督信号</strong>，指导模型学习到图片的perception</li>
+    </ol>
+  </li>
+  <li>
+    <p>如何做</p>
+
+    <ol>
+      <li>
+        <p>整体架构，两个实验，使用加了attention pooling的ResNet和Vision Transformer作为Vision Encoder。Text的使用63M的Transformer，只用了长度76的Sequence length。</p>
+
+        <p><img src="/assets/images/image-20240228195043073.png" alt="image-20240228195043073" /></p>
+      </li>
+      <li>
+        <p>用文字作为supervision的方法有很多，比如n-gram和topic models，但是用transfomers这种架构的深度网络作为image 网络的监督信号网络的方法还是未经尝试。</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>数据如何组织</p>
+
+    <ol>
+      <li>之前的一些数据集太脏了，过滤后仅剩下15m。所以我们组织了400m的数据集叫做webImageText</li>
+    </ol>
+  </li>
+  <li>
+    <p>如何训练</p>
+
+    <ol>
+      <li>
+        <p>训练的主要难点在于数据量太大，如果直接把CNN和一个Text Transformer在一起从头训练，在63m大小的transformer上都比ResNet-50的image encoder慢太多了</p>
+      </li>
+      <li>
+        <p>之前用的方法，预测bag-of-words的和transformer-based，都是为了预测正确每一个和Text最相近的单词，说白了都是分类问题，这个最大的问题是丢失了context，且vocab（在这个任务中就是caption）非常的sparse（自然语言而非golden label作为训练标签），非常难训练</p>
+      </li>
+      <li>
+        <p>所以他们用了contrastive的objective，这样可以解决不好训练和训练慢的问题。</p>
+      </li>
+      <li>
+        <p>以batch size=10为例，训练时将&lt;image, caption&gt;这样的10对数据做分别对每张Image做交叉熵Loss和每个caption做交叉熵Loss。对每张图片，最大化和一张图相近的Caption，对每个caption，最大化和一个caption相近的图片。前者可以找到和图片最近的Caption，后者可以把每个图片之间的距离拉远。</p>
+
+        <p><img src="/assets/images/image-20240228195103281.png" alt="image-20240228195103281" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>实验</p>
+
+    <ol>
+      <li>Image classification领域的zero-shot transfer learning指代的是能够正确把图片归类到之前没有训练过的类别</li>
+      <li>这篇文章主要学习zero-shot的transfer learning</li>
+      <li>实验结果表明，这个Pretrain的方法，在没有用过任何classification的labelling的情况下，比Visual n-grams好了太多</li>
+      <li>Prompt engineering: 这里指的主要是文本的prompt，比如a photo a cat要比直接用cat作为caption好很多；另外，词语的多义性也直接导致了语言模型confuse的程度增加；另外，用加上任务相关的信息能大大提升性能，例如把{label}改成a photo of {}, a type of pet能提升宠物类的benchmark</li>
+      <li>尝试用不同的prompt来提升任务的整体质量</li>
+    </ol>
+  </li>
+  <li>
+    <p>实验结果</p>
+
+    <ol>
+      <li>
+        <p>在大部分benchmark上都显著好于ImageNet50的方案，但是在专业数据集上表现较差。作者说了有很大提升空间，但是同时质疑评估的数据集，因为即使tumor Classiication对于没学习过类似知识的人类来说都是不能完成的。</p>
+      </li>
+      <li>
+        <p>zero-shot的性能有好有坏，下游任务如果要用这个更好的任务做fine-tune，能否好过现在SOTA模型呢？更进一步说，representation learning到底到位了没有？Fine-tune完之后在21/27个任务上都取得了sota的结果</p>
+      </li>
+      <li>
+        <p>fine-tune之后到底对其他任务的影响有多大？这个叫做Natural distribution shift robustness。作者提出了疑问，到底是不是在ImageNet的数据集上做训练，导致了robustness gap。因此作者做了一个实验，就是在ImageNet上做fine-tune，然后再Evaluate其他的结果。最后发现tune完之后在其他任务上基本没什么shift。这有可能是预训练数据集很大导致的，也可能是用语言作为监督信号导致的，不过这个训练的方法是通过一个</p>
+
+        <p>L2 regularized logistic regression classifier来做的，并没有整体更新CLIP的权重，所以这个结果有点tricky，没在一个层面上比较。</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>limitations</p>
+
+    <ol>
+      <li>在很多任务上zero-shot和SOTA相差很远</li>
+      <li>在手写字体识别上，CLIP很容易就输给了简单的deep分类模型，这也有可能说明CLIP并没有解决深度网络的泛化问题，只是通过海量的训练数据保证了大部分任务是in-distribution的</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[CLIP - OpenAI - 2021 Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？ 当前进展 NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？ 原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的； 所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？ 这样的数据集，网络上有很多图，这些图是有文字描述的，是否能用这样的文字作为Image representation的监督信号呢？ 所以，CLIP的核心假设就是，文字能够作为Image perception的一个监督信号，指导模型学习到图片的perception 如何做 整体架构，两个实验，使用加了attention pooling的ResNet和Vision Transformer作为Vision Encoder。Text的使用63M的Transformer，只用了长度76的Sequence length。 用文字作为supervision的方法有很多，比如n-gram和topic models，但是用transfomers这种架构的深度网络作为image 网络的监督信号网络的方法还是未经尝试。 数据如何组织 之前的一些数据集太脏了，过滤后仅剩下15m。所以我们组织了400m的数据集叫做webImageText 如何训练 训练的主要难点在于数据量太大，如果直接把CNN和一个Text Transformer在一起从头训练，在63m大小的transformer上都比ResNet-50的image encoder慢太多了 之前用的方法，预测bag-of-words的和transformer-based，都是为了预测正确每一个和Text最相近的单词，说白了都是分类问题，这个最大的问题是丢失了context，且vocab（在这个任务中就是caption）非常的sparse（自然语言而非golden label作为训练标签），非常难训练 所以他们用了contrastive的objective，这样可以解决不好训练和训练慢的问题。 以batch size=10为例，训练时将&lt;image, caption&gt;这样的10对数据做分别对每张Image做交叉熵Loss和每个caption做交叉熵Loss。对每张图片，最大化和一张图相近的Caption，对每个caption，最大化和一个caption相近的图片。前者可以找到和图片最近的Caption，后者可以把每个图片之间的距离拉远。 实验 Image classification领域的zero-shot transfer learning指代的是能够正确把图片归类到之前没有训练过的类别 这篇文章主要学习zero-shot的transfer learning 实验结果表明，这个Pretrain的方法，在没有用过任何classification的labelling的情况下，比Visual n-grams好了太多 Prompt engineering: 这里指的主要是文本的prompt，比如a photo a cat要比直接用cat作为caption好很多；另外，词语的多义性也直接导致了语言模型confuse的程度增加；另外，用加上任务相关的信息能大大提升性能，例如把{label}改成a photo of {}, a type of pet能提升宠物类的benchmark 尝试用不同的prompt来提升任务的整体质量 实验结果 在大部分benchmark上都显著好于ImageNet50的方案，但是在专业数据集上表现较差。作者说了有很大提升空间，但是同时质疑评估的数据集，因为即使tumor Classiication对于没学习过类似知识的人类来说都是不能完成的。 zero-shot的性能有好有坏，下游任务如果要用这个更好的任务做fine-tune，能否好过现在SOTA模型呢？更进一步说，representation learning到底到位了没有？Fine-tune完之后在21/27个任务上都取得了sota的结果 fine-tune之后到底对其他任务的影响有多大？这个叫做Natural distribution shift robustness。作者提出了疑问，到底是不是在ImageNet的数据集上做训练，导致了robustness gap。因此作者做了一个实验，就是在ImageNet上做fine-tune，然后再Evaluate其他的结果。最后发现tune完之后在其他任务上基本没什么shift。这有可能是预训练数据集很大导致的，也可能是用语言作为监督信号导致的，不过这个训练的方法是通过一个 L2 regularized logistic regression classifier来做的，并没有整体更新CLIP的权重，所以这个结果有点tricky，没在一个层面上比较。 limitations 在很多任务上zero-shot和SOTA相差很远 在手写字体识别上，CLIP很容易就输给了简单的deep分类模型，这也有可能说明CLIP并没有解决深度网络的泛化问题，只是通过海量的训练数据保证了大部分任务是in-distribution的]]></summary></entry><entry><title type="html">【AI】多模态总结</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/29/multi-modal-lm.html" rel="alternate" type="text/html" title="【AI】多模态总结" /><published>2024-01-29T14:04:07+08:00</published><updated>2024-01-29T14:04:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/29/multi-modal-lm</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/29/multi-modal-lm.html"><![CDATA[<h1 id="大模型21多模态大模型">大模型21：多模态大模型</h1>
+
+<h2 id="分类图">分类图</h2>
+
+<p>https://whimsical.com/mlm-8adiZwwDifpxwNxz4qFPKZ</p>
+
+<h1 id="timeline"><strong>Timeline</strong></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>分类</th>
+      <th>模型</th>
+      <th>时间</th>
+      <th>团队</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>language&lt;&gt;image pretrain</td>
+      <td>CLIP</td>
+      <td>202103</td>
+      <td>OpenAI</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>VLP pretrain</td>
+      <td>Flamingo</td>
+      <td>202204</td>
+      <td>DeepMind</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>vision-lang pretrain</td>
+      <td>BLIP-2</td>
+      <td>202302</td>
+      <td>Salesforce</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>vision-lang instruction tuning</td>
+      <td>InstructBLIP</td>
+      <td>202305</td>
+      <td>Salesforce</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>VLP + SFT + 长图文写作</td>
+      <td>Internlm-xcomposer</td>
+      <td>202309</td>
+      <td>PJLab 上海人工智能实验室</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Pretrain + SFT</td>
+      <td>InternLM-xcomposer2</td>
+      <td>202401</td>
+      <td>PJLab上海人工智能实验室</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Instruction tuning</td>
+      <td>LLaVA</td>
+      <td>202304</td>
+      <td>Microsoft Research</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="models">Models</h1>
+
+<h2 id="clip---openai---2021">CLIP - OpenAI - 2021</h2>
+
+<ol>
+  <li>
+    <p>Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？</p>
+  </li>
+  <li>
+    <p>当前进展</p>
+
+    <ol>
+      <li>NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？</li>
+      <li>原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的；</li>
+      <li>所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？</li>
+      <li>这样的数据集，网络上有很多图，这些图是有文字描述的，是否能用这样的文字作为Image representation的监督信号呢？</li>
+      <li>所以，CLIP的核心假设就是，<strong>文字能够作为Image perception的一个监督信号</strong>，指导模型学习到图片的perception</li>
+    </ol>
+  </li>
+  <li>
+    <p>如何做</p>
+
+    <ol>
+      <li>用文字作为supervision的方法有很多，比如n-gram和topic models，但是用transfomers这种架构的深度网络作为image 网络的监督信号网络的方法还是未经尝试。</li>
+    </ol>
+  </li>
+  <li>
+    <p>数据如何组织</p>
+
+    <ol>
+      <li>之前的一些数据集太脏了，过滤后仅剩下15m。所以我们组织了400m的数据集叫做webImageText</li>
+    </ol>
+  </li>
+  <li>
+    <p>如何训练</p>
+
+    <ol>
+      <li>训练的主要难点在于数据量太大，如果直接把CNN和一个Text Transformer在一起从头训练，在63m大小的transformer上都比ResNet-50的image encoder慢太多了</li>
+      <li>之前用的方法，预测bag-of-words的和transformer-based，都是为了预测正确每一个和Text最相近的单词，说白了都是分类问题，这个最大的问题是丢失了context，且vocab非常的sparse，非常难训练</li>
+      <li>所以他们用了contrastive的objective，这样可以解决不好训练和训练慢的问题</li>
+    </ol>
+  </li>
+  <li>
+    <p>如何建模</p>
+
+    <ol>
+      <li>两个实验，使用加了attention pooling的ResNet和Vision Transformer作为Vision Encoder</li>
+      <li>Text的使用63M的Transformer，只用了76的Sequence length</li>
+    </ol>
+  </li>
+  <li>
+    <p>实验</p>
+
+    <ol>
+      <li>Image classification领域的zero-shot transfer learning指代的是能够正确把图片归类到之前没有训练过的类别</li>
+      <li>这篇文章主要学习zero-shot的transfer learning</li>
+      <li>实验结果表明，这个Pretrain的方法，在没有用过任何classification的labelling的情况下，比Visual n-grams好了太多</li>
+      <li>Prompt engineering: 这里指的主要是文本的prompt，比如a photo a cat要比直接用cat作为caption好很多；另外，词语的多义性也直接导致了语言模型confuse的程度增加；另外，用加上任务相关的信息能大大提升性能，例如把{label}改成a photo of {}, a type of pet能提升宠物类的benchmark</li>
+      <li>尝试用不同的prompt来提升任务的整体质量</li>
+    </ol>
+  </li>
+  <li>
+    <p>实验结果</p>
+
+    <ol>
+      <li>
+        <p>在大部分benchmark上都显著好于ImageNet50的方案，但是在专业数据集上表现较差。作者说了有很大提升空间，但是同时质疑评估的数据集，因为即使tumor Classiication对于没学习过类似知识的人类来说都是不能完成的。</p>
+      </li>
+      <li>
+        <p>zero-shot的性能有好有坏，下游任务如果要用这个更好的任务做fine-tune，能否好过现在SOTA模型呢？更进一步说，representation learning到底到位了没有？Fine-tune完之后在21/27个任务上都取得了sota的结果</p>
+      </li>
+      <li>
+        <p>fine-tune之后到底对其他任务的影响有多大？这个叫做Natural distribution shift robustness。作者提出了疑问，到底是不是在ImageNet的数据集上做训练，导致了robustness gap。因此作者做了一个实验，就是在ImageNet上做fine-tune，然后再Evaluate其他的结果。最后发现tune完之后在其他任务上基本没什么shift。这有可能是预训练数据集很大导致的，也可能是用语言作为监督信号导致的，不过这个训练的方法是通过一个</p>
+
+        <p>L2 regularized logistic regression classifier来做的，并没有整体更新CLIP的权重，所以这个结果有点tricky，没在一个层面上比较。</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>limitations</p>
+
+    <ol>
+      <li>在很多任务上zero-shot和SOTA相差很远</li>
+      <li>在手写字体识别上，CLIP很容易就输给了简单的deep分类模型，这也有可能说明CLIP并没有解决深度网络的泛化问题，只是通过海量的训练数据保证了大部分任务是in-distribution的</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="blip-2">BLIP-2</h2>
+
+<ol>
+  <li>
+    <p>Contribution</p>
+
+    <ol>
+      <li>
+        <p>Generic compute-efficient的Vision Language Pretrain模型
+<img src="/assets/images/image-20240215190353881.png" alt="image-20240215190353881" /></p>
+      </li>
+      <li>
+        <p>Design一个Q-Former（一个轻量级的Transformer对齐Vision和Text）</p>
+      </li>
+      <li>
+        <p>设计了一个两阶段的训练过程，第一个阶段做vision-languange representation learning，第二阶段Boost LLM的对Image的生成能力。这两个阶段都是只训练Q-former，但是两阶段的目标不同。</p>
+
+        <p><img src="/assets/images/image-20240215190420043.png" alt="image-20240215190420043" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>具体方法</p>
+
+    <ol>
+      <li>Image representation也是学习了CLIP，用in-batch negtives做Contrastive learning</li>
+      <li>用Image作为Text Generation的condition，用了一些trick，这里用了MultiModal causal self-attention mask，保证每次都能attend到前面所有的Token。</li>
+      <li>Image Text Matching，通过一个二分类器来预测一个Image和Text pair是否是正例的方式，再次align Image和Text的representation</li>
+    </ol>
+  </li>
+  <li>
+    <p>训练 - 两阶段训练都更新相同的parameters，但是通过不同的Attention mask实现不同目标的学习。</p>
+
+    <ol>
+      <li>
+        <p>一阶段：目标是把Vision Encoder的representation align到Language的space中，Query相当于是Vision的embedding，Output是Text的embedding，这个阶段要分别学习三个loss。为什么要这样做？</p>
+      </li>
+      <li>
+        <p>一阶段的loss https://github.com/salesforce/LAVIS/blob/main/lavis/models/blip2_models/blip2_qformer.py 参考这个里面的三个loss，</p>
+      </li>
+      <li>
+        <p>二阶段：Generative pretraining，用一层LC把Q-Former的embedding接到LLM上，这一步的learnable params是什么？Q-former + LC层，用Language modelling loss……有点疑问，什么叫Language modelling loss和prefix Language modelling loss？</p>
+      </li>
+      <li>
+        <p>第二阶段，以t5举例，直接复用了t5 forward时的loss作为第二阶段的loss</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">t5_model</span><span class="p">(</span>
+    <span class="n">inputs_embeds</span><span class="o">=</span><span class="n">inputs_embeds</span><span class="p">,</span>
+    <span class="n">attention_mask</span><span class="o">=</span><span class="n">encoder_atts</span><span class="p">,</span>
+    <span class="n">decoder_attention_mask</span><span class="o">=</span><span class="n">output_tokens</span><span class="p">.</span><span class="n">attention_mask</span><span class="p">,</span>
+    <span class="n">return_dict</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">.</span><span class="n">loss</span>
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="blip-2-instructblip">BLIP-2 InstructBLIP</h2>
+
+<ol>
+  <li>
+    <p>总结：一个基于BLIP-2的instruction tuning的版本，能够针对用户的多轮交互做问答，原来BLIP-2的训练数据，基本上只有一个问题和回答，说自己的novelty是instruction-aware的BLIP，实际上就是把原来放Image caption的地方改成了instruction，并基于原来BLIP-2的ckpt继续训练的版本。最主要的贡献还是构造了26个数据集 + Data mix时的数据balance手法。</p>
+  </li>
+  <li>
+    <p>code：https://github.com/salesforce/LAVIS/tree/main/lavis/models/blip2_models</p>
+  </li>
+  <li>
+    <p>Contribution</p>
+
+    <ol>
+      <li>构造了26个Visual instruction tuning的数据集，13个训练，13个held-out</li>
+      <li>提出了Q-former，能够更高效的根据instruction的上下文提取图片特征</li>
+      <li>LLM用了FLAN T5，Vicuna和LLaMA</li>
+    </ol>
+  </li>
+  <li>
+    <p>数据构造</p>
+
+    <ol>
+      <li>trick 1：对于回答特别简短的，instruction里面加了briefly这个</li>
+    </ol>
+  </li>
+  <li>
+    <p>visual feature extraction</p>
+
+    <ol>
+      <li>
+        <p>之前的方案，Image feature不会根据instruction的变化而改变，作者认为这是个改进点，需要Visual Embedding根据不同任务的instruction而产生改变</p>
+      </li>
+      <li>
+        <p>改进的方案，把instruction和queries一起放到Q-Former的Input里面，主要code在这里</p>
+
+        <p><img src="/assets/images/image-20240215190540465.png" alt="image-20240215190540465" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Training</p>
+
+    <ol>
+      <li>
+        <p>用预训练好的BLIP-2作为基座，只训练Q-Former，对于其不包含的Vicuna基座的LLM，又做了BLIP-2和Vicuna的pretrain</p>
+      </li>
+      <li>
+        <p>超参：</p>
+
+        <p><img src="/assets/images/image-20240215190603339.png" alt="image-20240215190603339" /></p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="internlm-xcomposer">Internlm-xcomposer</h2>
+
+<ol>
+  <li>
+    <p>整体架构</p>
+
+    <p><img src="/assets/images/image-20240215190637321.png" alt="image-20240215190637321" /></p>
+  </li>
+  <li>
+    <p>当前存在的问题及解决手法</p>
+
+    <ol>
+      <li>当前其他模型在长篇文章生成、图文生成中存在缺陷 - 我们用CLIP取出最相关的图片，并放到生成的结果中；</li>
+      <li>图像理解能力有待提升 - 我们使用了海量训练数据来弥补实际问题上out-distribution的情况。</li>
+    </ol>
+  </li>
+  <li>
+    <p>模型架构</p>
+
+    <ol>
+      <li>Vision-encoder: EVA-CLIP</li>
+      <li>Perceived Sampler: <del>完全复用了BLIP-2的Q-Former</del>，虽然叫做Q-former，但是没有复用BLIP的Q-former。</li>
+      <li>LLM - Internlm-chat-7B</li>
+    </ol>
+  </li>
+  <li>
+    <p>训练方法 - Pretrain + SFT</p>
+
+    <ol>
+      <li>
+        <p>Pretrain - public + in-house数据，会同时训练LM + Q-former</p>
+
+        <p><img src="/assets/images/1707995243632.png" alt="1707995243632" /></p>
+      </li>
+      <li>
+        <p>SFT - 其实就是instruction tuning。同时训练Q-former和LLM的LoRA</p>
+
+        <p><img src="/assets/images/1707995295221.png" alt="1707995295221" /></p>
+      </li>
+      <li>
+        <p>Question：为什么第一步不用LoRA，第二步做的时候用LoRA？为了训练stability和efficiency？感觉有点说不通，不用又会怎样？</p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>评估</p>
+  </li>
+</ol>
+
+<h2 id="internlm-xcomposer2">Internlm-xcomposer2</h2>
+
+<ol>
+  <li>
+    <p>目标：提升VLM的理解能力；提升图文混合类的创作能力。</p>
+  </li>
+  <li>
+    <p>Gap：现有模态对齐方法的问题，他们认为，以前的模态对齐任务，</p>
+
+    <ol>
+      <li>要不然认为Image Token和Language Token是等价的，</li>
+      <li>要不然认为两个模态是独立的个体。</li>
+      <li>这两个方法，前者作者认为有忽略了两者对结果的实际影响，后者作者认为有很大的对齐成本。</li>
+    </ol>
+  </li>
+  <li>
+    <p>方法：提出了PLoRA的方法，用PLoRA替代了以前的Q-former。这个PLoRA只attend Visual tokens。把LLM的每一层的LoRA拿出来，组成一个Partial LoRA，并将其作为Visual Token的processor，Output feature就直接把这两个拼接起来。</p>
+
+    <p><img src="/assets/images/1707995340998.png" alt="1707995340998" /></p>
+
+    <ol>
+      <li>训练：两阶段，
+        <ol>
+          <li>阶段一：这次freeze住了LM，<strong>训练Vision Encoder和PLoRA</strong>。和第一代训练LM + Q-former的思路不同，猜测是出现了语言能力下降的问题，因此LM需要freeze住。Training的三个目标：第一是理解，知道图像中出现的是什么，第二是丰富回答，这里应该是类似于之前的image-grounded caption Generation，第三个是增加Vision能力，侧重数据集的构建。<strong>但这里应该没有用三个Loss做训练！*<em>因为Pretrain的时候LM被Freeze住了，所以产生caption的这个Loss（即Image grounded Text Generation）这部分的Loss不应该在这步存在；并且，这三个目标使用的数据集格式，基本上是Image-caption和Image-sentence。因此猜测这步的训练就*</em>只使用了Constrastive learning的Loss</strong>，同时back prop Vision Encoder和PLoRA。</li>
+          <li>阶段二：fine-tune的过程是Vision Encoder + PLoRA + LLM同时训练，这里需要注意的是，Multi-task tuning的这步是加了10%的InternLM的数据一起训练的，猜测不然的话LM的能力会下降。这步的Loss就纯是LLM的Loss了，直接看这个code，应该就是直接把Image embedding当做一部分Text embedding，用LLM的cross entropy Loss来同时更新这几个组成部分的参数。</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>InternLM-XComposer 1</th>
+      <th>InternLM-XComposer 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>阶段 1</td>
+      <td><img src="/assets/images/1707995401350.png" alt="1707995401350" /></td>
+      <td><img src="/assets/images/1707995393627.png" alt="1707995393627" /></td>
+    </tr>
+    <tr>
+      <td>阶段 2</td>
+      <td><img src="/assets/images/1707995386299-7995581.png" alt="1707995386299-7995581" /></td>
+      <td><img src="/assets/images/1707995374923-7995583.png" alt="1707995374923-7995583" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>思考：如果这个训练方法有用，说明可以Follow隐式学习Visual和Text的权重的方法来做Pretrain是更好的。</li>
+</ol>
+
+<h2 id="llava">LLaVA</h2>
+
+<ol>
+  <li>
+    <p>Intuitive：这篇工作已经在BLIP-2之后了，所以Image的理解能力不是LLaVA希望提升的重点，LLaVA是想提升多模态模型的Instruction-Following ability，也就是特定的多轮QA场景。</p>
+  </li>
+  <li>
+    <p>主要贡献：构造了三种Instruction的数据，包括多轮对话，图片描述和复杂推理。其中，图片描述是从多轮对话中选取出来的。分别构造了58k，23k和77k数据</p>
+  </li>
+  <li>
+    <p>网络结构</p>
+
+    <ol>
+      <li>
+        <p>用了一个projection matrix直接把CLIP的最后一层Output feature映射到Language的Token space上面，和Instruction拼在一起给到LLM做推理。</p>
+
+        <p><img src="/assets/images/1707995610607.png" alt="1707995610607" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Training - 分成两步，模态对齐和Instruction tuning</p>
+
+    <ol>
+      <li>模态对齐：这步使用CC3M的Image caption数据进行模态对齐，<strong>只训练这个projection matrix</strong>，Input是Instruction(describe this image briefly) + Image，Output是Image的caption，构造了训练对。</li>
+      <li>端到端训练：这一部分训练LLM和Projection matrix，用了Science QA和多轮Chatbot对话的数据。</li>
+    </ol>
+  </li>
+  <li>
+    <p>Takeaway</p>
+
+    <ol>
+      <li>其实模态对齐可能不需要很复杂的结构？data才是王道？</li>
+      <li>LLaVA的图片理解能力到底是什么水平，和其他模型比起来？还不太清楚</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[大模型21：多模态大模型 分类图 https://whimsical.com/mlm-8adiZwwDifpxwNxz4qFPKZ Timeline 分类 模型 时间 团队 Summary language&lt;&gt;image pretrain CLIP 202103 OpenAI   VLP pretrain Flamingo 202204 DeepMind   vision-lang pretrain BLIP-2 202302 Salesforce   vision-lang instruction tuning InstructBLIP 202305 Salesforce   VLP + SFT + 长图文写作 Internlm-xcomposer 202309 PJLab 上海人工智能实验室   Pretrain + SFT InternLM-xcomposer2 202401 PJLab上海人工智能实验室   Instruction tuning LLaVA 202304 Microsoft Research   Models CLIP - OpenAI - 2021 Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？ 当前进展 NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？ 原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的； 所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？ 这样的数据集，网络上有很多图，这些图是有文字描述的，是否能用这样的文字作为Image representation的监督信号呢？ 所以，CLIP的核心假设就是，文字能够作为Image perception的一个监督信号，指导模型学习到图片的perception 如何做 用文字作为supervision的方法有很多，比如n-gram和topic models，但是用transfomers这种架构的深度网络作为image 网络的监督信号网络的方法还是未经尝试。 数据如何组织 之前的一些数据集太脏了，过滤后仅剩下15m。所以我们组织了400m的数据集叫做webImageText 如何训练 训练的主要难点在于数据量太大，如果直接把CNN和一个Text Transformer在一起从头训练，在63m大小的transformer上都比ResNet-50的image encoder慢太多了 之前用的方法，预测bag-of-words的和transformer-based，都是为了预测正确每一个和Text最相近的单词，说白了都是分类问题，这个最大的问题是丢失了context，且vocab非常的sparse，非常难训练 所以他们用了contrastive的objective，这样可以解决不好训练和训练慢的问题 如何建模 两个实验，使用加了attention pooling的ResNet和Vision Transformer作为Vision Encoder Text的使用63M的Transformer，只用了76的Sequence length 实验 Image classification领域的zero-shot transfer learning指代的是能够正确把图片归类到之前没有训练过的类别 这篇文章主要学习zero-shot的transfer learning 实验结果表明，这个Pretrain的方法，在没有用过任何classification的labelling的情况下，比Visual n-grams好了太多 Prompt engineering: 这里指的主要是文本的prompt，比如a photo a cat要比直接用cat作为caption好很多；另外，词语的多义性也直接导致了语言模型confuse的程度增加；另外，用加上任务相关的信息能大大提升性能，例如把{label}改成a photo of {}, a type of pet能提升宠物类的benchmark 尝试用不同的prompt来提升任务的整体质量 实验结果 在大部分benchmark上都显著好于ImageNet50的方案，但是在专业数据集上表现较差。作者说了有很大提升空间，但是同时质疑评估的数据集，因为即使tumor Classiication对于没学习过类似知识的人类来说都是不能完成的。 zero-shot的性能有好有坏，下游任务如果要用这个更好的任务做fine-tune，能否好过现在SOTA模型呢？更进一步说，representation learning到底到位了没有？Fine-tune完之后在21/27个任务上都取得了sota的结果 fine-tune之后到底对其他任务的影响有多大？这个叫做Natural distribution shift robustness。作者提出了疑问，到底是不是在ImageNet的数据集上做训练，导致了robustness gap。因此作者做了一个实验，就是在ImageNet上做fine-tune，然后再Evaluate其他的结果。最后发现tune完之后在其他任务上基本没什么shift。这有可能是预训练数据集很大导致的，也可能是用语言作为监督信号导致的，不过这个训练的方法是通过一个 L2 regularized logistic regression classifier来做的，并没有整体更新CLIP的权重，所以这个结果有点tricky，没在一个层面上比较。 limitations 在很多任务上zero-shot和SOTA相差很远 在手写字体识别上，CLIP很容易就输给了简单的deep分类模型，这也有可能说明CLIP并没有解决深度网络的泛化问题，只是通过海量的训练数据保证了大部分任务是in-distribution的 BLIP-2 Contribution Generic compute-efficient的Vision Language Pretrain模型 Design一个Q-Former（一个轻量级的Transformer对齐Vision和Text） 设计了一个两阶段的训练过程，第一个阶段做vision-languange representation learning，第二阶段Boost LLM的对Image的生成能力。这两个阶段都是只训练Q-former，但是两阶段的目标不同。 具体方法 Image representation也是学习了CLIP，用in-batch negtives做Contrastive learning 用Image作为Text Generation的condition，用了一些trick，这里用了MultiModal causal self-attention mask，保证每次都能attend到前面所有的Token。 Image Text Matching，通过一个二分类器来预测一个Image和Text pair是否是正例的方式，再次align Image和Text的representation 训练 - 两阶段训练都更新相同的parameters，但是通过不同的Attention mask实现不同目标的学习。 一阶段：目标是把Vision Encoder的representation align到Language的space中，Query相当于是Vision的embedding，Output是Text的embedding，这个阶段要分别学习三个loss。为什么要这样做？ 一阶段的loss https://github.com/salesforce/LAVIS/blob/main/lavis/models/blip2_models/blip2_qformer.py 参考这个里面的三个loss， 二阶段：Generative pretraining，用一层LC把Q-Former的embedding接到LLM上，这一步的learnable params是什么？Q-former + LC层，用Language modelling loss……有点疑问，什么叫Language modelling loss和prefix Language modelling loss？ 第二阶段，以t5举例，直接复用了t5 forward时的loss作为第二阶段的loss outputs = self.t5_model( inputs_embeds=inputs_embeds, attention_mask=encoder_atts, decoder_attention_mask=output_tokens.attention_mask, return_dict=True, labels=targets, ) loss = outputs.loss BLIP-2 InstructBLIP 总结：一个基于BLIP-2的instruction tuning的版本，能够针对用户的多轮交互做问答，原来BLIP-2的训练数据，基本上只有一个问题和回答，说自己的novelty是instruction-aware的BLIP，实际上就是把原来放Image caption的地方改成了instruction，并基于原来BLIP-2的ckpt继续训练的版本。最主要的贡献还是构造了26个数据集 + Data mix时的数据balance手法。 code：https://github.com/salesforce/LAVIS/tree/main/lavis/models/blip2_models Contribution 构造了26个Visual instruction tuning的数据集，13个训练，13个held-out 提出了Q-former，能够更高效的根据instruction的上下文提取图片特征 LLM用了FLAN T5，Vicuna和LLaMA 数据构造 trick 1：对于回答特别简短的，instruction里面加了briefly这个 visual feature extraction 之前的方案，Image feature不会根据instruction的变化而改变，作者认为这是个改进点，需要Visual Embedding根据不同任务的instruction而产生改变 改进的方案，把instruction和queries一起放到Q-Former的Input里面，主要code在这里 Training 用预训练好的BLIP-2作为基座，只训练Q-Former，对于其不包含的Vicuna基座的LLM，又做了BLIP-2和Vicuna的pretrain 超参： Internlm-xcomposer 整体架构 当前存在的问题及解决手法 当前其他模型在长篇文章生成、图文生成中存在缺陷 - 我们用CLIP取出最相关的图片，并放到生成的结果中； 图像理解能力有待提升 - 我们使用了海量训练数据来弥补实际问题上out-distribution的情况。 模型架构 Vision-encoder: EVA-CLIP Perceived Sampler: 完全复用了BLIP-2的Q-Former，虽然叫做Q-former，但是没有复用BLIP的Q-former。 LLM - Internlm-chat-7B 训练方法 - Pretrain + SFT Pretrain - public + in-house数据，会同时训练LM + Q-former SFT - 其实就是instruction tuning。同时训练Q-former和LLM的LoRA Question：为什么第一步不用LoRA，第二步做的时候用LoRA？为了训练stability和efficiency？感觉有点说不通，不用又会怎样？ 评估 Internlm-xcomposer2 目标：提升VLM的理解能力；提升图文混合类的创作能力。 Gap：现有模态对齐方法的问题，他们认为，以前的模态对齐任务， 要不然认为Image Token和Language Token是等价的， 要不然认为两个模态是独立的个体。 这两个方法，前者作者认为有忽略了两者对结果的实际影响，后者作者认为有很大的对齐成本。 方法：提出了PLoRA的方法，用PLoRA替代了以前的Q-former。这个PLoRA只attend Visual tokens。把LLM的每一层的LoRA拿出来，组成一个Partial LoRA，并将其作为Visual Token的processor，Output feature就直接把这两个拼接起来。 训练：两阶段， 阶段一：这次freeze住了LM，训练Vision Encoder和PLoRA。和第一代训练LM + Q-former的思路不同，猜测是出现了语言能力下降的问题，因此LM需要freeze住。Training的三个目标：第一是理解，知道图像中出现的是什么，第二是丰富回答，这里应该是类似于之前的image-grounded caption Generation，第三个是增加Vision能力，侧重数据集的构建。但这里应该没有用三个Loss做训练！*因为Pretrain的时候LM被Freeze住了，所以产生caption的这个Loss（即Image grounded Text Generation）这部分的Loss不应该在这步存在；并且，这三个目标使用的数据集格式，基本上是Image-caption和Image-sentence。因此猜测这步的训练就*只使用了Constrastive learning的Loss，同时back prop Vision Encoder和PLoRA。 阶段二：fine-tune的过程是Vision Encoder + PLoRA + LLM同时训练，这里需要注意的是，Multi-task tuning的这步是加了10%的InternLM的数据一起训练的，猜测不然的话LM的能力会下降。这步的Loss就纯是LLM的Loss了，直接看这个code，应该就是直接把Image embedding当做一部分Text embedding，用LLM的cross entropy Loss来同时更新这几个组成部分的参数。   InternLM-XComposer 1 InternLM-XComposer 2 阶段 1 阶段 2 思考：如果这个训练方法有用，说明可以Follow隐式学习Visual和Text的权重的方法来做Pretrain是更好的。 LLaVA Intuitive：这篇工作已经在BLIP-2之后了，所以Image的理解能力不是LLaVA希望提升的重点，LLaVA是想提升多模态模型的Instruction-Following ability，也就是特定的多轮QA场景。 主要贡献：构造了三种Instruction的数据，包括多轮对话，图片描述和复杂推理。其中，图片描述是从多轮对话中选取出来的。分别构造了58k，23k和77k数据 网络结构 用了一个projection matrix直接把CLIP的最后一层Output feature映射到Language的Token space上面，和Instruction拼在一起给到LLM做推理。 Training - 分成两步，模态对齐和Instruction tuning 模态对齐：这步使用CC3M的Image caption数据进行模态对齐，只训练这个projection matrix，Input是Instruction(describe this image briefly) + Image，Output是Image的caption，构造了训练对。 端到端训练：这一部分训练LLM和Projection matrix，用了Science QA和多轮Chatbot对话的数据。 Takeaway 其实模态对齐可能不需要很复杂的结构？data才是王道？ LLaVA的图片理解能力到底是什么水平，和其他模型比起来？还不太清楚]]></summary></entry><entry><title type="html">【AI】Decoder-only Transformer</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-decoder-only.html" rel="alternate" type="text/html" title="【AI】Decoder-only Transformer" /><published>2024-01-29T14:04:07+08:00</published><updated>2024-01-29T14:04:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-decoder-only</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/29/llm-decoder-only.html"><![CDATA[<h1 id="decoder-only-transformer">Decoder-only Transformer</h1>
+
+<p>Decoder-only的Transformer网络结构式2017年GPT系列的第一篇文章带火的。Decoder-only最大的特点是，我称之为打直球，即直接针对Input预测下一个Token的概率分布，从概率分布中sample一个Token，就直接给结果了，然后再进行下一次生成，也即Auto regressive。例如Input是，A quick brown fox，那么模型会给出下一个Token是j，在下次给出Token是u，循环N次知道生成结束Token [EOS]，本次生成结束，你会得到A quick brown fox jumps over the lazy dog.[EOS]这样的输出。</p>
+
+<p>下图的左边就是GPT系列的基础架构。</p>
+
+<p><img src="/assets/images/image-20240215130231127.png" alt="image-20240215130231127" /></p>
+
+<p>下面我们结合代码来看一下，代码仓库：<a href="https://github.com/karpathy">karpathy</a>/<a href="https://github.com/karpathy/nanoGPT">nanoGPT</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">idx</span><span class="p">.</span><span class="n">device</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">idx</span><span class="p">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">block_size</span><span class="p">,</span> <span class="sa">f</span><span class="s">"Cannot forward sequence of length </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s">, block size is only </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">block_size</span><span class="si">}</span><span class="s">"</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="p">.</span><span class="nb">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="c1"># shape (t)
+</span>
+    <span class="c1"># forward the GPT model itself
+</span>		<span class="c1"># 第一层，Text Embedding + Positional Embedding，用于Tokenize和感知不同Token之间的位置关系。
+</span>    <span class="n">tok_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transformer</span><span class="p">.</span><span class="n">wte</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="c1"># token embeddings of shape (b, t, n_embd)
+</span>    <span class="n">pos_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transformer</span><span class="p">.</span><span class="n">wpe</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="c1"># position embeddings of shape (t, n_embd)
+</span>		<span class="c1"># 对Positional Embedding用了一层Dropout，原因主要有两个，
+</span>		<span class="c1"># 第一防止过拟合，随机Drop掉一些Input中的units有助于学习到句式中更鲁棒的特征。
+</span>		<span class="c1"># 第二防止模型对位置信息的依赖过重，对自回归模型来说这点尤其重要，因为自回归未来的生成依赖于之前的生成
+</span>		<span class="c1">#   如果不加Dropout，当前面的Input一样时，后面可能永远不会有任何变化。
+</span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transformer</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">tok_emb</span> <span class="o">+</span> <span class="n">pos_emb</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">transformer</span><span class="p">.</span><span class="n">h</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transformer</span><span class="p">.</span><span class="n">ln_f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+		<span class="c1"># target非空时，表示这是训练状态
+</span>    <span class="k">if</span> <span class="n">targets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># if we are given some desired targets also calculate the loss
+</span>				<span class="c1"># 用于产出整个语料库Token的概率分布
+</span>				<span class="c1"># self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
+</span>        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lm_head</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">logits</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">logits</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">targets</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># inference-time mini-optimization: only forward the lm_head on the very last position
+</span>        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lm_head</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">:])</span> <span class="c1"># note: using list [-1] to preserve the time dim
+</span>        <span class="n">loss</span> <span class="o">=</span> <span class="bp">None</span>
+
+  <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">loss</span>
+</code></pre></div></div>
+
+<p>结合一下Generate函数，我们来看一下temperature在部署模型推理时候的作用。假如我们把语料库的Token概率分布想象成一个正态分布曲线，由于temperature在分母位置，那么Temperature越大，则正态分布曲线越平滑，越小则越尖锐。所以在经过最后的Softmax层之后，概率越大的会被放大，被sample到的概率就会变大，因此越小的temperature，会让产出结果的确定性更强，更容易产出相同的结果。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">torch</span><span class="p">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="s">"""
+    Take a conditioning sequence of indices idx (LongTensor of shape (b,t)) and complete
+    the sequence max_new_tokens times, feeding the predictions back into the model each time.
+    Most likely you'll want to make sure to be in model.eval() mode of operation for this.
+    """</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_new_tokens</span><span class="p">):</span>
+        <span class="c1"># if the sequence context is growing too long we must crop it at block_size
+</span>        <span class="n">idx_cond</span> <span class="o">=</span> <span class="n">idx</span> <span class="k">if</span> <span class="n">idx</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">block_size</span> <span class="k">else</span> <span class="n">idx</span><span class="p">[:,</span> <span class="o">-</span><span class="bp">self</span><span class="p">.</span><span class="n">config</span><span class="p">.</span><span class="n">block_size</span><span class="p">:]</span>
+        <span class="c1"># forward the model to get the logits for the index in the sequence
+</span>        <span class="n">logits</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">idx_cond</span><span class="p">)</span>
+        <span class="c1"># pluck the logits at the final step and scale by desired temperature
+</span>				<span class="c1"># 假如我们把语料库的Token概率分布想象成一个正态分布曲线，
+</span>				<span class="c1"># 由于temperature在分母位置，那么Temperature越大，则正态分布曲线越平滑，越小则越尖锐。
+</span>        <span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">temperature</span>
+        <span class="c1"># optionally crop the logits to only the top k options
+</span>        <span class="k">if</span> <span class="n">top_k</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">v</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">topk</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="n">logits</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+            <span class="n">logits</span><span class="p">[</span><span class="n">logits</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">[:,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]]</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s">'Inf'</span><span class="p">)</span>
+        <span class="c1"># apply softmax to convert logits to (normalized) probabilities
+</span>				<span class="c1"># 所以在经过最后的Softmax层之后，概率越大的会被放大，被sample到的概率就会变大，
+</span>				<span class="c1"># 因此越小的temperature，会让产出结果的确定性更强，更容易产出相同的结果。
+</span>        <span class="n">probs</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># sample from the distribution
+</span>        <span class="n">idx_next</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># append sampled index to the running sequence and continue
+</span>        <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">cat</span><span class="p">((</span><span class="n">idx</span><span class="p">,</span> <span class="n">idx_next</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">idx</span>
+</code></pre></div></div>
+
+<p>Decoder-only的知识点你掌握了吗？欢迎在评论区留言告诉我你还有哪里没懂，想了解哪些知识。下一期我们挖个新坑，讲一讲多模态大模型的相关知识。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Decoder-only Transformer Decoder-only的Transformer网络结构式2017年GPT系列的第一篇文章带火的。Decoder-only最大的特点是，我称之为打直球，即直接针对Input预测下一个Token的概率分布，从概率分布中sample一个Token，就直接给结果了，然后再进行下一次生成，也即Auto regressive。例如Input是，A quick brown fox，那么模型会给出下一个Token是j，在下次给出Token是u，循环N次知道生成结束Token [EOS]，本次生成结束，你会得到A quick brown fox jumps over the lazy dog.[EOS]这样的输出。 下图的左边就是GPT系列的基础架构。 下面我们结合代码来看一下，代码仓库：karpathy/nanoGPT def forward(self, idx, targets=None): device = idx.device b, t = idx.size() assert t &lt;= self.config.block_size, f"Cannot forward sequence of length {t}, block size is only {self.config.block_size}" pos = torch.arange(0, t, dtype=torch.long, device=device) # shape (t) # forward the GPT model itself # 第一层，Text Embedding + Positional Embedding，用于Tokenize和感知不同Token之间的位置关系。 tok_emb = self.transformer.wte(idx) # token embeddings of shape (b, t, n_embd) pos_emb = self.transformer.wpe(pos) # position embeddings of shape (t, n_embd) # 对Positional Embedding用了一层Dropout，原因主要有两个， # 第一防止过拟合，随机Drop掉一些Input中的units有助于学习到句式中更鲁棒的特征。 # 第二防止模型对位置信息的依赖过重，对自回归模型来说这点尤其重要，因为自回归未来的生成依赖于之前的生成 # 如果不加Dropout，当前面的Input一样时，后面可能永远不会有任何变化。 x = self.transformer.drop(tok_emb + pos_emb) for block in self.transformer.h: x = block(x) x = self.transformer.ln_f(x) # target非空时，表示这是训练状态 if targets is not None: # if we are given some desired targets also calculate the loss # 用于产出整个语料库Token的概率分布 # self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False) logits = self.lm_head(x) loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), ignore_index=-1) else: # inference-time mini-optimization: only forward the lm_head on the very last position logits = self.lm_head(x[:, [-1], :]) # note: using list [-1] to preserve the time dim loss = None return logits, loss 结合一下Generate函数，我们来看一下temperature在部署模型推理时候的作用。假如我们把语料库的Token概率分布想象成一个正态分布曲线，由于temperature在分母位置，那么Temperature越大，则正态分布曲线越平滑，越小则越尖锐。所以在经过最后的Softmax层之后，概率越大的会被放大，被sample到的概率就会变大，因此越小的temperature，会让产出结果的确定性更强，更容易产出相同的结果。 @torch.no_grad() def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None): """ Take a conditioning sequence of indices idx (LongTensor of shape (b,t)) and complete the sequence max_new_tokens times, feeding the predictions back into the model each time. Most likely you'll want to make sure to be in model.eval() mode of operation for this. """ for _ in range(max_new_tokens): # if the sequence context is growing too long we must crop it at block_size idx_cond = idx if idx.size(1) &lt;= self.config.block_size else idx[:, -self.config.block_size:] # forward the model to get the logits for the index in the sequence logits, _ = self(idx_cond) # pluck the logits at the final step and scale by desired temperature # 假如我们把语料库的Token概率分布想象成一个正态分布曲线， # 由于temperature在分母位置，那么Temperature越大，则正态分布曲线越平滑，越小则越尖锐。 logits = logits[:, -1, :] / temperature # optionally crop the logits to only the top k options if top_k is not None: v, _ = torch.topk(logits, min(top_k, logits.size(-1))) logits[logits &lt; v[:, [-1]]] = -float('Inf') # apply softmax to convert logits to (normalized) probabilities # 所以在经过最后的Softmax层之后，概率越大的会被放大，被sample到的概率就会变大， # 因此越小的temperature，会让产出结果的确定性更强，更容易产出相同的结果。 probs = F.softmax(logits, dim=-1) # sample from the distribution idx_next = torch.multinomial(probs, num_samples=1) # append sampled index to the running sequence and continue idx = torch.cat((idx, idx_next), dim=1) return idx Decoder-only的知识点你掌握了吗？欢迎在评论区留言告诉我你还有哪里没懂，想了解哪些知识。下一期我们挖个新坑，讲一讲多模态大模型的相关知识。]]></summary></entry><entry><title type="html">【AI】Encoder-only Transformer</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only.html" rel="alternate" type="text/html" title="【AI】Encoder-only Transformer" /><published>2024-01-27T19:56:07+08:00</published><updated>2024-01-27T19:56:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/27/llm-encoder-only.html"><![CDATA[<p>基于Transformer的大语言模型共有三种架构，分别是Encoder-only Model，Encoder-Decoder Model和Decoder-only Model。</p>
 
 <p>三者的本质区别：大模型的输出是文本还是Embedding。后者需要改模型结构才能适配其他下游任务。</p>
 
@@ -190,94 +1229,4 @@
       <li>RLHF：一般来说需要人工标注Preference，使模型生成的结果对齐人类选择的过程，叫做RLHF。<img src="/assets/images/image-20240129152913271.png" alt="image-20240129152913271" /></li>
     </ul>
   </li>
-</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[还在纠结这些名词之间的区别吗？给你讲清楚 TLDR：主要差别在于训练数据的构造。 Pretrain 无监督的，就纯用语料库来训练，比如webtext，Wikipedia等，预测下一个token的概率分布，并用cross-entropy loss作为loss Function来更新模型的参数； Continuous Pretrain：在一个已经训练好的预训练模型上，用一些数据来进一步加强模型的某些方面的能力，这也是无监督的，数据也没有经过特殊构造，就是原始文本输入进去。 Fine-tune：这是比较大的名词，基本上所有在预训练模型上更新参数的方法都可以叫做Fine-tune。与此相关的名词基本上只有数据构造上的区别。 Supervised Fine-tune：构造了专门的输入输出pair的，基于预训练模型的，都可以叫做SFT。一般来说，如果直接把现有NLP任务的数据不经过改造就直接用于大模型训练，叫做SFT。需要大量数据 Instruction Tuning：构造了专门的自然语言指令跟随的输入和输出对。例如，原本的情感分析是给定一句话，直接输出高兴，难过，中性等；instruction Tuning是“请告诉这段话蕴含的情感”+输入的那句话：高兴，这样来构造数据。一般需要大量数据。 Multi-task Prompt Tuning：把各种任务都构造成自然语言Prompt，只需要很少量数据训练，推理的时候如果和这个Prompt长得像，就可以激发这部分训练数据的能力。 Alignment Tuning RLHF：一般来说需要人工标注Preference，使模型生成的结果对齐人类选择的过程，叫做RLHF。]]></summary></entry><entry><title type="html">【AI】元能力探索：监督微调的能力</title><link href="http://localhost:4000/ai/ai_algorithms/2024/01/21/llm-meta-abilities.html" rel="alternate" type="text/html" title="【AI】元能力探索：监督微调的能力" /><published>2024-01-21T20:56:07+08:00</published><updated>2024-01-21T20:56:07+08:00</updated><id>http://localhost:4000/ai/ai_algorithms/2024/01/21/llm-meta-abilities</id><content type="html" xml:base="http://localhost:4000/ai/ai_algorithms/2024/01/21/llm-meta-abilities.html"><![CDATA[<p>大模型时代，数据质量远远大于数据质量。</p>
-
-<p>在解决业务问题时，我们经常需要把大模型适用于各种不同的下游任务。此时一个常用的方法是有监督微调。例如情感识别，输入是，我今天被老师表扬了，输出是，高兴。我们可以构造这样输入输出对，就可以对大模型有监督微调。</p>
-
-<p>那么，多少数据能够让模型以较高的准确率完成指令跟随呢？答案是仅需几百条。</p>
-
-<p>在我们的场景下，我们仅筛选了400条高质量数据，对模型进行有监督微调，就能让这个模型的以较高的准确率完成该任务，更令人震惊的是，其中仅有24条包含某指令，而未来有类似指令的时候，模型也能准确识别到该指令的输入而产生对应的输出。</p>
-
-<p>总结一下，当我们需求仅是指令跟随能力的较为简单的任务时，使用高质量数据远好于多个低质量数据。</p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[大模型时代，数据质量远远大于数据质量。 在解决业务问题时，我们经常需要把大模型适用于各种不同的下游任务。此时一个常用的方法是有监督微调。例如情感识别，输入是，我今天被老师表扬了，输出是，高兴。我们可以构造这样输入输出对，就可以对大模型有监督微调。 那么，多少数据能够让模型以较高的准确率完成指令跟随呢？答案是仅需几百条。 在我们的场景下，我们仅筛选了400条高质量数据，对模型进行有监督微调，就能让这个模型的以较高的准确率完成该任务，更令人震惊的是，其中仅有24条包含某指令，而未来有类似指令的时候，模型也能准确识别到该指令的输入而产生对应的输出。 总结一下，当我们需求仅是指令跟随能力的较为简单的任务时，使用高质量数据远好于多个低质量数据。]]></summary></entry><entry><title type="html">【AI】大模型算法如何避免成为Prompt Engineer和数据清洗师</title><link href="http://localhost:4000/ai/ai_basics/2024/01/15/prompting-avoidance.html" rel="alternate" type="text/html" title="【AI】大模型算法如何避免成为Prompt Engineer和数据清洗师" /><published>2024-01-15T08:56:07+08:00</published><updated>2024-01-15T08:56:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2024/01/15/prompting-avoidance</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2024/01/15/prompting-avoidance.html"><![CDATA[<ol>
-  <li><strong>把prompting交给他人</strong>：Prompting是提升效果的重要手段，这个步骤是必要的，可以把这步交给产品或者后端，你只用效果最好的Prompt；</li>
-  <li><strong>只做一次数据清洗</strong>：数据对大模型效果有<strong>至关重要</strong>的作用，这步必须自己做，但这个过程可以结合自己对业务的理解做一次非常全的数据清洗，然后训练一版模型，跑一版benchmark，如果各个指标都有提升，剩下的交给产品或者后端做基于新训练的模型做prompting，自己再同步做别的事情；</li>
-  <li><strong>理解模型元能力提升的关键</strong>：大模型的指令跟随能力，推理能力，上下文学习能力，都是模型的元能力，这些能力是由一些特殊的训练方法和数据习得的，掌握了提升模型元能力的方法，就能对整体效果的把控性更强，也能进阶成更好的大模型算法。可以在第二步中多多探索不同数据对于模型各项能力benchmark的提升；</li>
-  <li><strong>合并迭代</strong>：效果的优化往往需要较长时间，学会拒绝不能完成的效果提升或者合并几次提升到一次迭代里，否则会陷入到做业务需求的死循环中。</li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[把prompting交给他人：Prompting是提升效果的重要手段，这个步骤是必要的，可以把这步交给产品或者后端，你只用效果最好的Prompt； 只做一次数据清洗：数据对大模型效果有至关重要的作用，这步必须自己做，但这个过程可以结合自己对业务的理解做一次非常全的数据清洗，然后训练一版模型，跑一版benchmark，如果各个指标都有提升，剩下的交给产品或者后端做基于新训练的模型做prompting，自己再同步做别的事情； 理解模型元能力提升的关键：大模型的指令跟随能力，推理能力，上下文学习能力，都是模型的元能力，这些能力是由一些特殊的训练方法和数据习得的，掌握了提升模型元能力的方法，就能对整体效果的把控性更强，也能进阶成更好的大模型算法。可以在第二步中多多探索不同数据对于模型各项能力benchmark的提升； 合并迭代：效果的优化往往需要较长时间，学会拒绝不能完成的效果提升或者合并几次提升到一次迭代里，否则会陷入到做业务需求的死循环中。]]></summary></entry><entry><title type="html">【AI】Scaling multimodal understanding to long videos</title><link href="http://localhost:4000/ai/ai_basics/2023/11/24/video-modal.html" rel="alternate" type="text/html" title="【AI】Scaling multimodal understanding to long videos" /><published>2023-11-24T08:56:07+08:00</published><updated>2023-11-24T08:56:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/11/24/video-modal</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/11/24/video-modal.html"><![CDATA[<p>https://arxiv.org/pdf/2311.05698.pdf</p>
-
-<p>AJ Piergiovanni，Google Research</p>
-
-<h1 id="场景与问题">场景与问题</h1>
-
-<p>解决不同模态之间的Heterogenious Input问题是一个重要课题。因为</p>
-
-<ol>
-  <li>输入体积上，视频和音频在体积上比文字大得多，因此这两者Input信息量是无法对齐的，需要通过模型对齐。</li>
-  <li>数据处理上，instruction following的Video QA模型的训练数据中包含提取出的文本信息（标题，简介等）是全局信息，而视频和音频都是和时间对齐的，其本身没有全局属性。</li>
-</ol>
-
-<h1 id="一般思路">一般思路</h1>
-
-<ol>
-  <li>Tokenize visual input - LLaVA</li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[https://arxiv.org/pdf/2311.05698.pdf AJ Piergiovanni，Google Research 场景与问题 解决不同模态之间的Heterogenious Input问题是一个重要课题。因为 输入体积上，视频和音频在体积上比文字大得多，因此这两者Input信息量是无法对齐的，需要通过模型对齐。 数据处理上，instruction following的Video QA模型的训练数据中包含提取出的文本信息（标题，简介等）是全局信息，而视频和音频都是和时间对齐的，其本身没有全局属性。 一般思路 Tokenize visual input - LLaVA]]></summary></entry><entry><title type="html">【AI】LLM Learning</title><link href="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html" rel="alternate" type="text/html" title="【AI】LLM Learning" /><published>2023-11-03T22:56:07+08:00</published><updated>2023-11-03T22:56:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/11/03/llm-learning.html"><![CDATA[<h1 id="pretrain">Pretrain</h1>
-
-<h2 id="performance-vs-data--size">Performance v.s. Data &amp; Size</h2>
-
-<blockquote>
-  <p>For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA</p>
-</blockquote>
-
-<p>用更多的数据训练，Size小一点也会有更好的效果。</p>
-
-<p>LLaMA</p>
-
-<p>Encoding: BPE</p>
-
-<p>Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs</p>
-
-<p>Epoch meaning:</p>
-
-<blockquote>
-  <p><a href="https://deepai.org/machine-learning-glossary-and-terms/epoch">In the context of machine learning, an epoch is one complete pass through the training data</a><a href="https://deepai.org/machine-learning-glossary-and-terms/epoch">1</a>. It is typical to train a deep neural network for multiple epochs, meaning that the same data is used repeatedly to update the model’s parameters.</p>
-</blockquote>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Pretrain Performance v.s. Data &amp; Size For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA 用更多的数据训练，Size小一点也会有更好的效果。 LLaMA Encoding: BPE Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs Epoch meaning: In the context of machine learning, an epoch is one complete pass through the training data1. It is typical to train a deep neural network for multiple epochs, meaning that the same data is used repeatedly to update the model’s parameters.]]></summary></entry><entry><title type="html">【AI】LLM Prompting</title><link href="http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting.html" rel="alternate" type="text/html" title="【AI】LLM Prompting" /><published>2023-10-28T16:20:07+08:00</published><updated>2023-10-28T16:20:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/28/llm-prompting.html"><![CDATA[<h1 id="background">Background</h1>
-
-<p>要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。</p>
-
-<ol>
-  <li>Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。</li>
-  <li>Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。</li>
-  <li>SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。</li>
-</ol>
-
-<h1 id="prompt-engineering">Prompt Engineering</h1>
-
-<h2 id="roadmap">Roadmap</h2>
-
-<p><a href="https://roadmap.sh/prompt-engineering">Roadmap</a></p>
-
-<p><img src="/assets/images/image-20231028162648178.png" alt="image-20231028162648178" /></p>
-
-<p><img src="/assets/images/image-20231106140554116.png" alt="image-20231106140554116" /></p>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Background 要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。 Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。 Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。 SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。 Prompt Engineering Roadmap Roadmap]]></summary></entry><entry><title type="html">【AI】LLM Agents</title><link href="http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents.html" rel="alternate" type="text/html" title="【AI】LLM Agents" /><published>2023-10-28T14:30:07+08:00</published><updated>2023-10-28T14:30:07+08:00</updated><id>http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents</id><content type="html" xml:base="http://localhost:4000/ai/ai_basics/2023/10/28/llm-agents.html"><![CDATA[<h1 id="reference">Reference</h1>
-
-<ol>
-  <li><a href="https://github.com/xlang-ai/OpenAgents">xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com)</a></li>
-</ol>
-
-<h1 id="definition">Definition</h1>
-
-<ol>
-  <li>Agent
-    <ol>
-      <li>设定目标</li>
-      <li>breakdown the goal step by step</li>
-      <li>setup tasks for the goal</li>
-      <li>produce results for the goal</li>
-    </ol>
-  </li>
-  <li>OpenAI plugin
-    <ol>
-      <li>Interact with external entities to accomplish a specific task.</li>
-    </ol>
-  </li>
-</ol>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Basics&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[Reference xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com) Definition Agent 设定目标 breakdown the goal step by step setup tasks for the goal produce results for the goal OpenAI plugin Interact with external entities to accomplish a specific task.]]></summary></entry></feed>
+</ul>]]></content><author><name>Chengru Song</name></author><category term="[&quot;AI&quot;, &quot;AI_Algorithms&quot;]" /><category term="301-work-ai" /><summary type="html"><![CDATA[还在纠结这些名词之间的区别吗？给你讲清楚 TLDR：主要差别在于训练数据的构造。 Pretrain 无监督的，就纯用语料库来训练，比如webtext，Wikipedia等，预测下一个token的概率分布，并用cross-entropy loss作为loss Function来更新模型的参数； Continuous Pretrain：在一个已经训练好的预训练模型上，用一些数据来进一步加强模型的某些方面的能力，这也是无监督的，数据也没有经过特殊构造，就是原始文本输入进去。 Fine-tune：这是比较大的名词，基本上所有在预训练模型上更新参数的方法都可以叫做Fine-tune。与此相关的名词基本上只有数据构造上的区别。 Supervised Fine-tune：构造了专门的输入输出pair的，基于预训练模型的，都可以叫做SFT。一般来说，如果直接把现有NLP任务的数据不经过改造就直接用于大模型训练，叫做SFT。需要大量数据 Instruction Tuning：构造了专门的自然语言指令跟随的输入和输出对。例如，原本的情感分析是给定一句话，直接输出高兴，难过，中性等；instruction Tuning是“请告诉这段话蕴含的情感”+输入的那句话：高兴，这样来构造数据。一般需要大量数据。 Multi-task Prompt Tuning：把各种任务都构造成自然语言Prompt，只需要很少量数据训练，推理的时候如果和这个Prompt长得像，就可以激发这部分训练数据的能力。 Alignment Tuning RLHF：一般来说需要人工标注Preference，使模型生成的结果对齐人类选择的过程，叫做RLHF。]]></summary></entry></feed>

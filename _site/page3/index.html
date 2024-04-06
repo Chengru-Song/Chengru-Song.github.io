@@ -280,6 +280,170 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/blog/2023/10/16/first-principle.html"><h2 itemprop="headline" class="item__header">【Blog】First Principle</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
+
+
+  思维模型03 — First Principles  第一性原理  by ID.TIMW  Medium
+
+
+What
+
+第一原理（英语：First principle），哲学与逻辑名词，是一个最基本的命题或假设，不能被省略或删除，也不能被违反。第一原理相当于是在数学中的公理。最早由亚里斯多德提出。
+
+苏格拉底式提问
+
+对问题使用苏格拉底式提问是一个锻炼第一性原理思考的方法。
+
+
+  理清思维，寻找问题的源头：问题出在哪里，具体表现形式有哪些？
+  挑战假设：这个情况总是发生么？什么因素会导致问题出现？
+  证据为基础的论点：假设的证据在哪里？整理从哪里来的？证据是否可靠？
+  替代观点和角度/冲击其它想法：有什么其他的观点可以反驳？有没有其它的方法可以解决...</div><p><a href="/work/blog/2023/10/16/first-principle.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月16日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-16T15:27:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/15/llm-rlhf.html"><h2 itemprop="headline" class="item__header">【AI】LLM RLHF</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Problem to Solve
+
+Alignment
+
+Solutions
+
+Actor-Critic
+
+
+  要解决的问题
+
+
+在RL的过程中，即学习策略，又学习价值函数，这样保证策略迭代的过程中，Value是逐渐变高的。
+
+
+  根本思想
+
+
+
+  为什么可以同时学习Value function和Policy function？
+    
+      因为使用了能将二者结合的损失函数，例如时序差分残差
+    
+  
+  
+    可以在总回报中引入基线函数以减小方差，例如这种形式：
+
+    
+      
+\[\nabla_\theta J(\theta)=\mathbb{E}\left[\sum_{t=0}^{\infty} \nabla_\theta \log \pi_\...</div><p><a href="/ai/ai_basics/2023/10/15/llm-rlhf.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月15日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-15T22:30:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/12/multi-model.html"><h2 itemprop="headline" class="item__header">【AI】Multi-Modality Learning</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Problem Trying to Solve
+
+提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。
+
+解决方法
+
+LLaVA
+
+
+  要解决的关键问题
+    
+      构建一个有reasoning ability的，可以follow instruction的多模态模型；
+      Instruction following的MultiModal数据的缺失；
+      如何使用现有大模型把这几个功能融合在一起。
+    
+  
+  算法的根本思想
+    
+      ==通过GPT-4 Prompting构建训练集（包括与图片相关的对话、细节描述和复杂推理）==，使用了预训练的Vision Encoder(CLIP)把Image ...</div><p><a href="/ai/ai_basics/2023/10/12/multi-model.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月12日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-12T20:50:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/08/llm-rl.html"><h2 itemprop="headline" class="item__header">【AI】LLM RL Modeling</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">RL Recap
+
+RL Model
+
+LLM Description
+
+根据上一个states，经过一个LLM，生成另一个states，一共生成max_tokens作为一次生成。生成的长度是prompt_len + max_token。
+
+Modeling
+
+
+  Objective
+    
+      生成尽可能多的Correct Format。
+    
+  
+  States
+    
+      Input of current methods</div><p><a href="/ai/ai_basics/2023/10/08/llm-rl.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-08T17:50:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/blog/2023/10/08/structural-thinking.html"><h2 itemprop="headline" class="item__header">【Blog】Structural Thinking</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Overview
+
+为什么突然想写这样一篇文章？因为最近我发现所有东西想做好，都需要有一套自己的SOP。简单来说就是一个structural thinking，对于一个较为常见的问题，有一个固定的思考套路。当然这不是说这个套路就是固定不变的，是说首先需要有，其次是需要根据这个套路不断迭代，优化这个套路直到这个套路可以快速的解决问题。可以是学习相关的，可以是工作相关的，但总体来说，我认为人就是他自己方法论的总和，这些方法论优化的越好，事情做的漂亮的可能性就越大。
+
+Study
+
+Algorithm
+
+Algorithm类的本身比较单点，就是一个算法，但是可以发散的很多。比如有些算法其实是另一些算法的改进版，那光了解这一个算法肯定是不行的，需要了解之前的算法，而当一个算法需要的背景知识过多...</div><p><a href="/work/blog/2023/10/08/structural-thinking.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-08T13:27:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/06/reinforcement-learning.html"><h2 itemprop="headline" class="item__header">【AI】Reinforcement Learning</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
+
+
+  
+    Key concepts
+
+    A (Long) Peek into Reinforcement Learning
+  
+  
+    Policy Gradient
+
+    Policy Gradient Algorithms
+  
+
+
+Key Concepts
+
+What
+
+定义
+
+
+  The agent’s policy $\pi(s)$ provides the guideline on what is the optimal action to take in a certain state with the goal to maximize the total rewards.
+
+
+关键词，在某个state下，采取何种策略，能够...</div><p><a href="/ai/ai_basics/2023/10/06/reinforcement-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月06日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-06T17:26:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ai_basics/2023/06/08/LLM-deep-dive.html"><h2 itemprop="headline" class="item__header">【AI】LLM Deep Dive</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Overview
 
@@ -333,125 +497,8 @@ Statistical Model
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 06月08日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-06-08T07:46:07+08:00">
     <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2023/05/10/ai-home.html"><h2 itemprop="headline" class="item__header">Ai Home</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">29/01/2024
-       &lt;a href=/ai/ai_algorithms/2024/01/29/llm-transformer-arch-to-code.html title=AI&gt; 【AI】多模态总结 &lt;/a&gt; 
-      
-      
-      27/01/2024
-       &lt;a href=/ai/ai_algorithms/2024/01/27/llm-encoder-only.html title=AI&gt; 【AI】Encoder-only Transformer &lt;/a&gt; 
-      
-      
-      23/01/2024
-       &lt;a href=/ai/ai_algorithms...</div><p><a href="/2023/05/10/ai-home.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月10日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-10T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/05/08/llm-thought.html"><h2 itemprop="headline" class="item__header">【AI】LLM Thoughts</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">背景
-
-可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。
-
-2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。
-
-对于一个从事编程行业的人来说，哪些应该是我的关注点呢？
-
-Breakdown
-
-首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune...</div><p><a href="/ai/ai_basics/2023/05/08/llm-thought.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月08日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-08T16:46:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/basics/2023/04/18/useful-prompts.html"><h2 itemprop="headline" class="item__header">【Basics】Useful Prompts</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Prompt Techniques
-
-Specific Prompts
-
-Scala Prompts
-
-
-  Incremental Id assignment
-    
-      suppose I have a rdd called edgeDF which has src_id, dst_id columns. Now I want to turn srd_id and dst_id into a single column called vertex_id. Each vertex_id is unique and assign a new column called id with incremental number. 
-Finally, I want to assign...</div><p><a href="/work/basics/2023/04/18/useful-prompts.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 04月18日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-04-18T14:44:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2023/01/10/the-tyranny-of-merit.html"><h2 itemprop="headline" class="item__header">【阅读】The Tyranny of Merit. 傲慢的精英</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">综述
-
-interesting，优绩至上理论竟然会带来很大的副作用，而且其中一个甚至和看起来毫不相干的信奉上帝有关。
-
-信奉上帝相信我们做了善行，那么上帝会根据这个善行给予我们奖赏，反之会给我们惩罚。因此当一个人极度不幸的时候，很多人甚至怀疑这个人其实做过一些不为人知的恶行，这加深了对受难者的伤害。</div><p><a href="/blog/read/2023/01/10/the-tyranny-of-merit.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月10日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-10T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2023/01/06/house.html"><h2 itemprop="headline" class="item__header">【阅读】kknmd house</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">KK关于房价的思考
-
-洞见事务背后的运行逻辑，是预测未来发展的重要因素。如果希望自己有一定的预测能力，需要对以下几点进行加强
-
-
-  掌握足够优质的信息来源；
-  对经济运行有较为充足的知识储备；
-  对历史的发展规律及其背后的原因有足够的了解；
-  基于这些了解能够产出action items。
-
-
-一些摘抄
-
-关于房产投资的方向，也有几点心得：供大家参考：
-
-一、坚决不能投资自己不熟悉的城市
-
-二、坚决不投资中小城市，一般省会及计划单列以上城市问题都不大，但中小城市即使房价上涨也存在变现困难问题。
-
-三、坚决不投资距离大城市较偏远的旅游城市，比如山东乳山之类的，几乎无法变现。
-
-四、慎重投资大城市的郊区，除非价格绝对低。如果外来人口比较多，zf又有发展规划，且价格与城区相比有较大的...</div><p><a href="/blog/read/2023/01/06/house.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月06日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-06T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/basics/2023/01/04/graphx.html"><h2 itemprop="headline" class="item__header">【Basics】Graphx</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
-
-
-  
-    
-      
-        
-          Graphx pregel code example: [Processing Hierarchical Data using Spark Graphx Pregel API
-          Qubole](https://www.qubole.com/blog/processing-hierarchical-data-using-spark-graphx-pregel-api)
-        
-      
-    
-  
-  graphx official pregel api: GraphX - Spark 3.3.1 Documentation (apache.org)</div><p><a href="/work/basics/2023/01/04/graphx.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月04日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-04T11:44:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 91 篇文章，12 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 97 篇文章，13 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page2">
             <i class="fas fa-angle-left"></i>
@@ -464,7 +511,7 @@ interesting，优绩至上理论竟然会带来很大的副作用，而且其中
             </li><li>
                   <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
                 </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page12"><span>12</span></a>
+                  <a class="button button--secondary button--circle" href="/page13"><span>13</span></a>
                 </li><li><a class="button button--secondary button--circle" href="/page4">
             <i class="fas fa-angle-right"></i>
           </a></li></ul>
