@@ -280,6 +280,95 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/02/28/openai-clip.html"><h2 itemprop="headline" class="item__header">【AI】CLIP</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">CLIP - OpenAI - 2021
+
+
+  
+    Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？
+  
+  
+    当前进展
+
+    
+      NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？
+      原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的；
+      所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？
+      这样的数据集，网络上有很多图，这些图是有文...</div><p><a href="/ai/ai_algorithms/2024/02/28/openai-clip.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 02月28日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-02-28T14:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/01/29/llm-decoder-only.html"><h2 itemprop="headline" class="item__header">【AI】Decoder-only Transformer</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Decoder-only Transformer
+
+Decoder-only的Transformer网络结构式2017年GPT系列的第一篇文章带火的。Decoder-only最大的特点是，我称之为打直球，即直接针对Input预测下一个Token的概率分布，从概率分布中sample一个Token，就直接给结果了，然后再进行下一次生成，也即Auto regressive。例如Input是，A quick brown fox，那么模型会给出下一个Token是j，在下次给出Token是u，循环N次知道生成结束Token [EOS]，本次生成结束，你会得到A quick brown fox jumps over the lazy dog.[EOS]这样的输出。
+
+下图的左边就是GPT系列的基础架...</div><p><a href="/ai/ai_algorithms/2024/01/29/llm-decoder-only.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月29日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-29T14:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/01/29/multi-modal-lm.html"><h2 itemprop="headline" class="item__header">【AI】多模态总结</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">大模型21：多模态大模型
+
+分类图
+
+https://whimsical.com/mlm-8adiZwwDifpxwNxz4qFPKZ
+
+Timeline
+
+
+  
+    
+      分类
+      模型
+      时间
+      团队
+      Summary
+    
+  
+  
+    
+      language&lt;&gt;image pretrain
+      CLIP
+      202103
+      OpenAI
+       
+    
+    
+      VLP pretrain
+      Flamingo
+      202204
+      DeepMind
+       
+    
+    
+      vision-lang pre...</div><p><a href="/ai/ai_algorithms/2024/01/29/multi-modal-lm.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月29日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-29T14:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html"><h2 itemprop="headline" class="item__header">【AI】Encoder-only Transformer</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">基于Transformer的大语言模型共有三种架构，分别是Encoder-only Model，Encoder-Decoder Model和Decoder-only Model。
+
+三者的本质区别：大模型的输出是文本还是Embedding。后者需要改模型结构才能适配其他下游任务。
+
+
+  Encoder-only： Input是Encoder Transformer，Output是Transformer结构的最后一层Hidden states，需要再加一层MLP才能适应到不同的下游任务。主要应用是训练高效的Embedding和各种文本分类问题。代表作：BERT。
+  Encoder-Decoder：Input是语言，经过Transformer Encoder变成Embedding，再由...</div><p><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月27日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-27T19:56:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ai_algorithms/2024/01/23/llm-encoder-decoder.html"><h2 itemprop="headline" class="item__header">【AI】Encoder-decoder Transformer</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Encoder-Decoder Transformer
 
@@ -350,108 +439,8 @@ TLDR：主要差别在于训练数据的构造。
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月15日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-15T08:56:07+08:00">
     <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/24/video-modal.html"><h2 itemprop="headline" class="item__header">【AI】Scaling multimodal understanding to long videos</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">https://arxiv.org/pdf/2311.05698.pdf
-
-AJ Piergiovanni，Google Research
-
-场景与问题
-
-解决不同模态之间的Heterogenious Input问题是一个重要课题。因为
-
-
-  输入体积上，视频和音频在体积上比文字大得多，因此这两者Input信息量是无法对齐的，需要通过模型对齐。
-  数据处理上，instruction following的Video QA模型的训练数据中包含提取出的文本信息（标题，简介等）是全局信息，而视频和音频都是和时间对齐的，其本身没有全局属性。
-
-
-一般思路
-
-
-  Tokenize visual input - LLaVA</div><p><a href="/ai/ai_basics/2023/11/24/video-modal.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-24T08:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/03/llm-learning.html"><h2 itemprop="headline" class="item__header">【AI】LLM Learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Pretrain
-
-Performance v.s. Data &amp; Size
-
-
-  For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA
-
-
-用更多的数据训练，Size小一点也会有更好的效果。
-
-LLaMA
-
-Encoding: BPE
-
-Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs
-
-Epoch meaning:
-
-
-  In the context of mac...</div><p><a href="/ai/ai_basics/2023/11/03/llm-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月03日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-03T22:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/28/llm-prompting.html"><h2 itemprop="headline" class="item__header">【AI】LLM Prompting</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Background
-
-要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。
-
-
-  Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。
-  Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。
-  SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。
-
-
-Prompt Engineering
-
-Roadmap
-
-Roadmap</div><p><a href="/ai/ai_basics/2023/10/28/llm-prompting.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-28T16:20:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/28/llm-agents.html"><h2 itemprop="headline" class="item__header">【AI】LLM Agents</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
-
-
-  xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com)
-
-
-Definition
-
-
-  Agent
-    
-      设定目标
-      breakdown the goal step by step
-      setup tasks for the goal
-      produce results for the goal
-    
-  
-  OpenAI plugin
-    
-      Interact with external entities to accomplish a specific task.</div><p><a href="/ai/ai_basics/2023/10/28/llm-agents.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-28T14:30:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 97 篇文章，13 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 102 篇文章，13 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>

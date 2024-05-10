@@ -280,6 +280,107 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/05/08/mixed-precision-training.html"><h2 itemprop="headline" class="item__header">【AI】Mixed Precision Training</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">混合精度训练
+
+==方法提出的背景是什么？==
+
+模型参数的增加，带来了准确度上的提升，Benchmark的提升，但是训练要求的显存也显著增大。如何在模型参数变多下，减小训练内存的使用，同时保证一定的训练精度？
+
+必要背景知识
+
+
+  AdamW优化器
+
+
+原本的Adam优化器是AdamW的前身，它是RMSprop和Stochastic Gradient Descent (SGD) with momentum1这两个方法的结合版。
+
+
+  Adam优化器如何工作
+
+
+\[m_t = β_1 * m_{t-1} + (1 - β_1) * g_t \\
+v_t = β_2 * v_{t-1} + (1 - β_2) * g_t^2 \\
+m_\hat{t} = m_t / (1 - β_...</div><p><a href="/ai/ai_algorithms/2024/05/08/mixed-precision-training.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-08T10:40:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/28/deepspeed.html"><h2 itemprop="headline" class="item__header">【AI】Deepspeed Training</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">DeepSpeed
+
+这篇文章主要回答
+
+
+  DeepSpeed要解决什么问题？
+  DeepSpeed如何解决的问题？
+  如何部署DeepSpeed进行训练？
+  相比于其他训练方式DeepSpeed有什么优势？
+  还有哪些训练框架？
+
+
+DeepSpeed要解决什么问题
+
+为了解决千亿甚至万亿大模型的训练问题，因为这种大模型训练通常需要占用巨大的显卡内存，因此很可能拥有的设备根本训练不起来，即使训练起来了，也可能速度很慢。
+
+如何对训练的效率进行衡量？
+
+训练的内存占用如何计算
+
+1.5B参数量的大模型，如果精度是FP16(单个参数占用2bytes)，则模型内存占用为2x1.5=3B，如果用Adam Optimizer + 混合精度训练1，模型存储自身参数+梯度，就变成了3B...</div><p><a href="/ai/ai_algorithms/2024/04/28/deepspeed.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月28日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-28T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/26/zhipu-ai.html"><h2 itemprop="headline" class="item__header">【AI】智谱AI</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">🚀【揭秘】Llama-3：开源界的新星，性能如何？
+
+🎉近年来，AI领域的发展可谓日新月异，而Llama-3的开源无疑给这个领域带来了新的惊喜。SuperBench团队对其进行了全面评测，结果如何呢？让我们一探究竟！
+
+🔍Llama-3在语义理解、代码能力、对齐、智能体以及安全等方面展现了出色的性能。SuperBench的评测结果，不仅展示了Llama-3的实力，也凸显了SuperBench的权威性和速度。
+
+史蒂夫乔布斯曾经说过，“任何对软件有极致追求的公司，都应该制造自己的硬件”。用户体验的提升，从来都不会只依赖一部分的提升，而是这个流程中的所有环节的提升。同样，在大模型时代，对用户体验追求极致的公司或产品，都应该考虑制定自己的评价标准，最大程度对齐到用户的真实体验。
+
+Meta的...</div><p><a href="/ai/ai_algorithms/2024/04/26/zhipu-ai.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月26日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-26T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/18/llava-multi-image-sft.html"><h2 itemprop="headline" class="item__header">【AI】LLaVA Multiple Images Training Code</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">LLaVA多图训练
+
+
+
+启动脚本
+
+bash scripts/v1_5/finetune.sh &gt; test.log 2&gt;&amp;1
+
+
+主要改动
+
+
+  
+    conversation预处理支持多图
+
+    
+      
+        def get_prompt(self):
+        messages = self.messages
+        if len(messages) &gt; 0 and type(messages[0][1]) is tuple:
+            messages = self.messages.copy()
+            init_role, init_msg = messages[0].cop...</div><p><a href="/ai/ai_algorithms/2024/04/18/llava-multi-image-sft.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月18日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-18T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/ai/ai_algorithms/2024/04/06/llava-sft.html"><h2 itemprop="headline" class="item__header">【AI】LLaVA Multiple Images SFT</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">LLaVA Mistral Multiple Images SFT
 
@@ -380,97 +481,8 @@ LLaVA - 202304 - MS Research
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 03月13日</span>
             </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-03-13T22:04:07+08:00">
     <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/02/28/openai-clip.html"><h2 itemprop="headline" class="item__header">【AI】CLIP</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">CLIP - OpenAI - 2021
-
-
-  
-    Initiative 在Text领域，pre-train模型可以在不改变任何模型结构，通过prompting的方式泛化到下游任务，Image领域是否能有这样的模型？
-  
-  
-    当前进展
-
-    
-      NLP领域，只用webtext做训练，不用labelled数据集就能实现上面的目标，Image领域呢？
-      原来有类似的工作，但是他们学习到的Image representation是在一些有label的数据集上，而这些label是非常少的；
-      所以一个新的想法是，能否找到更大量的数据集上预训练一个能学习到representation的？
-      这样的数据集，网络上有很多图，这些图是有文...</div><p><a href="/ai/ai_algorithms/2024/02/28/openai-clip.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 02月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-02-28T14:04:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/29/llm-decoder-only.html"><h2 itemprop="headline" class="item__header">【AI】Decoder-only Transformer</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Decoder-only Transformer
-
-Decoder-only的Transformer网络结构式2017年GPT系列的第一篇文章带火的。Decoder-only最大的特点是，我称之为打直球，即直接针对Input预测下一个Token的概率分布，从概率分布中sample一个Token，就直接给结果了，然后再进行下一次生成，也即Auto regressive。例如Input是，A quick brown fox，那么模型会给出下一个Token是j，在下次给出Token是u，循环N次知道生成结束Token [EOS]，本次生成结束，你会得到A quick brown fox jumps over the lazy dog.[EOS]这样的输出。
-
-下图的左边就是GPT系列的基础架...</div><p><a href="/ai/ai_algorithms/2024/01/29/llm-decoder-only.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月29日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-29T14:04:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/29/multi-modal-lm.html"><h2 itemprop="headline" class="item__header">【AI】多模态总结</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">大模型21：多模态大模型
-
-分类图
-
-https://whimsical.com/mlm-8adiZwwDifpxwNxz4qFPKZ
-
-Timeline
-
-
-  
-    
-      分类
-      模型
-      时间
-      团队
-      Summary
-    
-  
-  
-    
-      language&lt;&gt;image pretrain
-      CLIP
-      202103
-      OpenAI
-       
-    
-    
-      VLP pretrain
-      Flamingo
-      202204
-      DeepMind
-       
-    
-    
-      vision-lang pre...</div><p><a href="/ai/ai_algorithms/2024/01/29/multi-modal-lm.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月29日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-29T14:04:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html"><h2 itemprop="headline" class="item__header">【AI】Encoder-only Transformer</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">基于Transformer的大语言模型共有三种架构，分别是Encoder-only Model，Encoder-Decoder Model和Decoder-only Model。
-
-三者的本质区别：大模型的输出是文本还是Embedding。后者需要改模型结构才能适配其他下游任务。
-
-
-  Encoder-only： Input是Encoder Transformer，Output是Transformer结构的最后一层Hidden states，需要再加一层MLP才能适应到不同的下游任务。主要应用是训练高效的Embedding和各种文本分类问题。代表作：BERT。
-  Encoder-Decoder：Input是语言，经过Transformer Encoder变成Embedding，再由...</div><p><a href="/ai/ai_algorithms/2024/01/27/llm-encoder-only.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 01月27日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-01-27T19:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 97 篇文章，13 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 102 篇文章，13 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
             <i class="fas fa-angle-left"></i>

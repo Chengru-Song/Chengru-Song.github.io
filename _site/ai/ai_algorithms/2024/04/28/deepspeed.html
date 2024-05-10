@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】Deepspeed Training - Chengru's Blog</title>
 
-<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
-">
-<link rel="canonical" href="http://localhost:4000/page3/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="DeepSpeed这篇文章主要回答  DeepSpeed要解决什么问题？  DeepSpeed如何解决的问题？  如何部署DeepSpeed进行训练？  相比于其他训练方式DeepSpeed有什么优势？  还有哪些训练框架？DeepSpeed要解决什么问题为了解决千亿甚至万亿大模型的训练问题，因为这种大模型训练通...">
+<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/2024/04/28/deepspeed.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,18 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page layout--page--sidebar clearfix js-page-root">
+  <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
+  <div class="page__viewport">
+    <div class="page__actions d-print-none">
+      <div class="button button--circle button--lg box-shadow-2 sidebar-button js-sidebar-show">
+        <i class="fas fa-bars icon--show"></i>
+      </div>
+    </div>
+
+    <div class="grid page__grid">
+
+      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,246 +284,105 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/24/video-modal.html"><h2 itemprop="headline" class="item__header">【AI】Scaling multimodal understanding to long videos</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">https://arxiv.org/pdf/2311.05698.pdf
-
-AJ Piergiovanni，Google Research
-
-场景与问题
-
-解决不同模态之间的Heterogenious Input问题是一个重要课题。因为
-
-
-  输入体积上，视频和音频在体积上比文字大得多，因此这两者Input信息量是无法对齐的，需要通过模型对齐。
-  数据处理上，instruction following的Video QA模型的训练数据中包含提取出的文本信息（标题，简介等）是全局信息，而视频和音频都是和时间对齐的，其本身没有全局属性。
-
-
-一般思路
-
-
-  Tokenize visual input - LLaVA</div><p><a href="/ai/ai_basics/2023/11/24/video-modal.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】Deepspeed Training</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-04-28-deepspeed.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】Deepspeed Training"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-24T08:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/11/03/llm-learning.html"><h2 itemprop="headline" class="item__header">【AI】LLM Learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Pretrain
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月28日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-28T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-Performance v.s. Data &amp; Size
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h1 id="deepspeed">DeepSpeed</h1>
 
+<h2 id="这篇文章主要回答">这篇文章主要回答</h2>
 
-  For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. – from LLaMA
+<ol>
+  <li>DeepSpeed要解决什么问题？</li>
+  <li>DeepSpeed如何解决的问题？</li>
+  <li>如何部署DeepSpeed进行训练？</li>
+  <li>相比于其他训练方式DeepSpeed有什么优势？</li>
+  <li>还有哪些训练框架？</li>
+</ol>
 
+<h2 id="deepspeed要解决什么问题">DeepSpeed要解决什么问题</h2>
 
-用更多的数据训练，Size小一点也会有更好的效果。
+<p>为了解决千亿甚至万亿大模型的训练问题，因为这种大模型训练通常需要占用巨大的显卡内存，因此很可能拥有的设备根本训练不起来，即使训练起来了，也可能速度很慢。</p>
 
-LLaMA
+<p>如何对训练的效率进行衡量？</p>
 
-Encoding: BPE
+<h3 id="训练的内存占用如何计算">训练的内存占用如何计算</h3>
 
-Training Data: 1.4T token, Wikipedia和Books Domain训练了两个epochs
+<p>1.5B参数量的大模型，如果精度是FP16(单个参数占用2bytes)，则模型内存占用为2x1.5=3B，如果用Adam Optimizer + 混合精度训练<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>，模型存储自身参数+梯度，就变成了3B+3B=6B，混合精度训练相加时，又需要FP32的拷贝（momentum+variance）即4x1.5（原模型参数）+4x1.5（momentum) + 4x1.5(variance)=12B，加上自身参数和梯度，共16x1.5B=24G。所以1.5B参数量的模型，训练就需要24G内存。</p>
 
-Epoch meaning:
+<h3 id="训练速度如何衡量">训练速度如何衡量</h3>
 
+<p>FLOPS来衡量，就是每秒可进行的浮点数计算。</p>
 
-  In the context of mac...</div><p><a href="/ai/ai_basics/2023/11/03/llm-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 11月03日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-11-03T22:56:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/28/llm-prompting.html"><h2 itemprop="headline" class="item__header">【AI】LLM Prompting</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Background
+<h2 id="deepspeed如何解决问题">DeepSpeed如何解决问题</h2>
 
-要解决AIGC业务落地的问题，在做特别hardcore的事情之前，至少有三个方向可以考虑。
+<h3 id="常见优化手段">常见优化手段</h3>
 
+<ul>
+  <li>Data Parallelism（数据并行）：每个GPU都存储一个模型，不会减少每个GPU的Memory使用，只能提升训练速度；</li>
+  <li>Pipeline Parallelism（流水线并行）：一个GPU装不下一个模型，但装得下一层或者多层，因此把同一个模型拆开训练；</li>
+  <li>Tensor Parallelism（张量并行）：每个张量被拆分成多个块,因此不是整个张量驻留在单个GPU上,而是张量的每个分片驻留在指定的GPU上。在处理过程中,每个分片都在不同的GPU上单独并行处理,结果在步骤结束时同步。</li>
+</ul>
 
-  Prompting，直接给LLM写好prompt，通过few-shots，CoT等技巧，直接让GPT生成结果。
-  Agent，设定一个目标，让GPT通过CoT生成Task，解决Task等方法最终直接解决问题。
-  SFT，直接在产出结果后面加一个layer，fine-tune一下，加上1和2的一些方法，能否达到预期的效果。
+<p>流水线并行和模型并行的概念似乎是等价的，好处是能开起来训练了，坏处是训练速度和通信强相关，会显著变慢。</p>
 
+<h3 id="deepspeed的优化手段">DeepSpeed的优化手段</h3>
 
-Prompt Engineering
+<p>DeepSpeed主要关注在Data Parallelism，这样不存在模型并行时候存在的更新通信速度问题。在解决DP问题的时候，DeepSpeed主要是把Model states进行<strong>分片</strong>，而不是<strong>复制</strong>。</p>
 
-Roadmap
+<p>DeepSpeed共有三个级别，分别能实现三种级别的内存效率。</p>
 
-Roadmap</div><p><a href="/ai/ai_basics/2023/10/28/llm-prompting.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-28T16:20:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/28/llm-agents.html"><h2 itemprop="headline" class="item__header">【AI】LLM Agents</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
+<ul>
+  <li>一级：优化器状态分片</li>
+  <li>二级：梯度分片</li>
+  <li>三级：参数分片</li>
+</ul>
 
+<p><img src="/assets/images/image-20240428173117885.png" alt="image-20240428173117885" /></p>
 
-  xlang-ai/OpenAgents: OpenAgents: An Open Platform for Language Agents in the Wild (github.com)
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://towardsdatascience.com/understanding-mixed-precision-training-4b246679c7c4">Understanding Mixed Precision Training</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-04-28T15:04:07+08:00"><!-- start custom article footer snippet -->
 
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></div></div></div>
 
-Definition
+</div>
 
-
-  Agent
-    
-      设定目标
-      breakdown the goal step by step
-      setup tasks for the goal
-      produce results for the goal
-    
-  
-  OpenAI plugin
-    
-      Interact with external entities to accomplish a specific task.</div><p><a href="/ai/ai_basics/2023/10/28/llm-agents.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月28日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-28T14:30:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/blog/2023/10/16/work-reflection.html"><h2 itemprop="headline" class="item__header">【Blog】工作一些简单思考（一）</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">算法视角，做AI原生产品的一些思考（一）
-
-
-  之前经常问自己的问题，作为算法，我应该做什么产品？
-    
-      做AI原生产品，没有AI模型就不存在的产品，AI能力的好坏直接关系到产品的生死。好处是这对算法能力的锻炼很大，在这里算法的话语权最大；坏处这对算法能力提出非常高的要求，个人的压力会比较大。
-    
-  
-  工作思考
-    
-      用户体验类产品评估非常难，要做好长期指标和效果同时迭代的心理准备。用户体验，采纳率，付费率，这些都可能是用户体验产品的北极星指标，但指导不了算法优化。这个Gap要算法自己想办法来Cover。
-      不要依赖产品经理做指标拆解，但要充分对齐。两个原因，第一是AIGC产品领域是最近才有的，没有人是经验充足的，这意味着你业务上...</div><p><a href="/work/blog/2023/10/16/work-reflection.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月16日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-16T15:27:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/blog/2023/10/16/first-principle.html"><h2 itemprop="headline" class="item__header">【Blog】First Principle</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
-
-
-  思维模型03 — First Principles  第一性原理  by ID.TIMW  Medium
-
-
-What
-
-第一原理（英语：First principle），哲学与逻辑名词，是一个最基本的命题或假设，不能被省略或删除，也不能被违反。第一原理相当于是在数学中的公理。最早由亚里斯多德提出。
-
-苏格拉底式提问
-
-对问题使用苏格拉底式提问是一个锻炼第一性原理思考的方法。
-
-
-  理清思维，寻找问题的源头：问题出在哪里，具体表现形式有哪些？
-  挑战假设：这个情况总是发生么？什么因素会导致问题出现？
-  证据为基础的论点：假设的证据在哪里？整理从哪里来的？证据是否可靠？
-  替代观点和角度/冲击其它想法：有什么其他的观点可以反驳？有没有其它的方法可以解决...</div><p><a href="/work/blog/2023/10/16/first-principle.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月16日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-16T15:27:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/15/llm-rlhf.html"><h2 itemprop="headline" class="item__header">【AI】LLM RLHF</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Problem to Solve
-
-Alignment
-
-Solutions
-
-Actor-Critic
-
-
-  要解决的问题
-
-
-在RL的过程中，即学习策略，又学习价值函数，这样保证策略迭代的过程中，Value是逐渐变高的。
-
-
-  根本思想
-
-
-
-  为什么可以同时学习Value function和Policy function？
-    
-      因为使用了能将二者结合的损失函数，例如时序差分残差
-    
-  
-  
-    可以在总回报中引入基线函数以减小方差，例如这种形式：
-
-    
-      
-\[\nabla_\theta J(\theta)=\mathbb{E}\left[\sum_{t=0}^{\infty} \nabla_\theta \log \pi_\...</div><p><a href="/ai/ai_basics/2023/10/15/llm-rlhf.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月15日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-15T22:30:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/10/12/multi-model.html"><h2 itemprop="headline" class="item__header">【AI】Multi-Modality Learning</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Problem Trying to Solve
-
-提升大模型对多模态（语音，图像，视频，文本）的理解和推理能力，从而实现多模态理解和生成的能力。
-
-解决方法
-
-LLaVA
-
-
-  要解决的关键问题
-    
-      构建一个有reasoning ability的，可以follow instruction的多模态模型；
-      Instruction following的MultiModal数据的缺失；
-      如何使用现有大模型把这几个功能融合在一起。
-    
-  
-  算法的根本思想
-    
-      ==通过GPT-4 Prompting构建训练集（包括与图片相关的对话、细节描述和复杂推理）==，使用了预训练的Vision Encoder(CLIP)把Image ...</div><p><a href="/ai/ai_basics/2023/10/12/multi-model.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月12日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-12T20:50:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 102 篇文章，13 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page2">
-            <i class="fas fa-angle-left"></i>
-          </a></li><li>
-              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
-            </li><li>
-                  <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-                </li><li>
-              <div class="button button--primary button--circle focus"><span>3</span></div>
-            </li><li>
-                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
-                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page13"><span>13</span></a>
-                </li><li><a class="button button--secondary button--circle" href="/page4">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/
+<script src="https://utteranc.es/client.js"
+        repo="Chengru-Song/Chengru-Song.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
-
-
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -539,7 +408,8 @@ LLaVA
     });
   });
 })();
-</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -559,7 +429,7 @@ LLaVA
   </div>
 </footer>
 </div></div>
-    </div><script>(function() {
+    </div></div></div><script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
     var $body = $('body'), $window = $(window);
@@ -1076,12 +946,112 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $pageMask = $('.js-page-mask');
+    var $pageRoot = $('.js-page-root');
+    var $sidebarShow = $('.js-sidebar-show');
+    var $sidebarHide = $('.js-sidebar-hide');
+
+    function freeze(e) {
+      if (e.target === $pageMask[0]) {
+        e.preventDefault();
+      }
+    }
+    function stopBodyScrolling(bool) {
+      if (bool === true) {
+        window.addEventListener('touchmove', freeze, { passive: false });
+      } else {
+        window.removeEventListener('touchmove', freeze, { passive: false });
+      }
+    }
+
+    $sidebarShow.on('click', function() {
+      stopBodyScrolling(true); $pageRoot.addClass('show-sidebar');
+    });
+    $sidebarHide.on('click', function() {
+      stopBodyScrolling(false); $pageRoot.removeClass('show-sidebar');
+    });
+  });
+})();
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
 	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
 </script>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  window.Lazyload.js('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.0-rc.1/mermaid.min.js', function() {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
 
     </div>
     <script>(function () {
