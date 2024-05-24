@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】The Platonic Representation Hypothesis - Chengru's Blog</title>
 
-<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
-">
-<link rel="canonical" href="http://localhost:4000/page5/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="为什么多模态Alignment Module有用      时间：    作者团队：    作者：    有用指数：⭐️⭐️⭐️⭐️⭐️    贡献程度：⭐️⭐️⭐️⭐️⭐️    简单评价：  出发点科学的发展总是基于一些可证伪的假设的证明或推翻，例如经典力学解释不了的现象，在微观粒度会有量子力学的理论进行支撑...">
+<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/vae/2024/05/24/platonic-representation.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,18 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page layout--page--sidebar clearfix js-page-root">
+  <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
+  <div class="page__viewport">
+    <div class="page__actions d-print-none">
+      <div class="button button--circle button--lg box-shadow-2 sidebar-button js-sidebar-show">
+        <i class="fas fa-bars icon--show"></i>
+      </div>
+    </div>
+
+    <div class="grid page__grid">
+
+      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,175 +284,70 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2023/05/10/ai-home.html"><h2 itemprop="headline" class="item__header">Ai Home</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">16/05/2024
-       &lt;a href=/ai/ai_algorithms/2024/05/16/gpt4o.html title=AI&gt; 【AI】GPT-4o详解 &lt;/a&gt; 
-      
-      
-      16/05/2024
-       &lt;a href=/ai/ai_algorithms/2024/05/16/minigpt-4.html title=AI&gt; 【AI】MiniGPT-4详解 &lt;/a&gt; 
-      
-      
-      11/05/2024
-       &lt;a href=/ai/ai_algorithms/2024/05/11/internlmxc2.html title=AI&gt...</div><p><a href="/2023/05/10/ai-home.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月10日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-10T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/ai/ai_basics/2023/05/08/llm-thought.html"><h2 itemprop="headline" class="item__header">【AI】LLM Thoughts</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">背景
-
-可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。
-
-2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。
-
-对于一个从事编程行业的人来说，哪些应该是我的关注点呢？
-
-Breakdown
-
-首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune...</div><p><a href="/ai/ai_basics/2023/05/08/llm-thought.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】The Platonic Representation Hypothesis</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-05-24-platonic-representation.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】The Platonic Representation Hypothesis"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月08日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-08T16:46:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/basics/2023/04/18/useful-prompts.html"><h2 itemprop="headline" class="item__header">【Basics】Useful Prompts</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Prompt Techniques
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月24日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-24T14:34:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-Specific Prompts
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><h1 id="为什么多模态alignment-module有用">为什么多模态Alignment Module有用</h1>
 
-Scala Prompts
+<blockquote>
+  <ul>
+    <li>时间：</li>
+    <li>作者团队：</li>
+    <li>作者：</li>
+    <li>有用指数：⭐️⭐️⭐️⭐️⭐️</li>
+    <li>贡献程度：⭐️⭐️⭐️⭐️⭐️</li>
+    <li>简单评价：</li>
+  </ul>
+</blockquote>
 
+<h2 id="出发点">出发点</h2>
 
-  Incremental Id assignment
-    
-      suppose I have a rdd called edgeDF which has src_id, dst_id columns. Now I want to turn srd_id and dst_id into a single column called vertex_id. Each vertex_id is unique and assign a new column called id with incremental number. 
-Finally, I want to assign...</div><p><a href="/work/basics/2023/04/18/useful-prompts.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 04月18日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-04-18T14:44:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2023/01/10/the-tyranny-of-merit.html"><h2 itemprop="headline" class="item__header">【阅读】The Tyranny of Merit. 傲慢的精英</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">综述
+<p>科学的发展总是基于一些可证伪的假设的证明或推翻，例如经典力学解释不了的现象，在微观粒度会有量子力学的理论进行支撑。某些看似不可能改变的理论，也仅在某些时空维度下是成立的。这篇文章就提出了一个假设，即，<strong>好的大模型的表征是正在收敛的，包括不同模态的模型</strong>。</p>
 
-interesting，优绩至上理论竟然会带来很大的副作用，而且其中一个甚至和看起来毫不相干的信奉上帝有关。
+<p>作者试图用以下流程证明这个假设</p>
 
-信奉上帝相信我们做了善行，那么上帝会根据这个善行给予我们奖赏，反之会给我们惩罚。因此当一个人极度不幸的时候，很多人甚至怀疑这个人其实做过一些不为人知的恶行，这加深了对受难者的伤害。</div><p><a href="/blog/read/2023/01/10/the-tyranny-of-merit.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月10日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-10T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2023/01/06/house.html"><h2 itemprop="headline" class="item__header">【阅读】kknmd house</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">KK关于房价的思考
+<ol>
+  <li>不同大模型表征底层数据的方式正在逐渐对齐；</li>
+  <li>不同模态下，大模型衡量数据点距离的方法是非常相似的；</li>
+  <li>这个收敛的方向，是向着一个通用的现实统计学模型。</li>
+</ol>
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-05-24T14:34:07+08:00"><!-- start custom article footer snippet -->
 
-洞见事务背后的运行逻辑，是预测未来发展的重要因素。如果希望自己有一定的预测能力，需要对以下几点进行加强
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
+</div><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></div></div></div>
 
+</div>
 
-  掌握足够优质的信息来源；
-  对经济运行有较为充足的知识储备；
-  对历史的发展规律及其背后的原因有足够的了解；
-  基于这些了解能够产出action items。
-
-
-一些摘抄
-
-关于房产投资的方向，也有几点心得：供大家参考：
-
-一、坚决不能投资自己不熟悉的城市
-
-二、坚决不投资中小城市，一般省会及计划单列以上城市问题都不大，但中小城市即使房价上涨也存在变现困难问题。
-
-三、坚决不投资距离大城市较偏远的旅游城市，比如山东乳山之类的，几乎无法变现。
-
-四、慎重投资大城市的郊区，除非价格绝对低。如果外来人口比较多，zf又有发展规划，且价格与城区相比有较大的...</div><p><a href="/blog/read/2023/01/06/house.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月06日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-06T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/work/basics/2023/01/04/graphx.html"><h2 itemprop="headline" class="item__header">【Basics】Graphx</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
-
-
-  
-    
-      
-        
-          Graphx pregel code example: [Processing Hierarchical Data using Spark Graphx Pregel API
-          Qubole](https://www.qubole.com/blog/processing-hierarchical-data-using-spark-graphx-pregel-api)
-        
-      
-    
-  
-  graphx official pregel api: GraphX - Spark 3.3.1 Documentation (apache.org)</div><p><a href="/work/basics/2023/01/04/graphx.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-blog">301-work-blog</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-work-learning">301-work-learning</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 01月04日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-01-04T11:44:07+08:00">
-    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/blog/read/2022/12/31/algorithms-to-live-by.md.html"><h2 itemprop="headline" class="item__header">【阅读】Algorithms to Live By</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Algorithms to live by
-
-我觉得很多人应该更熟悉这本书的中文译名，算法之美。看到了微信读书上对于这个译名的评价：为了追求所谓的“信达雅”而没有正确翻译出题目想表达的主题，乍一看还以为是讲算法的，实际上是讲算法在日常生活中的应用的。并且后半部分的翻译好像是为了赶工，看上去并没有针对中国人的表达习惯进行优化，非常像是机翻的，这就导致了后面几章的内容读起来比较晦涩。因此为了避免这个情况，我直接选择读原版的英文版。这反而对于我比较友好，因为上学学算法的时候就是英文教材，很多argot是可以直接代入和理解的，比阅读中文版更能让我理解作者表达的原意。
-
-Regardless of that，这本书讲的还是非常好的。通过算法引申到哪些现实问题其实是这个算法的真实映射，而如果算法本...</div><p><a href="/blog/read/2022/12/31/algorithms-to-live-by.md.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 12月31日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-12-31T13:41:58+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/life/blog/2022/12/31/past-year-reflection.html"><h2 itemprop="headline" class="item__header">【Blog】年度回顾</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody"></div><p><a href="/life/blog/2022/12/31/past-year-reflection.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=301-life-blog">301-life-blog</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2022年 12月31日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2022-12-31T11:44:07+08:00">
-    <meta itemprop="keywords" content="301-life-blog"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 105 篇文章，14 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page4">
-            <i class="fas fa-angle-left"></i>
-          </a></li><li>
-              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
-            </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
-                </li><li>
-              <div class="button button--primary button--circle focus"><span>5</span></div>
-            </li><li>
-                  <a class="button button--secondary button--circle" href="/page6"><span>6</span></a>
-                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
-                  <a class="button button--secondary button--circle" href="/page14"><span>14</span></a>
-                </li><li><a class="button button--secondary button--circle" href="/page6">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/
+<script src="https://utteranc.es/client.js"
+        repo="Chengru-Song/Chengru-Song.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
-
-
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -468,7 +373,8 @@ Regardless of that，这本书讲的还是非常好的。通过算法引申到�
     });
   });
 })();
-</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script>
+</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -488,7 +394,7 @@ Regardless of that，这本书讲的还是非常好的。通过算法引申到�
   </div>
 </footer>
 </div></div>
-    </div><script>(function() {
+    </div></div></div><script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
     var $body = $('body'), $window = $(window);
@@ -1005,12 +911,112 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $pageMask = $('.js-page-mask');
+    var $pageRoot = $('.js-page-root');
+    var $sidebarShow = $('.js-sidebar-show');
+    var $sidebarHide = $('.js-sidebar-hide');
+
+    function freeze(e) {
+      if (e.target === $pageMask[0]) {
+        e.preventDefault();
+      }
+    }
+    function stopBodyScrolling(bool) {
+      if (bool === true) {
+        window.addEventListener('touchmove', freeze, { passive: false });
+      } else {
+        window.removeEventListener('touchmove', freeze, { passive: false });
+      }
+    }
+
+    $sidebarShow.on('click', function() {
+      stopBodyScrolling(true); $pageRoot.addClass('show-sidebar');
+    });
+    $sidebarHide.on('click', function() {
+      stopBodyScrolling(false); $pageRoot.removeClass('show-sidebar');
+    });
+  });
+})();
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
 	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
 </script>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script>
+  window.Lazyload.js('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.0-rc.1/mermaid.min.js', function() {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
 
     </div>
     <script>(function () {
