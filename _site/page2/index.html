@@ -1,10 +1,11 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】The Platonic Representation Hypothesis - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
 
-<meta name="description" content="好的模型都是类似的，差的模型各有各的不幸      时间：2024.05.13    作者团队：MIT    作者：Minyoung Huh,  Brian Cheung,  TongzhouWang, Phillip Isola    有用指数：⭐️⭐️⭐️⭐️⭐️    贡献程度：⭐️⭐️⭐️⭐️⭐️    ...">
-<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/vae/2024/05/24/platonic-representation.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
+">
+<link rel="canonical" href="http://localhost:4000/page2/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -254,18 +255,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page layout--page--sidebar clearfix js-page-root">
-  <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
-  <div class="page__viewport">
-    <div class="page__actions d-print-none">
-      <div class="button button--circle button--lg box-shadow-2 sidebar-button js-sidebar-show">
-        <i class="fas fa-bars icon--show"></i>
-      </div>
-    </div>
-
-    <div class="grid page__grid">
-
-      <div class="page__sidebar d-print-none"><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">AI</li><li class="toc-h2"><a href="/assets/category/work/AI/AI.html">AI</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Basics.html">AI基础</a></li><li class="toc-h2"><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -284,202 +274,240 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
-</aside></div>
+              <div class="col-aside d-print-none js-col-aside"></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】The Platonic Representation Hypothesis</h1></header><span class="split-space">&nbsp;</span>
-          <a class="edit-on-github"
-            title="在 Github 上修改"
-            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-05-24-platonic-representation.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】The Platonic Representation Hypothesis"><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/05/08/mixed-precision-training.html"><h2 itemprop="headline" class="item__header">【AI】Mixed Precision Training</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">混合精度训练
+
+==方法提出的背景是什么？==
+
+模型参数的增加，带来了准确度上的提升，Benchmark的提升，但是训练要求的显存也显著增大。如何在模型参数变多下，减小训练内存的使用，同时保证一定的训练精度？
+
+必要背景知识
+
+
+  AdamW优化器
+
+
+原本的Adam优化器是AdamW的前身，它是RMSprop和Stochastic Gradient Descent (SGD) with momentum1这两个方法的结合版。
+
+
+  Adam优化器如何工作
+
+
+\[m_t = β_1 * m_{t-1} + (1 - β_1) * g_t \\
+v_t = β_2 * v_{t-1} + (1 - β_2) * g_t^2 \\
+m_\hat{t} = m_t / (1 - β_...</div><p><a href="/ai/ai_algorithms/2024/05/08/mixed-precision-training.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-24T14:34:07+08:00">
-    <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-08T10:40:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/28/deepspeed.html"><h2 itemprop="headline" class="item__header">【AI】Deepspeed Training</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">DeepSpeed
 
-<!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><h1 id="好的模型都是类似的差的模型各有各的不幸">好的模型都是类似的，差的模型各有各的不幸</h1>
+这篇文章主要回答
 
-<blockquote>
-  <ul>
-    <li>时间：2024.05.13</li>
-    <li>作者团队：MIT</li>
-    <li>作者：Minyoung Huh,  Brian Cheung,  TongzhouWang, Phillip Isola</li>
-    <li>有用指数：⭐️⭐️⭐️⭐️⭐️</li>
-    <li>贡献程度：⭐️⭐️⭐️⭐️⭐️</li>
-    <li>简单评价：用一个简洁的假设解释了很多问题，也预测了一些趋势，其中不乏较为详实的说明和严谨的推论。对于还在疑惑为什么大模型可以work的朋友，是一个很好的知识补充。</li>
-  </ul>
-</blockquote>
 
-<h2 id="出发点">出发点</h2>
+  DeepSpeed要解决什么问题？
+  DeepSpeed如何解决的问题？
+  如何部署DeepSpeed进行训练？
+  相比于其他训练方式DeepSpeed有什么优势？
+  还有哪些训练框架？
 
-<p>科学的发展总是基于一些可证伪的假设的证明或推翻，例如经典力学解释不了的现象，在微观粒度会有量子力学的理论进行支撑。某些看似不可能改变的理论，也仅在某些时空维度下是成立的。这篇文章就提出了一个假设，即，<strong>好的大模型的表征是正在收敛的，包括不同模态的模型</strong>。</p>
 
-<p>作者试图用以下流程证明这个假设</p>
+DeepSpeed要解决什么问题
 
-<ol>
-  <li>不同大模型表征底层数据的方式正在逐渐对齐；</li>
-  <li>不同模态下，大模型衡量数据点距离的方法是非常相似的；</li>
-  <li>这个收敛的方向，是向着一个通用的现实统计学模型。</li>
-</ol>
+为了解决千亿甚至万亿大模型的训练问题，因为这种大模型训练通常需要占用巨大的显卡内存，因此很可能拥有的设备根本训练不起来，即使训练起来了，也可能速度很慢。
 
-<p>该假设的具象理解，假设现实是Z，那么X和Y两个模态的模型学习出来的embedding表征的内容是一致的。</p>
+如何对训练的效率进行衡量？
 
-<p><img src="/assets/images/image-20240528093953188.png" alt="image-20240528093953188" /></p>
+训练的内存占用如何计算
 
-<h2 id="如何证明这个表征是收敛的">如何证明这个表征是收敛的</h2>
+1.5B参数量的大模型，如果精度是FP16(单个参数占用2bytes)，则模型内存占用为2x1.5=3B，如果用Adam Optimizer + 混合精度训练1，模型存储自身参数+梯度，就变成了3B...</div><p><a href="/ai/ai_algorithms/2024/04/28/deepspeed.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月28日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-28T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/26/zhipu-ai.html"><h2 itemprop="headline" class="item__header">【AI】智谱AI</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">🚀【揭秘】Llama-3：开源界的新星，性能如何？
 
-<p>作者只讨论可以产出embedding的模型。这里作者引入了一个<em>kernel</em>的概念。简单理解为模型区隔data points的本质特征，其实就是embedding。随后采用了<em>mutual nearest-neighbor metric</em>，用来衡量两个<em>kernel</em>之间的距离。作者试图证明两个东西</p>
+🎉近年来，AI领域的发展可谓日新月异，而Llama-3的开源无疑给这个领域带来了新的惊喜。SuperBench团队对其进行了全面评测，结果如何呢？让我们一探究竟！
 
-<ol>
-  <li>不同的神经网络正在收敛；</li>
-  <li>收敛的这个现象在不同的模态下都是成立的。</li>
-</ol>
+🔍Llama-3在语义理解、代码能力、对齐、智能体以及安全等方面展现了出色的性能。SuperBench的评测结果，不仅展示了Llama-3的实力，也凸显了SuperBench的权威性和速度。
 
-<p><em>mutual nearest-neighbor metric(MNNM)</em>方法简单来说，就是把图文Pair$(x_i, y_i) \in \mathcal{X}$ 用不同模态的模型分别Encode成各自模态下的embedding，再把每一个mini-batch下的embedding进行聚类，看每个sample聚类出来的结果交集作为该Metrics衡量指标。例如，有图文对(1,a), (2, b), (3, c)，分别用LM处理123，Vision处理abc，处理完的embedding进行KNN聚类，1和2的距离和a与b的距离更接近，则表示两个kernel的距离更近。</p>
+史蒂夫乔布斯曾经说过，“任何对软件有极致追求的公司，都应该制造自己的硬件”。用户体验的提升，从来都不会只依赖一部分的提升，而是这个流程中的所有环节的提升。同样，在大模型时代，对用户体验追求极致的公司或产品，都应该考虑制定自己的评价标准，最大程度对齐到用户的真实体验。
 
-<p>他们介绍了一个工作，叫做model stitching（模型缝合）。给定两个训练好的模型$f$和$g$​​，假设他们都是由n层神经网络组成的，作者引入一个仿射层h，组成一个新的网络</p>
+Meta的...</div><p><a href="/ai/ai_algorithms/2024/04/26/zhipu-ai.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月26日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-26T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/18/llava-multi-image-sft.html"><h2 itemprop="headline" class="item__header">【AI】LLaVA Multiple Images Training Code</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">LLaVA多图训练
 
-\[\begin{equation}
-F = f_1 \circ \cdots \circ f_k \circ h \circ g_{k+1} \circ \cdots \circ g_m
-\end{equation}\]
 
-<p>如果这个新的网络$F$能有很好的表现，那么就证明$f$和$g$有能兼容的层。</p>
 
-<p>他们的实验结果共有两个发现，</p>
+启动脚本
 
-<ol>
-  <li>一个在ImageNet上训练的视觉网络能和一个在Places-365上训练的网络进行对齐并保持较好的表现；</li>
-  <li>更靠前的层比靠后的层可交换性更强。</li>
-</ol>
+bash scripts/v1_5/finetune.sh &gt; test.log 2&gt;&amp;1
 
-<p>作者找了一共78个Vision Model，在VTAB数据集上做了实验，得到了如下结果：表现优秀的模型聚类都在一起，表现差的模型都分布在不同的地方。</p>
 
-<p><img src="/assets/images/image-20240529202644010.png" alt="image-20240529202644010" /></p>
+主要改动
 
-<p>echo一下开头的结论：好的模型都是相似的，差的模型各有各的不幸。</p>
 
-<h3 id="模型参数也是收敛的吗">模型参数也是收敛的吗？</h3>
+  
+    conversation预处理支持多图
 
-<p>简单的答案是：能。作者没有展开讲，但有几个工作发现对于不同的参数空间，它们倾向于向某一个地方进行收敛。</p>
+    
+      
+        def get_prompt(self):
+        messages = self.messages
+        if len(messages) &gt; 0 and type(messages[0][1]) is tuple:
+            messages = self.messages.copy()
+            init_role, init_msg = messages[0].cop...</div><p><a href="/ai/ai_algorithms/2024/04/18/llava-multi-image-sft.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月18日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-18T15:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/04/06/llava-sft.html"><h2 itemprop="headline" class="item__header">【AI】LLaVA Multiple Images SFT</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">LLaVA Mistral Multiple Images SFT
 
-<h3 id="不同模态之间特征也是收敛的吗">不同模态之间特征也是收敛的吗？</h3>
+LLaVA是2023年4月提出的针对多模态场景的，可多轮图文问答ChatBot模型。LLaVA通过简单地把1024维输出的CLIP特征用projector和语言模型的embedding拼接起来，就能实现该效果。
 
-<p>答案：是。有很多现象可以证明，例如LLaVA等多模态架构，仅用一个简单的Projector就能连接两个不同模态的大模型。更加能证明此处的一点是，参考BLIP-2的模型架构，它本质只做了prefix-tuning，没有更新LM的参数，就能够让LM识别图像特征。在语音领域同样有类似的现象。在下面的图里，图像或者语言模块的能力更强，两个模态能对齐的效果就越好，成本就越低。</p>
 
-<p><img src="/assets/images/image-20240529210641490.png" alt="image-20240529210641490" /></p>
 
-<h2 id="为什么表征在收敛">为什么表征在收敛</h2>
+但是，在原文章中，作者是针对单图问答场景进行的训练，如果想实现一个多图输入场景的任务，应该如何改造结构以及构造训练数据呢？下面我们一起来看一下。
 
-<p>我们从模型参数的本质入手，模型训练的本质是降低训练集的经验风险的参数集合+正则化。</p>
+代码结构
 
-<p><img src="/assets/images/image-20240529211754625.png" alt="image-20240529211754625" /></p>
+启动命令
 
-<p>因此，从以下几点进行切入</p>
+bash llava/scripts/v1_5/finetune.sh
 
-<h3 id="从任务泛化性入手">从任务泛化性入手</h3>
 
-<p>我们把解决任务的方法想象成一个集合，对于任务A来说，可能有N种方法解决问题，对任务B来说，有M种方法可以解决问题。所以对于一个可同时解决任务A和B的模型，这个方法是M和N的交集才能同时解决这两个问题。假设我们需要实现的任务越多，训练集越大，那么同时能解决这些问题的方法越少。</p>
+训练入口
 
-<p><img src="/assets/images/image-20240529212623516.png" alt="image-20240529212623516" /></p>
+llava/train/train.py
 
-<h3 id="从模型容量入手">从模型容量入手</h3>
 
-<p>越大的模型参数空间越大，那么这个模型能够探索的空间也就越大，能力也就越强。</p>
+训练框架
 
-<p><img src="/assets/images/image-20240529234243906.png" alt="image-20240529234243906" /></p>
 
-<h3 id="从simplicity-bias思考">从Simplicity Bias思考</h3>
+  训练框架使用了Huggingface下的Trainer，Trainer是专门为了T...</div><p><a href="/ai/ai_algorithms/2024/04/06/llava-sft.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 04月06日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-04-06T09:21:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/03/31/llava.html"><h2 itemprop="headline" class="item__header">【AI】LLaVA MS Research</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">LLaVA Microsoft Research
 
-<p>模型在对数据集进行拟合的时候，是什么导致了让模型不至于学习到特别复杂的表征呢？答案很可能是Simplicity bias。简单来说，在学习过程中，模型会”偷懒“，故意选择最简单能完成任务的方式。所以，根据这个假设，如果一个大模型在不同的数据集上训练过，那么结果可能会向更小的解法空间收敛。（这同时也是奥卡姆剃刀原则的一个直接延伸版本。</p>
+LLaVA - 202304 - MS Research
 
-<p><img src="/assets/images/image-20240529235230631.png" alt="image-20240529235230631" /></p>
 
-<h2 id="这个表征到底会收敛在何处">这个表征到底会收敛在何处？</h2>
+  
+    Existing Gap:
 
-<p>一个简单的结论是：表征会收敛于<strong>离散事件在真实世界的点互信息kernel</strong>。</p>
+    
+      之前的大部分工作都在做模态对齐，做图片的representation learning，而没有针对ChatBot（多轮对话，指令理解）这种场景优化。
+    
+  
+  
+    Contribution：这篇工作已经在BLIP-2之后了，所以Image的理解能力不是LLaVA希望提升的重点，LLaVA是想提升多模态模型的Instruction-Following ability，也就是特定的多轮QA场景。
 
-<p>打个比方，”猫“和”喵“作为两个数据点，经过一个好的大模型的kernel，得到的两个表征，他们的点互信息(Pointwise Mutual Information)应该是接近真实世界的这个数值。因为这是两个事件的点互信息，所以这个方程是可适用于所有模态，甚至是跨模态的。比如文本模态：”猫在叫“和一个视觉模态：”视频中猫在真实的叫“，这两个数据的点互信息应该是比较大的(和现实比较接近)。</p>
+    
+      构造了三种Instruction的数据，包括多轮对话，图片描述和复杂推理。其中...</div><p><a href="/ai/ai_algorithms/2024/03/31/llava.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 03月31日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-03-31T21:25:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/03/27/blip-2.html"><h2 itemprop="headline" class="item__header">【AI】BLIP-2 Salesforce</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">BLIP-2- Salesforce - 202302
 
-<p>两个事件的互信息概率分布定义</p>
 
-\[\begin{equation}
-P_{\text{coor}}(x_a, x_b) \propto \sum_{(t, t') : |t - t'| \leq T_{\text{window}}} \mathbb{P}(X_t = x_a, X_{t'} = x_b).
-\end{equation}\]
+  Existing Gap
+    
+      之前的训练方法会导致LM的Catastrophic Forgetting（如果训练时候更新LM的Params）；
+      作者假设，在Pretrain阶段下，多模态大模型最重要的问题是解决模态对齐（Modality Alignment）。（为什么？因为文本生成能力依赖语言模型，所以让语言模型理解Image Token是很重要的。这里的模态对齐与CLIP的区别是什么？CLIP里面只有Encoder，没有Text Generation，可以把BLIP看做CLIP的带Text Generation的改良版。为什么可以做出这个假设？比较符合直觉，因为图片问答和文本问答最大的区别就...</div><p><a href="/ai/ai_algorithms/2024/03/27/blip-2.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 03月27日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-03-27T22:34:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_algorithms/2024/03/13/flamingo.html"><h2 itemprop="headline" class="item__header">【AI】Flamingo</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Flamingo - Deepmind - 202204
 
-<p>则两个表征之间的距离可以由以下公式计算</p>
 
-\[\left\langle f_X(x_a), f_X(x_b) \right\rangle \approx \log \frac{\mathbb{P}(\text{pos} \mid x_a, x_b)}{\mathbb{P}(\text{neg} \mid x_a, x_b)} + \tilde{c}_X(x_a) \\
-= \log \frac{P_{\text{coor}}(x_a \mid x_b)}{P_{\text{coor}}(x_a)} + c_X(x_a) \\
-= K_{\text{PMI}}(x_a, x_b) + c_X(x_a)\]
+  
+    Existing Gap
 
-<p>既然我们假设了一个好的大模型是真实世界的映射，因此实际上kernel的点互信息就是真实世界的点互信息。</p>
+    
+      CLIP模型无法做文字生成，只能做分类，从已有数据中做选择；
+      能够用image作为language generation的condition来构造这个任务从而完成image caption，image QA这样的任务呢？
+    
+  
+  
+    Contribution
 
-<h2 id="知道了表征收敛有什么基于此的推论">知道了表征收敛，有什么基于此的推论？</h2>
+    
+      提出了一个可以做few-shots来帮助LM做image caption和image QA任务的方法；具有生成能力。
+      提出了一个量化VLM能力的benchmark。
+    
+  
+  
+    Method
 
-<ol>
-  <li>Scaling是适用的，但不同方向的Scale有效率之分
-    <ol>
-      <li>Scaling law告诉我们，模型的表现随参数量，数据集大小和算力之间都有正相关，但是Scale的效率在不同阶段有不同表现。比如，数据集质量是明显短板时(例如不同模态之间的丰富程度不同)，Scale数据集质量要比Scale算力重要得多。</li>
-    </ol>
-  </li>
-  <li>不同模态之间的数据集是可以共享的
-    <ol>
-      <li>如果你有N张图片和M条语料，又有假设是不同模态都可以反映现实，那么我们应该把图片数据和文本数据全部拿来训练。但他们之间可能有个换算关系，比如a个token代表b个pixels，少于这个关系可能无法作为可用训练的数据。</li>
-    </ol>
-  </li>
-  <li>模态对齐在好的大模型之间应该是相当简单的函数
-    <ol>
-      <li>如果不同模态下，优秀的大模型有相似的底层表征，那么用尽可能简单的结构就可以把他们连接起来。</li>
-    </ol>
-  </li>
-</ol>
+    
+      
+   ...</div><p><a href="/ai/ai_algorithms/2024/03/13/flamingo.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 03月13日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-03-13T22:04:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article></div>
+</div><div class="layout--home"><div class="pagination"><p>共计 110 篇文章，14 页。</p>
+    <div class="pagination__menu">
+      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
+            <i class="fas fa-angle-left"></i>
+          </a></li><li>
+              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
+            </li><li>
+              <div class="button button--primary button--circle focus"><span>2</span></div>
+            </li><li>
+                  <a class="button button--secondary button--circle" href="/page3"><span>3</span></a>
+                </li><li>
+                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
+                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
+                  <a class="button button--secondary button--circle" href="/page14"><span>14</span></a>
+                </li><li><a class="button button--secondary button--circle" href="/page3">
+            <i class="fas fa-angle-right"></i>
+          </a></li></ul>
+    </div>
+  </div></div>
+<script>/*(function () {
 
-<h2 id="这个假设的缺陷在哪里">这个假设的缺陷在哪里？</h2>
-
-<ol>
-  <li>有些东西只能用其固有模态表述。例如文本模态下根本不可能详细描述一张图片的所有细节，此时该假设为何成立？
-    <ol>
-      <li>作者argue的是，他们认同这个观点，但他们的假设比较严格建立在信息可严格双向映射情况，否则只能得到被其模态所能表达信息上限所限制的内容。</li>
-    </ol>
-  </li>
-  <li>除了视觉和文本模态之外，很多模态并没有呈现出一种收敛的趋势
-    <ol>
-      <li>这里作者想了可能的原因，比如还没有探索如此深入等。</li>
-    </ol>
-  </li>
-  <li>证明不同模型对齐能力的计算方法只能证明他们是相似的，但并不能证明是收敛的，更无法说明那个方向就是现实
-    <ol>
-      <li>这个是我提的，我自己的思考是，大语言模型用的很多数据集都是相同的，模型表现也是十分接近的，因此非常有可能只是模型相似，但并非都收敛到什么位置了。一切都是数据导致的。我对此的判断是（在物理学中很普遍的一个流程），我们可以先接受一个比较好的假设，这个假设用简洁的方程能解释很多问题，也能预测很多现象，在相当长的一段时间，如果该假设都能无法被证伪，那么我们可以先接受这个作为公理，直到有打破该公理的现象被观测到。</li>
-    </ol>
-  </li>
-</ol>
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-05-24T14:34:07+08:00"><!-- start custom article footer snippet -->
-
-<!-- end custom article footer snippet -->
-<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
-</div><div class="article__license"><div class="license">
-    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
-      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
-        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-      </a>
-    </p>
-  </div></div></footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/assets/category/work/AI/AI_Algorithms.html">AI算法</a></div></div></div>
-
-</div>
-
-<script src="https://utteranc.es/client.js"
-        repo="Chengru-Song/Chengru-Song.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+})();*/
 </script>
+
+
+
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -505,8 +533,7 @@ P_{\text{coor}}(x_a, x_b) \propto \sum_{(t, t') : |t - t'| \leq T_{\text{window}
     });
   });
 })();
-</script>
-</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -526,7 +553,7 @@ P_{\text{coor}}(x_a, x_b) \propto \sum_{(t, t') : |t - t'| \leq T_{\text{window}
   </div>
 </footer>
 </div></div>
-    </div></div></div><script>(function() {
+    </div><script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
     var $body = $('body'), $window = $(window);
@@ -1043,112 +1070,12 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
-</script><script>(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $pageMask = $('.js-page-mask');
-    var $pageRoot = $('.js-page-root');
-    var $sidebarShow = $('.js-sidebar-show');
-    var $sidebarHide = $('.js-sidebar-hide');
-
-    function freeze(e) {
-      if (e.target === $pageMask[0]) {
-        e.preventDefault();
-      }
-    }
-    function stopBodyScrolling(bool) {
-      if (bool === true) {
-        window.addEventListener('touchmove', freeze, { passive: false });
-      } else {
-        window.removeEventListener('touchmove', freeze, { passive: false });
-      }
-    }
-
-    $sidebarShow.on('click', function() {
-      stopBodyScrolling(true); $pageRoot.addClass('show-sidebar');
-    });
-    $sidebarHide.on('click', function() {
-      stopBodyScrolling(false); $pageRoot.removeClass('show-sidebar');
-    });
-  });
-})();
-</script><script>
-  /* toc must before affix, since affix need to konw toc' height. */(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window);
-    var $articleContent = $('.js-article-content');
-    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
-    var toc;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
-
-    function disabled() {
-      return $col2.css('display') === 'none' || !hasToc;
-    }
-
-    tocDisabled = disabled();
-
-    toc = $tocRoot.toc({
-      selectors: TOC_SELECTOR,
-      container: $articleContent,
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      tocDisabled = disabled();
-      toc && toc.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-  });
-})();
-(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window), $pageFooter = $('.js-page-footer');
-    var $pageAside = $('.js-page-aside');
-    var affix;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-
-    affix = $pageAside.affix({
-      offsetBottom: $pageFooter.outerHeight(),
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      scroll: hasSidebar ? $('.js-page-main').children() : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      affix && affix.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-    window.pageAsideAffix = affix;
-  });
-})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
 	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
 </script>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-<script>
-  window.Lazyload.js('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.0-rc.1/mermaid.min.js', function() {
-    mermaid.initialize({
-      startOnLoad: true
-    });
-    mermaid.init(undefined, '.language-mermaid');
-  });
-</script>
 
     </div>
     <script>(function () {

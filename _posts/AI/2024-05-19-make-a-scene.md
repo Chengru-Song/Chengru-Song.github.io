@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【AI】Make A Scene: Meta的T2I核心解析
+title: 【AI】Make A Scene - Meta的T2I核心解析
 sidebar:
   nav: AI
 aside:

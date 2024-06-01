@@ -46,10 +46,16 @@ mermaid: true
 
 *mutual nearest-neighbor metric(MNNM)*方法简单来说，就是把图文Pair$(x_i, y_i) \in \mathcal{X}$ 用不同模态的模型分别Encode成各自模态下的embedding，再把每一个mini-batch下的embedding进行聚类，看每个sample聚类出来的结果交集作为该Metrics衡量指标。例如，有图文对(1,a), (2, b), (3, c)，分别用LM处理123，Vision处理abc，处理完的embedding进行KNN聚类，1和2的距离和a与b的距离更接近，则表示两个kernel的距离更近。
 
-他们介绍了一个工作，叫做model stitching（模型缝合）。给定两个训练好的模型$f$和$g$​，假设他们都是由n层神经网络组成的，作者引入一个仿射层h，组成一个新的网络
-$$ {stitching_layer}
-F = f_1 \circ \cdots \circ f_k \circ h \circ g_{k+1} \circ \cdots \circ g_m
+他们介绍了一个工作，叫做model stitching（模型缝合）。给定两个训练好的模型$f$和$g$​​，假设他们都是由n层神经网络组成的，作者引入一个仿射层h，组成一个新的网络
+
+
 $$
+\begin{equation}
+F = f_1 \circ \cdots \circ f_k \circ h \circ g_{k+1} \circ \cdots \circ g_m
+\end{equation}
+$$
+
+
 如果这个新的网络$F$能有很好的表现，那么就证明$f$和$g$有能兼容的层。
 
 他们的实验结果共有两个发现，
@@ -106,15 +112,25 @@ echo一下开头的结论：好的模型都是相似的，差的模型各有各�
 打个比方，”猫“和”喵“作为两个数据点，经过一个好的大模型的kernel，得到的两个表征，他们的点互信息(Pointwise Mutual Information)应该是接近真实世界的这个数值。因为这是两个事件的点互信息，所以这个方程是可适用于所有模态，甚至是跨模态的。比如文本模态：”猫在叫“和一个视觉模态：”视频中猫在真实的叫“，这两个数据的点互信息应该是比较大的(和现实比较接近)。
 
 两个事件的互信息概率分布定义
+
+
 $$
+\begin{equation}
 P_{\text{coor}}(x_a, x_b) \propto \sum_{(t, t') : |t - t'| \leq T_{\text{window}}} \mathbb{P}(X_t = x_a, X_{t'} = x_b).
+\end{equation}
 $$
+
+
 则两个表征之间的距离可以由以下公式计算
+
+
 $$
 \left\langle f_X(x_a), f_X(x_b) \right\rangle \approx \log \frac{\mathbb{P}(\text{pos} \mid x_a, x_b)}{\mathbb{P}(\text{neg} \mid x_a, x_b)} + \tilde{c}_X(x_a) \\
 = \log \frac{P_{\text{coor}}(x_a \mid x_b)}{P_{\text{coor}}(x_a)} + c_X(x_a) \\
 = K_{\text{PMI}}(x_a, x_b) + c_X(x_a)
 $$
+
+
 既然我们假设了一个好的大模型是真实世界的映射，因此实际上kernel的点互信息就是真实世界的点互信息。
 
 ## 知道了表征收敛，有什么基于此的推论？

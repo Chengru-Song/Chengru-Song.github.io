@@ -1,10 +1,11 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - Chengru's Blog</title>
 
-<meta name="description" content="">
-<link rel="canonical" href="http://localhost:4000/2024/05/30/2024-05-19-vq-vae.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="A personal blog website for sharing of technology, reflection and branding. 
+">
+<link rel="canonical" href="http://localhost:4000/page5/"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -254,7 +255,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -273,61 +274,219 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
-</aside></div>
+              <div class="col-aside d-print-none js-col-aside"></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1></h1></header><span class="split-space">&nbsp;</span>
-          <a class="edit-on-github"
-            title="在 Github 上修改"
-            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-05-19-vq-vae.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content=""><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月30日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-30T16:38:58+08:00"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Chengru Song"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/08/llm-rl.html"><h2 itemprop="headline" class="item__header">【AI】LLM RL Modeling</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">RL Recap
 
-<!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><h1 id="vq-vae-详解">VQ-VAE 详解</h1>
+RL Model
 
-<blockquote>
-  <ul>
-    <li>时间：2017.11.2</li>
-    <li>作者团队：DeepMinds</li>
-    <li>作者：Aaron van den Oord, Oriol Vinyals, Koray Kavukcuoglu</li>
-    <li>有用指数：⭐️⭐️⭐️⭐️⭐️</li>
-    <li>贡献程度：⭐️⭐️⭐️⭐️⭐️</li>
-    <li>简单评价：开山鼻祖之作</li>
-  </ul>
-</blockquote>
+LLM Description
 
-<h2 id="背景知识">背景知识</h2>
+根据上一个states，经过一个LLM，生成另一个states，一共生成max_tokens作为一次生成。生成的长度是prompt_len + max_token。
 
-<ol>
-  <li>VAE详解：https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73</li>
-  <li></li>
-</ol>
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-05-30T16:38:58+08:00"><!-- start custom article footer snippet -->
+Modeling
 
-<!-- end custom article footer snippet -->
-<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
-</div><div class="article__license"><div class="license">
-    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
-      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
-        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-      </a>
-    </p>
-  </div></div></footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/2024/05/30/2024-05-19-make-a-scene.html"></a></div></div></div>
 
-</div>
+  Objective
+    
+      生成尽可能多的Correct Format。
+    
+  
+  States
+    
+      Input of current methods</div><p><a href="/ai/ai_basics/2023/10/08/llm-rl.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-08T17:50:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/blog/2023/10/08/structural-thinking.html"><h2 itemprop="headline" class="item__header">【Blog】Structural Thinking</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Overview
 
-<script src="https://utteranc.es/client.js"
-        repo="Chengru-Song/Chengru-Song.github.io"
-        issue-term="title"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+为什么突然想写这样一篇文章？因为最近我发现所有东西想做好，都需要有一套自己的SOP。简单来说就是一个structural thinking，对于一个较为常见的问题，有一个固定的思考套路。当然这不是说这个套路就是固定不变的，是说首先需要有，其次是需要根据这个套路不断迭代，优化这个套路直到这个套路可以快速的解决问题。可以是学习相关的，可以是工作相关的，但总体来说，我认为人就是他自己方法论的总和，这些方法论优化的越好，事情做的漂亮的可能性就越大。
+
+Study
+
+Algorithm
+
+Algorithm类的本身比较单点，就是一个算法，但是可以发散的很多。比如有些算法其实是另一些算法的改进版，那光了解这一个算法肯定是不行的，需要了解之前的算法，而当一个算法需要的背景知识过多...</div><p><a href="/work/blog/2023/10/08/structural-thinking.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-08T13:27:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/10/06/reinforcement-learning.html"><h2 itemprop="headline" class="item__header">【AI】Reinforcement Learning</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Reference
+
+
+  
+    Key concepts
+
+    A (Long) Peek into Reinforcement Learning
+  
+  
+    Policy Gradient
+
+    Policy Gradient Algorithms
+  
+
+
+Key Concepts
+
+What
+
+定义
+
+
+  The agent’s policy $\pi(s)$ provides the guideline on what is the optimal action to take in a certain state with the goal to maximize the total rewards.
+
+
+关键词，在某个state下，采取何种策略，能够...</div><p><a href="/ai/ai_basics/2023/10/06/reinforcement-learning.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 10月06日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-10-06T17:26:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/06/08/LLM-deep-dive.html"><h2 itemprop="headline" class="item__header">【AI】LLM Deep Dive</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Overview
+
+
+  什么是LLM？
+  LLM的Intuitive是什么？
+  LLM的原理是什么，底层是如何实现的？
+  相比于其他方法，LLM为什么能够达到更好的效果？
+  LLM产业运行的难点在哪里？
+  如果我现在起步，做和LLM什么相关工作比较好？机会点在哪里？
+  如果有一个LLM相关工作的Roadmap，这个Roadmap是什么？
+  如何与我现在的工作内容产生联系，让我更好起步？
+
+
+因为我算是LLM领域的小白，所以我想从NLP的历史出发，看看如何一步步演变成目前的形态。
+
+Background
+
+NLP的Intuitive是什么？为什么这种方法可行。
+
+Intuitive
+
+Statistical Model
+
+参考这篇2001年的论文A Bit of Prog...</div><p><a href="/ai/ai_basics/2023/06/08/LLM-deep-dive.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 06月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-06-08T07:46:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/06/08/0607github-trending.html"><h2 itemprop="headline" class="item__header">【AI】06/07 Github Trending</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Top-5 Summary
+
+
+  TransformerOptimus/SuperAGI
+    
+      SuperAGI是一个用于构建和运行有用的自主代理的框架。SuperAGI旨在构建基础设施，以实现这一目标。使用SuperAGI，您可以提供、生成和部署有用的自主人工智能代理。简单来说，SuperAGI是一套带UI界面的解决方案，你可以构建自己的数据库，embedding等，通过OpenAI的接口来和数据库的内容交互。
+    
+  
+  ruanyf/weekly
+    
+      一个科技爱好者周刊
+    
+  
+  mlc-ai/mlc-llm
+    
+      MLC LLM（多语言模型转换与优化引擎）是一个通用解决方案，可以使任何语言模型在各种硬件后端和...</div><p><a href="/ai/ai_basics/2023/06/08/0607github-trending.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 06月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-06-08T07:46:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/2023/05/10/ai-home.html"><h2 itemprop="headline" class="item__header">Ai Home</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">24/05/2024
+       &lt;a href=/ai/ai_algorithms/vae/2024/05/24/platonic-representation.html title=AI&gt; 【AI】The Platonic Representation Hypothesis &lt;/a&gt; 
+      
+      
+      19/05/2024
+       &lt;a href=/ai/ai_algorithms/vae/2024/05/19/vae.html title=AI&gt; 【AI】Variational Auto Encoder &lt;/a&gt; 
+      
+      
+      19/05/2024
+       &lt;a...</div><p><a href="/2023/05/10/ai-home.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月10日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-10T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/ai/ai_basics/2023/05/08/llm-thought.html"><h2 itemprop="headline" class="item__header">【AI】LLM Thoughts</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">背景
+
+可能是最近才开始关注Github上关于LLM和AIGC的更新，用日新月异来形容毫不过分。每天的Github trending都在变，而且绝大部分都是关于AI，非相关内容已经排不上trending了。
+
+2016年AlphaGo出来下棋的时候，还没有体会到AI能够发展成为今天的样子，因为把棋下好这件事和日常生活提效，或者是人工智能取代人工这个构想之间的逻辑关系过于大，不光大头兵们，大佬们肯定也没想到，不然他们早就入局了，不至于OpenAI都做出来了才都纷纷带着自己的家底入场。
+
+对于一个从事编程行业的人来说，哪些应该是我的关注点呢？
+
+Breakdown
+
+首先，大模型大概率没法做。这个事情没有多少资本都没有入场券那种，不过我倒是很好奇，如果在现在的模型基础上做fine-tune...</div><p><a href="/ai/ai_basics/2023/05/08/llm-thought.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-ai">301-work-ai</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 05月08日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-05-08T16:46:07+08:00">
+    <meta itemprop="keywords" content="301-work-ai"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/work/basics/2023/04/18/useful-prompts.html"><h2 itemprop="headline" class="item__header">【Basics】Useful Prompts</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Prompt Techniques
+
+Specific Prompts
+
+Scala Prompts
+
+
+  Incremental Id assignment
+    
+      suppose I have a rdd called edgeDF which has src_id, dst_id columns. Now I want to turn srd_id and dst_id into a single column called vertex_id. Each vertex_id is unique and assign a new column called id with incremental number. 
+Finally, I want to assign...</div><p><a href="/work/basics/2023/04/18/useful-prompts.html">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-blog">301-work-blog</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=301-work-learning">301-work-learning</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2023年 04月18日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2023-04-18T14:44:07+08:00">
+    <meta itemprop="keywords" content="301-work-blog,301-work-learning"></div>
+      </article></div>
+</div><div class="layout--home"><div class="pagination"><p>共计 110 篇文章，14 页。</p>
+    <div class="pagination__menu">
+      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/page4">
+            <i class="fas fa-angle-left"></i>
+          </a></li><li>
+              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
+            </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
+                  <a class="button button--secondary button--circle" href="/page4"><span>4</span></a>
+                </li><li>
+              <div class="button button--primary button--circle focus"><span>5</span></div>
+            </li><li>
+                  <a class="button button--secondary button--circle" href="/page6"><span>6</span></a>
+                </li><li><span class="pagination__omit"><i class="fas fa-ellipsis-h"></i></span></li><li>
+                  <a class="button button--secondary button--circle" href="/page14"><span>14</span></a>
+                </li><li><a class="button button--secondary button--circle" href="/page6">
+            <i class="fas fa-angle-right"></i>
+          </a></li></ul>
+    </div>
+  </div></div>
+<script>/*(function () {
+
+})();*/
 </script>
+
+
+
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -353,8 +512,7 @@
     });
   });
 })();
-</script>
-</div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
+</script></div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
 </div>
@@ -891,68 +1049,6 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
-</script><script>
-  /* toc must before affix, since affix need to konw toc' height. */(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window);
-    var $articleContent = $('.js-article-content');
-    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
-    var toc;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
-
-    function disabled() {
-      return $col2.css('display') === 'none' || !hasToc;
-    }
-
-    tocDisabled = disabled();
-
-    toc = $tocRoot.toc({
-      selectors: TOC_SELECTOR,
-      container: $articleContent,
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      tocDisabled = disabled();
-      toc && toc.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-  });
-})();
-(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window), $pageFooter = $('.js-page-footer');
-    var $pageAside = $('.js-page-aside');
-    var affix;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-
-    affix = $pageAside.affix({
-      offsetBottom: $pageFooter.outerHeight(),
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      scroll: hasSidebar ? $('.js-page-main').children() : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      affix && affix.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-    window.pageAsideAffix = affix;
-  });
-})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]

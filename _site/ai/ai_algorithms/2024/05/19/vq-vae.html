@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】The Platonic Representation Hypothesis - Chengru's Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>【AI】VQ-VAE - Chengru's Blog</title>
 
-<meta name="description" content="好的模型都是类似的，差的模型各有各的不幸      时间：2024.05.13    作者团队：MIT    作者：Minyoung Huh,  Brian Cheung,  TongzhouWang, Phillip Isola    有用指数：⭐️⭐️⭐️⭐️⭐️    贡献程度：⭐️⭐️⭐️⭐️⭐️    ...">
-<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/vae/2024/05/24/platonic-representation.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="VQ-VAE 详解      时间：2017.11.2    作者团队：DeepMinds    作者：Aaron van den Oord, Oriol Vinyals, Koray Kavukcuoglu    有用指数：⭐️⭐️⭐️⭐️⭐️    贡献程度：⭐️⭐️⭐️⭐️⭐️    简单评价：开山鼻祖之作...">
+<link rel="canonical" href="http://localhost:4000/ai/ai_algorithms/2024/05/19/vq-vae.html"><link rel="alternate" type="application/rss+xml" title="Chengru's Blog" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -290,175 +290,38 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】The Platonic Representation Hypothesis</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>【AI】VQ-VAE</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
-            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-05-24-platonic-representation.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】The Platonic Representation Hypothesis"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/Chengru-Song/Chengru-Song.github.io/tree/master/_posts/AI/2024-05-19-vq-vae.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="【AI】VQ-VAE"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=301-work-ai">301-work-ai</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月24日</span>
-            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-24T14:34:07+08:00">
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2024年 05月19日</span>
+            </li></ul></div><meta itemprop="author" content="Chengru Song"/><meta itemprop="datePublished" content="2024-05-19T16:37:07+08:00">
     <meta itemprop="keywords" content="301-work-ai"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><h1 id="好的模型都是类似的差的模型各有各的不幸">好的模型都是类似的，差的模型各有各的不幸</h1>
+<div class="article__content" itemprop="articleBody"><h1 id="vq-vae-详解">VQ-VAE 详解</h1>
 
 <blockquote>
   <ul>
-    <li>时间：2024.05.13</li>
-    <li>作者团队：MIT</li>
-    <li>作者：Minyoung Huh,  Brian Cheung,  TongzhouWang, Phillip Isola</li>
+    <li>时间：2017.11.2</li>
+    <li>作者团队：DeepMinds</li>
+    <li>作者：Aaron van den Oord, Oriol Vinyals, Koray Kavukcuoglu</li>
     <li>有用指数：⭐️⭐️⭐️⭐️⭐️</li>
     <li>贡献程度：⭐️⭐️⭐️⭐️⭐️</li>
-    <li>简单评价：用一个简洁的假设解释了很多问题，也预测了一些趋势，其中不乏较为详实的说明和严谨的推论。对于还在疑惑为什么大模型可以work的朋友，是一个很好的知识补充。</li>
+    <li>简单评价：开山鼻祖之作</li>
   </ul>
 </blockquote>
 
-<h2 id="出发点">出发点</h2>
-
-<p>科学的发展总是基于一些可证伪的假设的证明或推翻，例如经典力学解释不了的现象，在微观粒度会有量子力学的理论进行支撑。某些看似不可能改变的理论，也仅在某些时空维度下是成立的。这篇文章就提出了一个假设，即，<strong>好的大模型的表征是正在收敛的，包括不同模态的模型</strong>。</p>
-
-<p>作者试图用以下流程证明这个假设</p>
+<h2 id="背景知识">背景知识</h2>
 
 <ol>
-  <li>不同大模型表征底层数据的方式正在逐渐对齐；</li>
-  <li>不同模态下，大模型衡量数据点距离的方法是非常相似的；</li>
-  <li>这个收敛的方向，是向着一个通用的现实统计学模型。</li>
+  <li>VAE详解：https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73</li>
+  <li></li>
 </ol>
-
-<p>该假设的具象理解，假设现实是Z，那么X和Y两个模态的模型学习出来的embedding表征的内容是一致的。</p>
-
-<p><img src="/assets/images/image-20240528093953188.png" alt="image-20240528093953188" /></p>
-
-<h2 id="如何证明这个表征是收敛的">如何证明这个表征是收敛的</h2>
-
-<p>作者只讨论可以产出embedding的模型。这里作者引入了一个<em>kernel</em>的概念。简单理解为模型区隔data points的本质特征，其实就是embedding。随后采用了<em>mutual nearest-neighbor metric</em>，用来衡量两个<em>kernel</em>之间的距离。作者试图证明两个东西</p>
-
-<ol>
-  <li>不同的神经网络正在收敛；</li>
-  <li>收敛的这个现象在不同的模态下都是成立的。</li>
-</ol>
-
-<p><em>mutual nearest-neighbor metric(MNNM)</em>方法简单来说，就是把图文Pair$(x_i, y_i) \in \mathcal{X}$ 用不同模态的模型分别Encode成各自模态下的embedding，再把每一个mini-batch下的embedding进行聚类，看每个sample聚类出来的结果交集作为该Metrics衡量指标。例如，有图文对(1,a), (2, b), (3, c)，分别用LM处理123，Vision处理abc，处理完的embedding进行KNN聚类，1和2的距离和a与b的距离更接近，则表示两个kernel的距离更近。</p>
-
-<p>他们介绍了一个工作，叫做model stitching（模型缝合）。给定两个训练好的模型$f$和$g$​​，假设他们都是由n层神经网络组成的，作者引入一个仿射层h，组成一个新的网络</p>
-
-\[\begin{equation}
-F = f_1 \circ \cdots \circ f_k \circ h \circ g_{k+1} \circ \cdots \circ g_m
-\end{equation}\]
-
-<p>如果这个新的网络$F$能有很好的表现，那么就证明$f$和$g$有能兼容的层。</p>
-
-<p>他们的实验结果共有两个发现，</p>
-
-<ol>
-  <li>一个在ImageNet上训练的视觉网络能和一个在Places-365上训练的网络进行对齐并保持较好的表现；</li>
-  <li>更靠前的层比靠后的层可交换性更强。</li>
-</ol>
-
-<p>作者找了一共78个Vision Model，在VTAB数据集上做了实验，得到了如下结果：表现优秀的模型聚类都在一起，表现差的模型都分布在不同的地方。</p>
-
-<p><img src="/assets/images/image-20240529202644010.png" alt="image-20240529202644010" /></p>
-
-<p>echo一下开头的结论：好的模型都是相似的，差的模型各有各的不幸。</p>
-
-<h3 id="模型参数也是收敛的吗">模型参数也是收敛的吗？</h3>
-
-<p>简单的答案是：能。作者没有展开讲，但有几个工作发现对于不同的参数空间，它们倾向于向某一个地方进行收敛。</p>
-
-<h3 id="不同模态之间特征也是收敛的吗">不同模态之间特征也是收敛的吗？</h3>
-
-<p>答案：是。有很多现象可以证明，例如LLaVA等多模态架构，仅用一个简单的Projector就能连接两个不同模态的大模型。更加能证明此处的一点是，参考BLIP-2的模型架构，它本质只做了prefix-tuning，没有更新LM的参数，就能够让LM识别图像特征。在语音领域同样有类似的现象。在下面的图里，图像或者语言模块的能力更强，两个模态能对齐的效果就越好，成本就越低。</p>
-
-<p><img src="/assets/images/image-20240529210641490.png" alt="image-20240529210641490" /></p>
-
-<h2 id="为什么表征在收敛">为什么表征在收敛</h2>
-
-<p>我们从模型参数的本质入手，模型训练的本质是降低训练集的经验风险的参数集合+正则化。</p>
-
-<p><img src="/assets/images/image-20240529211754625.png" alt="image-20240529211754625" /></p>
-
-<p>因此，从以下几点进行切入</p>
-
-<h3 id="从任务泛化性入手">从任务泛化性入手</h3>
-
-<p>我们把解决任务的方法想象成一个集合，对于任务A来说，可能有N种方法解决问题，对任务B来说，有M种方法可以解决问题。所以对于一个可同时解决任务A和B的模型，这个方法是M和N的交集才能同时解决这两个问题。假设我们需要实现的任务越多，训练集越大，那么同时能解决这些问题的方法越少。</p>
-
-<p><img src="/assets/images/image-20240529212623516.png" alt="image-20240529212623516" /></p>
-
-<h3 id="从模型容量入手">从模型容量入手</h3>
-
-<p>越大的模型参数空间越大，那么这个模型能够探索的空间也就越大，能力也就越强。</p>
-
-<p><img src="/assets/images/image-20240529234243906.png" alt="image-20240529234243906" /></p>
-
-<h3 id="从simplicity-bias思考">从Simplicity Bias思考</h3>
-
-<p>模型在对数据集进行拟合的时候，是什么导致了让模型不至于学习到特别复杂的表征呢？答案很可能是Simplicity bias。简单来说，在学习过程中，模型会”偷懒“，故意选择最简单能完成任务的方式。所以，根据这个假设，如果一个大模型在不同的数据集上训练过，那么结果可能会向更小的解法空间收敛。（这同时也是奥卡姆剃刀原则的一个直接延伸版本。</p>
-
-<p><img src="/assets/images/image-20240529235230631.png" alt="image-20240529235230631" /></p>
-
-<h2 id="这个表征到底会收敛在何处">这个表征到底会收敛在何处？</h2>
-
-<p>一个简单的结论是：表征会收敛于<strong>离散事件在真实世界的点互信息kernel</strong>。</p>
-
-<p>打个比方，”猫“和”喵“作为两个数据点，经过一个好的大模型的kernel，得到的两个表征，他们的点互信息(Pointwise Mutual Information)应该是接近真实世界的这个数值。因为这是两个事件的点互信息，所以这个方程是可适用于所有模态，甚至是跨模态的。比如文本模态：”猫在叫“和一个视觉模态：”视频中猫在真实的叫“，这两个数据的点互信息应该是比较大的(和现实比较接近)。</p>
-
-<p>两个事件的互信息概率分布定义</p>
-
-\[\begin{equation}
-P_{\text{coor}}(x_a, x_b) \propto \sum_{(t, t') : |t - t'| \leq T_{\text{window}}} \mathbb{P}(X_t = x_a, X_{t'} = x_b).
-\end{equation}\]
-
-<p>则两个表征之间的距离可以由以下公式计算</p>
-
-\[\left\langle f_X(x_a), f_X(x_b) \right\rangle \approx \log \frac{\mathbb{P}(\text{pos} \mid x_a, x_b)}{\mathbb{P}(\text{neg} \mid x_a, x_b)} + \tilde{c}_X(x_a) \\
-= \log \frac{P_{\text{coor}}(x_a \mid x_b)}{P_{\text{coor}}(x_a)} + c_X(x_a) \\
-= K_{\text{PMI}}(x_a, x_b) + c_X(x_a)\]
-
-<p>既然我们假设了一个好的大模型是真实世界的映射，因此实际上kernel的点互信息就是真实世界的点互信息。</p>
-
-<h2 id="知道了表征收敛有什么基于此的推论">知道了表征收敛，有什么基于此的推论？</h2>
-
-<ol>
-  <li>Scaling是适用的，但不同方向的Scale有效率之分
-    <ol>
-      <li>Scaling law告诉我们，模型的表现随参数量，数据集大小和算力之间都有正相关，但是Scale的效率在不同阶段有不同表现。比如，数据集质量是明显短板时(例如不同模态之间的丰富程度不同)，Scale数据集质量要比Scale算力重要得多。</li>
-    </ol>
-  </li>
-  <li>不同模态之间的数据集是可以共享的
-    <ol>
-      <li>如果你有N张图片和M条语料，又有假设是不同模态都可以反映现实，那么我们应该把图片数据和文本数据全部拿来训练。但他们之间可能有个换算关系，比如a个token代表b个pixels，少于这个关系可能无法作为可用训练的数据。</li>
-    </ol>
-  </li>
-  <li>模态对齐在好的大模型之间应该是相当简单的函数
-    <ol>
-      <li>如果不同模态下，优秀的大模型有相似的底层表征，那么用尽可能简单的结构就可以把他们连接起来。</li>
-    </ol>
-  </li>
-</ol>
-
-<h2 id="这个假设的缺陷在哪里">这个假设的缺陷在哪里？</h2>
-
-<ol>
-  <li>有些东西只能用其固有模态表述。例如文本模态下根本不可能详细描述一张图片的所有细节，此时该假设为何成立？
-    <ol>
-      <li>作者argue的是，他们认同这个观点，但他们的假设比较严格建立在信息可严格双向映射情况，否则只能得到被其模态所能表达信息上限所限制的内容。</li>
-    </ol>
-  </li>
-  <li>除了视觉和文本模态之外，很多模态并没有呈现出一种收敛的趋势
-    <ol>
-      <li>这里作者想了可能的原因，比如还没有探索如此深入等。</li>
-    </ol>
-  </li>
-  <li>证明不同模型对齐能力的计算方法只能证明他们是相似的，但并不能证明是收敛的，更无法说明那个方向就是现实
-    <ol>
-      <li>这个是我提的，我自己的思考是，大语言模型用的很多数据集都是相同的，模型表现也是十分接近的，因此非常有可能只是模型相似，但并非都收敛到什么位置了。一切都是数据导致的。我对此的判断是（在物理学中很普遍的一个流程），我们可以先接受一个比较好的假设，这个假设用简洁的方程能解释很多问题，也能预测很多现象，在相当长的一段时间，如果该假设都能无法被证伪，那么我们可以先接受这个作为公理，直到有打破该公理的现象被观测到。</li>
-    </ol>
-  </li>
-</ol>
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-05-24T14:34:07+08:00"><!-- start custom article footer snippet -->
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2024-05-19T16:37:07+08:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
 <div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">订阅</a></div>
