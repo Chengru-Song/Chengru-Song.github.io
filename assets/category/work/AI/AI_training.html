@@ -1,0 +1,22 @@
+---
+layout: articles
+titles:
+    en:       AI Training
+    zh:       LLM训练篇
+    zh-Hans:  LLM训练篇
+    zh-Hant:  LLM训练篇
+sidebar:
+    nav: AI_CONCEPTS
+---
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "ai_training" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

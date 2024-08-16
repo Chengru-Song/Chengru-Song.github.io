@@ -13,6 +13,18 @@ header:
     url: /assets/category/work/basics/basics.html
   - titles:
      # @start locale config
+      en      : &EN       AI Concepts Daily
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      zh-Hans : &ZH_HANS  每日人工智能
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+      zh-SG   : *ZH_HANS
+    url: /assets/category/work/AI/AI_concepts.html
+  - titles:
+     # @start locale config
       en      : &EN       AI
       en-GB   : *EN
       en-US   : *EN
@@ -147,3 +159,10 @@ REFLECTION:
         url: /assets/category/blog/2022_Feb.html
       - title: 2022_Mar
         url: /assets/category/blog/2022_Mar.html
+
+AI_CONCEPTS:
+  - title: 每日AI概念
+    children:
+      - title: 训练篇
+        url: /assets/category/work/AI/AI_training.html
+      

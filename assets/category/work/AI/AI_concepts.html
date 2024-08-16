@@ -1,0 +1,22 @@
+---
+layout: articles
+titles:
+    en:       AI concepts
+    zh:       每日AI概念
+    zh-Hans:  每日AI概念
+    zh-Hant:  每日AI概念
+sidebar:
+    nav: AI_CONCEPTS
+---
+
+<ul>
+    {% for cat in site.categories %}
+        {% if cat[0] == "ai_concepts" %}
+        {% for post in cat[1] %}
+        {{post.date | date:"%d/%m/%Y"}}
+        <font size="3"><a href={{post.url}} title={{ cat[0] }}>{{post.title}}</a></font>
+        <br>
+        {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

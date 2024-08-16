@@ -6,10 +6,10 @@ sidebar:
 aside:
   toc: true
 key: llm
-date: 2024-07-28 14:49:07 +0800
+date: 2024-08-12 14:49:07 +0800
 tags:
 - 301-work-ai
-category: [AI, AI_Algorithms, Vision]
+category: [ai_concepts, ai_training, AI, AI_Algorithms]
 typora-root-url: ../../../blog
 mermaid: true
 ---
