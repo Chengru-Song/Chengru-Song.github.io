@@ -65,6 +65,6 @@ Gradient Accumulation主要解决的问题是增大batch_size，即不在计算�
 
 ## References
 
-1. [Github Gradient Checkpointing](https://github.com/cybertronai/gradient-checkpointing): https://github.com/cybertronai/gradient-checkpointing
-2. https://medium.com/tensorflow/fitting-larger-networks-into-memory-583e3c758ff9
-3. https://aman.ai/primers/ai/grad-accum-checkpoint/
+1. [https://github.com/cybertronai/gradient-checkpointing](https://github.com/cybertronai/gradient-checkpointing)
+2. [https://medium.com/tensorflow/fitting-larger-networks-into-memory-583e3c758ff9](https://medium.com/tensorflow/fitting-larger-networks-into-memory-583e3c758ff9)
+3. [https://aman.ai/primers/ai/grad-accum-checkpoint/](https://aman.ai/primers/ai/grad-accum-checkpoint/)
