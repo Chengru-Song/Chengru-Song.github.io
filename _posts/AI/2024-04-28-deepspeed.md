@@ -60,5 +60,7 @@ DeepSpeed共有三个级别，分别能实现三种级别的内存效率。
 
 ![image-20240428173117885](/assets/images/image-20240428173117885.png)
 
+https://github.com/microsoft/DeepSpeed/issues/3889
+
 [^1]:  [Understanding Mixed Precision Training](https://towardsdatascience.com/understanding-mixed-precision-training-4b246679c7c4)
 
