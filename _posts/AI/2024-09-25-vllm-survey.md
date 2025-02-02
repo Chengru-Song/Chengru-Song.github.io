@@ -306,11 +306,27 @@ P(原因i | 事情发生) =P(原因i) x P(在该原因下事情发生)
 
 我后面准备验证自己的这个想法，继续简化LLaVA的分辨率处理模块，看是否能让结果变得的更好。关注我看后续结论。
 
+### 重复说话问题
+
+大模型训练能解决大部分问题，但把模型上到业务上，你会发现自己开始不断和corner case作斗争。短期内可以想一些后处理的方法，通过增加First token latency的形式在中间添加一些处理模块，防止产出离谱结果。但是显然，通过规则或者多步生成规避问题是短期方案，长期来看还是要从模型侧解决问题。
+
+在我们的场景中，我们发现了训练后的模型存在重复说话的问题，简单来说，就是模型在重复同一句话，例如You are so good. You are so good. 有时候可以自动结束重复继续说别的，有时候无法结束重复的话直到达到context length。
 
 
 
 
 
+
+
+### Image token到底被理解成了什么?
+
+既然现在多模态大模型都是在蹭LLM的说话能力，那这里肯定有个问题就是，图片的token在LLM侧到底被理解成了什么，导致LLM可以“认识”这些tokens，并能对这些tokens进行文本描述。**如果我们能看到这些Visual tokens被映射成了什么内容，那么是否就很容易判断一个多模态模型是否在经过了微调以后产生了能力的变化？**
+
+#### Visual tokens是如何被映射的？
+
+Resampler就可以理解为字面意义的把Vision Transformers的特征resample成LLM能理解的内容。具体做法就是用一个Cross attention模块，把Query设置成可学习参数，key和value都是ViT的输出特征。好处是Query的dimension大小可以定制化，所以想把这个特征压缩成多大的token数量都是可以的。如果做视频的内容理解，Resampler可以极限压缩图片的token数量。
+
+projector类的就是单层MLP，其实并非Visual tokens，而是直接给出embedding，然后和已经从tokens转成embeddings的文本拼在一起组成embeddings传入LLM。
 
 
 
