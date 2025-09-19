@@ -91,5 +91,9 @@ class Ovis2VisualEmbeddingTable(nn.Embedding):
 看到这个架构有几个问题
 
 1. 这个是做Vision tokenization的方式，但Vision token的vocab_size才65536，真的能表征一个图片吗？
-2. 这个方法比直接pooling的优势在哪里？光从架构上看不出来
+2. 这个方法比直接pooling的优势在哪里？光从架构上看不出来，且由于加上了tokenization的过程，可能导致细粒度的感知力变差，直接导致OCR能力的下降；
+
+
+
+
 
