@@ -22,9 +22,6 @@ mermaid: true
 
 
 
-1. INTERN-S1: A SCIENTIFIC MULTIMODAL FOUNDATION MODEL
-2. 
-
 ## 数据
 
 1. Intern-S1
@@ -70,7 +67,7 @@ mermaid: true
          3. 训练时候会出现Reward hacking：RM会倾向于给某些回复大正确的label；
          4. 任何一个任务设计不合理Reward，就会导致训练崩溃：
          5. 训练一阵子之后，ACC就会饱和：设计了curriculum RL，直接把prompt分层，不同阶段prompt训练；
-         6. 训练效率比较低（训练很多后ACC不涨）：更大batch-size，dynamic samling(训练过程中，根据模型上一个batch训练的成功率确定下一个batch的难度），过长的回复force插入answer token，KL loss不要加，CLIP可以做高一些；
+         6. 训练效率比较低（训练很多后ACC不涨）：更大batch-size，dynamic samling(训练过程中，根据模型上一个batch`训练的成功率确定下一个`batch的难度），过长的回复force插入answer token，KL loss不要加，CLIP可以做高一些；
          7. 训练不稳定：SFT数据很关键，否则模型会不断输出无意义thinking；top_p=1 stable training；per-sample和per-token的loss对训练效果的影响不大；
          8. 不要加Format Reward，确保SFT能学对：不然模型会比较懵逼，
 4. Mimo-VL
