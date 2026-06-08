@@ -71,7 +71,7 @@ header:
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
-    url: /assets/resume/index.html
+    url: /assets/resume_v2/index.html
 
   - titles:
       # @start locale config

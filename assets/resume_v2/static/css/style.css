@@ -1,0 +1,166 @@
+/* resume_v2 — single-column LaTeX-style resume */
+
+:root {
+    --ink: #1a1a1a;
+    --rule: #1a1a1a;
+    --page-w: 8.5in;
+    --pad-x: 0.5in;
+    --pad-y: 0.45in;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #e9e9ec;
+}
+
+body {
+    font-family: "Charter", "Bitstream Charter", "Georgia", "Times New Roman", serif;
+    color: var(--ink);
+    line-height: 1.32;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding: 24px 12px;
+}
+
+.page {
+    width: var(--page-w);
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: var(--pad-y) var(--pad-x);
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.14);
+}
+
+/* ---- Header ---- */
+.name {
+    text-align: center;
+    font-size: 25pt;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.contact {
+    text-align: center;
+    font-size: 11pt;
+    margin-bottom: 12px;
+}
+
+.contact span:not(:last-child)::after {
+    content: "\00a0\00a0·\00a0\00a0";
+    color: var(--ink);
+}
+
+.contact a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+/* ---- Section ---- */
+section {
+    margin-top: 9px;
+}
+
+h2.section-title {
+    font-size: 12.5pt;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+    padding-bottom: 1px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 4px;
+}
+
+/* ---- Dated subsection (company / role headers) ---- */
+.dated {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 11pt;
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+.dated .date {
+    font-weight: 700;
+    white-space: nowrap;
+    padding-left: 1em;
+}
+
+/* ---- Block sub-headers (SFT / RL / ...) ---- */
+.subhead {
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 1px;
+}
+
+/* ---- Paragraphs & lists ---- */
+p.body {
+    margin: 2px 0;
+    text-align: justify;
+}
+
+ul {
+    list-style: disc;
+    margin: 1px 0 3px 0;
+    padding-left: 1.25em;
+}
+
+ul li {
+    margin-bottom: 1px;
+    text-align: justify;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+i, em {
+    font-style: italic;
+}
+
+/* ---- Education rows ---- */
+.edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.6em;
+    margin-top: 5px;
+}
+
+.edu-row .school {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.edu-row .degree {
+    flex: 1;
+    text-align: center;
+    font-style: normal;
+}
+
+.edu-row .when {
+    white-space: nowrap;
+    text-align: right;
+}
+
+@media print {
+    html { background: #fff; }
+    body { padding: 0; }
+    .page { box-shadow: none; width: auto; max-width: none; }
+}
+
+@media (max-width: 760px) {
+    body { font-size: 11px; }
+    .edu-row, .dated { flex-wrap: wrap; }
+    .edu-row .degree { text-align: left; }
+}

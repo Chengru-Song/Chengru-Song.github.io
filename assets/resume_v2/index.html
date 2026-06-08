@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chengru Song — Resume</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="page" id="cv">
+        <header>
+            <div class="name">Chengru Song</div>
+            <div class="contact">
+                <span>408-668-9982</span>
+                <span><a href="mailto:aesesa123@gmail.com">aesesa123@gmail.com</a></span>
+                <span>Blog: <a href="https://hypercool.cn">hypercool.cn</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="dated">
+                <span>TikTok Monetization GenAI &ndash; ByteDance</span>
+                <span class="date">Oct. 2023 &ndash; Present</span>
+            </div>
+
+            <p class="body"><b>Role Overview</b>: Led post-training of TikTok Monetization VLMs across 7B, 14B, and 30B-A3B scales through SFT, RL, and Agentic RL. The models power multimodal ad creative generation and understanding, including video/image remixing, copywriting, voiceover, and creative optimization. Continuously leveraged ad delivery feedback signals to optimize model behavior and improve advertising ROI.</p>
+
+            <div class="subhead">SFT Post-Training for VLM Foundation Capabilities</div>
+            <ul>
+                <li><b>Objective</b>: Built a general-purpose VLM for TikTok monetization, targeting top-tier open-source benchmark performance and the strongest in-house model performance at the same size.</li>
+                <li><b>Approach</b>: Standardized capability taxonomy and quality evaluation; built an automated data synthesis and annotation pipeline; delivered a 35B high-quality training dataset; established capability-mixture and data-scaling curves; designed task-specific data pies and business-oriented benchmarks for downstream teams.</li>
+                <li><b>Impact</b>: Injected reasoning and thinking capabilities into the base model; improved the overall general benchmark score from 64.58 to 74.21, a 9.62 points gain; deployed the 14B model across multiple business scenarios including video remixing and script generation, achieving in-house SOTA at the same model size.</li>
+            </ul>
+
+            <div class="subhead">RL Post-Training for Reasoning, Alignment, and Business Optimization</div>
+            <ul>
+                <li><b>Objective</b>: Improved model reasoning, alignment, and agentic capabilities while using RL with ad-delivery posterior signals to continuously optimize VLM performance for monetization scenarios.</li>
+                <li><b>Challenges</b>: VLM RL remained technically immature, with heterogeneous multimodal and text spaces causing training instability; ad delivery systems were black-box environments, making it difficult to optimize generative models from posterior delivery data; Agentic RL was still exploratory and required end-to-end system design.</li>
+                <li><b>Approach</b>: Ran dual-track RL training, using GRPO for verifiable tasks and DPO for open-ended tasks, followed by staged model merging; optimized reward signals for open-ended generation; built offline rollout and evaluation pipelines for RL data; denoised business-side delivery signals through statistical denoising and feature anchoring to train reward models while avoiding spurious-feature learning; trained delivery reward models and optimized the generator with DPO and GRPO; proposed Robust Reward Normalization to address reward concentration in GRPO+RM training; Recent Research improved Search R1 style Deep Research systems EM Acc from 49% to 71%.</li>
+                <li><b>Impact</b>: Improved the overall metric from 63.44 to 66.03 after DPO deployment and raised MMMU from 51.66 to 53.11; further improved the Thinking RL benchmark to 75.21 with GRPO; deployed delivery-signal-based RM and RL training, driving +3% AdvV business gain; achieved a 10% validation improvement over the original model with GRPO+RM training.</li>
+            </ul>
+
+            <div class="subhead">Advertising Delivery + Large Models</div>
+            <ul>
+                <li><b>Objective and Challenges</b>: Integrated AIGC-generated copy into the fine-ranking stage to enable personalized ad creatives and improve advertiser value. Key challenges included the excessive user-creative Cartesian product for large-scale personalization and the lack of mature modeling approaches for user-aware generation beyond plain-text feature injection.</li>
+                <li><b>Approach and Results</b>: Designed a staged optimization framework from creative derivation to personalized creative generation; constructed CTR preference pairs to train reward models, improving RM AUC from 0.78 to 0.81; compressed user features through VQ-VAE-based RM and projected them into LLM joint training; improved offline generation diversity from 38 to 55.</li>
+            </ul>
+
+            <div class="dated">
+                <span>TikTok Monetization Ads &ndash; ByteDance</span>
+                <span class="date">Feb. 2022 &ndash; Oct. 2023</span>
+            </div>
+
+            <p class="body"><b>Role Overview</b>: Built user matching and positive-sample construction systems for ad conversion events under overseas privacy-compliance constraints, providing critical training signals for CVR/CTR models. Improved high-value user identification through deterministic matching and probabilistic recall.</p>
+
+            <ul>
+                <li><b>Objective and Approach</b>: Improved user match rate and ad delivery performance under sparse-feature conditions. Led end-to-end optimization across recall, features, and models; built configurable recall and experimentation frameworks supporting high-concurrency multi-experiment execution; added and optimized features for recalled users to improve the prediction performance of the base DNN model.</li>
+                <li><b>Impact</b>: Increased ID match rate by approximately 10%, significantly improving positive-sample coverage and downstream model training quality.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Strengths</h2>
+            <ul>
+                <li><b>End-to-end SFT and RL post-training experience</b>: Led the full SFT/RL alignment lifecycle for small- and mid-sized multimodal foundation models. Designed data strategies, DPO/GRPO algorithms, Agentic RL workflows, and end-to-end training pipelines tailored to smaller models with lower fault tolerance and higher data-efficiency requirements. Achieved continuous gains in reasoning capability and overall benchmark performance under limited parameter budgets, validating the generalizability of the VLM RL design across model sizes. Strong at designing solutions that balance algorithmic iteration with business delivery needs.</li>
+                <li><b>Strong ownership and delivery track record</b>: Promoted twice within four years at ByteDance, with multiple high-performance ratings including M+ and E. Consistently exceeded core model-iteration goals in early-stage projects with limited resources and immature infrastructure, earning recognition as a core contributor.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+
+            <div class="edu-row">
+                <span class="school">Nanyang Technological University</span>
+                <span class="degree">Ph.D. Program, Computer Science and Technology, discontinued</span>
+                <span class="when">Aug. 2021 &ndash; Feb. 2022</span>
+            </div>
+            <ul>
+                <li>Publication: Gao, Guanyu, Chengru Song, Asela Bandara, Meng Shen, Fan Yang, Wolf Posdorfer, Dacheng Tao, and Yonggang Wen. &ldquo;FogChain: a Blockchain-based Peer-to-Peer Solar Power Trading System Powered by Fog AI.&rdquo; <i>IEEE Internet of Things Journal</i>, 2021.</li>
+            </ul>
+
+            <div class="edu-row">
+                <span class="school">Beijing University of Posts and Telecommunications</span>
+                <span class="degree">M.S., Cyberspace Security</span>
+                <span class="when">Sept. 2018 &ndash; Jun. 2021</span>
+            </div>
+            <ul>
+                <li>Honors: Outstanding Graduate of Beijing University of Posts and Telecommunications, 2021; National Second Prize in the Graduate Mathematical Contest in Modeling, top 13%.</li>
+            </ul>
+
+            <div class="edu-row">
+                <span class="school">Chongqing University</span>
+                <span class="degree">B.S., Information Security</span>
+                <span class="when">Sept. 2014 &ndash; Jun. 2018</span>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
