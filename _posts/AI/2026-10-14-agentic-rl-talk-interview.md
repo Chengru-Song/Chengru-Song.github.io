@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 【AI】Entropy-Gated Suffix Masking: Turn-Level Credit for Long-Horizon Agentic RL
+title: "【AI】Entropy-Gated Suffix Masking: Turn-Level Credit for Long-Horizon Agentic RL"
 sidebar:
   nav: AI
 aside:
